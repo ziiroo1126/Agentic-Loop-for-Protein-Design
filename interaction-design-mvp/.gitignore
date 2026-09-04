@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+
+# Generated runs and reports
+artifacts/
+outputs/
+runs/
+
+# Model parameters and external molecular data never enter Git
+models/
+checkpoints/
+data/
+*.ckpt
+*.pt
+*.pth
+*.safetensors

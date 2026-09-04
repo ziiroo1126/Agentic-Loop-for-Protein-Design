@@ -1,0 +1,26 @@
+schema_version = "1"
+
+[software.odesign]
+repository = "https://github.com/OTeam-AI4S/ODesign.git"
+revision = "87b67dec1a26c0915286bf47c3dc7102635ea0cc"
+
+[[assets]]
+name = "odesign-diffusion"
+repo_id = "The-Institute-for-AI-Molecular-Design/ODesign"
+revision = "ab808f9e947fc065129e2ce2bc3fbcb95ef6b496"
+include = ["ckpt/*.pt"]
+local_subdir = "."
+
+[[assets]]
+name = "odesign-inverse-folding"
+repo_id = "The-Institute-for-AI-Molecular-Design/OInvFold"
+revision = "e77a2b0200570757018751f33f06e32e2387413b"
+include = ["*.ckpt"]
+local_subdir = "ckpt"
+
+[external_data.chemical_components]
+required_files = [
+  "components.v20240608.cif",
+  "components.v20240608.cif.rdkit_mol.pkl",
+]
+source = "ODesign README data-preparation instructions"

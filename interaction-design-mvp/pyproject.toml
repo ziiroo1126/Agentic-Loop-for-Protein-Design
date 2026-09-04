@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "interaction-design-mvp"
+version = "0.1.0"
+description = "A reproducible, evedesign-native workflow for programmable biomolecular interaction design"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+authors = [{ name = "MolClaw contributors" }]
+dependencies = [
+  "evedesign @ git+https://github.com/evedesignbio/evedesign.git@05fa7ed4d882f886c98d8aa9042bcc4b6dcdb05f",
+  "huggingface-hub>=1.30,<2",
+  "pydantic>=2.10,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "pytest-cov>=6", "ruff>=0.12"]
+
+[project.scripts]
+interaction-design = "interaction_design.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/interaction_design"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"config/assets.lock.toml" = "interaction_design/data/assets.lock.toml"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
