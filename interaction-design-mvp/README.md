@@ -1,5 +1,7 @@
 # Interaction Design MVP
 
+[![Interaction Design CI](https://github.com/ziiroo1126/MolClaw/actions/workflows/interaction-design-mvp.yml/badge.svg)](https://github.com/ziiroo1126/MolClaw/actions/workflows/interaction-design-mvp.yml)
+
 This is a domain-first, reproducible biomolecular interaction-design workflow built on
 the **evedesign core abstractions** and connected to **ODesign** as its first generative
 backend. It is intentionally isolated from the existing MolClaw v1 application so the
@@ -144,8 +146,9 @@ protocol while fixing its documentation/code boundary ambiguity.
    share the same intent model.
 3. Add structural diversity clustering and Pareto-front reporting instead of relying only
    on a weighted scalar rank.
-4. Extract this directory into its own repository, choose the final project name, add CI,
-   a small versioned fixture dataset, contribution docs, and an architecture decision log.
+4. Extract this directory into its own repository, choose the final project name, and add
+   contribution docs plus an architecture decision log. CI already runs lint, tests, and
+   package builds on Python 3.12 and 3.13.
 
 ODesign and evedesign remain separate upstream projects and retain their own licenses and
 citations. This package does not vendor either codebase or redistribute their weights.
