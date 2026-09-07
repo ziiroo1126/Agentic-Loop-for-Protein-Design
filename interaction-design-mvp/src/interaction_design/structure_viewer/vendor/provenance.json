@@ -1,0 +1,16 @@
+{
+  "name": "3dmol",
+  "version": "2.5.5",
+  "upstream": "https://github.com/3dmol/3Dmol.js/tree/2.5.5",
+  "downloaded": "2026-09-07",
+  "sources": {
+    "3Dmol-min.js": "https://cdn.jsdelivr.net/npm/3dmol@2.5.5/build/3Dmol-min.js",
+    "3Dmol-min.js.LICENSE.txt": "https://cdn.jsdelivr.net/npm/3dmol@2.5.5/build/3Dmol-min.js.LICENSE.txt",
+    "LICENSE": "https://cdn.jsdelivr.net/npm/3dmol@2.5.5/LICENSE"
+  },
+  "sha256": {
+    "3Dmol-min.js": "f7cc78921ae72e7623e89cdd111434f58c2efddd2ffda1cd212644b406fb8016",
+    "3Dmol-min.js.LICENSE.txt": "ae3bfc688d0c9687b76e0ecc7fece0b393bcb4acf2aee09e19dda697eaa10b16",
+    "LICENSE": "4c6eaaed856f3f28a3b1a98e74f4a8a71618de7d51ea4155c29f6f793bcef861"
+  }
+}

@@ -78,6 +78,23 @@ def build_parser() -> argparse.ArgumentParser:
     )
     adaptive.add_argument("adaptive_args", nargs=argparse.REMAINDER)
 
+    viewer = commands.add_parser("viewer", help="offline 3D views of existing result bundles")
+    viewers = viewer.add_subparsers(dest="viewer_command", required=True)
+    viewer_export = viewers.add_parser("export", help="write a standalone 3Dmol.js HTML page")
+    viewer_export.add_argument("result_bundle", type=Path)
+    viewer_export.add_argument("--output", type=Path, required=True)
+
+    task = commands.add_parser("task", help="collect design intent and check missing inputs")
+    tasks = task.add_subparsers(dest="task_command", required=True)
+    task_init = tasks.add_parser("init", help="create an incomplete protein binder brief")
+    task_init.add_argument("--name", required=True)
+    task_init.add_argument("--output", type=Path, required=True)
+    task_review = tasks.add_parser("review", help="report missing choices without inference")
+    task_review.add_argument("brief", type=Path)
+    task_build = tasks.add_parser("build", help="compile a complete brief into a checked task")
+    task_build.add_argument("brief", type=Path)
+    task_build.add_argument("--output", type=Path, required=True)
+
     pipeline = commands.add_parser("pipeline", help="complete local binder design through export")
     pipelines = pipeline.add_subparsers(dest="pipeline_command", required=True)
     preflight = pipelines.add_parser("preflight", help="check local inputs without inference")
@@ -315,6 +332,30 @@ def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
+        if args.command == "viewer":
+            from interaction_design.structure_viewer import export_structure_viewer
+
+            page = export_structure_viewer(args.result_bundle, args.output)
+            print(json.dumps({"status": "exported", "page": str(page), "inference": "not_run"}))
+            return 0
+        if args.command == "task":
+            from interaction_design.intake import (
+                DesignBrief,
+                build_task,
+                load_brief,
+                review_brief,
+                write_new_json,
+            )
+
+            if args.task_command == "init":
+                write_new_json(args.output, DesignBrief(name=args.name).model_dump(mode="json"))
+                result = {"status": "draft_created", "brief_path": str(args.output.resolve())}
+            elif args.task_command == "review":
+                result = review_brief(load_brief(args.brief))
+            else:
+                result = build_task(args.brief, args.output)
+            print(json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False))
+            return 2 if result["status"] == "needs_input" else 0
         if args.command == "pipeline":
             action = args.pipeline_command
             if action == "preflight":

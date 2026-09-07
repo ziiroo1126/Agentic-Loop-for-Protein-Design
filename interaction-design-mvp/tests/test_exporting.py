@@ -287,6 +287,8 @@ def test_export_is_complete_portable_selected_only_and_read_only(synthetic_sessi
     assert all(sha256_file(path) == digest for path, digest in before.items())
     manifest = read_json(destination / "manifest.json")
     names = {record["path"] for record in manifest["artifacts"]}
+    assert "index.html" in names
+    assert "[Offline 3D structure viewer](index.html)" in (destination / "report.md").read_text()
     assert names == {
         str(path.relative_to(destination))
         for path in destination.rglob("*")

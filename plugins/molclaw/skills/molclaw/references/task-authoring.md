@@ -1,12 +1,49 @@
 # Author a pipeline task from intent
 
-The host converts natural language to a local JSON task; the Python executor validates
-that task and runs the models. No separate LLM client, provider configuration or API key
-is needed by MolClaw. Use the installed executor's `InteractionDesignSpec` contract in
+The host converts natural language into a design brief or a complete local JSON task;
+the Python executor validates that task and runs the models. No separate LLM client,
+provider configuration or API key is needed by ALPD. Use `DesignBrief` in
+`interaction-design-mvp/src/interaction_design/intake.py` for incomplete inputs, and
+the installed executor's `InteractionDesignSpec` contract in
 `interaction-design-mvp/src/interaction_design/specs.py` for supported fields, and run
 `interaction-design validate TASK.json` after authoring. Unsupported fields are errors.
 
-## Required biological inputs
+## Start with available information
+
+Accept the user's goal and existing files even when they do not yet know the target
+region, hotspots or binder length. Use the launcher for these commands on every host,
+including DeepSeek; task intake does not require new native host tools:
+
+```bash
+interaction-design task init --name user_design --output /path/to/new/brief.json
+interaction-design task review /path/to/new/brief.json
+interaction-design task build /path/to/new/brief.json --output /path/to/new/task.json
+```
+
+Populate the brief from supplied information. `target.identifier` and
+`target.sequence_file` preserve context; they do not trigger retrieval, identity
+verification or folding. `target.hotspots` may be null, and `binder.length` accepts
+`min`/`max` preferences. A nontrivial range needs an explicit `binder.selected_length`
+inside it before compilation. No scientific choice is sampled or silently filled in.
+
+Keep concrete scientific requirements that are not yet encoded in structured fields
+in `unresolved_requirements`. Resolve each using the user's intent and backend support;
+do not remove a requested constraint merely to bypass a blocker. `goal` is retained as
+descriptive context and is not itself enforced by inference.
+
+Review returns structured `issues`, a normalized `brief`, disclosed `execution_settings`
+and a `task` preview. `needs_input` exits 2 and has no executable task; read the report
+and clarify relevant choices rather than retrying a model. Target mapping is checked
+after scientific choices are complete. Malformed JSON/schema errors also exit 2 but
+use stderr. Successful build creates a new task, refuses overwrites and returns
+`ready_for_preflight`; runtime assets still need preflight. Preserve the original brief.
+
+The draft defaults to one candidate (`seeds: [42]`) and `odesign_base_prot_flex`;
+retain supplied execution settings or explicitly describe changed defaults. A complete
+task supplied by the user does not need conversion to a brief. The full field reference
+is `interaction-design-mvp/docs/TASK_INPUT.md` in the user's project checkout.
+
+## Required before complete pipeline execution
 
 Before making a runnable task, establish the following from the user or supplied files:
 
@@ -15,7 +52,9 @@ Before making a runnable task, establish the following from the user or supplied
 - Target segment(s) to keep fixed and the requested hotspot residues in that reference.
   Verify that the intended chains/residues are present; do not silently renumber them.
 - Protein binder length and constraints, and which molecule is the binder.
-- ODesign protein model choice and generation seeds, plus the complex screening budget.
+
+Separately establish the ODesign protein model choice, generation seeds and complex
+screening budget. These are execution settings, not biological inputs.
 
 Ask for missing biological requirements instead of assigning a familiar demonstration
 target. An existing user-supplied task can already settle these choices. Computational
@@ -25,7 +64,8 @@ assumptions explicit, and obtain runtime paths from the local setup or user.
 The initial pipeline supports two noncyclic protein molecules: a fixed-length generated
 binder and a fixed target, with hotspots and one sample and one inverse-fold result per
 seed. More general molecule types accepted by the domain schema are not automatically
-supported by this pipeline. MSA input/generation, motifs, partial diffusion and atom
+supported by this pipeline. These are backend requirements, not universal binder-design
+input rules. MSA input/generation, motifs, partial diffusion and atom
 constraints are outside this initial pipeline. Seeds must be distinct integers from
 0 through 2^31−1. Preparation checks actual target/hotspot mapping and local model assets
 before inference. `generation.seeds` defines the generated candidate pool;

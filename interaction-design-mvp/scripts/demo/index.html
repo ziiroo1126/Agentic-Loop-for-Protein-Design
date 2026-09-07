@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; connect-src 'none'; img-src 'self' data: blob:; base-uri 'none'; object-src 'none'">
+  <title>ALPD · 五分钟上手演示</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <header><div class="brand">ALPD <span>AGENTIC LOOP FOR PROTEIN DESIGN</span></div><span class="badge">离线演示 · 已有运行记录</span></header>
+  <main>
+    <div class="hero"><div><p class="eyebrow">从一句需求，到可检查的结果</p><h1>亲手走一遍蛋白质设计流程</h1><p>先看缺少什么输入，再理解 Agent 怎样选择候选，最后在三维空间查看结构。</p></div><a class="button secondary" href="使用说明.md" download>下载使用说明</a></div>
+    <nav aria-label="演示章节"><button data-panel="intake" aria-current="step">01 准备任务</button><button data-panel="pipeline">02 回看运行</button><button data-panel="structure">03 三维浏览</button><button data-panel="adaptive">04 复评与复盘</button><button data-panel="usage">05 自己运行</button></nav>
+
+    <section id="intake" class="chapter">
+      <div class="section-head"><div><p class="eyebrow">第一步 · 用户提供目标，工具检查输入</p><h2>信息可以不完整，缺失项会明确列出</h2></div><span id="intake-status" class="badge amber"></span></div>
+      <div class="two-columns"><div class="card"><h3>你可以这样向宿主 Agent 描述需求</h3><blockquote>请使用 ALPD 帮我准备一个蛋白质 binder 设计任务。我会提供目标结构和设计要求，请先检查缺少的信息，补齐后再执行，完成后导出三维结果。</blockquote><p>目标结构、目标区域、热点及长度由用户提供或确认。Agent 将它们整理成任务，计算工具执行校验。</p><pre><code>interaction-design task init --name my_design --output brief.json
+interaction-design task review brief.json</code></pre><p class="muted">右侧是本次构建 demo 时真实调用任务检查器得到的空草稿报告。</p><a href="intake/brief.json" download>下载草稿</a> · <a href="intake/review.json" download>下载检查报告</a></div>
+      <div class="card"><h3>还需要补齐</h3><ul id="issues" class="issues"></ul><button id="show-task" class="button">查看本例已备齐的任务</button><div id="task-details" hidden><p class="muted">以下为已有开发运行的任务。查看此记录不会自动填写你的草稿或启动计算。</p><pre id="task-json"></pre><a href="results/task.json" download>下载本例任务 JSON</a></div></div></div>
+      <div class="next"><span>接下来查看：任务运行后，Agent 实际看到了什么？</span><button class="button" data-next="pipeline">回看真实运行 →</button></div>
+    </section>
+
+    <section id="pipeline" class="chapter" hidden>
+      <div class="section-head"><div><p class="eyebrow">第二步 · 生成、检查、选择、评估</p><h2 id="pipeline-name"></h2></div><span class="badge">真实计算记录 · 本次只读回放</span></div>
+      <p class="muted">点击下一步查看已保存的动作和反馈；页面不会运行模型或发起新的 Agent 决策。</p>
+      <div class="flow"><span>目标与约束</span><b>→</b><span>ODesign 生成</span><b>→</b><span>单体检查</span><b>→</b><span>Agent 选择</span><b>→</b><span>复合物评估</span><b>→</b><span>导出</span></div>
+      <div class="controls"><button id="prev">← 上一步</button><input id="step" type="range" min="0" value="0" aria-label="运行回放步骤"><button id="next">下一步 →</button><span id="position"></span></div>
+      <div class="stats"><div class="card"><small>生成候选</small><strong id="candidate-count"></strong></div><div class="card"><small>本步骤已评估复合物</small><strong id="evaluated-count"></strong></div><div class="card"><small>运行状态</small><strong id="run-status"></strong></div></div>
+      <div class="card table-wrap"><table><thead><tr><th>候选</th><th>单体 pLDDT</th><th>单体 / 设计 RMSD（Å）</th><th>复合物状态</th><th>复合物 ipTM</th></tr></thead><tbody id="candidates"></tbody></table></div>
+      <div class="two-columns"><div class="card"><h3 id="action-title"></h3><p id="action-summary"></p><details><summary>查看保存的完整决策理由</summary><p id="reason" class="original"></p></details></div><div class="card"><h3>这一步说明什么？</h3><p id="interpretation"></p><p class="notice">被选中意味着获得复合物评估机会。计算评分不能代替实验结合验证。</p><a href="results/decision_trace.json" download>原始决策轨迹</a> · <a href="results/report.json" download>最终计算报告</a></div></div>
+      <div class="next"><span>接下来查看：生成结构和预测结构分别长什么样？</span><button class="button" data-next="structure">打开三维浏览 →</button></div>
+    </section>
+
+    <section id="structure" class="chapter" hidden>
+      <div class="section-head"><div><p class="eyebrow">第三步 · 检查同一任务的结构与指标</p><h2>拖动结构，切换候选，隐藏一条链</h2></div><a class="button secondary" href="structures.html" target="_blank" rel="noopener">独立打开三维页面 ↗</a></div>
+      <p>先选一个候选，切换“生成复合物”和“单体预测”，再勾选或取消一条链。已评估的候选还可以查看“复合物预测”，并保存 PNG。</p>
+      <iframe id="structure-frame" title="ALPD 三维结构浏览器" data-src="structures.html"></iframe>
+      <div class="next"><span>还可以看另一种循环：追加预测后，Agent 如何复盘？</span><button class="button" data-next="adaptive">查看复评案例 →</button></div>
+    </section>
+
+    <section id="adaptive" class="chapter" hidden>
+      <div class="section-head"><div><p class="eyebrow">第四步 · 另一个已保存的宿主案例</p><h2>判断 → 查询 → 新证据 → 复盘</h2></div><a class="button secondary" href="replay/index.html" target="_blank" rel="noopener">独立打开回放 ↗</a></div>
+      <p>这个案例来自另一组已有候选，与前面的生成任务不是同一次运行。点击“下一轮”，查看查询次数、预测结果和复盘判断如何变化。</p>
+      <p class="notice">页面回放已保存的宿主决策，不启动新的模型调用。预测查询次数不等于实测 GPU 节省。</p>
+      <iframe id="adaptive-frame" title="ALPD 自适应复评案例" data-src="replay/index.html"></iframe>
+      <div class="next"><span>最后，把同样的操作用在自己的任务上。</span><button class="button" data-next="usage">查看使用方法 →</button></div>
+    </section>
+
+    <section id="usage" class="chapter" hidden>
+      <div class="section-head"><div><p class="eyebrow">第五步 · 在已有开发环境中使用</p><h2>平时通过宿主 Agent 或命令行调用</h2></div></div>
+      <div class="two-columns"><div class="card"><h3>方式一：交给宿主 Agent</h3><p>在已配置 ALPD skill 的宿主会话中，提供结构路径和设计要求。让 Agent 先整理任务、检查缺失项，再使用同一套命令执行与导出。</p><blockquote>请使用 ALPD 检查我提供的目标结构和约束。先列出需要我确认的内容，任务和运行环境检查通过后，按指定评估预算执行，并导出报告及三维浏览页面。</blockquote><p class="muted">插件接入和本地模型环境需要提前准备。此离线 demo 用于浏览，不会启动宿主会话。</p></div>
+      <div class="card"><h3>方式二：使用命令行</h3><pre><code># 1. 创建草稿，然后编辑并检查
+interaction-design task init --name my_design --output brief.json
+interaction-design task review brief.json
+
+# 2. 补齐输入后编译、检查本地环境
+interaction-design task build brief.json --output task.json
+interaction-design pipeline preflight task.json --runtime runtime.json
+
+# 3. 准备真实计算；返回 pipeline_dir
+interaction-design pipeline prepare task.json --runtime runtime.json \
+  --strategy harness --batch-size 1 --max-evaluations 2
+interaction-design pipeline run &lt;pipeline_dir&gt;
+
+# 4. 每轮读取请求，宿主按要求写 decision.json 并提交
+interaction-design pipeline observe &lt;pipeline_dir&gt;
+interaction-design pipeline apply &lt;pipeline_dir&gt; --decision decision.json
+
+# 5. 完成后导出，在浏览器打开 results/index.html
+interaction-design pipeline export &lt;pipeline_dir&gt; --output results</code></pre><p class="muted">真实计算需要本地模型与运行配置。复合物评估预算不限制候选生成和单体检查的工作量。</p></div></div>
+      <div class="card"><h3>仅查看已有结果</h3><pre><code>interaction-design viewer export &lt;existing-result-bundle&gt; --output viewer.html</code></pre><p>已有记录可以单独导出三维页面，无需再次生成或评估。输出文件与目录都应使用新路径。</p><a href="results/all.fasta" download>本例候选 FASTA</a> · <a href="results/metrics.csv" download>本例指标 CSV</a> · <a href="manifest.json" download>演示文件校验清单</a></div>
+    </section>
+  </main>
+  <footer>ALPD · 输入检查、历史运行与结果浏览演示。案例用于开发验证，未证明新 binder 的实验结合或 Agent 的稳定筛选优势。</footer>
+  <noscript>请启用 JavaScript，或直接打开 structures.html、replay/index.html 和使用说明.md。</noscript>
+  <script id="demo-data" type="application/json">@@DEMO_DATA@@</script><script src="demo.js"></script>
+</body>
+</html>

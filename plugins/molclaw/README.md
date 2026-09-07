@@ -1,8 +1,16 @@
-# MolClaw harness package
+# ALPD host adapters
+
+The shared skill can start from incomplete user goals and files using
+`task init/review/build`, then pass a checked task to the pipeline. See the
+[task input guide](../../interaction-design-mvp/docs/TASK_INPUT.md) for draft fields,
+clarification reports and the complete backend's requirements.
+
+This package provides host integration for
+[Agentic Loop for Protein Design (ALPD)](../../README.md).
 
 Use a host model to turn supplied protein binder requirements into a validated task,
 run ODesign generation and ESMFold v1 monomer checks, select ESMFold2 complex evaluations
-within a fixed budget, and export the results. MolClaw runs the models and validates
+within a fixed budget, and export the results. ALPD runs the models and validates
 each action; the host supplies the task and evidence-based selection decisions.
 
 The shared skill also supports `adaptive` cached reevaluation, with an optional
@@ -15,7 +23,7 @@ describes existing-CLI reuse and optional resource preflight.
 
 | Host | Entry point | Compatibility boundary |
 | --- | --- | --- |
-| Codex | `.codex-plugin/plugin.json` or standalone `skills/molclaw/` | Packaged manifest and skill; marketplace/app installation is separate |
+| Codex | `.codex-plugin/plugin.json` or the standalone [shared skill](skills/molclaw/SKILL.md) | Packaged manifest and skill; marketplace/app installation is separate |
 | Claude Code | `.claude-plugin/plugin.json` with `claude --plugin-dir` | Native plugin metadata; a live host session is needed for model decisions |
 | DeepSeek Harness (`dsh`) | Shared skill, or npm bundle declared by `package.json` and `cordis.patch.yml` | Native Cordis loading and real CLI tool chain tested at `0.1.2-rc.1`; full profile and model session untested |
 
@@ -23,23 +31,24 @@ Start with the [skill](skills/molclaw/SKILL.md),
 [task authoring reference](skills/molclaw/references/task-authoring.md),
 [host loading instructions](skills/molclaw/references/host-adapters.md), and
 [CLI commands and decision envelope](skills/molclaw/references/cli-and-protocol.md).
-The full `skills/molclaw/` directory can also be copied as a standalone skill.
+The complete shared skill directory can also be copied as a standalone skill.
 For DSH, follow the [DeepSeek Harness guide](skills/molclaw/references/deepseek-harness.md):
 the repository's skill directory needs a `customSkillDirs` overlay or a copy into a
 discovered root. Installing the native bundle does not itself install the skill.
 
-The package requires a separately prepared MolClaw checkout and an installed
-`interaction-design` CLI. Set `MOLCLAW_PROJECT_ROOT` explicitly; the launcher can run
-from a plugin cache and never infers the checkout from its own location. It uses an
+The package requires a separately prepared ALPD checkout and an installed
+`interaction-design` CLI. Pass the checkout path with the launcher's `--project-root`
+option; it can run from a plugin cache and never infers the checkout from its own
+location. It uses an
 existing executable and does not install dependencies, download models, configure
 providers, change proxies or register a marketplace.
 
-The DSH native entry point, `deepseek/index.mjs`, exposes the full pipeline through
-`molclaw_pipeline_prepare`, `molclaw_pipeline_run`, `molclaw_pipeline_observe`,
-`molclaw_pipeline_apply` and `molclaw_pipeline_export`. It also retains
-`molclaw_screen_prepare`, `molclaw_screen_observe` and `molclaw_screen_apply` for
-completed monomer jobs, plus `molclaw_help`. All execution goes through the host's
-`bash` tool. There is no additional LLM API client or MolClaw API key; the host uses its
+The DSH native entry point, `deepseek/index.mjs`, provides tools for pipeline
+preparation, execution, observation, decisions and export, as well as screening
+completed monomer jobs and workflow help. Tool names and invocation details are
+documented in the [DeepSeek Harness guide](skills/molclaw/references/deepseek-harness.md).
+All execution goes through the host's
+`bash` tool. There is no additional LLM API client or ALPD API key; the host uses its
 own configured model session. AF3 is not used by the pipeline.
 
 The host authors strict task JSON from supplied target structure, chain/residue

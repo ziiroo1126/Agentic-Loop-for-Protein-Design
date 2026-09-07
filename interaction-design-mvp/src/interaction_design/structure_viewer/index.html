@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; worker-src blob:; base-uri 'none'; form-action 'none'">
+  <title>ALPD · 蛋白质三维结构</title>
+  <style>@@STYLE@@</style>
+</head>
+<body>
+  <header><div><span class="eyebrow">AGENTIC LOOP FOR PROTEIN DESIGN</span><h1>蛋白质三维结构</h1><p id="task-name"></p></div><span class="badge">本地离线浏览 · 3Dmol.js</span></header>
+  <main>
+    <aside class="panel">
+      <label for="candidate">候选</label><select id="candidate"></select>
+      <p id="candidate-status" class="muted"></p>
+      <label for="structure">结构来源</label><select id="structure"></select>
+      <p id="source-note" class="muted"></p>
+      <label for="style">显示方式</label><select id="style"><option value="cartoon">卡通 / Cartoon</option><option value="stick">棍状 / Stick</option><option value="line">线框 / Line</option></select>
+      <fieldset><legend>链与颜色</legend><div id="chains"></div></fieldset>
+      <p class="muted">链标识以当前结构文件为准；不同结构的链与残基编号可能变化。</p>
+      <details><summary>候选序列</summary><pre id="sequence"></pre></details>
+    </aside>
+    <section class="panel stage">
+      <div class="toolbar"><button id="reset" type="button">重置视角</button><button id="spin" type="button" aria-pressed="false">自动旋转</button><button id="png" type="button">保存 PNG</button><button id="download" type="button">下载当前结构</button></div>
+      <div id="viewport"><div id="viewer" aria-label="交互式蛋白质三维结构"></div><p id="message" role="status" aria-live="polite">正在初始化三维浏览器…</p></div>
+      <div class="viewer-footer"><span id="atom-count">—</span><span>拖动旋转 · 滚轮缩放 · 点击残基查看信息</span></div>
+      <p id="residue" aria-live="polite">尚未选择残基</p>
+    </section>
+    <section class="panel metrics-panel"><h2>候选计算指标</h2><p class="muted">指标来自已保存的评估记录，切换结构不会重新计算。</p><div id="metrics"></div><p class="notice">这些是计算诊断结果，尚未验证实验结合。未评估的复合物没有分数或预测结构。</p></section>
+  </main>
+  <footer><span>ALPD · 结构与浏览组件均已嵌入此文件</span><details><summary>开源许可与版本</summary><pre>@@NOTICES@@</pre></details></footer>
+  <noscript>请启用 JavaScript 以查看三维结构。</noscript>
+  <script id="structure-data" type="application/json">@@DATA@@</script>
+  <script>@@LIBRARY@@</script>
+  <script>@@APP@@</script>
+</body>
+</html>

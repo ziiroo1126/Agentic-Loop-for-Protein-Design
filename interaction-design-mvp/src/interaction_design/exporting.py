@@ -27,6 +27,7 @@ from interaction_design.manifest import canonical_sha256
 from interaction_design.persistence import write_json
 from interaction_design.selection import POST_FIELDS, PRE_FIELDS, post_features
 from interaction_design.selection_catalogue import build_catalogue
+from interaction_design.structure_viewer import render_structure_viewer
 
 
 def _completed(session: Path) -> tuple[dict, dict, list[dict], list[dict]]:
@@ -461,6 +462,8 @@ def _write_bundle(
     lines.extend(
         [
             "",
+            "[Offline 3D structure viewer](index.html)",
+            "",
             "[Metrics CSV](metrics.csv) · [Full metrics](metrics.json) · [All FASTA](all.fasta) · "
             "[Evaluated FASTA](evaluated.fasta) · [Selected FASTA](selected.fasta)",
             "",
@@ -493,6 +496,7 @@ def export_screening(session: Path, destination: Path) -> Path:
     try:
         bundle = _Bundle(staging)
         _write_bundle(bundle, session, manifest, catalogue, observed, intents)
+        (staging / "index.html").write_text(render_structure_viewer(staging), encoding="utf-8")
         # Recheck mutable inputs before publishing the completed bundle.
         _completed(session)
         for source, record in bundle.sources.items():

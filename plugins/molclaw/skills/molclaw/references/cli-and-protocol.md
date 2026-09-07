@@ -39,9 +39,11 @@ The equivalent direct invocation starts with `interaction-design`.
 ## Full design pipeline
 
 For natural-language design intent, first read [task authoring](task-authoring.md).
-The host writes a strict task JSON from the supplied biological requirements and a
-runtime JSON pointing to installed ODesign, ESMFold v1 and ESMFold2 assets. AF3 is not
-used. Start with validation and preparation:
+For incomplete information, use `task init/review/build` through the launcher to
+record a brief, clarify missing choices and compile a checked task. `needs_input`
+returns exit code 2 with a JSON report; do not proceed to model execution in that state.
+The host pairs the strict task JSON with a runtime JSON pointing to installed ODesign,
+ESMFold v1 and ESMFold2 assets. AF3 is not used. Start with validation and preparation:
 
 ```bash
 TASK=/absolute/path/to/task.json

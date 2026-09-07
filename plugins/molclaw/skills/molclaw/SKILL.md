@@ -1,12 +1,12 @@
 ---
 name: molclaw
-description: Run supplied protein binder tasks through local generation, evaluation and export; resume screening, perform sequential development reevaluation with evidence-grounded reflection, or evaluate candidate selection against prepared public experimental data.
+description: Clarify protein binder design intent, prepare checked tasks from incomplete briefs, and run local generation, evaluation and export; resume screening or adaptive reevaluation, or evaluate selection against prepared public experimental data.
 ---
 
-# MolClaw
+# ALPD
 
-The host authors the task from supplied biological requirements and chooses which
-candidates receive complex evaluation. The MolClaw executor owns ODesign generation,
+The host records user intent, clarifies missing scientific choices, authors the task
+and chooses which candidates receive complex evaluation. The ALPD executor owns ODesign generation,
 ESMFold v1 monomer checks, ESMFold2 complex evaluation, budgets, validation and records.
 This pipeline does not use AF3 or call an LLM API. The host owns its model session.
 
@@ -35,11 +35,15 @@ argument. These tools use the same executor through the host's bash tool. Read
 
 ## New design pipeline
 
-1. Read [task authoring](references/task-authoring.md). Translate the user's supplied
-   target structure, residue mapping, hotspot choice and binder constraints into strict
-   `InteractionDesignSpec` JSON, then run `validate`. A target name alone is insufficient:
-   obtain missing biological requirements from the host/user rather than inventing a
-   target, chain, hotspot or length. Keep unresolved values out of runnable JSON.
+1. Read [task authoring](references/task-authoring.md). For incomplete intent, use
+   `task init` and populate a brief from the user's available information, preserving
+   unspecified hotspots and length preferences. Use `task review` to identify missing
+   choices; `needs_input` is a clarification state, not an inference failure to retry.
+   Put scientific requirements not yet represented in structured fields into
+   `unresolved_requirements`; descriptive prose alone is not enforced. Resolve these
+   from supplied files or the user, then use `task build`. Do not invent a target,
+   hotspot or length, or drop unsupported requirements to pass compilation. A complete
+   user-supplied `InteractionDesignSpec` can go directly through `validate` and preflight.
 2. Prepare using the task file and an available local runtime with `generation`,
    `monomer` and `complex` sections. Use `--strategy harness` for host selection, or the
    user's requested `fixed`/`heuristic` baseline. Task seeds define the initial candidate

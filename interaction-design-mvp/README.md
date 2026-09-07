@@ -1,14 +1,34 @@
-# Interaction Design MVP
+# ALPD scientific core — Interaction Design MVP
 
-[![Interaction Design CI](https://github.com/ziiroo1126/MolClaw/actions/workflows/interaction-design-mvp.yml/badge.svg)](https://github.com/ziiroo1126/MolClaw/actions/workflows/interaction-design-mvp.yml)
+[![Interaction Design CI](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/workflows/interaction-design-mvp.yml/badge.svg)](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/workflows/interaction-design-mvp.yml)
 
 This is a domain-first, reproducible biomolecular interaction-design workflow built on
 the **evedesign core abstractions** and connected to **ODesign** as its first generative
-backend. It is the maintained scientific execution core of MolClaw, with host
-integration in [plugins/molclaw](../plugins/molclaw/README.md). The package owns its
+backend. It is the scientific execution core of
+[Agentic Loop for Protein Design (ALPD)](../README.md), with host
+integration through the [host adapters](../plugins/molclaw/README.md). The package owns its
 dependencies, tests and build configuration and can be distributed independently.
 
 The project is more than an ODesign launcher:
+
+`task init/review/build` accepts an incomplete design brief, reports missing choices
+and backend requirements, and compiles a task after checking reference residue mapping.
+Users can describe their goal to the host Agent before all scientific inputs are known.
+See the [task input guide](docs/TASK_INPUT.md) for the draft/execution distinction.
+
+Pipeline result bundles include a standalone **3Dmol.js** structure viewer with
+candidate/structure selection, chain visibility, saved metrics and PNG export.
+Existing bundles can be viewed with `viewer export`; see the
+[offline viewer guide](docs/STRUCTURE_VIEWER.md).
+
+The [guided demo](docs/DEMO.md) combines input checks, saved pipeline decisions,
+3D browsing and a separate adaptive replay into one offline walkthrough and ZIP.
+Extract the ZIP and open `alpd-demo/index.html`; chapters 02–04 provide the run
+replay, interactive structure viewer and sequential reevaluation history.
+Browsing runs no new models and needs no network or GPU; 3D rendering needs WebGL.
+See the [repository overview](../README.md#demo-and-visualization) for a screenshot,
+the five chapters and the build command. Demo ZIPs are generated local artifacts
+and are not included in a fresh clone.
 
 The complete protein-binder entry point is now `pipeline prepare/run/observe/apply/export`:
 task → ODesign generation → ESMFold v1 monomer checks → host candidate selection →
@@ -24,7 +44,8 @@ evidence-grounded plans and reflections, and offline HTML export. The
 The independent `benchmark prepare/observe/apply/report` mode evaluates host selection
 on a pinned public wet-lab dataset, with anonymous feature-only requests, committed
 decisions and common baselines. See the [external benchmark guide](docs/EXTERNAL_BENCHMARK.md).
-It uses published scores and measurements; it does not establish new MolClaw binders.
+It uses published scores and measurements; it does not establish new experimentally
+validated binders from ALPD.
 The [repetition coordinator](docs/BENCHMARK_REPETITIONS.md) reuses those frozen inputs
 to measure host decision stability, with all decisions committed before reporting.
 
@@ -82,7 +103,7 @@ and persistent step records. Saved observations can be replayed without model in
 See [CAMPAIGNS.md](docs/CAMPAIGNS.md).
 
 The delivery target is a **Codex / Claude Code / DeepSeek-host skill or plugin**.
-The host supplies the decision model; MolClaw supplies scientific tools and persistent
+The host supplies the decision model; ALPD supplies scientific tools and persistent
 state through `screen prepare/observe/apply`. Candidate decisions cite exact visible
 metrics and are checked before evaluation. Fixed and heuristic policies use the same
 boundary through `screen run`. See the [harness package](../plugins/molclaw/README.md)

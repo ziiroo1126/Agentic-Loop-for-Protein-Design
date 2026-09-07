@@ -3,7 +3,9 @@
 `pipeline` connects a biological task to a portable result bundle:
 
 ```text
-Task + local runtime
+User goals and available inputs
+    → design brief and clarification (task init / review / build)
+    → checked task + local runtime
     → preflight and frozen inputs
     → ODesign / OInvFold candidate generation
     → ESMFold v1 monomer checks for the whole pool
@@ -15,9 +17,15 @@ Task + local runtime
 
 The host is Codex, Claude Code or DeepSeek Harness. Its model supplies candidate
 decisions through the shared [skill](../../plugins/molclaw/skills/molclaw/SKILL.md).
-MolClaw does not create a second LLM client or require LLM API credentials.
+ALPD does not create a second LLM client or require LLM API credentials.
 
 ## Prepare a task
+
+Start with the [task input guide](TASK_INPUT.md) when the user has only partial
+information. A brief may contain a target identifier, a sequence-file path, unspecified
+hotspots or a length range. These remain context or pending choices until `task build`
+can produce a complete task. `ready_for_preflight` means the task mapping passed;
+it does not mean runtime assets were checked. Existing complete tasks can enter here directly.
 
 Use a local reference PDB/mmCIF, target chain/residue intervals, hotspot residues,
 binder length and an explicit seed pool. Relative reference paths resolve against
@@ -98,9 +106,14 @@ Export requires a completed screening session and a fresh output directory. It
 validates source identities, receipts and structures, and copies portable artifacts
 with a checksum manifest. The bundle includes all candidate metadata and monomer
 diagnostics, evaluated candidate FASTA and complex structures, protocol/task
-information, decision trace, metrics CSV/JSON and a Markdown report. Unselected
+information, decision trace, metrics CSV/JSON, a Markdown report and an offline
+3Dmol.js viewer (`index.html`). Unselected
 candidates remain explicitly unevaluated. Runtime paths are omitted from portable
 provenance; source hashes identify the original records.
+
+Open `index.html` directly to switch candidates and structures, toggle chains,
+inspect residues and save PNG views. Existing result bundles can get a separate
+page through `viewer export`; see the [structure viewer guide](STRUCTURE_VIEWER.md).
 
 AF3 and PyRosetta are not invoked. Legacy metric rules in a supplied task are not
 used as ESMFold2 acceptance thresholds. All results are computational diagnostics:

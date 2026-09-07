@@ -1,0 +1,6 @@
+3Dmol.js 2.5.5, BSD-3-Clause
+Upstream: https://github.com/3dmol/3Dmol.js/tree/2.5.5
+Pinned npm browser bundle: https://cdn.jsdelivr.net/npm/3dmol@2.5.5/build/3Dmol-min.js
+Vendored bytes are unchanged; checksums are in provenance.json.
+The ALPD HTML exporter omits only the sourceMappingURL comment to remain offline.
+The full upstream license and bundle license notice are embedded in every page.
