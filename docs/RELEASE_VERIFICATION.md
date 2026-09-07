@@ -16,7 +16,7 @@ separately below; local checks do not establish that a URL is deployed.
 | Browser | Firefox 136.0 with software WebGL/Xvfb: gallery, input expansion, decision evidence, tool results, stop reason, candidate/structure controls, chains, rotation and adaptive rounds passed at 1440/768/450 widths; no HTTP page resources |
 | Actual offline downloads | Standalone viewer saved a valid PNG and CIF matching the original case bytes. Firefox's opaque `file://` iframe download limitation is explained in the demo |
 | Local model resources | Current main-case `pipeline preflight` passed without launching models; GPU execution was not probed |
-| Public CI | Pending first release-candidate push; see [workflow](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/workflows/interaction-design-mvp.yml) |
+| Public CI | [Release-candidate CI passed](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/runs/34115293276) at `833f040`: Python 3.12/3.13 plus installed wheel, SDK, cases, archive checks and real browser job |
 | Public gallery / release assets | Pending publication; Pages must be enabled with GitHub Actions as its source |
 
 Machine-readable evidence: [local checks](release-evidence/local-checks.json),
