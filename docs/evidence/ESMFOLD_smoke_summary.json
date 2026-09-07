@@ -1,0 +1,251 @@
+{
+  "date": "2026-09-05",
+  "scope": "Two offline monomer predictions on one NVIDIA L20; not a binding test, throughput benchmark, or held-out accuracy benchmark. The natural target fragment is a runtime diagnostic, not a matched-length negative or positive binder control.",
+  "downloads_performed": false,
+  "environment_modified": false,
+  "first_attempt": {
+    "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T123838Z-622e7ea7",
+    "status": "failed_before_gpu_prediction",
+    "reason": "Strict loader detected unused auxiliary contact-head and legacy absolute-position tensors; reviewed source and guarded the unused head before retry."
+  },
+  "interpretation": "The runtime produces a confident refold close to the natural target reference. The designed binder has low monomer confidence and large all-residue deviation from the design. This does not establish non-binding or experimentally validate any candidate.",
+  "checks": [
+    {
+      "role": "designed_binder",
+      "job": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124211Z-3541ef47",
+      "sequence": "MVLTYVGNESDADGQEFKEDAEELALANGNGDINEEDTGVGERVVTAEIGDHVLVIILVD",
+      "length": 60,
+      "mean_plddt_ca_0_to_100": 51.18378829956055,
+      "mean_plddt_atom_weighted_0_to_100": 49.45536255836487,
+      "ptm": 0.3200704753398895,
+      "mean_pae_angstrom": 12.325210571289062,
+      "ca_rmsd_angstrom": 7.826729114026874,
+      "reference": {
+        "path": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/output/real_smoke_pdl1_binder/seed_42/predictions/real_smoke_pdl1_binder_seed_42_bb_0_seq_0.cif",
+        "sha256": "51b5d23a1c15c105c355d1f38909a3f09e48cf89d52d814503cd68612ac4da89",
+        "chain": "A",
+        "atom_selection": "CA, all 60 matched residues in sequence order"
+      },
+      "timing": {
+        "model_load_and_gpu_transfer_seconds": 9.518790103495121,
+        "first_inference_seconds": 1.0621626107022166,
+        "scope": "synchronized wall time, first prediction, batch 1; not a throughput test"
+      },
+      "process_elapsed_seconds": 24.876164213754237,
+      "gpu_memory": {
+        "peak_torch_allocated_bytes": 14307830784,
+        "peak_torch_reserved_bytes": 14338228224,
+        "scope": "PyTorch allocator peaks since before model loading; excludes CUDA context and other processes"
+      },
+      "model_snapshot": "/data/yusen/software/.cache/huggingface/hub/models--facebook--esmfold_v1/snapshots/75a3841ee059df2bf4d56688166c8fb459ddd97a",
+      "model_assets": [
+        {
+          "path": "/data/yusen/software/.cache/huggingface/hub/models--facebook--esmfold_v1/snapshots/75a3841ee059df2bf4d56688166c8fb459ddd97a/config.json",
+          "sha256": "6b98125e2685fef2875499f6bd7c83968a077993ab53f99bf5581113665f7cc6",
+          "size": 2103
+        },
+        {
+          "path": "/data/yusen/software/.cache/huggingface/hub/models--facebook--esmfold_v1/snapshots/75a3841ee059df2bf4d56688166c8fb459ddd97a/pytorch_model.bin",
+          "sha256": "2ee07356b125d1e3e57503c204111fd7323347fc4735d41d3caac57c2a78e116",
+          "size": 8442062570
+        }
+      ],
+      "software": {
+        "python": "3.10.0 (default, Mar  3 2022, 09:58:08) [GCC 7.5.0]",
+        "executable": "/nvme-data3/yusen/micomamba/envs/nt/bin/python",
+        "platform": "Linux-5.15.0-105-generic-x86_64-with-glibc2.31",
+        "packages": {
+          "torch": "2.7.1+cu118",
+          "transformers": "4.52.4",
+          "numpy": "1.26.4",
+          "huggingface-hub": "0.36.2"
+        },
+        "implementation_sha256": "4577d81d37f5cb8361cddc1176e01ad9f2604f1b4ca80dc7bc0c7d97b0d988ab",
+        "esm_implementation_sha256": "8b76275b1929cca7ca41ff6cd1d715812e94439a203691eed7d0bdd9bd129fac",
+        "worker_sha256": "78703ac3e025a2ea45907a96198e3c742e380f450a288487e78ee399f03b7030"
+      },
+      "settings": {
+        "offline": true,
+        "dtype": "float32",
+        "allow_tf32": false,
+        "cpu_threads": 4,
+        "chunk_size": 128,
+        "seed": 0,
+        "msa": "not used by ESMFold",
+        "target_in_input": false,
+        "trunk_passes": 4
+      },
+      "loading_exceptions": {
+        "allowed_missing_unused": [
+          "esm.contact_head.regression.bias",
+          "esm.contact_head.regression.weight"
+        ],
+        "allowed_unexpected_unused": [
+          "esm.embeddings.position_embeddings.weight"
+        ],
+        "auxiliary_contact_head_guarded": true
+      },
+      "validation": {
+        "status": "passed",
+        "pdb_sequence_and_atom_count": "60 matching C-alpha atoms, one chain",
+        "pdb_coordinates_match_unrounded_output": true,
+        "plddt_scale_and_atom_mask_checked": true,
+        "rmsd_independent_biotite_angstrom": 7.826728820800781,
+        "original_generation_artifacts_unchanged": 15,
+        "prediction_manifest_checksums": "all matched",
+        "recorded_worker_checksum": "matched"
+      },
+      "threshold_pass": null,
+      "binding_validated": false,
+      "artifacts": {
+        "input.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124211Z-3541ef47/input.json",
+          "sha256": "a3b3950ef501ecefc9d768f07755f19207b328b619cdd854869b233e1e72cb5a"
+        },
+        "worker.py": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124211Z-3541ef47/worker.py",
+          "sha256": "78703ac3e025a2ea45907a96198e3c742e380f450a288487e78ee399f03b7030"
+        },
+        "execution.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124211Z-3541ef47/execution.json",
+          "sha256": "050b90ce1bf7afbf21a5406e8fac366ad51cbbe0422bea67291d3c46e52cbefc"
+        },
+        "prediction/binder.pdb": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124211Z-3541ef47/prediction/binder.pdb",
+          "sha256": "5be74f0fb1414be53573c26a8e6ea9b20f50e4340028670deb3cbd06c1f76d7b"
+        },
+        "prediction/metrics.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124211Z-3541ef47/prediction/metrics.json",
+          "sha256": "ea6e723de8c2ff1675b9f21bfb91755f5783447f7d1ae332b0a64c6eb408c819"
+        },
+        "prediction/manifest.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124211Z-3541ef47/prediction/manifest.json",
+          "sha256": "827296adf14a8c6ac23639ca384a6a895254601d6690a864558a9be2d1102dbb"
+        },
+        "validation.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124211Z-3541ef47/validation.json",
+          "sha256": "dbbcfcb27a5d10d517885213968e52f83832851e5c20f4cde1dc4e987f55b7e2"
+        }
+      }
+    },
+    {
+      "role": "natural_pdl1_fragment_diagnostic",
+      "job": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124533Z-9c1f84fd",
+      "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK",
+      "length": 114,
+      "mean_plddt_ca_0_to_100": 93.00563049316406,
+      "mean_plddt_atom_weighted_0_to_100": 88.06048631668091,
+      "ptm": 0.8855068683624268,
+      "mean_pae_angstrom": 2.6579043865203857,
+      "ca_rmsd_angstrom": 0.46645290927438765,
+      "reference": {
+        "path": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/data/examples/PDL1_truncated.pdb",
+        "sha256": "a818a160b7f266fe810f1420c1a6af8be438a33b51c8e8dd19f80b5bc702459a",
+        "chain": "B",
+        "atom_selection": "CA, source PDB residues B20-133, exact sequence match"
+      },
+      "timing": {
+        "model_load_and_gpu_transfer_seconds": 11.232443542219698,
+        "first_inference_seconds": 1.1122428085654974,
+        "scope": "synchronized wall time, first prediction, batch 1; not a throughput test"
+      },
+      "process_elapsed_seconds": 28.938797465525568,
+      "gpu_memory": {
+        "peak_torch_allocated_bytes": 14389415936,
+        "peak_torch_reserved_bytes": 14453571584,
+        "scope": "PyTorch allocator peaks since before model loading; excludes CUDA context and other processes"
+      },
+      "model_snapshot": "/data/yusen/software/.cache/huggingface/hub/models--facebook--esmfold_v1/snapshots/75a3841ee059df2bf4d56688166c8fb459ddd97a",
+      "model_assets": [
+        {
+          "path": "/data/yusen/software/.cache/huggingface/hub/models--facebook--esmfold_v1/snapshots/75a3841ee059df2bf4d56688166c8fb459ddd97a/config.json",
+          "sha256": "6b98125e2685fef2875499f6bd7c83968a077993ab53f99bf5581113665f7cc6",
+          "size": 2103
+        },
+        {
+          "path": "/data/yusen/software/.cache/huggingface/hub/models--facebook--esmfold_v1/snapshots/75a3841ee059df2bf4d56688166c8fb459ddd97a/pytorch_model.bin",
+          "sha256": "2ee07356b125d1e3e57503c204111fd7323347fc4735d41d3caac57c2a78e116",
+          "size": 8442062570
+        }
+      ],
+      "software": {
+        "python": "3.10.0 (default, Mar  3 2022, 09:58:08) [GCC 7.5.0]",
+        "executable": "/nvme-data3/yusen/micomamba/envs/nt/bin/python",
+        "platform": "Linux-5.15.0-105-generic-x86_64-with-glibc2.31",
+        "packages": {
+          "torch": "2.7.1+cu118",
+          "transformers": "4.52.4",
+          "numpy": "1.26.4",
+          "huggingface-hub": "0.36.2"
+        },
+        "implementation_sha256": "4577d81d37f5cb8361cddc1176e01ad9f2604f1b4ca80dc7bc0c7d97b0d988ab",
+        "esm_implementation_sha256": "8b76275b1929cca7ca41ff6cd1d715812e94439a203691eed7d0bdd9bd129fac",
+        "worker_sha256": "7f8ef7cd4818853212720ae737051642b64dc4e2921530708f00801e1c6bbb59"
+      },
+      "settings": {
+        "offline": true,
+        "dtype": "float32",
+        "allow_tf32": false,
+        "cpu_threads": 4,
+        "chunk_size": 128,
+        "seed": 0,
+        "msa": "not used by ESMFold",
+        "partner_chain_in_input": false,
+        "trunk_passes": 4
+      },
+      "loading_exceptions": {
+        "allowed_missing_unused": [
+          "esm.contact_head.regression.bias",
+          "esm.contact_head.regression.weight"
+        ],
+        "allowed_unexpected_unused": [
+          "esm.embeddings.position_embeddings.weight"
+        ],
+        "auxiliary_contact_head_guarded": true
+      },
+      "validation": {
+        "status": "passed",
+        "pdb_sequence_and_atom_count": "114 matching C-alpha atoms, one chain",
+        "pdb_coordinates_match_unrounded_output": true,
+        "plddt_scale_and_atom_mask_checked": true,
+        "rmsd_independent_biotite_angstrom": 0.4664529860019684,
+        "reference_pdb_sha256": "matched",
+        "original_generation_artifacts_unchanged": 15,
+        "prediction_manifest_checksums": "all matched",
+        "recorded_worker_checksum": "matched"
+      },
+      "threshold_pass": null,
+      "binding_validated": false,
+      "artifacts": {
+        "input.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124533Z-9c1f84fd/input.json",
+          "sha256": "0fd92bedaaa14bb619d77020d6daeab917139bdf05064b97c15f2427afca40bf"
+        },
+        "worker.py": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124533Z-9c1f84fd/worker.py",
+          "sha256": "7f8ef7cd4818853212720ae737051642b64dc4e2921530708f00801e1c6bbb59"
+        },
+        "execution.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124533Z-9c1f84fd/execution.json",
+          "sha256": "8f7645af587fba3b753b4bf8e60a1b09df12f4203a14db167e0b461c35fa1ae9"
+        },
+        "prediction/binder.pdb": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124533Z-9c1f84fd/prediction/binder.pdb",
+          "sha256": "1d611010501a3ee83be3a842e73c32ed4cd4775bc9303f04c867635e44a5eb9f"
+        },
+        "prediction/metrics.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124533Z-9c1f84fd/prediction/metrics.json",
+          "sha256": "a677dfa187e47d4eb71835b40f71e6583d4e60607bd2a3e0f7adce7ae778f468"
+        },
+        "prediction/manifest.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124533Z-9c1f84fd/prediction/manifest.json",
+          "sha256": "f26e47f6af01317ed26412aea2bc5a43cb6e6c3e850e62c0c23b49ad8f4cb323"
+        },
+        "validation.json": {
+          "path": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/monomer_refolds/20260905T124533Z-9c1f84fd/validation.json",
+          "sha256": "8527832924a143f9d6d3dea66a4a4b0b782dc75cab4db5103584f70b13802216"
+        }
+      }
+    }
+  ]
+}

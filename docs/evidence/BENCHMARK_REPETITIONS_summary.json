@@ -1,0 +1,76 @@
+{
+  "date": "2026-09-06",
+  "scope": "exploratory repeated host decisions on disclosed development targets",
+  "new_repetitions": 2,
+  "new_host_contexts": 12,
+  "independent_biological_targets": 6,
+  "primary": {
+    "independent_biological_targets": 6,
+    "max_total_hits": 26,
+    "mean_total_hits": 25.5,
+    "min_total_hits": 25,
+    "paired_precision_differences": {
+      "development_best_single": {
+        "ci95": [
+          -0.06666666666666665,
+          0.175
+        ],
+        "mean": 0.025000000000000005,
+        "n": 6
+      },
+      "ef2_ipsae": {
+        "ci95": [
+          -0.04999999999999999,
+          0.024999999999999994
+        ],
+        "mean": -0.008333333333333331,
+        "n": 6
+      },
+      "heuristic": {
+        "ci95": [
+          -0.04999999999999999,
+          0.024999999999999994
+        ],
+        "mean": -0.008333333333333331,
+        "n": 6
+      }
+    },
+    "runs": 2,
+    "sample_sd_total_hits": 0.7071067811865476,
+    "total_hits_per_run": [
+      26,
+      25
+    ]
+  },
+  "historical_composite_hits": 27,
+  "strong_baseline_hits_per_60": 26,
+  "mean_new_pairwise_jaccard": 0.9090909090909092,
+  "random_reference": {
+    "central_95_interval": [
+      12,
+      22
+    ],
+    "expected_hits": 17.11111111111111,
+    "variance": 6.398668331252601
+  },
+  "tests": {
+    "total_python": 620,
+    "new": 109,
+    "ruff": "passed"
+  },
+  "new_download_bytes": 0,
+  "new_gpu_inference_runs": 0,
+  "new_wetlab_experiments": 0,
+  "model": null,
+  "token_usage": null,
+  "report_sha256": "b15321fb7c1baff0d9cc0c14cf110ab9aa51431de8669494bb61948d19819f89",
+  "limitations": [
+    "Exploratory decision repetitions on previously disclosed targets, not a new holdout or calibration fit.",
+    "Repetitions do not increase the number of independent biological targets or experiments.",
+    "Primary summaries use new runs only; the historical run is a separate descriptive reference.",
+    "Candidate IDs, order, visible numbers, quota, instructions and baselines remain fixed; model sampling settings are unknown.",
+    "Feature-only access is a protocol, not OS isolation; public-data training contamination remains possible.",
+    "Random hit distributions condition on the observed labels and are not prospective success estimates or Agent superiority tests.",
+    "No new protein generation, GPU inference or wet-lab experiments; actor metadata and model stochastic independence are not authenticated."
+  ]
+}

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
+import math
 from abc import abstractmethod
 from collections.abc import Sequence
 from pathlib import Path
@@ -89,6 +90,8 @@ class ArtifactScorer(BaseModel, Scorer):
             if not isinstance(payload, dict):
                 raise ValueError(f"{artifact_path} must contain a JSON object")
             metrics = self.parse_metrics(payload)
+            if any(not math.isfinite(value) for value in metrics.values()):
+                raise ValueError(f"non-finite {self.evaluation_key} metric for {instance.id}")
 
             updated = instance.copy()
             updated.metadata = copy.deepcopy(metadata)

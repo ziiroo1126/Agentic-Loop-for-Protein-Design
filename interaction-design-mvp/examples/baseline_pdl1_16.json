@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.1",
+  "name": "baseline_pdl1_60aa_16seeds",
+  "description": "Development pilot: 16 seeds with fixed PD-L1, hotspots, binder length, ODesign/OInvFold and ESMFold settings. Monomer metrics are not binding validation.",
+  "model": "odesign_base_prot_flex",
+  "design_modality": "protein",
+  "molecules": [
+    {
+      "id": "binder",
+      "type": "protein",
+      "role": "design",
+      "segments": [
+        {
+          "kind": "generated",
+          "min_length": 60,
+          "max_length": 60
+        }
+      ]
+    },
+    {
+      "id": "pdl1",
+      "type": "protein",
+      "role": "context",
+      "segments": [
+        {
+          "kind": "fixed",
+          "chain": "B",
+          "start": 20,
+          "end": 133
+        }
+      ]
+    }
+  ],
+  "generation": {
+    "seeds": [
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58
+    ],
+    "samples_per_seed": 1,
+    "inverse_fold_topk": 1,
+    "inverse_fold_temperature": 1.0,
+    "inverse_fold_beam": true,
+    "use_msa": false,
+    "num_workers": 1,
+    "partial_diffusion_snr": 0.1
+  },
+  "evaluation": {
+    "binder_molecule": "binder",
+    "metric_rules": [
+      {
+        "source": "af3",
+        "metric": "binder_ptm",
+        "higher_is_better": true,
+        "threshold": 0.8,
+        "weight": 0.3
+      },
+      {
+        "source": "af3",
+        "metric": "ipae_min",
+        "higher_is_better": false,
+        "threshold": 1.5,
+        "weight": 0.2
+      },
+      {
+        "source": "rosetta",
+        "metric": "ddg",
+        "higher_is_better": false,
+        "threshold": -44,
+        "weight": 0.3
+      },
+      {
+        "source": "rosetta",
+        "metric": "sap_score",
+        "higher_is_better": false,
+        "threshold": 40,
+        "weight": 0.1
+      },
+      {
+        "source": "rosetta",
+        "metric": "contact_molecular_surface",
+        "higher_is_better": true,
+        "threshold": 400,
+        "weight": 0.1
+      }
+    ]
+  },
+  "reference_structure": "../data/examples/PDL1_truncated.pdb",
+  "hotspots": [
+    {
+      "chain": "B",
+      "residue": 64
+    },
+    {
+      "chain": "B",
+      "residue": 68
+    },
+    {
+      "chain": "B",
+      "residue": 126
+    },
+    {
+      "chain": "B",
+      "residue": 128
+    }
+  ],
+  "center_method": "hotspot_center"
+}

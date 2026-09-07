@@ -14,6 +14,20 @@ from pathlib import Path
 
 PINNED_REVISION = re.compile(r"^[0-9a-f]{40}$")
 
+MODEL_ASSET_NAMES = {
+    "odesign_base_prot_flex": "odesign-prot-flex",
+    "odesign_base_prot_rigid": "odesign-prot-rigid",
+    "odesign_base_ligand_rigid": "odesign-ligand-rigid",
+    "odesign_base_na_rigid": "odesign-na-rigid",
+}
+
+INVERSE_FOLDING_ASSET_NAMES = {
+    "protein": "oinvfold-protein",
+    "ligand": "oinvfold-ligand",
+    "rna": "oinvfold-rna",
+    "dna": "oinvfold-dna",
+}
+
 
 @dataclass(frozen=True)
 class AssetPin:
@@ -73,6 +87,32 @@ def load_odesign_revision(lock_path: str | Path) -> str:
     if not PINNED_REVISION.fullmatch(revision):
         raise ValueError("ODesign source must use a full 40-character commit revision")
     return revision
+
+
+def select_asset_pins(pins: list[AssetPin], names: list[str] | None) -> list[AssetPin]:
+    """Select named pins while retaining lock-file order."""
+
+    if not names:
+        return pins
+    requested = set(names)
+    available = {pin.name for pin in pins}
+    unknown = sorted(requested.difference(available))
+    if unknown:
+        raise ValueError(
+            f"unknown asset name(s): {', '.join(unknown)}; "
+            f"available: {', '.join(sorted(available))}"
+        )
+    return [pin for pin in pins if pin.name in requested]
+
+
+def task_asset_pins(pins: list[AssetPin], model: str, modality: str) -> list[AssetPin]:
+    """Return the diffusion and inverse-folding checkpoints required by one task."""
+
+    try:
+        names = [MODEL_ASSET_NAMES[model], INVERSE_FOLDING_ASSET_NAMES[modality]]
+    except KeyError as error:
+        raise ValueError(f"no asset mapping for {error.args[0]!r}") from error
+    return select_asset_pins(pins, names)
 
 
 def hf_download_command(pin: AssetPin, destination: Path) -> list[str]:
@@ -145,12 +185,16 @@ def write_asset_manifest(
     return manifest_path
 
 
-def download_assets(lock_path: str | Path, destination: str | Path) -> Path:
-    """Download every pin using hf CLI, then record byte-level checksums."""
+def download_assets(
+    lock_path: str | Path,
+    destination: str | Path,
+    only: list[str] | None = None,
+) -> Path:
+    """Download selected pins using hf CLI, then record byte-level checksums."""
 
     target = Path(destination).resolve()
     target.mkdir(parents=True, exist_ok=True)
-    pins = load_asset_pins(lock_path)
+    pins = select_asset_pins(load_asset_pins(lock_path), only)
     hub_verification: list[dict[str, object]] = []
     for pin in pins:
         command = hf_download_command(pin, target)
@@ -193,4 +237,46 @@ def verify_assets(destination: str | Path) -> dict[str, object]:
         "ok": not failures,
         "checked_files": len(payload["files"]),
         "failures": failures,
+    }
+
+
+def verify_task_checkpoints(
+    checkpoint_root: Path,
+    model: str,
+    modality: str,
+) -> dict[str, object]:
+    """Bind actual checkpoint bytes to locally recorded, pinned model assets.
+
+    A local manifest checksum establishes cache integrity; it is not independent
+    proof of publisher authenticity. Hub verification evidence is kept separately.
+    """
+
+    destination = checkpoint_root.resolve().parent
+    manifest_path = destination / "asset-manifest.json"
+    payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+    pins = task_asset_pins(load_asset_pins(default_asset_lock()), model, modality)
+    recorded_pins = {item["name"]: item for item in payload["pins"]}
+    records = []
+    for pin in pins:
+        recorded = recorded_pins.get(pin.name, {})
+        if any(recorded.get(key) != getattr(pin, key) for key in ("repo_id", "revision")):
+            raise ValueError(f"checkpoint manifest pin mismatch: {pin.name}")
+        for filename in pin.include:
+            path = destination / pin.local_subdir / filename
+            if path.resolve().parent != checkpoint_root.resolve():
+                raise ValueError(f"checkpoint lock path does not match checkpoint root: {filename}")
+            relative = str(path.resolve().relative_to(destination))
+            expected = payload["files"].get(relative)
+            if expected is None:
+                raise ValueError(f"checkpoint absent from asset manifest: {relative}")
+            checksum = sha256_file(path)
+            size = path.stat().st_size
+            if checksum != expected["sha256"] or size != expected["size"]:
+                raise ValueError(f"checkpoint checksum/size mismatch: {relative}")
+            records.append({"path": str(path.resolve()), "sha256": checksum, "size": size})
+    return {
+        "verification": "local-manifest",
+        "manifest_sha256": sha256_file(manifest_path),
+        "hub_verification": payload.get("hub_verification", []),
+        "files": records,
     }

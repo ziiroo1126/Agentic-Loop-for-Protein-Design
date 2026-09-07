@@ -1,0 +1,28 @@
+# Installed dependencies (directories or symlinks) and build products
+node_modules
+dist/
+.dist/
+*.egg-info/
+.venv/
+.odesign-venv/
+
+# Local caches and test output
+.cache/
+.ruff_cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.coverage
+.coverage.*
+htmlcov/
+coverage/
+*.tsbuildinfo
+
+# Local credentials and machine configuration
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Scientific assets and outputs have package-specific rules in
+# interaction-design-mvp/.gitignore.

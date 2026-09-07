@@ -2,16 +2,31 @@
 
 from __future__ import annotations
 
+import json
 import os
 import subprocess
+import uuid
 from dataclasses import dataclass
 from pathlib import Path
 
+from interaction_design.assets import sha256_file, verify_task_checkpoints
+from interaction_design.persistence import write_json
 from interaction_design.runtime.base import (
     ExecutionResult,
     ODesignExecutionError,
     ODesignRunRequest,
 )
+from interaction_design.runtime.process import run_logged
+
+
+def _data_records(data_root: Path) -> list[dict[str, object]]:
+    return [
+        {"path": str(path.resolve()), "sha256": sha256_file(path), "size": path.stat().st_size}
+        for path in (
+            data_root / "components.v20240608.cif",
+            data_root / "components.v20240608.cif.rdkit_mol.pkl",
+        )
+    ]
 
 
 def _verify_git_revision(repo: Path, expected: str | None) -> str | None:
@@ -74,7 +89,7 @@ class LocalODesignExecutor:
     checkpoint_root: Path
     python_executable: str = "python"
     cuda_visible_devices: str = "0"
-    timeout_seconds: int | None = None
+    timeout_seconds: float | None = None
     expected_revision: str | None = None
     name: str = "local"
 
@@ -127,35 +142,46 @@ class LocalODesignExecutor:
             f"{repo}{os.pathsep}{prior_pythonpath}" if prior_pythonpath else str(repo)
         )
 
-        stdout_path = request.run_dir / "odesign.stdout.log"
-        stderr_path = request.run_dir / "odesign.stderr.log"
-        try:
-            completed = subprocess.run(
-                command,
-                cwd=repo,
-                env=env,
-                capture_output=True,
-                text=True,
-                timeout=self.timeout_seconds,
-                check=False,
-            )
-        except (OSError, subprocess.TimeoutExpired) as error:
-            raise ODesignExecutionError(f"failed to launch ODesign: {error}") from error
-
-        stdout_path.write_text(completed.stdout, encoding="utf-8")
-        stderr_path.write_text(completed.stderr, encoding="utf-8")
-        if completed.returncode != 0:
-            tail = completed.stderr[-4000:]
-            raise ODesignExecutionError(
-                f"ODesign exited with code {completed.returncode}; stderr tail:\n{tail}"
-            )
+        env["PYTHONUNBUFFERED"] = "1"
+        environment = subprocess.run(
+            [
+                self.python_executable,
+                "-c",
+                "import sys,json,importlib.metadata as m; "
+                "print(json.dumps({'executable':sys.executable,'python':sys.version,"
+                "'packages':{d.metadata['Name']:d.version for d in m.distributions()}}))",
+            ],
+            env=env,
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=30,
+        )
+        write_json(request.run_dir / "runtime-environment.json", json.loads(environment.stdout))
+        metadata = {
+            "odesign_repo": str(repo),
+            "odesign_revision": revision,
+            "cuda_visible_devices": self.cuda_visible_devices,
+            "chemical_components": _data_records(self.data_root),
+            "checkpoints": verify_task_checkpoints(
+                self.checkpoint_root, request.spec.model, request.spec.design_modality
+            ),
+        }
+        stdout_path, stderr_path = run_logged(
+            command,
+            request.run_dir,
+            cwd=repo,
+            env=env,
+            metadata=metadata,
+            timeout_seconds=self.timeout_seconds,
+        )
         return ExecutionResult(
             output_dir=request.output_dir,
             command=tuple(command),
             executor=self.name,
             stdout_path=stdout_path,
             stderr_path=stderr_path,
-            metadata={"odesign_repo": str(repo), "odesign_revision": revision},
+            metadata=metadata,
         )
 
 
@@ -169,7 +195,7 @@ class ContainerODesignExecutor:
     checkpoint_root: Path
     runtime: str = "docker"
     gpu_devices: str = "all"
-    timeout_seconds: int | None = None
+    timeout_seconds: float | None = None
     expected_revision: str | None = None
     name: str = "container"
 
@@ -216,10 +242,15 @@ class ContainerODesignExecutor:
                 checkpoint_root="/opt/assets/checkpoints",
             ),
         ]
+        container_name = f"molclaw-{uuid.uuid4().hex}"
         command = [
             self.runtime,
             "run",
             "--rm",
+            "--name",
+            container_name,
+            "-e",
+            "PYTHONUNBUFFERED=1",
             "--gpus",
             self.gpu_devices,
             "-v",
@@ -236,36 +267,41 @@ class ContainerODesignExecutor:
             self.image,
             *inner,
         ]
-        stdout_path = request.run_dir / "odesign.stdout.log"
-        stderr_path = request.run_dir / "odesign.stderr.log"
+        metadata = {
+            "image": self.image,
+            "runtime": self.runtime,
+            "container_name": container_name,
+            "odesign_repo": str(repo),
+            "odesign_revision": revision,
+            "chemical_components": _data_records(data_root),
+            "checkpoints": verify_task_checkpoints(
+                checkpoint_root, request.spec.model, request.spec.design_modality
+            ),
+        }
         try:
-            completed = subprocess.run(
+            stdout_path, stderr_path = run_logged(
                 command,
-                capture_output=True,
-                text=True,
-                timeout=self.timeout_seconds,
-                check=False,
+                request.run_dir,
+                metadata=metadata,
+                timeout_seconds=self.timeout_seconds,
             )
-        except (OSError, subprocess.TimeoutExpired) as error:
-            raise ODesignExecutionError(f"failed to launch container: {error}") from error
-
-        stdout_path.write_text(completed.stdout, encoding="utf-8")
-        stderr_path.write_text(completed.stderr, encoding="utf-8")
-        if completed.returncode != 0:
-            raise ODesignExecutionError(
-                f"ODesign container exited with code {completed.returncode}; "
-                f"stderr tail:\n{completed.stderr[-4000:]}"
-            )
+        except BaseException:
+            # Killing the Docker client does not stop the container on its own.
+            try:
+                subprocess.run(
+                    [self.runtime, "rm", "--force", container_name],
+                    capture_output=True,
+                    timeout=30,
+                    check=False,
+                )
+            except (OSError, subprocess.TimeoutExpired):
+                pass
+            raise
         return ExecutionResult(
             output_dir=request.output_dir,
             command=tuple(command),
             executor=self.name,
             stdout_path=stdout_path,
             stderr_path=stderr_path,
-            metadata={
-                "image": self.image,
-                "runtime": self.runtime,
-                "odesign_repo": str(repo),
-                "odesign_revision": revision,
-            },
+            metadata=metadata,
         )

@@ -15,6 +15,7 @@ from evedesign.system import SystemInstance
 
 from interaction_design.assets import AssetPin, sha256_file
 from interaction_design.generator import ODesignGenerator
+from interaction_design.persistence import write_json
 from interaction_design.specs import InteractionDesignSpec
 
 
@@ -53,7 +54,7 @@ def _artifact_records(run_dir: Path) -> list[dict[str, object]]:
             "size": path.stat().st_size,
         }
         for path in sorted(run_dir.rglob("*"))
-        if path.is_file() and path.name != "manifest.json"
+        if path.is_file() and path.name not in {"manifest.json", "status.json"}
     ]
 
 
@@ -64,16 +65,25 @@ def write_run_manifest(
     asset_pins: Sequence[AssetPin],
     expected_odesign_revision: str,
     project_root: str | Path,
+    *,
+    status: str = "generated",
 ) -> Path:
-    if generator.last_run_dir is None or generator.last_execution is None:
-        raise ValueError("generator has no completed run")
+    if generator.last_run_dir is None:
+        raise ValueError("generator has no run directory")
     run_dir = generator.last_run_dir
     execution = generator.last_execution
+    invocation_path = run_dir / "execution.json"
+    invocation = (
+        json.loads(invocation_path.read_text(encoding="utf-8")) if invocation_path.is_file() else {}
+    )
+    metadata = execution.metadata if execution else invocation.get("metadata", {})
     reference = Path(spec.reference_structure) if spec.reference_structure else None
     payload = {
         "schema_version": "1",
         "created_at": datetime.now(UTC).isoformat(),
         "run_id": run_dir.name,
+        "stage": "generation",
+        "status": status,
         "task_sha256": canonical_sha256(spec.model_dump(mode="json")),
         "task": spec.model_dump(mode="json"),
         "inputs": {
@@ -88,9 +98,9 @@ def write_run_manifest(
         "seeds": spec.generation.seeds,
         "candidate_ids": [instance.id for instance in instances],
         "executor": {
-            "name": execution.executor,
-            "command": list(execution.command),
-            "metadata": execution.metadata,
+            "name": execution.executor if execution else generator.executor.name,
+            "command": list(execution.command) if execution else invocation.get("command", []),
+            "metadata": metadata,
         },
         "software": {
             "python": platform.python_version(),
@@ -98,8 +108,8 @@ def write_run_manifest(
             "evedesign": importlib.metadata.version("evedesign"),
             "odesign_expected_revision": expected_odesign_revision,
             "project_git": git_state(project_root),
-            "odesign_git": git_state(execution.metadata["odesign_repo"])
-            if execution.metadata.get("odesign_repo")
+            "odesign_git": git_state(metadata["odesign_repo"])
+            if metadata.get("odesign_repo")
             else None,
         },
         "model_assets": [
@@ -108,6 +118,4 @@ def write_run_manifest(
         ],
         "artifacts": _artifact_records(run_dir),
     }
-    path = run_dir / "manifest.json"
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    return path
+    return write_json(run_dir / "manifest.json", payload)

@@ -2,20 +2,64 @@ schema_version = "1"
 
 [software.odesign]
 repository = "https://github.com/OTeam-AI4S/ODesign.git"
-revision = "87b67dec1a26c0915286bf47c3dc7102635ea0cc"
+# Last parent before 9982361 switched protein/RNA inverse folding to MPNN/gRNAde.
+# This adapter's asset contract uses OInvFold for all supported modalities.
+revision = "43944e930aea7dd74d2762f6cce7855471edae7b"
 
 [[assets]]
-name = "odesign-diffusion"
+name = "odesign-prot-flex"
 repo_id = "The-Institute-for-AI-Molecular-Design/ODesign"
 revision = "ab808f9e947fc065129e2ce2bc3fbcb95ef6b496"
-include = ["ckpt/*.pt"]
+include = ["ckpt/odesign_base_prot_flex.pt"]
 local_subdir = "."
 
 [[assets]]
-name = "odesign-inverse-folding"
+name = "odesign-prot-rigid"
+repo_id = "The-Institute-for-AI-Molecular-Design/ODesign"
+revision = "ab808f9e947fc065129e2ce2bc3fbcb95ef6b496"
+include = ["ckpt/odesign_base_prot_rigid.pt"]
+local_subdir = "."
+
+[[assets]]
+name = "odesign-ligand-rigid"
+repo_id = "The-Institute-for-AI-Molecular-Design/ODesign"
+revision = "ab808f9e947fc065129e2ce2bc3fbcb95ef6b496"
+include = ["ckpt/odesign_base_ligand_rigid.pt"]
+local_subdir = "."
+
+[[assets]]
+name = "odesign-na-rigid"
+repo_id = "The-Institute-for-AI-Molecular-Design/ODesign"
+revision = "ab808f9e947fc065129e2ce2bc3fbcb95ef6b496"
+include = ["ckpt/odesign_base_na_rigid.pt"]
+local_subdir = "."
+
+[[assets]]
+name = "oinvfold-protein"
 repo_id = "The-Institute-for-AI-Molecular-Design/OInvFold"
 revision = "e77a2b0200570757018751f33f06e32e2387413b"
-include = ["*.ckpt"]
+include = ["oinvfold_protein.ckpt"]
+local_subdir = "ckpt"
+
+[[assets]]
+name = "oinvfold-ligand"
+repo_id = "The-Institute-for-AI-Molecular-Design/OInvFold"
+revision = "e77a2b0200570757018751f33f06e32e2387413b"
+include = ["oinvfold_ligand.ckpt"]
+local_subdir = "ckpt"
+
+[[assets]]
+name = "oinvfold-rna"
+repo_id = "The-Institute-for-AI-Molecular-Design/OInvFold"
+revision = "e77a2b0200570757018751f33f06e32e2387413b"
+include = ["oinvfold_rna.ckpt"]
+local_subdir = "ckpt"
+
+[[assets]]
+name = "oinvfold-dna"
+repo_id = "The-Institute-for-AI-Molecular-Design/OInvFold"
+revision = "e77a2b0200570757018751f33f06e32e2387413b"
+include = ["oinvfold_dna.ckpt"]
 local_subdir = "ckpt"
 
 [external_data.chemical_components]

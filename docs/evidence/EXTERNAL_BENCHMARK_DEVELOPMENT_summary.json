@@ -1,0 +1,86 @@
+{
+  "date": "2026-09-06",
+  "scope": "exploratory retrospective external-pool ranking; no new protein generation or wet-lab experiments",
+  "source": {
+    "files": [
+      {
+        "path": "data/tables/design_summary.parquet",
+        "sha256": "3e796869b8dc0c90d7ab0e12daf25308c0cf272d04c6a5e27281f903ecd18744",
+        "size_bytes": 517810
+      },
+      {
+        "path": "data/tables/insilico/cofold_predictions.parquet",
+        "sha256": "ba48010610daa9b9d184aa1ddb419beebdf728ccf745f5a8f3b48e4041e1a87d",
+        "size_bytes": 10137792
+      }
+    ],
+    "pyarrow_version": "24.0.0",
+    "repo": "Anthropic/claude-protein-binder-design",
+    "revision": "9e1b81696da46835e9e9cde9a3da976e0abc92ab"
+  },
+  "development_targets": [
+    "PD-L1"
+  ],
+  "evaluation_targets": [
+    "BBF-14",
+    "EGFR",
+    "IL-7Ra",
+    "MBP",
+    "TREM2",
+    "TrkA"
+  ],
+  "candidate_count": 540,
+  "imported_candidate_count": 630,
+  "quota_per_target": 10,
+  "total_selections_per_policy": 60,
+  "hits": {
+    "development_best_single": 24,
+    "ef2_ipsae": 26,
+    "ef2_iptm": 24,
+    "ensemble_ipsae": 24,
+    "fixed": 14,
+    "harness": 27,
+    "heuristic": 26
+  },
+  "paired_precision_differences": {
+    "development_best_single": {
+      "ci95": [
+        -0.04999999999999999,
+        0.2
+      ],
+      "mean": 0.05000000000000001,
+      "n": 6
+    },
+    "heuristic": {
+      "ci95": [
+        0.0,
+        0.04999999999999999
+      ],
+      "mean": 0.016666666666666663,
+      "n": 6
+    }
+  },
+  "tests": {
+    "python_passed": 511,
+    "new_tests": 165,
+    "ruff": "passed",
+    "wheel_report_reproduction": "passed",
+    "previous_evidence_files_verified": 839
+  },
+  "real_decision_harness": "codex",
+  "agent_count": 6,
+  "actor_metadata_verified": false,
+  "host_model": null,
+  "token_usage": null,
+  "new_gpu_inference_runs": 0,
+  "new_wetlab_experiments": 0,
+  "protocol_sha256": "cf78ec997f9a6beeb37e156be5b953ac01eb1ba19ad824ebbca21cb3499aa54e",
+  "report_sha256": "90495c41dc3b363fe2072ebe797d8723d4f6f4deac69c32ddd1a6bb254700ba4",
+  "limitations": [
+    "Exploratory retrospective target-disjoint analysis; source article target-level results were already known, no pristine holdout or preregistration claim.",
+    "Public selected candidate pool, correlated designs and only six evaluation targets; candidate count is not independent replication.",
+    "Host feature-only access is a protocol, not filesystem isolation; public-data training contamination remains possible.",
+    "Published post-hoc complex scores differ from MolClaw native monomer and geometry features; no validation of the complete current generation policy.",
+    "No new GPU inference, synthesis, functional validation, prospective hits, or compute-saving estimate. Quota is a selection count, not actual wet-lab spending."
+  ]
+}

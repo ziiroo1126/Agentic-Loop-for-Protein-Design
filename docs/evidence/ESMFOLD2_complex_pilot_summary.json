@@ -1,0 +1,1169 @@
+{
+  "backend": "esmfold2",
+  "binding_validated": false,
+  "candidate_count": 16,
+  "candidates": [
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 8.89771842956543,
+      "binder_plddt_residue": 83.85294342041016,
+      "binder_rmsd_after_target_alignment_angstrom": 25.2320499420166,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "GISEEEAEEIEEAAKALQEAAAGGNEAETEELEAEFDELNEKAKKADAAAQKELHDDLFS"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 46,
+      "inference_seconds": 13.49487757962197,
+      "iptm": 0.8270412683486938,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T144133Z-b01a8b0b",
+      "mean_plddt_residue": 86.81901550292969,
+      "pae_a_to_b_angstrom": 5.4109344482421875,
+      "pae_b_to_a_angstrom": 4.60935115814209,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.8950124382972717,
+      "request_sha256": "7a4ad7507d92a11af4a446b9e0495beda73ff67844b9bf0954bd23096c5bff98",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T144133Z-b01a8b0b/executions/20260905T144156Z-27ecb2f0/output/candidate0000/complex.cif",
+      "target_plddt_residue": 88.38011932373047,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 1.974040150642395,
+      "binder_plddt_residue": 63.26924514770508,
+      "binder_rmsd_after_target_alignment_angstrom": 14.490615844726562,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_52_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "PVMVAVGEESADLAEAEGLRVVRVGDMVAATAHTEEARAKAAALAESLAAGENRAAVMVE"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 52,
+      "inference_seconds": 12.063449741341174,
+      "iptm": 0.6592608094215393,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 77.55821228027344,
+      "pae_a_to_b_angstrom": 13.07697582244873,
+      "pae_b_to_a_angstrom": 7.022861957550049,
+      "peak_torch_allocated_bytes": 14433415680,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.8055726885795593,
+      "request_sha256": "891ffd5763cdcdc5026059e42a0a4833262f9e4d02281d6311f5c6a6e848d14c",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0007/complex.cif",
+      "target_plddt_residue": 85.07872009277344,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 8.872363090515137,
+      "binder_plddt_residue": 63.03469467163086,
+      "binder_rmsd_after_target_alignment_angstrom": 14.658001899719238,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "HEHVEGLEELIDELRELANGGCDETLQKKINELMDKAEGAEDEGDRLELLEKIEDALNNA"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 43,
+      "inference_seconds": 13.287470967508852,
+      "iptm": 0.5297530293464661,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 76.10393524169922,
+      "pae_a_to_b_angstrom": 14.061704635620117,
+      "pae_b_to_a_angstrom": 9.30040454864502,
+      "peak_torch_allocated_bytes": 14433453568,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.7643199563026428,
+      "request_sha256": "a7499a9c0b687a9d990c37f02cd458b639d6ac7eeb9aacc8b63864dc7c80e4a2",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0000/complex.cif",
+      "target_plddt_residue": 82.98248291015625,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 10.72567081451416,
+      "binder_plddt_residue": 44.16474533081055,
+      "binder_rmsd_after_target_alignment_angstrom": 20.20035743713379,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_53_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "AVKLTAPMAPGEAQQVLVIPAELAALAAAEQPAVVIEEEGNRLRLIFVDGETQVVVAEAE"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 53,
+      "inference_seconds": 11.867493877187371,
+      "iptm": 0.3137212097644806,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 68.53306579589844,
+      "pae_a_to_b_angstrom": 21.889358520507812,
+      "pae_b_to_a_angstrom": 13.258785247802734,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6888172626495361,
+      "request_sha256": "66bffa9c8b9fab8c2548ba4ed5ea941e08cc1cbba2f3264789001e4f96bedc51",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0008/complex.cif",
+      "target_plddt_residue": 81.35850524902344,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 1.8403904438018799,
+      "binder_plddt_residue": 61.98414611816406,
+      "binder_rmsd_after_target_alignment_angstrom": 7.193282127380371,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "SQEALQAVADELAGYHPGLKPTTWEECLYAINAMKDGGHTTEAEHILEMAPELQEGAAAL"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 48,
+      "inference_seconds": 11.8176761996001,
+      "iptm": 0.2402384728193283,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 72.75263977050781,
+      "pae_a_to_b_angstrom": 20.620271682739258,
+      "pae_b_to_a_angstrom": 15.606195449829102,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6541503667831421,
+      "request_sha256": "a5555b5e19172ba01643e0b1ceb3a299882fbbf9a5ef0f89a39cac3f1050d960",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0004/complex.cif",
+      "target_plddt_residue": 78.42027282714844,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 2.7015392780303955,
+      "binder_plddt_residue": 49.369728088378906,
+      "binder_rmsd_after_target_alignment_angstrom": 21.312902450561523,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_56_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "AVIKVKDENGELVLEVENLEGAKEVLKEAVEELKEEYGAKNVLTIEAEVNGVNYEVKYEV"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 56,
+      "inference_seconds": 11.633874078281224,
+      "iptm": 0.2114691138267517,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 69.12128448486328,
+      "pae_a_to_b_angstrom": 23.235645294189453,
+      "pae_b_to_a_angstrom": 17.297683715820312,
+      "peak_torch_allocated_bytes": 14433453568,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6546042561531067,
+      "request_sha256": "4502323968353fa69bc20748bad9634e4ac95af5123e2d5c15586164200e3375",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0010/complex.cif",
+      "target_plddt_residue": 79.51683807373047,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 11.518499374389648,
+      "binder_plddt_residue": 50.55881118774414,
+      "binder_rmsd_after_target_alignment_angstrom": 20.734840393066406,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_54_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "MAAAEAAEEAARGVLGAAAVAALHTLIEAAEHAIAEEAELEALLAALEAAIEAHEALAGQ"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 54,
+      "inference_seconds": 11.618941441178322,
+      "iptm": 0.20781856775283813,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T144133Z-b01a8b0b",
+      "mean_plddt_residue": 67.96640014648438,
+      "pae_a_to_b_angstrom": 22.6560001373291,
+      "pae_b_to_a_angstrom": 17.01033592224121,
+      "peak_torch_allocated_bytes": 14433415680,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6388235688209534,
+      "request_sha256": "d143a836576304f065aad10471717fbeaa35c1c6f06ded5ebe543083c6e76f4b",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T144133Z-b01a8b0b/executions/20260905T144156Z-27ecb2f0/output/candidate0001/complex.cif",
+      "target_plddt_residue": 77.12828826904297,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 9.566889762878418,
+      "binder_plddt_residue": 46.51763916015625,
+      "binder_rmsd_after_target_alignment_angstrom": 14.812186241149902,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_57_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "TKIVTAEEALADPEKAAKAANDYFGIDVAQFAAMAKAAKNMKVGPEAKKALAIAAKHLAG"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 57,
+      "inference_seconds": 11.699066850356758,
+      "iptm": 0.20696227252483368,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 68.03680419921875,
+      "pae_a_to_b_angstrom": 23.070558547973633,
+      "pae_b_to_a_angstrom": 15.072879791259766,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6576938033103943,
+      "request_sha256": "35cc108b0a7df7efcfd6546159368ed4ffaedc30a0aa5d834a7bdf3bb4d160ce",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0011/complex.cif",
+      "target_plddt_residue": 79.3626708984375,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 8.994165420532227,
+      "binder_plddt_residue": 40.33143997192383,
+      "binder_rmsd_after_target_alignment_angstrom": 13.84838581085205,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_51_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "PNSPLDEGLAEAKELTDDSTVRSGDGAVVQGKAAFADALADNAKDHGGGKEQRTVKRVVA"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 51,
+      "inference_seconds": 12.199327724985778,
+      "iptm": 0.20462848246097565,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 63.04240798950195,
+      "pae_a_to_b_angstrom": 24.388317108154297,
+      "pae_b_to_a_angstrom": 17.332544326782227,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6156200766563416,
+      "request_sha256": "e85e61efd4ff694002b2fc5082ccfaba66f506f37f8f4da17e43308d74a090de",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0006/complex.cif",
+      "target_plddt_residue": 74.99553680419922,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 5.297921180725098,
+      "binder_plddt_residue": 43.699092864990234,
+      "binder_rmsd_after_target_alignment_angstrom": 17.4615535736084,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_50_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "GSTEVVVVRKGAEMADAIDALKAHYAVDVDAEFEVVTEAELPAEAAAAPGERRVIVEAVD"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 50,
+      "inference_seconds": 8.621881557628512,
+      "iptm": 0.18952515721321106,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T144133Z-b01a8b0b",
+      "mean_plddt_residue": 66.61927795410156,
+      "pae_a_to_b_angstrom": 24.446767807006836,
+      "pae_b_to_a_angstrom": 16.65969467163086,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14717812736,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6424217820167542,
+      "request_sha256": "d97f712d0b9e0981e04a19ea364339371fb28934e1e2531b7fa3df1b461b0d18",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T144133Z-b01a8b0b/executions/20260905T144156Z-27ecb2f0/output/candidate0002/complex.cif",
+      "target_plddt_residue": 78.68252563476562,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 12.969428062438965,
+      "binder_plddt_residue": 55.750274658203125,
+      "binder_rmsd_after_target_alignment_angstrom": 26.41379165649414,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_47_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "NLAAAEEALDAAEELADGAEGLTAAERAHADALMDELRAAQAHLQLAAMAALYALLQADA"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 47,
+      "inference_seconds": 11.737808279693127,
+      "iptm": 0.1725608855485916,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 68.36056518554688,
+      "pae_a_to_b_angstrom": 22.83420753479004,
+      "pae_b_to_a_angstrom": 20.4582462310791,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.5979759097099304,
+      "request_sha256": "878ec6212f67bbff29add319f9307ca5d99ec215003dedf91278139139bcb384",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0003/complex.cif",
+      "target_plddt_residue": 74.99755859375,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 1.2236813306808472,
+      "binder_plddt_residue": 56.87107467651367,
+      "binder_rmsd_after_target_alignment_angstrom": 17.634807586669922,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "GEAELNKLEKEAEELKEKLKKEAPELAEDVEDLVDKAEGATDVEEKKNLVKEMKELAGGA"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 49,
+      "inference_seconds": 11.694501074962318,
+      "iptm": 0.1712673455476761,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 71.77487182617188,
+      "pae_a_to_b_angstrom": 25.43879508972168,
+      "pae_b_to_a_angstrom": 17.3927001953125,
+      "peak_torch_allocated_bytes": 14433453568,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6459943652153015,
+      "request_sha256": "96f2cf66d31c18d64e8b790ecb6e67c40ffc2d5918001d1e22eec320bbcee7c7",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0005/complex.cif",
+      "target_plddt_residue": 79.61898040771484,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 6.253848075866699,
+      "binder_plddt_residue": 42.91854476928711,
+      "binder_rmsd_after_target_alignment_angstrom": 14.410545349121094,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_58_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "MRVILLASNGRVREVDTEGAAEAGAAEAAGKMGIDIENVTKLREVEGEEALYRARKEGFV"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 58,
+      "inference_seconds": 11.938869689591229,
+      "iptm": 0.1663280576467514,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 67.28821563720703,
+      "pae_a_to_b_angstrom": 25.56328582763672,
+      "pae_b_to_a_angstrom": 16.64458465576172,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6446037888526917,
+      "request_sha256": "84440796b63bf64af169c6f33947613454f1d4cf9d7b4ef3a7cb7310da6a1ed0",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0012/complex.cif",
+      "target_plddt_residue": 80.11434936523438,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 7.559413433074951,
+      "binder_plddt_residue": 50.875675201416016,
+      "binder_rmsd_after_target_alignment_angstrom": 15.303313255310059,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "SSAALKALLSATKAALKAAIARLSKELNVSRREATTLLTEALAGEVIDHEALTELATSLL"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 45,
+      "inference_seconds": 11.797638950869441,
+      "iptm": 0.15001827478408813,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 72.38370513916016,
+      "pae_a_to_b_angstrom": 26.4293212890625,
+      "pae_b_to_a_angstrom": 17.448665618896484,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6621129512786865,
+      "request_sha256": "09d625a8ffc39156295b63852b758c88d509b0cf37b7855b026b33e3a5163868",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0002/complex.cif",
+      "target_plddt_residue": 83.7037124633789,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 3.164999485015869,
+      "binder_plddt_residue": 49.201438903808594,
+      "binder_rmsd_after_target_alignment_angstrom": 19.47188949584961,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "GTEEAFEAAFEEAKGGADDGLLAGLEEAWEDLRHDHGDASIEELEEALEEALHELEHALA"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 44,
+      "inference_seconds": 8.675457760691643,
+      "iptm": 0.13705196976661682,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 67.80620574951172,
+      "pae_a_to_b_angstrom": 26.175987243652344,
+      "pae_b_to_a_angstrom": 19.015336990356445,
+      "peak_torch_allocated_bytes": 14433453568,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.623431384563446,
+      "request_sha256": "ac3d23f0fc8b1269ad7a2f1ca5d198c90a512c6cfca6969180c5d66cf196a226",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0001/complex.cif",
+      "target_plddt_residue": 77.59819793701172,
+      "threshold_pass": null
+    },
+    {
+      "backend": "esmfold2",
+      "binder_ca_rmsd_angstrom": 4.84803581237793,
+      "binder_plddt_residue": 47.223419189453125,
+      "binder_rmsd_after_target_alignment_angstrom": 20.508872985839844,
+      "candidate_id": "baseline_pdl1_60aa_16seeds_seed_55_bb_0_seq_0",
+      "chains": [
+        {
+          "generation_chain": "A",
+          "id": "A",
+          "role": "binder",
+          "sequence": "DAAVEAAFEAADELLEDAAEEGRAEAEMADEAAAMRDALAGGEAGVEELDALMEELEGGQ"
+        },
+        {
+          "generation_chain": "B",
+          "id": "B",
+          "role": "target",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      ],
+      "generation_seed": 55,
+      "inference_seconds": 8.802809831686318,
+      "iptm": 0.12343649566173553,
+      "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "mean_plddt_residue": 66.29644775390625,
+      "pae_a_to_b_angstrom": 26.65049934387207,
+      "pae_b_to_a_angstrom": 20.057327270507812,
+      "peak_torch_allocated_bytes": 14433436160,
+      "peak_torch_reserved_bytes": 14715715584,
+      "policy": {
+        "backend": "esmfold2",
+        "esmc_id": "biohub/ESMC-6B",
+        "esmc_precision": "bf16",
+        "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "folding_precision": "float32_with_upstream_bf16_autocast",
+        "kernel_backend": "reference",
+        "lm_dropout": 0.3,
+        "model_id": "biohub/ESMFold2",
+        "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "msa_mode": "none",
+        "num_diffusion_samples": 1,
+        "num_loops": 20,
+        "num_sampling_steps": 100,
+        "ranking": "iptm_descending_candidate_id_tiebreak",
+        "seed": 1,
+        "thresholds": null
+      },
+      "ptm": 0.6082459092140198,
+      "request_sha256": "3755925474daa537b517a8207eb1525a594e9a460b211198b92db277a3407059",
+      "structure": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a/executions/20260905T145800Z-317ba2d6/output/candidate0009/complex.cif",
+      "target_plddt_residue": 76.33487701416016,
+      "threshold_pass": null
+    }
+  ],
+  "generation_manifest_sha256": "1373fb7eb61e6b736dfd579a57133af0db6dc88730a4f34bc7c0ff7d509de08d",
+  "inference_seconds_sum": 182.95114560518414,
+  "iptm_median": 0.20579537749290466,
+  "jobs": [
+    {
+      "completed_receipt_sha256": "d3cba6a88af619a84dcd1889577b0fd6f4bf49576a2fbaf833915195465cec22",
+      "path": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T144133Z-b01a8b0b",
+      "process_seconds_including_failures": 168.30905782524496,
+      "provenance": {
+        "backend": "esmfold2",
+        "ccd": {
+          "path": "/data/yusen/software/.cache/huggingface/hub/models--biohub--ESMFold2/blobs/9ff44b1927c6b9198e38ffe0928706827a09a350c15530beeeabebfa88038fc5",
+          "sha256": "9ff44b1927c6b9198e38ffe0928706827a09a350c15530beeeabebfa88038fc5"
+        },
+        "cuda_visible_devices": "7",
+        "esmc_dir": "/data/yusen/software/.cache/huggingface/hub/models--biohub--ESMC-6B/snapshots/45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "esmc_dtype": "torch.bfloat16",
+        "folding_dtype": "torch.float32",
+        "folding_model": [
+          {
+            "path": "config.json",
+            "sha256": "e9ec2496ec433a1dce18627ed4bf3785b4ce0c1d69e4bb4663dad1ab895da012",
+            "size": 2337
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model.safetensors",
+            "sha256": "138fd4350d6892b81ce6be7ff9bf5a93ae9d4d3751f46a27438a3f9f0dcefa0e",
+            "size": 939505228
+          }
+        ],
+        "gpu_name": "NVIDIA L20",
+        "language_model": [
+          {
+            "path": "config.json",
+            "sha256": "c5566fab6a17fd674141331fe75de917b7904d99fb7a410d2b1593c21e576913",
+            "size": 341
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00001-of-00006.safetensors",
+            "sha256": "bd90149ff223e6ac1a0cac6147a5ae0df20d3a21df4f65356a1f19cd14f4aa8a",
+            "size": 4864457920
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00002-of-00006.safetensors",
+            "sha256": "f75e2144d8269fe2eb4b3e0823fb089b94f176d8024153e85b8fb573a42294fa",
+            "size": 4971211344
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00003-of-00006.safetensors",
+            "sha256": "f699f01ecc9691d9c6470492765fe54b8b5d2e9f277c139e89427433ffdfe0b2",
+            "size": 4863752992
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00004-of-00006.safetensors",
+            "sha256": "46add1b7be098bbfdc3073884851ba3057f1b33ea23a158b650a37007dabd13d",
+            "size": 4971211344
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00005-of-00006.safetensors",
+            "sha256": "1e1cb62f060a34e18f54a31a76683ef888b8cec59e73315f5b31d25d45a1f88c",
+            "size": 4863752992
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00006-of-00006.safetensors",
+            "sha256": "56c73e13ae96e777ce65eee99364056069ef93b646470f352f83c5f1037b1b18",
+            "size": 873762296
+          },
+          {
+            "path": "model.safetensors.index.json",
+            "sha256": "6846456e20e6ee2c37461f7bfc21d316d69bdaf165b925691afcb39e583244da",
+            "size": 97349
+          }
+        ],
+        "ld_library_path_unset": true,
+        "model_dir": "/data/yusen/software/.cache/huggingface/hub/models--biohub--ESMFold2/snapshots/1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "model_load_seconds": 12.686774028465152,
+        "offline": true,
+        "packages": {
+          "biotite": {
+            "source": null,
+            "version": "1.6.0"
+          },
+          "esm": {
+            "source": {
+              "url": "https://github.com/Biohub/esm.git",
+              "vcs_info": {
+                "commit_id": "d96737e56af90af5f06126955d9dd670db3f930a",
+                "requested_revision": "main",
+                "vcs": "git"
+              }
+            },
+            "version": "3.3.0"
+          },
+          "rdkit": {
+            "source": null,
+            "version": "2026.3.3"
+          },
+          "safetensors": {
+            "source": null,
+            "version": "0.8.0"
+          },
+          "torch": {
+            "source": null,
+            "version": "2.5.1+cu124"
+          },
+          "transformers": {
+            "source": {
+              "url": "https://github.com/Biohub/transformers.git",
+              "vcs_info": {
+                "commit_id": "ef32577f55da19a4989cd7b22e004dc43a4998cb",
+                "requested_revision": "main",
+                "vcs": "git"
+              }
+            },
+            "version": "4.57.6"
+          }
+        },
+        "policy": {
+          "backend": "esmfold2",
+          "esmc_id": "biohub/ESMC-6B",
+          "esmc_precision": "bf16",
+          "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+          "folding_precision": "float32_with_upstream_bf16_autocast",
+          "kernel_backend": "reference",
+          "lm_dropout": 0.3,
+          "model_id": "biohub/ESMFold2",
+          "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+          "msa_mode": "none",
+          "num_diffusion_samples": 1,
+          "num_loops": 20,
+          "num_sampling_steps": 100,
+          "ranking": "iptm_descending_candidate_id_tiebreak",
+          "seed": 1,
+          "thresholds": null
+        },
+        "python": "3.12.0",
+        "torch_cuda": "12.4",
+        "worker_sha256": "597c7e2deb39bc76ecceb0cc7da686b09a8e0f7bb99341d27914ecbf5a6a5618"
+      },
+      "request_manifest_sha256": "2ba4ef9ee5d4832cac364ede756fb55a8dae42937f5dfaadfb1c5746b005234e"
+    },
+    {
+      "completed_receipt_sha256": "4f2b42fd487c00fd6a24f48e6cdaaf43af405e75ac8d700bf89681767dbee41a",
+      "path": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/complex-assessments/20260905T145716Z-464c8a4a",
+      "process_seconds_including_failures": 201.69825676176697,
+      "provenance": {
+        "backend": "esmfold2",
+        "ccd": {
+          "path": "/data/yusen/software/.cache/huggingface/hub/models--biohub--ESMFold2/blobs/9ff44b1927c6b9198e38ffe0928706827a09a350c15530beeeabebfa88038fc5",
+          "sha256": "9ff44b1927c6b9198e38ffe0928706827a09a350c15530beeeabebfa88038fc5"
+        },
+        "cuda_visible_devices": "7",
+        "esmc_dir": "/data/yusen/software/.cache/huggingface/hub/models--biohub--ESMC-6B/snapshots/45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+        "esmc_dtype": "torch.bfloat16",
+        "folding_dtype": "torch.float32",
+        "folding_model": [
+          {
+            "path": "config.json",
+            "sha256": "e9ec2496ec433a1dce18627ed4bf3785b4ce0c1d69e4bb4663dad1ab895da012",
+            "size": 2337
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model.safetensors",
+            "sha256": "138fd4350d6892b81ce6be7ff9bf5a93ae9d4d3751f46a27438a3f9f0dcefa0e",
+            "size": 939505228
+          }
+        ],
+        "gpu_name": "NVIDIA L20",
+        "language_model": [
+          {
+            "path": "config.json",
+            "sha256": "c5566fab6a17fd674141331fe75de917b7904d99fb7a410d2b1593c21e576913",
+            "size": 341
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00001-of-00006.safetensors",
+            "sha256": "bd90149ff223e6ac1a0cac6147a5ae0df20d3a21df4f65356a1f19cd14f4aa8a",
+            "size": 4864457920
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00002-of-00006.safetensors",
+            "sha256": "f75e2144d8269fe2eb4b3e0823fb089b94f176d8024153e85b8fb573a42294fa",
+            "size": 4971211344
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00003-of-00006.safetensors",
+            "sha256": "f699f01ecc9691d9c6470492765fe54b8b5d2e9f277c139e89427433ffdfe0b2",
+            "size": 4863752992
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00004-of-00006.safetensors",
+            "sha256": "46add1b7be098bbfdc3073884851ba3057f1b33ea23a158b650a37007dabd13d",
+            "size": 4971211344
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00005-of-00006.safetensors",
+            "sha256": "1e1cb62f060a34e18f54a31a76683ef888b8cec59e73315f5b31d25d45a1f88c",
+            "size": 4863752992
+          },
+          {
+            "hf_lfs_blob_verified": true,
+            "path": "model-00006-of-00006.safetensors",
+            "sha256": "56c73e13ae96e777ce65eee99364056069ef93b646470f352f83c5f1037b1b18",
+            "size": 873762296
+          },
+          {
+            "path": "model.safetensors.index.json",
+            "sha256": "6846456e20e6ee2c37461f7bfc21d316d69bdaf165b925691afcb39e583244da",
+            "size": 97349
+          }
+        ],
+        "ld_library_path_unset": true,
+        "model_dir": "/data/yusen/software/.cache/huggingface/hub/models--biohub--ESMFold2/snapshots/1ebf0e3481a5184eb6171d40615c79e384b48796",
+        "model_load_seconds": 12.27999151032418,
+        "offline": true,
+        "packages": {
+          "biotite": {
+            "source": null,
+            "version": "1.6.0"
+          },
+          "esm": {
+            "source": {
+              "url": "https://github.com/Biohub/esm.git",
+              "vcs_info": {
+                "commit_id": "d96737e56af90af5f06126955d9dd670db3f930a",
+                "requested_revision": "main",
+                "vcs": "git"
+              }
+            },
+            "version": "3.3.0"
+          },
+          "rdkit": {
+            "source": null,
+            "version": "2026.3.3"
+          },
+          "safetensors": {
+            "source": null,
+            "version": "0.8.0"
+          },
+          "torch": {
+            "source": null,
+            "version": "2.5.1+cu124"
+          },
+          "transformers": {
+            "source": {
+              "url": "https://github.com/Biohub/transformers.git",
+              "vcs_info": {
+                "commit_id": "ef32577f55da19a4989cd7b22e004dc43a4998cb",
+                "requested_revision": "main",
+                "vcs": "git"
+              }
+            },
+            "version": "4.57.6"
+          }
+        },
+        "policy": {
+          "backend": "esmfold2",
+          "esmc_id": "biohub/ESMC-6B",
+          "esmc_precision": "bf16",
+          "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+          "folding_precision": "float32_with_upstream_bf16_autocast",
+          "kernel_backend": "reference",
+          "lm_dropout": 0.3,
+          "model_id": "biohub/ESMFold2",
+          "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+          "msa_mode": "none",
+          "num_diffusion_samples": 1,
+          "num_loops": 20,
+          "num_sampling_steps": 100,
+          "ranking": "iptm_descending_candidate_id_tiebreak",
+          "seed": 1,
+          "thresholds": null
+        },
+        "python": "3.12.0",
+        "torch_cuda": "12.4",
+        "worker_sha256": "597c7e2deb39bc76ecceb0cc7da686b09a8e0f7bb99341d27914ecbf5a6a5618"
+      },
+      "request_manifest_sha256": "4dac23aefaf35b7395130b0a0ab2864287c60f0ece40da4fa48733ad15ebdb6c"
+    }
+  ],
+  "peak_torch_allocated_gib": 13.442201137542725,
+  "policy": {
+    "backend": "esmfold2",
+    "esmc_id": "biohub/ESMC-6B",
+    "esmc_precision": "bf16",
+    "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+    "folding_precision": "float32_with_upstream_bf16_autocast",
+    "kernel_backend": "reference",
+    "lm_dropout": 0.3,
+    "model_id": "biohub/ESMFold2",
+    "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+    "msa_mode": "none",
+    "num_diffusion_samples": 1,
+    "num_loops": 20,
+    "num_sampling_steps": 100,
+    "ranking": "iptm_descending_candidate_id_tiebreak",
+    "seed": 1,
+    "thresholds": null
+  },
+  "process_seconds_including_failures": 370.00731458701193,
+  "thresholds": null
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "name": "protein_interface_geometry_v1",
+  "contact_distance_angstrom": 5.0,
+  "clash_distance_angstrom": 2.0,
+  "distance_comparison": "strictly_less_than",
+  "atom_selection": "canonical protein non-hydrogen atoms; exclude hetero atoms",
+  "alternate_locations": "first",
+  "contact_count_unit": "unique inter-chain residue pairs",
+  "clash_count_units": ["inter-chain atom pairs", "inter-chain residue pairs"],
+  "hotspot_mapping": "exact sequence and ordered reference residue identities",
+  "acceptance_thresholds": null,
+  "control": {
+    "pdb_id": "4ZQK",
+    "source_url": "https://files.rcsb.org/download/4ZQK.cif",
+    "sha256": "f5012ba58d76099ba77ce992562e7df4afead12632678548d4d4f00c268b485f",
+    "binder_author_chain": "B",
+    "target_author_chain": "A"
+  },
+  "distance_reference": "https://github.com/wallnerlab/DockQ/blob/master/src/DockQ/constants.py",
+  "scope": "geometric diagnostics only; not DockQ, MolProbity, energy or binding probability"
+}

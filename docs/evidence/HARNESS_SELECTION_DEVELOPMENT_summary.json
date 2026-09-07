@@ -1,0 +1,552 @@
+{
+  "acceptance": null,
+  "agent_advantage_demonstrated": false,
+  "binding_validated": false,
+  "date": "2026-09-06",
+  "provenance": {
+    "actor_agent_id": "/root/host_decision",
+    "actor_harness": "codex-collaboration",
+    "allowed_read_files": [
+      "plugins/molclaw/skills/molclaw/SKILL.md",
+      "plugins/molclaw/skills/molclaw/references/cli-and-protocol.md",
+      "host-input-0000.json",
+      "host-input-0001.json"
+    ],
+    "decision_calls": 2,
+    "executor_stop_calls": 1,
+    "fork_turns": "none",
+    "isolation": "fresh subagent with no parent conversation; instruction-limited file access, not OS-level filesystem isolation",
+    "model_revision": null,
+    "parent_had_seen_full_development_results": true,
+    "scientific_scope": "single development target, no held-out policy comparison or experimental binding labels",
+    "system_prompt_available": false,
+    "token_usage": null
+  },
+  "reports": {
+    "fixed": {
+      "acceptance": null,
+      "actor_metadata_verified": false,
+      "binding_validated": false,
+      "candidate_count": 16,
+      "decisions": [
+        {
+          "actor": {
+            "agent_id": "fixed",
+            "harness": "builtin",
+            "model": null
+          },
+          "decision": {
+            "action": "evaluate",
+            "candidate_ids": [
+              "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+              "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0"
+            ],
+            "evidence": [
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 65.361229
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 70.585968
+              }
+            ],
+            "reason": "fixed_seed_order"
+          },
+          "request_sha256": "8cde5ab3f6f3fee9c154f04430b414af1dccfa59afdbf643e8fe429f72387244"
+        },
+        {
+          "actor": {
+            "agent_id": "fixed",
+            "harness": "builtin",
+            "model": null
+          },
+          "decision": {
+            "action": "evaluate",
+            "candidate_ids": [
+              "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+              "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0"
+            ],
+            "evidence": [
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 77.300766
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 89.078651
+              }
+            ],
+            "reason": "fixed_seed_order"
+          },
+          "request_sha256": "80ee7790b03ee07d7cd35264ada4c8ef9b1acc78c837f9a1f05df643c6a22d69"
+        },
+        {
+          "actor": {
+            "agent_id": null,
+            "harness": "executor",
+            "model": null
+          },
+          "decision": {
+            "action": "stop",
+            "candidate_ids": [],
+            "evidence": [],
+            "reason": "candidate_limit_reached"
+          },
+          "request_sha256": "81fd310808e71dd261e5de8a057665975f0afb61e47013f801c4dc7c5044ccb3"
+        }
+      ],
+      "evaluated_count": 4,
+      "host_token_usage": null,
+      "mode": "saved_complex_replay",
+      "new_model_inference": false,
+      "observations": [
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 14.658002,
+            "clash_residue_pairs": 1,
+            "hotspot_coverage": 0.5,
+            "iptm": 0.529753
+          }
+        },
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 19.471889,
+            "clash_residue_pairs": 1,
+            "hotspot_coverage": 0.5,
+            "iptm": 0.137052
+          }
+        },
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 15.303313,
+            "clash_residue_pairs": 4,
+            "hotspot_coverage": 0.5,
+            "iptm": 0.150018
+          }
+        },
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 25.23205,
+            "clash_residue_pairs": 0,
+            "hotspot_coverage": 0.75,
+            "iptm": 0.827041
+          }
+        }
+      ],
+      "scope": "development selection trace; no held-out policy comparison or binding labels",
+      "selection_order": [
+        "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+        "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+        "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+        "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0"
+      ],
+      "status": "completed",
+      "stop_reason": "candidate_limit_reached",
+      "strategy": "fixed",
+      "tool_wall_seconds": 0.009856728836894035
+    },
+    "harness": {
+      "acceptance": null,
+      "actor_metadata_verified": false,
+      "binding_validated": false,
+      "candidate_count": 16,
+      "decisions": [
+        {
+          "actor": {
+            "agent_id": "/root/host_decision",
+            "harness": "codex-collaboration",
+            "model": null
+          },
+          "decision": {
+            "action": "evaluate",
+            "candidate_ids": [
+              "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+              "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0"
+            ],
+            "evidence": [
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+                "field": "pre.monomer_design_rmsd",
+                "value": 0.947544
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+                "field": "pre.generated_hotspot_coverage",
+                "value": 0.5
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 81.985062
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+                "field": "pre.generated_clash_residue_pairs",
+                "value": 0.0
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+                "field": "pre.monomer_design_rmsd",
+                "value": 1.552683
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+                "field": "pre.generated_hotspot_coverage",
+                "value": 0.25
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 82.27729
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+                "field": "pre.generated_clash_residue_pairs",
+                "value": 0.0
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 89.078651
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+                "field": "pre.monomer_design_rmsd",
+                "value": 9.418356
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+                "field": "pre.generated_hotspot_coverage",
+                "value": 0.0
+              }
+            ],
+            "reason": "Use the current two-candidate allowance to assess seeds 49 and 48, then use the newly visible complex diagnostics to guide the remaining evaluations. Seed 49 has the lowest visible monomer_design_rmsd, 0.947544, together with generated_hotspot_coverage 0.5, monomer_plddt 81.985062 and generated_clash_residue_pairs 0. Seed 48 has the next-lowest monomer_design_rmsd, 1.552683, and slightly higher monomer_plddt, 82.27729, while trading off lower generated_hotspot_coverage, 0.25; its generated_clash_residue_pairs is also 0. This pair prioritizes consistency between the refolded monomer and design geometry while testing the coverage/confidence tradeoff. Seed 46 has higher monomer_plddt, 89.078651, but monomer_design_rmsd 9.418356 and generated_hotspot_coverage 0.0, so monomer confidence alone does not justify prioritizing it in this first batch. These are relative diagnostic choices without a calibrated acceptance cutoff; complex outcomes are unavailable, acceptance remains unknown, and no experimental binding is established."
+          },
+          "request_sha256": "412686620b6411f25c695cd3edd6de308fb618f3ea77c802402310e281a6fb77"
+        },
+        {
+          "actor": {
+            "agent_id": "/root/host_decision",
+            "harness": "codex-collaboration",
+            "model": null
+          },
+          "decision": {
+            "action": "evaluate",
+            "candidate_ids": [
+              "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+              "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0"
+            ],
+            "evidence": [
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+                "field": "post.iptm",
+                "value": 0.240238
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+                "field": "post.iptm",
+                "value": 0.171267
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+                "field": "post.binder_rmsd_after_target_alignment",
+                "value": 7.193282
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+                "field": "post.binder_rmsd_after_target_alignment",
+                "value": 17.634808
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+                "field": "pre.monomer_design_rmsd",
+                "value": 2.032652
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+                "field": "pre.generated_hotspot_coverage",
+                "value": 0.5
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 65.361229
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+                "field": "pre.generated_clash_residue_pairs",
+                "value": 0.0
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+                "field": "pre.monomer_design_rmsd",
+                "value": 3.091144
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+                "field": "pre.generated_hotspot_coverage",
+                "value": 0.25
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 70.585968
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+                "field": "pre.generated_clash_residue_pairs",
+                "value": 0.0
+              }
+            ],
+            "reason": "\u7ee7\u7eed\u8bc4\u4f30 seed 43 \u548c 44\uff0c\u4f7f\u7528\u5269\u4f59\u7684\u4e24\u4e2a\u540d\u989d\u3002\u5df2\u89c2\u5bdf\u7684 seed 48 \u548c 49 \u7684 post.iptm \u5206\u522b\u4e3a 0.240238\u30010.171267\uff0cpost.binder_rmsd_after_target_alignment \u5206\u522b\u4e3a 7.193282\u300117.634808\uff1b\u6b64\u524d\u8f83\u597d\u7684\u5355\u4f53\u6307\u6807\u5c1a\u4e0d\u8db3\u4ee5\u652f\u6301\u754c\u9762\u6210\u529f\u7684\u5224\u65ad\uff0c\u4f46\u8fd9\u4e24\u4e2a\u7ed3\u679c\u4e5f\u4e0d\u80fd\u8bc1\u660e\u5176\u4ed6\u5019\u9009\u90fd\u65e0\u8bc4\u4f30\u4ef7\u503c\u3002seed 43 \u5728\u672a\u8bc4\u4f30\u5019\u9009\u4e2d\u5177\u6709\u6700\u4f4e\u7684 pre.monomer_design_rmsd 2.032652\uff0c\u5e76\u4fdd\u7559 pre.generated_hotspot_coverage 0.5\uff0c\u4ee3\u4ef7\u662f pre.monomer_plddt 65.361229\u3002seed 44 \u7684 pre.monomer_design_rmsd 3.091144 \u6b21\u4f4e\uff0cpre.monomer_plddt 70.585968 \u8f83\u9ad8\uff0c\u4f46 pre.generated_hotspot_coverage \u964d\u4e3a 0.25\u3002\u4e24\u8005\u7684 pre.generated_clash_residue_pairs \u5747\u4e3a 0\u3002\u8fd9\u4e00\u6279\u7ee7\u7eed\u8003\u5bdf\u8bbe\u8ba1\u51e0\u4f55\u4fdd\u6301\u7a0b\u5ea6\u8f83\u597d\u7684\u5019\u9009\uff0c\u5e76\u6bd4\u8f83\u70ed\u70b9\u8986\u76d6\u4e0e\u5355\u4f53\u7f6e\u4fe1\u5ea6\u7684\u6743\u8861\uff1b\u672a\u4ece\u5df2\u6709\u4e24\u6b21\u89c2\u5bdf\u62df\u5408\u9608\u503c\uff0c\u4e5f\u672a\u63a8\u65ad\u672a\u9009\u5019\u9009\u7684\u590d\u5408\u7269\u7ed3\u679c\u3002acceptance \u4ecd\u672a\u77e5\uff0c\u8ba1\u7b97\u8bca\u65ad\u4e0d\u4ee3\u8868\u5b9e\u9a8c\u7ed3\u5408\u9a8c\u8bc1\u3002"
+          },
+          "request_sha256": "fd8a669e1a045d8e01d796e092f6a6bdf166400d9422c8de32e7f0b6f99ed60e"
+        },
+        {
+          "actor": {
+            "agent_id": null,
+            "harness": "executor",
+            "model": null
+          },
+          "decision": {
+            "action": "stop",
+            "candidate_ids": [],
+            "evidence": [],
+            "reason": "candidate_limit_reached"
+          },
+          "request_sha256": "cd7992c022789b9d933ae4903dda18ee65d82f4cfc9c7d2865d9a7cd68b1d90e"
+        }
+      ],
+      "evaluated_count": 4,
+      "host_token_usage": null,
+      "mode": "saved_complex_replay",
+      "new_model_inference": false,
+      "observations": [
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 17.634808,
+            "clash_residue_pairs": 2,
+            "hotspot_coverage": 0.25,
+            "iptm": 0.171267
+          }
+        },
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 7.193282,
+            "clash_residue_pairs": 2,
+            "hotspot_coverage": 0.25,
+            "iptm": 0.240238
+          }
+        },
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 14.658002,
+            "clash_residue_pairs": 1,
+            "hotspot_coverage": 0.5,
+            "iptm": 0.529753
+          }
+        },
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 19.471889,
+            "clash_residue_pairs": 1,
+            "hotspot_coverage": 0.5,
+            "iptm": 0.137052
+          }
+        }
+      ],
+      "scope": "development selection trace; no held-out policy comparison or binding labels",
+      "selection_order": [
+        "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+        "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+        "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+        "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0"
+      ],
+      "status": "completed",
+      "stop_reason": "candidate_limit_reached",
+      "strategy": "harness",
+      "tool_wall_seconds": 0.013752680271863937
+    },
+    "heuristic": {
+      "acceptance": null,
+      "actor_metadata_verified": false,
+      "binding_validated": false,
+      "candidate_count": 16,
+      "decisions": [
+        {
+          "actor": {
+            "agent_id": "heuristic",
+            "harness": "builtin",
+            "model": null
+          },
+          "decision": {
+            "action": "evaluate",
+            "candidate_ids": [
+              "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+              "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0"
+            ],
+            "evidence": [
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 89.078651
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 82.27729
+              }
+            ],
+            "reason": "pre_complex_pareto_then_sequence_diversity"
+          },
+          "request_sha256": "44fae88fa25773a67b0ae82151aa0fec0383860180fab1439a01b3a976c6ee7c"
+        },
+        {
+          "actor": {
+            "agent_id": "heuristic",
+            "harness": "builtin",
+            "model": null
+          },
+          "decision": {
+            "action": "evaluate",
+            "candidate_ids": [
+              "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+              "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0"
+            ],
+            "evidence": [
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 81.985062
+              },
+              {
+                "candidate_id": "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+                "field": "pre.monomer_plddt",
+                "value": 77.300766
+              }
+            ],
+            "reason": "pre_complex_pareto_then_sequence_diversity"
+          },
+          "request_sha256": "3ad4120c18e06e85472e91c93836f4d854f9c236cde34bca74169095426d5227"
+        },
+        {
+          "actor": {
+            "agent_id": null,
+            "harness": "executor",
+            "model": null
+          },
+          "decision": {
+            "action": "stop",
+            "candidate_ids": [],
+            "evidence": [],
+            "reason": "candidate_limit_reached"
+          },
+          "request_sha256": "b19dbcc80715590653f872450776c9fa90904a7436744495fac0c70bb2d28698"
+        }
+      ],
+      "evaluated_count": 4,
+      "host_token_usage": null,
+      "mode": "saved_complex_replay",
+      "new_model_inference": false,
+      "observations": [
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 25.23205,
+            "clash_residue_pairs": 0,
+            "hotspot_coverage": 0.75,
+            "iptm": 0.827041
+          }
+        },
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 7.193282,
+            "clash_residue_pairs": 2,
+            "hotspot_coverage": 0.25,
+            "iptm": 0.240238
+          }
+        },
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 17.634808,
+            "clash_residue_pairs": 2,
+            "hotspot_coverage": 0.25,
+            "iptm": 0.171267
+          }
+        },
+        {
+          "candidate_id": "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+          "post": {
+            "binder_rmsd_after_target_alignment": 15.303313,
+            "clash_residue_pairs": 4,
+            "hotspot_coverage": 0.5,
+            "iptm": 0.150018
+          }
+        }
+      ],
+      "scope": "development selection trace; no held-out policy comparison or binding labels",
+      "selection_order": [
+        "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+        "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+        "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+        "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0"
+      ],
+      "status": "completed",
+      "stop_reason": "candidate_limit_reached",
+      "strategy": "heuristic",
+      "tool_wall_seconds": 0.010101296938955784
+    }
+  },
+  "scope": "real host subagent decisions over saved 16-candidate PD-L1 results",
+  "sessions": {
+    "fixed": "interaction-design-mvp/artifacts/screening/20260905T181046Z-9a6ac8a8",
+    "harness": "interaction-design-mvp/artifacts/screening/20260905T180932Z-b5dda29f",
+    "heuristic": "interaction-design-mvp/artifacts/screening/20260905T181047Z-28a2e891"
+  },
+  "validation": {
+    "full_test_suite": {
+      "command": ".venv/bin/pytest -q",
+      "exit_code": 0,
+      "result": "220 passed in 5.73s"
+    },
+    "gpu_inference_this_stage": false,
+    "packages": {
+      "build": "offline cached Hatchling build_sdist/build_wheel",
+      "exit_code": 0,
+      "install": "uv pip install --offline --no-deps --target /tmp/molclaw-harness-installed",
+      "outside_checkout_smoke": "/tmp cwd; imports came from installed wheel; model and geometry resources loaded; screen --help passed"
+    },
+    "previous_seals": {
+      "file_counts": [
+        210,
+        101,
+        16,
+        131
+      ],
+      "result": "all SHA256 checks passed before demonstration"
+    },
+    "ruff": {
+      "commands": [
+        ".venv/bin/ruff check src tests",
+        ".venv/bin/ruff format --check src tests"
+      ],
+      "exit_code": 0,
+      "result": "All checks passed; 50 files already formatted"
+    }
+  }
+}

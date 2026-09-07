@@ -1,23 +1,52 @@
-# Contributing
+# Contributing to MolClaw
 
-## Source Code Changes
+Scientific execution belongs in `interaction-design-mvp/`. Host integrations
+belong in `plugins/molclaw/`. Keep task validation, persistent state and scientific
+execution in the shared Python core so hosts use the same behavior.
 
-**Accepted:** Bug fixes, security fixes, simplifications, reducing code.
+## Local development
 
-**Not accepted:** Features, capabilities, compatibility, enhancements. These should be skills.
+Reuse the existing development environment when available. From the repository
+root:
 
-## Skills
+```bash
+cd interaction-design-mvp
+.venv/bin/ruff check .
+.venv/bin/python -m pytest -q
+```
 
-A [skill](https://code.claude.com/docs/en/skills) is a markdown file in `.claude/skills/` that teaches Claude Code how to transform a BioClaw installation.
+For a fresh environment, follow the [package setup guide](interaction-design-mvp/README.md).
+Python CI uses the locked dependencies, runs Ruff and pytest, and builds the package.
 
-A PR that contributes a skill should not modify any source files.
+The DeepSeek transport tests require only Node and run from the repository root:
 
-Your skill should contain the **instructions** Claude follows to add the feature—not pre-built code. See `/convert-to-docker` for a good example.
+```bash
+node --test plugins/molclaw/deepseek/bridge.test.mjs
+```
 
-### Why?
+When the SDK dependencies declared in the plugin's `package.json` are available,
+run the complete plugin checks:
 
-Every user should have clean and minimal code that does exactly what they need. Skills let users selectively add features to their fork without inheriting code for features they don't want.
+```bash
+cd plugins/molclaw
+npm test
+```
 
-### Testing
+## Changes and evidence
 
-Test your skill by running it on a fresh clone before submitting.
+- Preserve existing task, protocol and result identities when resuming work.
+- Add focused regression coverage for behavior changes and failure handling.
+- Keep model weights, external datasets, credentials, environments and generated
+  outputs out of Git. Preserve upstream licenses and asset provenance.
+- Record new scientific runs separately from existing evidence. State whether
+  validation used synthetic fixtures, saved results, real inference or experimental
+  measurements, and report the limits of each result.
+- Update the relevant package guide and project status when behavior changes.
+
+## Downloads
+
+Reuse local caches and existing environments first. Try direct access before a
+subscription proxy, applying environment overrides to the download command and
+its children and checking the tool's own proxy settings. Distinguish unreachable
+networks from authentication and address errors before retrying through a proxy.
+Do not modify Clash or the agent's global network environment.

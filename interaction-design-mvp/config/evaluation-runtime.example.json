@@ -1,0 +1,15 @@
+{
+  "af3": {
+    "python": "/path/to/af3-env/bin/python",
+    "repo": "/path/to/alphafold3",
+    "expected_revision": "0000000000000000000000000000000000000000",
+    "model_dir": "/path/to/af3-parameters",
+    "db_dir": "/path/to/af3-databases"
+  },
+  "rosetta": {
+    "python": "/path/to/pyrosetta-env/bin/python"
+  },
+  "cuda_visible_devices": "0",
+  "cpu_threads": 4,
+  "stage_timeout_seconds": 900
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "name": "baseline_pdl1_60aa_16seeds",
+  "scope": "Single-target development pilot; not a held-out benchmark or an Agent experiment.",
+  "candidate_count": 16,
+  "seeds": [
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58
+  ],
+  "excluded_pilot_seed": 42,
+  "fixed": {
+    "target": "PD-L1 B20-133",
+    "hotspots": [
+      "B64",
+      "B68",
+      "B126",
+      "B128"
+    ],
+    "binder_length": 60,
+    "backbones_per_seed": 1,
+    "sequences_per_backbone": 1,
+    "inverse_fold_temperature": 1.0,
+    "inverse_fold_beam": true,
+    "odesign_revision": "43944e930aea7dd74d2762f6cce7855471edae7b",
+    "esmfold_snapshot": "75a3841ee059df2bf4d56688166c8fb459ddd97a",
+    "esmfold_precision": "float32, TF32 disabled",
+    "esmfold_chunk_size": 128,
+    "esmfold_trunk_passes": 4
+  },
+  "analysis": {
+    "all_candidates_in_report": true,
+    "threshold_pass": null,
+    "primary": [
+      "mean CA pLDDT (0-100)",
+      "all-residue CA RMSD to design after rigid alignment, no trimming",
+      "pTM",
+      "per-candidate inference time"
+    ],
+    "diversity": [
+      "exact unique sequences",
+      "pairwise same-position sequence identity across 60 residues",
+      "pairwise aligned CA RMSD between generated binder backbones"
+    ],
+    "representative_selection": {
+      "order": "descending mean CA pLDDT, ties by candidate ID",
+      "zero_based_positions": [
+        0,
+        7,
+        15
+      ],
+      "purpose": "prepare high/middle/low confidence candidates for later complex evaluation, not declare binding winners"
+    }
+  },
+  "resources": {
+    "generation_wall_timeout_seconds": 3600,
+    "esmfold_wall_timeout_seconds": 900,
+    "single_gpu": true,
+    "cpu_threads": 4,
+    "shared_server_timings_not_dedicated_gpu_benchmark": true
+  },
+  "task_file_sha256": "28da13bca3889799ab32bb139f9ee2db9c7bcbcdb31a8b245213a580352560c3"
+}

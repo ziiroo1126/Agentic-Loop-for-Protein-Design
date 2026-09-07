@@ -1,0 +1,164 @@
+{
+  "schema_version": "molclaw-adaptive-input-v1",
+  "purpose": "development",
+  "source": {
+    "dataset": "synthetic",
+    "description": "Fictional scores and endpoints for offline software demonstration only."
+  },
+  "pools": [
+    {
+      "pool_id": "demo",
+      "target": "fictional_target",
+      "candidates": [
+        {
+          "candidate_id": "c1",
+          "source_id": "synthetic_1",
+          "label": false,
+          "predictions": [
+            {
+              "seed": 0,
+              "iptm": 0.738,
+              "ipsae": 0.82,
+              "sc_dockq": null
+            },
+            {
+              "seed": 1,
+              "iptm": 0.315,
+              "ipsae": 0.35,
+              "sc_dockq": null
+            },
+            {
+              "seed": 2,
+              "iptm": 0.36,
+              "ipsae": 0.4,
+              "sc_dockq": null
+            },
+            {
+              "seed": 3,
+              "iptm": 0.342,
+              "ipsae": 0.38,
+              "sc_dockq": null
+            },
+            {
+              "seed": 4,
+              "iptm": 0.369,
+              "ipsae": 0.41,
+              "sc_dockq": null
+            }
+          ]
+        },
+        {
+          "candidate_id": "c2",
+          "source_id": "synthetic_2",
+          "label": true,
+          "predictions": [
+            {
+              "seed": 0,
+              "iptm": 0.549,
+              "ipsae": 0.61,
+              "sc_dockq": null
+            },
+            {
+              "seed": 1,
+              "iptm": 0.576,
+              "ipsae": 0.64,
+              "sc_dockq": null
+            },
+            {
+              "seed": 2,
+              "iptm": 0.558,
+              "ipsae": 0.62,
+              "sc_dockq": null
+            },
+            {
+              "seed": 3,
+              "iptm": 0.585,
+              "ipsae": 0.65,
+              "sc_dockq": null
+            },
+            {
+              "seed": 4,
+              "iptm": 0.567,
+              "ipsae": 0.63,
+              "sc_dockq": null
+            }
+          ]
+        },
+        {
+          "candidate_id": "c3",
+          "source_id": "synthetic_3",
+          "label": false,
+          "predictions": [
+            {
+              "seed": 0,
+              "iptm": 0.54,
+              "ipsae": 0.6,
+              "sc_dockq": null
+            },
+            {
+              "seed": 1,
+              "iptm": 0.522,
+              "ipsae": 0.58,
+              "sc_dockq": null
+            },
+            {
+              "seed": 2,
+              "iptm": 0.531,
+              "ipsae": 0.59,
+              "sc_dockq": null
+            },
+            {
+              "seed": 3,
+              "iptm": 0.513,
+              "ipsae": 0.57,
+              "sc_dockq": null
+            },
+            {
+              "seed": 4,
+              "iptm": 0.54,
+              "ipsae": 0.6,
+              "sc_dockq": null
+            }
+          ]
+        },
+        {
+          "candidate_id": "c4",
+          "source_id": "synthetic_4",
+          "label": false,
+          "predictions": [
+            {
+              "seed": 0,
+              "iptm": 0.225,
+              "ipsae": 0.25,
+              "sc_dockq": null
+            },
+            {
+              "seed": 1,
+              "iptm": 0.234,
+              "ipsae": 0.26,
+              "sc_dockq": null
+            },
+            {
+              "seed": 2,
+              "iptm": 0.198,
+              "ipsae": 0.22,
+              "sc_dockq": null
+            },
+            {
+              "seed": 3,
+              "iptm": 0.216,
+              "ipsae": 0.24,
+              "sc_dockq": null
+            },
+            {
+              "seed": 4,
+              "iptm": 0.225,
+              "ipsae": 0.25,
+              "sc_dockq": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

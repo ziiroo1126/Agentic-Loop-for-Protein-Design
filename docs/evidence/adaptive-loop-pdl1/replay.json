@@ -1,0 +1,1462 @@
+{
+  "limitations": [
+    "Development replay on previously disclosed data; not independent validation.",
+    "Prediction queries are simulated acquisition cost, not measured GPU time or savings.",
+    "No new prediction, protein generation or wet-lab experiment was performed.",
+    "Private-file restrictions are a protocol, not filesystem access control.",
+    "Seeds and candidates do not constitute independent biological targets."
+  ],
+  "policy": "harness",
+  "pools": [
+    {
+      "initial_observation": {
+        "budget": {
+          "limit": 270,
+          "remaining": 180,
+          "unit": "prediction_query",
+          "used": 90
+        },
+        "candidates": [
+          {
+            "candidate_id": "c_00a70b76387ece36",
+            "predictions": [
+              {
+                "ipsae": 0.40011659264564514,
+                "iptm": 0.6460898518562317,
+                "sc_dockq": 0.88296,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_03e713c1e4f2e05f",
+            "predictions": [
+              {
+                "ipsae": 0.7294921875,
+                "iptm": 0.8886079788208008,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_08313d7376a9398b",
+            "predictions": [
+              {
+                "ipsae": 0.7309571504592896,
+                "iptm": 0.8884356021881104,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_11a96244f296b861",
+            "predictions": [
+              {
+                "ipsae": 0.8373667597770691,
+                "iptm": 0.9338279366493225,
+                "sc_dockq": 0.98661,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_127ecd27e6eea3c9",
+            "predictions": [
+              {
+                "ipsae": 0.8818137645721436,
+                "iptm": 0.9584567546844482,
+                "sc_dockq": 0.9293,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_1311651965fd9ee2",
+            "predictions": [
+              {
+                "ipsae": 0.8666209578514099,
+                "iptm": 0.9438983798027039,
+                "sc_dockq": 0.97166,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_13256339789d9e04",
+            "predictions": [
+              {
+                "ipsae": 0.9065970182418823,
+                "iptm": 0.9594436883926392,
+                "sc_dockq": 0.97337,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_16bfe447cdff40cc",
+            "predictions": [
+              {
+                "ipsae": 0.8235870599746704,
+                "iptm": 0.9180278778076172,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_1a9dd84fea39c163",
+            "predictions": [
+              {
+                "ipsae": 0.833344042301178,
+                "iptm": 0.9407716393470764,
+                "sc_dockq": 0.91987,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_1ace1c8babf7aeb1",
+            "predictions": [
+              {
+                "ipsae": 0.819556474685669,
+                "iptm": 0.9134990572929382,
+                "sc_dockq": 0.9141,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_1fcc256db7b91a52",
+            "predictions": [
+              {
+                "ipsae": 0.8365840911865234,
+                "iptm": 0.9367559552192688,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_24f3ca66132c5783",
+            "predictions": [
+              {
+                "ipsae": 0.14648644626140594,
+                "iptm": 0.33719268441200256,
+                "sc_dockq": 0.0571,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_277087d3e00893fe",
+            "predictions": [
+              {
+                "ipsae": 0.7686111330986023,
+                "iptm": 0.904512345790863,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_28a549b524599247",
+            "predictions": [
+              {
+                "ipsae": 0.8842434883117676,
+                "iptm": 0.9569867849349976,
+                "sc_dockq": 0.95181,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_31a160dd019f082e",
+            "predictions": [
+              {
+                "ipsae": 0.851119875907898,
+                "iptm": 0.9401668310165405,
+                "sc_dockq": 0.95824,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_33fa3e6046622656",
+            "predictions": [
+              {
+                "ipsae": 0.8692744374275208,
+                "iptm": 0.9472206830978394,
+                "sc_dockq": 0.98272,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_3c208fa0c1b827d0",
+            "predictions": [
+              {
+                "ipsae": 0.8135516047477722,
+                "iptm": 0.9224319458007812,
+                "sc_dockq": 0.98479,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_3db857ad3ece36f7",
+            "predictions": [
+              {
+                "ipsae": 0.8066019415855408,
+                "iptm": 0.9062631130218506,
+                "sc_dockq": 0.91935,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_410ccbeca11c21e5",
+            "predictions": [
+              {
+                "ipsae": 0.8749570250511169,
+                "iptm": 0.952297568321228,
+                "sc_dockq": 0.87239,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_43700515394035f2",
+            "predictions": [
+              {
+                "ipsae": 0.6938462257385254,
+                "iptm": 0.8584825396537781,
+                "sc_dockq": 0.78214,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_4847df24270b9a62",
+            "predictions": [
+              {
+                "ipsae": 0.903199315071106,
+                "iptm": 0.9576947689056396,
+                "sc_dockq": 0.94261,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_4d0c763dbec4f092",
+            "predictions": [
+              {
+                "ipsae": 0.8224669694900513,
+                "iptm": 0.9173644781112671,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_4f4181554525f531",
+            "predictions": [
+              {
+                "ipsae": 0.7146392464637756,
+                "iptm": 0.8848273754119873,
+                "sc_dockq": 0.77268,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_52551c018a135fbd",
+            "predictions": [
+              {
+                "ipsae": 0.7851221561431885,
+                "iptm": 0.9081039428710938,
+                "sc_dockq": 0.85917,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_5479d52bb93ef083",
+            "predictions": [
+              {
+                "ipsae": 0.8790102005004883,
+                "iptm": 0.9512936472892761,
+                "sc_dockq": 0.96912,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_600feaada0c25d46",
+            "predictions": [
+              {
+                "ipsae": 0.8944470286369324,
+                "iptm": 0.9610809087753296,
+                "sc_dockq": 0.99215,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_616d098ceba2a5af",
+            "predictions": [
+              {
+                "ipsae": 0.7081165909767151,
+                "iptm": 0.8578845858573914,
+                "sc_dockq": 0.93843,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_645c43f09fbd0606",
+            "predictions": [
+              {
+                "ipsae": 0.8851667046546936,
+                "iptm": 0.9486110806465149,
+                "sc_dockq": 0.85478,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_6c6ebde8c0fa8553",
+            "predictions": [
+              {
+                "ipsae": 0.7603415846824646,
+                "iptm": 0.8804373741149902,
+                "sc_dockq": 0.87902,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_6d17d66ef92e79c9",
+            "predictions": [
+              {
+                "ipsae": 0.906676173210144,
+                "iptm": 0.969356119632721,
+                "sc_dockq": 0.95689,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_7181165ff6eb7a9b",
+            "predictions": [
+              {
+                "ipsae": 0.9052976965904236,
+                "iptm": 0.959596574306488,
+                "sc_dockq": 0.82427,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_75ca17dc2469d9b6",
+            "predictions": [
+              {
+                "ipsae": 0.8710456490516663,
+                "iptm": 0.9484395384788513,
+                "sc_dockq": 0.82631,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_783cdaa96c1348a6",
+            "predictions": [
+              {
+                "ipsae": 0.6924977898597717,
+                "iptm": 0.8618669509887695,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_7ad7bf440b6c5802",
+            "predictions": [
+              {
+                "ipsae": 0.8695561289787292,
+                "iptm": 0.9488077759742737,
+                "sc_dockq": 0.89554,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_7f122c737e6f1046",
+            "predictions": [
+              {
+                "ipsae": 0.8399558067321777,
+                "iptm": 0.9264856576919556,
+                "sc_dockq": 0.90792,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_8311e12dbff18585",
+            "predictions": [
+              {
+                "ipsae": 0.888603150844574,
+                "iptm": 0.9588630795478821,
+                "sc_dockq": 0.94865,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_83413e9d6bd7aab3",
+            "predictions": [
+              {
+                "ipsae": 0.9171684384346008,
+                "iptm": 0.9652260541915894,
+                "sc_dockq": 0.91342,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_83ce28fec5b0dae3",
+            "predictions": [
+              {
+                "ipsae": 0.8961951732635498,
+                "iptm": 0.9610096216201782,
+                "sc_dockq": 0.97993,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_841b8f1b776b2bd8",
+            "predictions": [
+              {
+                "ipsae": 0.8658073544502258,
+                "iptm": 0.9462156891822815,
+                "sc_dockq": 0.92637,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_8b8ca172ed19af31",
+            "predictions": [
+              {
+                "ipsae": 0.8266676068305969,
+                "iptm": 0.9233160018920898,
+                "sc_dockq": 0.90854,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_8c0a074529201bde",
+            "predictions": [
+              {
+                "ipsae": 0.880486786365509,
+                "iptm": 0.9465919733047485,
+                "sc_dockq": 0.9564,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_8eb5c0c4fc409fe2",
+            "predictions": [
+              {
+                "ipsae": 0.9222490191459656,
+                "iptm": 0.9704678058624268,
+                "sc_dockq": 0.99295,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_8ee3065fe62bc6ae",
+            "predictions": [
+              {
+                "ipsae": 0.8867235779762268,
+                "iptm": 0.9580468535423279,
+                "sc_dockq": 0.95722,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_945f095e2e6d8c0e",
+            "predictions": [
+              {
+                "ipsae": 0.4318636357784271,
+                "iptm": 0.6968233585357666,
+                "sc_dockq": 0.73056,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_954cc8e34838ef69",
+            "predictions": [
+              {
+                "ipsae": 0.8377808332443237,
+                "iptm": 0.9345192313194275,
+                "sc_dockq": 0.91168,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_969de5581eb7deac",
+            "predictions": [
+              {
+                "ipsae": 0.7772946357727051,
+                "iptm": 0.8893902897834778,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_97512357e8f53cc7",
+            "predictions": [
+              {
+                "ipsae": 0.8029667139053345,
+                "iptm": 0.9238897562026978,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_9b5043f44df1adf4",
+            "predictions": [
+              {
+                "ipsae": 0.8559789061546326,
+                "iptm": 0.9417575001716614,
+                "sc_dockq": 0.95592,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_9f3b6f2f633dc7dd",
+            "predictions": [
+              {
+                "ipsae": 0.8456897139549255,
+                "iptm": 0.9381003975868225,
+                "sc_dockq": 0.93922,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_a4f0fccfa4bab941",
+            "predictions": [
+              {
+                "ipsae": 0.887607753276825,
+                "iptm": 0.961476743221283,
+                "sc_dockq": 0.92385,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_a9d41384d363ef61",
+            "predictions": [
+              {
+                "ipsae": 0.8536307215690613,
+                "iptm": 0.9549679756164551,
+                "sc_dockq": 0.74018,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_aaba4fcf3770f53d",
+            "predictions": [
+              {
+                "ipsae": 0.8858407735824585,
+                "iptm": 0.9503302574157715,
+                "sc_dockq": 0.86556,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_ae9f50b4fd7a2747",
+            "predictions": [
+              {
+                "ipsae": 0.9244504570960999,
+                "iptm": 0.9714463353157043,
+                "sc_dockq": 0.99322,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_aec68f90b03f62de",
+            "predictions": [
+              {
+                "ipsae": 0.8730981945991516,
+                "iptm": 0.9437839388847351,
+                "sc_dockq": 0.92843,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_b0ef33cc95b836ab",
+            "predictions": [
+              {
+                "ipsae": 0.8972664475440979,
+                "iptm": 0.9603128433227539,
+                "sc_dockq": 0.91668,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_b117df7c50106d3a",
+            "predictions": [
+              {
+                "ipsae": 0.8631317019462585,
+                "iptm": 0.9441805481910706,
+                "sc_dockq": 0.97881,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_b37e41342d5c2b16",
+            "predictions": [
+              {
+                "ipsae": 0.8753349184989929,
+                "iptm": 0.9532195925712585,
+                "sc_dockq": 0.94603,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_b4106c23b4871bfc",
+            "predictions": [
+              {
+                "ipsae": 0.8180142641067505,
+                "iptm": 0.9337012767791748,
+                "sc_dockq": 0.93898,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_b6745c6b79d546fd",
+            "predictions": [
+              {
+                "ipsae": 0.894348680973053,
+                "iptm": 0.9515838027000427,
+                "sc_dockq": 0.92863,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_b97ef5462bf5ce91",
+            "predictions": [
+              {
+                "ipsae": 0.8598923683166504,
+                "iptm": 0.9428509473800659,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_c14a6a26fd668762",
+            "predictions": [
+              {
+                "ipsae": 0.8651764988899231,
+                "iptm": 0.9519307613372803,
+                "sc_dockq": 0.94718,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_c2d1a2184af82ddf",
+            "predictions": [
+              {
+                "ipsae": 0.7615322470664978,
+                "iptm": 0.9016527533531189,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_c5cadf974972f71f",
+            "predictions": [
+              {
+                "ipsae": 0.898783266544342,
+                "iptm": 0.9551982879638672,
+                "sc_dockq": 0.83241,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_c6663fdf8b14fd40",
+            "predictions": [
+              {
+                "ipsae": 0.31219175457954407,
+                "iptm": 0.5207579135894775,
+                "sc_dockq": null,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_c68eb9f43070b508",
+            "predictions": [
+              {
+                "ipsae": 0.5258188247680664,
+                "iptm": 0.7974969744682312,
+                "sc_dockq": 0.92745,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_c9fb4520c7eb0d1f",
+            "predictions": [
+              {
+                "ipsae": 0.902807891368866,
+                "iptm": 0.968019425868988,
+                "sc_dockq": 0.96147,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_d0cf671448b10bc8",
+            "predictions": [
+              {
+                "ipsae": 0.6309218406677246,
+                "iptm": 0.8336635828018188,
+                "sc_dockq": 0.59418,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_d263dd768f943b96",
+            "predictions": [
+              {
+                "ipsae": 0.8993326425552368,
+                "iptm": 0.9559733271598816,
+                "sc_dockq": 0.95832,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_d4241bb82d2d8512",
+            "predictions": [
+              {
+                "ipsae": 0.843786895275116,
+                "iptm": 0.952401876449585,
+                "sc_dockq": 0.96971,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_d7ee42a468c9860c",
+            "predictions": [
+              {
+                "ipsae": 0.9182204604148865,
+                "iptm": 0.9689564108848572,
+                "sc_dockq": 0.97693,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_db6474993ab74a2d",
+            "predictions": [
+              {
+                "ipsae": 0.8268325924873352,
+                "iptm": 0.9132718443870544,
+                "sc_dockq": 0.86717,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_dbcb393a42b57583",
+            "predictions": [
+              {
+                "ipsae": 0.8965967297554016,
+                "iptm": 0.9621481895446777,
+                "sc_dockq": 0.94702,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_dd515864f8686cb9",
+            "predictions": [
+              {
+                "ipsae": 0.9113708138465881,
+                "iptm": 0.9710935950279236,
+                "sc_dockq": 0.98225,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_de14d6c47cf9ed94",
+            "predictions": [
+              {
+                "ipsae": 0.8693249225616455,
+                "iptm": 0.9528990387916565,
+                "sc_dockq": 0.86369,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_df97716cd478f638",
+            "predictions": [
+              {
+                "ipsae": 0.2093028724193573,
+                "iptm": 0.3891400992870331,
+                "sc_dockq": 0.88028,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_e27464e955d620f3",
+            "predictions": [
+              {
+                "ipsae": 0.9180543422698975,
+                "iptm": 0.9652017951011658,
+                "sc_dockq": 0.87233,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_e2b9c8a3eb802470",
+            "predictions": [
+              {
+                "ipsae": 0.8756601214408875,
+                "iptm": 0.9538951516151428,
+                "sc_dockq": 0.85478,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_e2c9431c6d59c947",
+            "predictions": [
+              {
+                "ipsae": 0.7701385021209717,
+                "iptm": 0.9004561305046082,
+                "sc_dockq": 0.85596,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_e37e08d9247d8205",
+            "predictions": [
+              {
+                "ipsae": 0.8948773741722107,
+                "iptm": 0.956940233707428,
+                "sc_dockq": 0.89721,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_e5951d74351709bc",
+            "predictions": [
+              {
+                "ipsae": 0.8338602781295776,
+                "iptm": 0.9366240501403809,
+                "sc_dockq": 0.94275,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_e67c9a5f838e6b95",
+            "predictions": [
+              {
+                "ipsae": 0.3883848488330841,
+                "iptm": 0.6137216091156006,
+                "sc_dockq": 0.9057,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_e79c4cda595c70ec",
+            "predictions": [
+              {
+                "ipsae": 0.8164947032928467,
+                "iptm": 0.9334425926208496,
+                "sc_dockq": 0.92444,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_e7f094e0c4f49288",
+            "predictions": [
+              {
+                "ipsae": 0.7924159169197083,
+                "iptm": 0.9313142895698547,
+                "sc_dockq": 0.91071,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_eaf71a25ba06daec",
+            "predictions": [
+              {
+                "ipsae": 0.8952438235282898,
+                "iptm": 0.9550527334213257,
+                "sc_dockq": 0.85836,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_ec0a12a2048f80fe",
+            "predictions": [
+              {
+                "ipsae": 0.9027197360992432,
+                "iptm": 0.9537462592124939,
+                "sc_dockq": 0.90492,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_ee321b1aefb9e55e",
+            "predictions": [
+              {
+                "ipsae": 0.8637725710868835,
+                "iptm": 0.9447804689407349,
+                "sc_dockq": 0.96969,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_efe6060f026929d0",
+            "predictions": [
+              {
+                "ipsae": 0.8431292176246643,
+                "iptm": 0.9531740546226501,
+                "sc_dockq": 0.95941,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_f0ff16915ff8f5a6",
+            "predictions": [
+              {
+                "ipsae": 0.8455561995506287,
+                "iptm": 0.9373531341552734,
+                "sc_dockq": 0.98241,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_f1a1cb06b0d6d500",
+            "predictions": [
+              {
+                "ipsae": 0.8936981558799744,
+                "iptm": 0.9577015042304993,
+                "sc_dockq": 0.90242,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          },
+          {
+            "candidate_id": "c_ffc037c2fa865069",
+            "predictions": [
+              {
+                "ipsae": 0.8979998826980591,
+                "iptm": 0.9634611010551453,
+                "sc_dockq": 0.74165,
+                "seed": 0
+              }
+            ],
+            "remaining_predictions": 4
+          }
+        ],
+        "pool_id": "p05",
+        "quota": 10,
+        "request_sha256": "dbd069c9188435557475881156609b13258259a57729f31edfa3117ce67c0149",
+        "schema_version": "molclaw-adaptive-observation-v1",
+        "session_id": "a556acba3b8041189a0ec3a3d6c4c27a",
+        "status": "running",
+        "step": 0
+      },
+      "pending_reflection": false,
+      "policy": "harness",
+      "pool_id": "p05",
+      "require_review": true,
+      "rounds": [
+        {
+          "budget": {
+            "limit": 270,
+            "remaining": 179,
+            "unit": "prediction_query",
+            "used": 91
+          },
+          "reflection": {
+            "evidence": [
+              {
+                "candidate_id": "c_4847df24270b9a62",
+                "field": "ipsae",
+                "seed": 1,
+                "value": 0.9103188514709473
+              }
+            ],
+            "outcome": "supported",
+            "request_sha256": "2758730f8ab8a5d0f70847e02154ee86a117eff89bb8aa0820304d1a9e0d930e",
+            "summary": "\u65b0 seed \u7684 ipSAE \u4e3a 0.9103188514709473\uff0c\u5df2\u89c1\u4e2d\u4f4d\u6570\u7ea6 0.906759\uff0c\u6392\u540d\u7531 10 \u5347\u81f3 7\u3002\u672c\u8f6e\u652f\u6301\u5b83\u4fdd\u6301\u5728\u524d 10 \u7684\u5224\u65ad\uff1b\u4e24\u6b21\u9884\u6d4b\u4e0d\u8db3\u4ee5\u8bc1\u660e\u53ef\u9760\u6027\u6821\u51c6\u6216\u7ed3\u5408\u80fd\u529b\u3002"
+          },
+          "result_sha256": "2758730f8ab8a5d0f70847e02154ee86a117eff89bb8aa0820304d1a9e0d930e",
+          "revealed_prediction": {
+            "ipsae": 0.9103188514709473,
+            "iptm": 0.9611667394638062,
+            "sc_dockq": 0.94923,
+            "seed": 1
+          },
+          "step": 1,
+          "submission": {
+            "action": "evaluate",
+            "candidate_id": "c_4847df24270b9a62",
+            "plan": {
+              "evidence": [
+                {
+                  "candidate_id": "c_4847df24270b9a62",
+                  "field": "ipsae",
+                  "seed": 0,
+                  "value": 0.903199315071106
+                },
+                {
+                  "candidate_id": "c_c9fb4520c7eb0d1f",
+                  "field": "ipsae",
+                  "seed": 0,
+                  "value": 0.902807891368866
+                }
+              ],
+              "expectation": "\u9884\u671f\u5176\u5df2\u89c1 ipSAE \u4e2d\u4f4d\u6570\u4ecd\u9ad8\u4e8e\u5f53\u524d\u7b2c 11 \u540d\u7684 0.902807891368866\uff1b\u82e5\u4f4e\u4e8e\u8be5\u503c\uff0c\u5219\u8fb9\u754c\u7a33\u5b9a\u7684\u5224\u65ad\u88ab\u53cd\u9a73\u3002",
+              "question": "\u52a0\u5165\u4e0b\u4e00\u4e2a seed \u540e\uff0c\u5f53\u524d\u7b2c 10 \u540d\u80fd\u5426\u4ecd\u7559\u5728\u524d 10\uff1f"
+            },
+            "reason": "\u5f53\u524d\u7b2c 10 \u4e0e\u7b2c 11 \u540d\u7684\u521d\u59cb ipSAE \u975e\u5e38\u63a5\u8fd1\uff0c\u5148\u68c0\u67e5\u5165\u9009\u8fb9\u754c\u5185\u7684\u5019\u9009\u3002",
+            "request_sha256": "dbd069c9188435557475881156609b13258259a57729f31edfa3117ce67c0149"
+          }
+        },
+        {
+          "budget": {
+            "limit": 270,
+            "remaining": 178,
+            "unit": "prediction_query",
+            "used": 92
+          },
+          "reflection": {
+            "evidence": [
+              {
+                "candidate_id": "c_7181165ff6eb7a9b",
+                "field": "ipsae",
+                "seed": 1,
+                "value": 0.9041075706481934
+              },
+              {
+                "candidate_id": "c_7181165ff6eb7a9b",
+                "field": "sc_dockq",
+                "seed": 1,
+                "value": 0.8208
+              }
+            ],
+            "outcome": "supported",
+            "request_sha256": "a04b48d157a2afc0b0a1a01aa172a697a47271ee06de4ecaa39959ccd8f00185",
+            "summary": "\u65b0 seed \u7684 ipSAE \u4e3a 0.9041075706481934\uff1b\u5df2\u89c1\u4e2d\u4f4d\u6570\u7ea6 0.904703\uff0c\u4ecd\u9ad8\u4e8e\u7b2c 11 \u540d\u5e76\u4fdd\u6301\u7b2c 10\u3002scDockQ \u4ecd\u8f83\u4f4e\uff0c\u672c\u8f6e\u4e0d\u80fd\u89e3\u51b3\u8fd9\u4e00\u6307\u6807\u5206\u6b67\uff0c\u4e5f\u4e0d\u636e\u6b64\u65ad\u8a00\u7ed3\u5408\u80fd\u529b\u3002"
+          },
+          "result_sha256": "a04b48d157a2afc0b0a1a01aa172a697a47271ee06de4ecaa39959ccd8f00185",
+          "revealed_prediction": {
+            "ipsae": 0.9041075706481934,
+            "iptm": 0.9585180282592773,
+            "sc_dockq": 0.8208,
+            "seed": 1
+          },
+          "step": 2,
+          "submission": {
+            "action": "evaluate",
+            "candidate_id": "c_7181165ff6eb7a9b",
+            "plan": {
+              "evidence": [
+                {
+                  "candidate_id": "c_7181165ff6eb7a9b",
+                  "field": "ipsae",
+                  "seed": 0,
+                  "value": 0.9052976965904236
+                },
+                {
+                  "candidate_id": "c_7181165ff6eb7a9b",
+                  "field": "sc_dockq",
+                  "seed": 0,
+                  "value": 0.82427
+                },
+                {
+                  "candidate_id": "c_c9fb4520c7eb0d1f",
+                  "field": "ipsae",
+                  "seed": 0,
+                  "value": 0.902807891368866
+                }
+              ],
+              "expectation": "\u9884\u671f\u5176\u5df2\u89c1 ipSAE \u4e2d\u4f4d\u6570\u4ecd\u9ad8\u4e8e\u7b2c 11 \u540d\u7684 0.902807891368866\uff1b\u4f4e\u4e8e\u65f6\u53cd\u9a73\u672c\u8f6e\u7684\u8fb9\u754c\u7a33\u5b9a\u5224\u65ad\u3002",
+              "question": "\u65b0\u7684\u7b2c 10 \u540d\u80fd\u5426\u5728\u8ffd\u52a0\u4e00\u4e2a seed \u540e\u4fdd\u6301\u5165\u9009\uff1f"
+            },
+            "reason": "\u4e0a\u4e00\u8f6e\u5019\u9009\u5347\u81f3\u7b2c 7 \u540e\uff0c\u8be5\u5019\u9009\u6210\u4e3a\u65b0\u7684\u7b2c 10 \u540d\uff1b\u5176 scDockQ \u4e5f\u4f4e\u4e8e\u76f8\u90bb\u5019\u9009\uff0c\u503c\u5f97\u68c0\u67e5\u53e6\u4e00 seed\uff0c\u4f46\u4e0d\u628a\u8be5\u5206\u6b67\u5f53\u4f5c\u5b9e\u9a8c\u9634\u6027\u3002",
+            "request_sha256": "2758730f8ab8a5d0f70847e02154ee86a117eff89bb8aa0820304d1a9e0d930e"
+          }
+        },
+        {
+          "budget": {
+            "limit": 270,
+            "remaining": 177,
+            "unit": "prediction_query",
+            "used": 93
+          },
+          "reflection": {
+            "evidence": [
+              {
+                "candidate_id": "c_c9fb4520c7eb0d1f",
+                "field": "ipsae",
+                "seed": 1,
+                "value": 0.8993080258369446
+              }
+            ],
+            "outcome": "refuted",
+            "request_sha256": "bf25ee0e4e9206c5ffab27b705670aada34dfb84b99a27d8aa25f2a215b4165c",
+            "summary": "\u65b0 seed \u7684 ipSAE \u4e3a 0.8993080258369446\uff0c\u5df2\u89c1\u4e2d\u4f4d\u6570\u7ea6 0.901058\uff0c\u4f4e\u4e8e\u5f53\u524d\u7b2c 10 \u540d\uff0c\u6392\u540d\u7531 11 \u964d\u81f3 12\u3002\u8fd9\u53cd\u9a73\u4e86\u672c\u8f6e\u201c\u8ffd\u52a0\u540e\u8fdb\u5165\u524d 10\u201d\u7684\u5177\u4f53\u9884\u671f\uff1b\u4fdd\u7559\u8be5\u4e0b\u964d\u7ed3\u679c\u4e0e\u67e5\u8be2\u6210\u672c\u3002"
+          },
+          "result_sha256": "bf25ee0e4e9206c5ffab27b705670aada34dfb84b99a27d8aa25f2a215b4165c",
+          "revealed_prediction": {
+            "ipsae": 0.8993080258369446,
+            "iptm": 0.9667227864265442,
+            "sc_dockq": 0.96042,
+            "seed": 1
+          },
+          "step": 3,
+          "submission": {
+            "action": "evaluate",
+            "candidate_id": "c_c9fb4520c7eb0d1f",
+            "plan": {
+              "evidence": [
+                {
+                  "candidate_id": "c_c9fb4520c7eb0d1f",
+                  "field": "ipsae",
+                  "seed": 0,
+                  "value": 0.902807891368866
+                },
+                {
+                  "candidate_id": "c_7181165ff6eb7a9b",
+                  "field": "ipsae",
+                  "seed": 0,
+                  "value": 0.9052976965904236
+                },
+                {
+                  "candidate_id": "c_7181165ff6eb7a9b",
+                  "field": "ipsae",
+                  "seed": 1,
+                  "value": 0.9041075706481934
+                }
+              ],
+              "expectation": "\u68c0\u9a8c\u5b83\u52a0\u5165\u4e00\u4e2a seed \u540e\u80fd\u5426\u8d85\u8fc7\u7b2c 10 \u540d\u5f53\u524d\u7684 ipSAE \u4e2d\u4f4d\u6570 0.9047026336193085\uff1b\u9884\u671f\u8d85\u8fc7\u5e76\u8fdb\u5165\u524d 10\uff0c\u672a\u8d85\u8fc7\u5219\u53cd\u9a73\u8fd9\u4e00\u5177\u4f53\u9884\u671f\u3002",
+              "question": "\u7b2c 11 \u540d\u7684\u5355\u6b21 ipSAE \u662f\u5426\u4f4e\u4f30\u4e86\u5b83\u5728\u5f53\u524d\u6392\u540d\u4e2d\u7684\u4f4d\u7f6e\uff1f"
+            },
+            "reason": "\u524d\u4e24\u8f6e\u5df2\u68c0\u67e5\u8fb9\u754c\u5185\u5019\u9009\uff1b\u6700\u540e\u4e00\u6b21\u9884\u5b9a\u67e5\u8be2\u68c0\u67e5\u5f53\u524d\u7b2c 11 \u540d\uff0c\u907f\u514d\u53ea\u590d\u8bc4\u5df2\u5165\u9009\u5bf9\u8c61\u3002",
+            "request_sha256": "a04b48d157a2afc0b0a1a01aa172a697a47271ee06de4ecaa39959ccd8f00185"
+          }
+        },
+        {
+          "budget": {
+            "limit": 270,
+            "remaining": 177,
+            "unit": "prediction_query",
+            "used": 93
+          },
+          "result_sha256": "3db0031b5de0d28613eae76f50f772c29ae8c64371fee031700999a6e745df5f",
+          "step": 4,
+          "submission": {
+            "action": "select",
+            "candidate_ids": [
+              "c_ae9f50b4fd7a2747",
+              "c_8eb5c0c4fc409fe2",
+              "c_d7ee42a468c9860c",
+              "c_e27464e955d620f3",
+              "c_83413e9d6bd7aab3",
+              "c_dd515864f8686cb9",
+              "c_4847df24270b9a62",
+              "c_6d17d66ef92e79c9",
+              "c_13256339789d9e04",
+              "c_7181165ff6eb7a9b"
+            ],
+            "reason": "\u5df2\u5b8c\u6210\u6848\u4f8b\u4e8b\u5148\u56fa\u5b9a\u7684 3 \u6b21\u8ffd\u52a0\u67e5\u8be2\uff1b\u6309\u5df2\u89c1\u975e\u7a7a ipSAE \u4e2d\u4f4d\u6570\u964d\u5e8f\u3001\u5019\u9009 ID \u7834\u540c\u5206\u9009\u51fa 10 \u4e2a\u3002\u603b\u8ba1 93 \u6b21\u903b\u8f91\u67e5\u8be2\uff0c\u5269\u4f59 177 \u6b21\u4e0d\u7528\uff1b\u8fd9\u662f\u9884\u5b9a\u5c55\u793a\u505c\u6b62\u89c4\u5219\uff0c\u4e0d\u58f0\u79f0\u5df2\u627e\u5230\u79d1\u5b66\u6700\u4f18\u505c\u6b62\u70b9\u3002",
+            "request_sha256": "bf25ee0e4e9206c5ffab27b705670aada34dfb84b99a27d8aa25f2a215b4165c"
+          }
+        }
+      ],
+      "status": "committed"
+    }
+  ],
+  "purpose": "development",
+  "report": {
+    "by_target": [
+      {
+        "budget": {
+          "limit": 270,
+          "remaining": 177,
+          "unit": "prediction_query",
+          "used": 93
+        },
+        "candidates": 90,
+        "evaluation_counts": {
+          "c_00a70b76387ece36": 1,
+          "c_03e713c1e4f2e05f": 1,
+          "c_08313d7376a9398b": 1,
+          "c_11a96244f296b861": 1,
+          "c_127ecd27e6eea3c9": 1,
+          "c_1311651965fd9ee2": 1,
+          "c_13256339789d9e04": 1,
+          "c_16bfe447cdff40cc": 1,
+          "c_1a9dd84fea39c163": 1,
+          "c_1ace1c8babf7aeb1": 1,
+          "c_1fcc256db7b91a52": 1,
+          "c_24f3ca66132c5783": 1,
+          "c_277087d3e00893fe": 1,
+          "c_28a549b524599247": 1,
+          "c_31a160dd019f082e": 1,
+          "c_33fa3e6046622656": 1,
+          "c_3c208fa0c1b827d0": 1,
+          "c_3db857ad3ece36f7": 1,
+          "c_410ccbeca11c21e5": 1,
+          "c_43700515394035f2": 1,
+          "c_4847df24270b9a62": 2,
+          "c_4d0c763dbec4f092": 1,
+          "c_4f4181554525f531": 1,
+          "c_52551c018a135fbd": 1,
+          "c_5479d52bb93ef083": 1,
+          "c_600feaada0c25d46": 1,
+          "c_616d098ceba2a5af": 1,
+          "c_645c43f09fbd0606": 1,
+          "c_6c6ebde8c0fa8553": 1,
+          "c_6d17d66ef92e79c9": 1,
+          "c_7181165ff6eb7a9b": 2,
+          "c_75ca17dc2469d9b6": 1,
+          "c_783cdaa96c1348a6": 1,
+          "c_7ad7bf440b6c5802": 1,
+          "c_7f122c737e6f1046": 1,
+          "c_8311e12dbff18585": 1,
+          "c_83413e9d6bd7aab3": 1,
+          "c_83ce28fec5b0dae3": 1,
+          "c_841b8f1b776b2bd8": 1,
+          "c_8b8ca172ed19af31": 1,
+          "c_8c0a074529201bde": 1,
+          "c_8eb5c0c4fc409fe2": 1,
+          "c_8ee3065fe62bc6ae": 1,
+          "c_945f095e2e6d8c0e": 1,
+          "c_954cc8e34838ef69": 1,
+          "c_969de5581eb7deac": 1,
+          "c_97512357e8f53cc7": 1,
+          "c_9b5043f44df1adf4": 1,
+          "c_9f3b6f2f633dc7dd": 1,
+          "c_a4f0fccfa4bab941": 1,
+          "c_a9d41384d363ef61": 1,
+          "c_aaba4fcf3770f53d": 1,
+          "c_ae9f50b4fd7a2747": 1,
+          "c_aec68f90b03f62de": 1,
+          "c_b0ef33cc95b836ab": 1,
+          "c_b117df7c50106d3a": 1,
+          "c_b37e41342d5c2b16": 1,
+          "c_b4106c23b4871bfc": 1,
+          "c_b6745c6b79d546fd": 1,
+          "c_b97ef5462bf5ce91": 1,
+          "c_c14a6a26fd668762": 1,
+          "c_c2d1a2184af82ddf": 1,
+          "c_c5cadf974972f71f": 1,
+          "c_c6663fdf8b14fd40": 1,
+          "c_c68eb9f43070b508": 1,
+          "c_c9fb4520c7eb0d1f": 2,
+          "c_d0cf671448b10bc8": 1,
+          "c_d263dd768f943b96": 1,
+          "c_d4241bb82d2d8512": 1,
+          "c_d7ee42a468c9860c": 1,
+          "c_db6474993ab74a2d": 1,
+          "c_dbcb393a42b57583": 1,
+          "c_dd515864f8686cb9": 1,
+          "c_de14d6c47cf9ed94": 1,
+          "c_df97716cd478f638": 1,
+          "c_e27464e955d620f3": 1,
+          "c_e2b9c8a3eb802470": 1,
+          "c_e2c9431c6d59c947": 1,
+          "c_e37e08d9247d8205": 1,
+          "c_e5951d74351709bc": 1,
+          "c_e67c9a5f838e6b95": 1,
+          "c_e79c4cda595c70ec": 1,
+          "c_e7f094e0c4f49288": 1,
+          "c_eaf71a25ba06daec": 1,
+          "c_ec0a12a2048f80fe": 1,
+          "c_ee321b1aefb9e55e": 1,
+          "c_efe6060f026929d0": 1,
+          "c_f0ff16915ff8f5a6": 1,
+          "c_f1a1cb06b0d6d500": 1,
+          "c_ffc037c2fa865069": 1
+        },
+        "events": 4,
+        "hits": 5,
+        "pool_id": "p05",
+        "precision_at_quota": 0.5,
+        "quota": 10,
+        "selected_candidate_ids": [
+          "c_ae9f50b4fd7a2747",
+          "c_8eb5c0c4fc409fe2",
+          "c_d7ee42a468c9860c",
+          "c_e27464e955d620f3",
+          "c_83413e9d6bd7aab3",
+          "c_dd515864f8686cb9",
+          "c_4847df24270b9a62",
+          "c_6d17d66ef92e79c9",
+          "c_13256339789d9e04",
+          "c_7181165ff6eb7a9b"
+        ],
+        "target": "PD-L1"
+      }
+    ],
+    "ledger_sha256": "5e000abf6c4240a1e738b2a401a197245279f8f5a98acfd4e9bded50a9dde809",
+    "limitations": [
+      "Development replay on previously disclosed data; not independent validation.",
+      "Prediction queries are simulated acquisition cost, not measured GPU time or savings.",
+      "No new prediction, protein generation or wet-lab experiment was performed.",
+      "Private-file restrictions are a protocol, not filesystem access control.",
+      "Seeds and candidates do not constitute independent biological targets."
+    ],
+    "macro_precision_at_quota": 0.5,
+    "policy": "harness",
+    "purpose": "development",
+    "total_hits": 5,
+    "total_prediction_queries": 93,
+    "total_selected": 10,
+    "version": "molclaw-adaptive-development-v2"
+  },
+  "version": "molclaw-adaptive-replay-v1"
+}

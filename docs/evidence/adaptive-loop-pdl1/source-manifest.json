@@ -1,0 +1,12 @@
+{
+  "files": {
+    "implementation/adaptive.py": "6b416077338021a85c30187dfdf0474c8258814fc4853bf02ba36a07ef82fd65",
+    "implementation/adaptive_policies.py": "14a368d2a66e8978253e7e50cb81b51ec806b9f59001e46032d938be1912da03",
+    "implementation/adaptive_review.py": "6c3781c7cf5e338aa1e0e08ae09a20df168f52b63d32943604bbee76cc670ac2",
+    "implementation/manifest.py": "4dc16f4ae5c1c8d2b5cab7f48dfa04d2424aa6ba3f5fb099121633f1ef6a52b5",
+    "implementation/persistence.py": "20d30b5de24e37b687fa2d6a727ef7e3e6bb8b9a4a737856a5d23d772fa7b20c",
+    "private-input.json": "c5231d3dc982f9a75a5e20fb516f4b23f3f7ceeeb5351722021783382b24dc69",
+    "protocol.json": "5334f4d82a40aea26c4ff4c999bf51987fe802fef4d1a8fe7519b659cb7eeb6d"
+  },
+  "version": "molclaw-adaptive-development-v2"
+}

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import math
 from collections.abc import Sequence
 
 from evedesign.system import SystemInstance
@@ -12,9 +13,12 @@ from interaction_design.specs import EvaluationSpec, MetricRule
 
 def _metric(instance: SystemInstance, rule: MetricRule) -> float | None:
     try:
-        return float(instance.metadata["evaluations"][rule.source][rule.metric])
+        value = float(instance.metadata["evaluations"][rule.source][rule.metric])
     except (KeyError, TypeError, ValueError):
         return None
+    if not math.isfinite(value):
+        raise ValueError(f"non-finite metric {rule.source}.{rule.metric} for {instance.id}")
+    return value
 
 
 def _passes(value: float, rule: MetricRule) -> bool:
@@ -66,9 +70,12 @@ def rank_instances(
                 continue
             series = values[(rule.source, rule.metric)]
             low, high = min(series), max(series)
-            normalized = 1.0 if high == low else (value - low) / (high - low)
-            if not rule.higher_is_better:
-                normalized = 1.0 - normalized
+            if high == low:
+                normalized = 1.0
+            else:
+                normalized = (value - low) / (high - low)
+                if not rule.higher_is_better:
+                    normalized = 1.0 - normalized
             contribution = normalized * rule.weight
             contributions[label] = contribution
             pass_results[label] = _passes(value, rule)

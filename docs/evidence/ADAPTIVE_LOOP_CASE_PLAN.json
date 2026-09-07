@@ -1,0 +1,19 @@
+{
+  "purpose": "development UI and host protocol demonstration",
+  "host": "Codex",
+  "model": null,
+  "agent": "primary conversation agent",
+  "independent_context": false,
+  "selection_scope": "all candidates in the PD-L1 pool, selected by target name before viewing seed scores",
+  "additional_queries": 3,
+  "stopping_rule": "three sequential host-chosen acquisitions, then commit top 10 by median observed ipSAE; candidate ID breaks ties",
+  "budget_per_candidate": 3,
+  "quota": 10,
+  "model_call_cost": "not separately metered from this coding conversation",
+  "new_gpu_inference": false,
+  "limitations": [
+    "Previously disclosed development data",
+    "Not an independent blinded study",
+    "No budget-matched efficacy comparison"
+  ]
+}

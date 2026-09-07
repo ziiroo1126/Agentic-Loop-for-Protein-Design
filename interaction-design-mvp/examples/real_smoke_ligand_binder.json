@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1",
+  "name": "real_smoke_ligand_binder",
+  "description": "Single-seed, single-backbone GPU smoke test for the pinned ODesign adapter.",
+  "model": "odesign_base_prot_flex",
+  "design_modality": "protein",
+  "molecules": [
+    {
+      "id": "ligand",
+      "type": "ligand",
+      "role": "context",
+      "smiles": "CC(=O)OC1=CC=CC=C1C(=O)O"
+    },
+    {
+      "id": "binder",
+      "type": "protein",
+      "role": "design",
+      "segments": [
+        {
+          "kind": "generated",
+          "min_length": 30,
+          "max_length": 30
+        }
+      ]
+    }
+  ],
+  "generation": {
+    "seeds": [42],
+    "samples_per_seed": 1,
+    "inverse_fold_topk": 1,
+    "inverse_fold_temperature": 1.0,
+    "inverse_fold_beam": true,
+    "use_msa": false,
+    "num_workers": 1,
+    "partial_diffusion_snr": 0.1
+  },
+  "evaluation": {
+    "binder_molecule": "binder"
+  }
+}

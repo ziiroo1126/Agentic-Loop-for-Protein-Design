@@ -1,0 +1,868 @@
+{
+  "application_python": "3.14.6",
+  "created_at": "2026-09-05T17:23:35.982984+00:00",
+  "local_run": {
+    "geometry_policy": {
+      "acceptance_thresholds": null,
+      "alternate_locations": "first",
+      "atom_selection": "canonical protein non-hydrogen atoms; exclude hetero atoms",
+      "clash_count_units": [
+        "inter-chain atom pairs",
+        "inter-chain residue pairs"
+      ],
+      "clash_distance_angstrom": 2.0,
+      "contact_count_unit": "unique inter-chain residue pairs",
+      "contact_distance_angstrom": 5.0,
+      "control": {
+        "binder_author_chain": "B",
+        "pdb_id": "4ZQK",
+        "sha256": "f5012ba58d76099ba77ce992562e7df4afead12632678548d4d4f00c268b485f",
+        "source_url": "https://files.rcsb.org/download/4ZQK.cif",
+        "target_author_chain": "A"
+      },
+      "distance_comparison": "strictly_less_than",
+      "distance_reference": "https://github.com/wallnerlab/DockQ/blob/master/src/DockQ/constants.py",
+      "hotspot_mapping": "exact sequence and ordered reference residue identities",
+      "name": "protein_interface_geometry_v1",
+      "schema_version": 1,
+      "scope": "geometric diagnostics only; not DockQ, MolProbity, energy or binding probability"
+    },
+    "model_policy": {
+      "backend": "esmfold2",
+      "esmc_id": "biohub/ESMC-6B",
+      "esmc_precision": "bf16",
+      "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+      "folding_precision": "float32_with_upstream_bf16_autocast",
+      "kernel_backend": "reference",
+      "lm_dropout": 0.3,
+      "model_id": "biohub/ESMFold2",
+      "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+      "msa_mode": "none",
+      "num_diffusion_samples": 1,
+      "num_loops": 20,
+      "num_sampling_steps": 100,
+      "ranking": "iptm_descending_candidate_id_tiebreak",
+      "seed": 1,
+      "thresholds": null
+    },
+    "new_observations": [
+      {
+        "acceptance": null,
+        "binding_validated": false,
+        "candidate_id": "pdl1_controller_smoke_seed_59_bb_0_seq_0",
+        "confidence": {
+          "binder_plddt_residue": 60.761802673339844,
+          "iptm": 0.337663471698761,
+          "pae_a_to_b_angstrom": 17.142902374267578,
+          "pae_b_to_a_angstrom": 12.84009838104248,
+          "ptm": 0.6898439526557922,
+          "target_plddt_residue": 78.6867904663086
+        },
+        "design_consistency": {
+          "binder_ca_rmsd_angstrom": 1.6661447286605835,
+          "binder_rmsd_after_target_alignment_angstrom": 7.191651344299316,
+          "contact_pair_jaccard": 0.11940298507462686,
+          "generated_contact_retention": 0.34782608695652173,
+          "retained_generated_contact_pairs": 8
+        },
+        "flags": [
+          "PARTIAL_REQUESTED_HOTSPOT_CONTACT",
+          "INTERCHAIN_HEAVY_ATOM_CLASH"
+        ],
+        "generation_seed": 59,
+        "geometry": {
+          "generated": {
+            "binder_chain": "A",
+            "binder_heavy_atom_count": 240,
+            "binder_residue_count": 60,
+            "clash_atom_pair_count": 0,
+            "clash_residue_pair_count": 0,
+            "closest_clashes_truncated": false,
+            "contact_residue_pair_count": 23,
+            "hotspot_count": 4,
+            "hotspot_coverage": 0.5,
+            "hotspots": [
+              {
+                "clashing": false,
+                "contact": true,
+                "minimum_distance_angstrom": 4.962072234423721,
+                "source_chain": "B",
+                "source_residue": 64,
+                "target_position": 45
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 8.85533008049608,
+                "source_chain": "B",
+                "source_residue": 68,
+                "target_position": 49
+              },
+              {
+                "clashing": false,
+                "contact": true,
+                "minimum_distance_angstrom": 2.7957823513489792,
+                "source_chain": "B",
+                "source_residue": 126,
+                "target_position": 107
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 8.732185444089998,
+                "source_chain": "B",
+                "source_residue": 128,
+                "target_position": 109
+              }
+            ],
+            "hotspots_contacted": 2,
+            "minimum_interchain_distance_angstrom": 2.403660481221639,
+            "target_chain": "B",
+            "target_heavy_atom_count": 921,
+            "target_residue_count": 114
+          },
+          "predicted": {
+            "binder_chain": "A",
+            "binder_heavy_atom_count": 455,
+            "binder_residue_count": 60,
+            "clash_atom_pair_count": 1,
+            "clash_residue_pair_count": 1,
+            "closest_clashes_truncated": false,
+            "contact_residue_pair_count": 52,
+            "hotspot_count": 4,
+            "hotspot_coverage": 0.25,
+            "hotspots": [
+              {
+                "clashing": false,
+                "contact": true,
+                "minimum_distance_angstrom": 4.728082465501335,
+                "source_chain": "B",
+                "source_residue": 64,
+                "target_position": 45
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 6.321227341902982,
+                "source_chain": "B",
+                "source_residue": 68,
+                "target_position": 49
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 5.1760409443617625,
+                "source_chain": "B",
+                "source_residue": 126,
+                "target_position": 107
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 12.065588766298886,
+                "source_chain": "B",
+                "source_residue": 128,
+                "target_position": 109
+              }
+            ],
+            "hotspots_contacted": 1,
+            "minimum_interchain_distance_angstrom": 1.707880673597154,
+            "target_chain": "B",
+            "target_heavy_atom_count": 920,
+            "target_residue_count": 114
+          }
+        },
+        "sources": {
+          "generated_structure": {
+            "path": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/campaigns/20260905T171340Z-7543d308/steps/0000/generation/20260905T171426Z-b92bad94/output/pdl1_controller_smoke/seed_59/predictions/pdl1_controller_smoke_seed_59_bb_0_seq_0.cif",
+            "sha256": "f0e61766ad8bdd68a3ee6ad75f836fe8c9f0a24b831477636168700fe6d1bafa"
+          },
+          "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/campaigns/20260905T171340Z-7543d308/steps/0000/complex/20260905T171615Z-7b64db72",
+          "prediction": {
+            "path": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/campaigns/20260905T171340Z-7543d308/steps/0000/complex/20260905T171615Z-7b64db72/executions/20260905T171615Z-599daabb/output/candidate0000/complex.cif",
+            "sha256": "34328facaa0b3aecf106ca91fa92005f884be5759fd79b80cd5476c5c29b6e80"
+          },
+          "request_sha256": "c6bef670e4187e46d0d652969df106ef1a86b6319ea02b575c2224e8f4007d96"
+        }
+      },
+      {
+        "acceptance": null,
+        "binding_validated": false,
+        "candidate_id": "pdl1_controller_smoke_seed_60_bb_0_seq_0",
+        "confidence": {
+          "binder_plddt_residue": 52.012813568115234,
+          "iptm": 0.24706505239009857,
+          "pae_a_to_b_angstrom": 21.74026870727539,
+          "pae_b_to_a_angstrom": 14.643167495727539,
+          "ptm": 0.6771393418312073,
+          "target_plddt_residue": 81.51512908935547
+        },
+        "design_consistency": {
+          "binder_ca_rmsd_angstrom": 7.274433612823486,
+          "binder_rmsd_after_target_alignment_angstrom": 20.175081253051758,
+          "contact_pair_jaccard": 0.0,
+          "generated_contact_retention": 0.0,
+          "retained_generated_contact_pairs": 0
+        },
+        "flags": [
+          "PARTIAL_REQUESTED_HOTSPOT_CONTACT",
+          "INTERCHAIN_HEAVY_ATOM_CLASH"
+        ],
+        "generation_seed": 60,
+        "geometry": {
+          "generated": {
+            "binder_chain": "A",
+            "binder_heavy_atom_count": 240,
+            "binder_residue_count": 60,
+            "clash_atom_pair_count": 0,
+            "clash_residue_pair_count": 0,
+            "closest_clashes_truncated": false,
+            "contact_residue_pair_count": 14,
+            "hotspot_count": 4,
+            "hotspot_coverage": 0.0,
+            "hotspots": [
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 5.294158293259473,
+                "source_chain": "B",
+                "source_residue": 64,
+                "target_position": 45
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 8.87475385995321,
+                "source_chain": "B",
+                "source_residue": 68,
+                "target_position": 49
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 12.329372907441039,
+                "source_chain": "B",
+                "source_residue": 126,
+                "target_position": 107
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 20.28977864878701,
+                "source_chain": "B",
+                "source_residue": 128,
+                "target_position": 109
+              }
+            ],
+            "hotspots_contacted": 0,
+            "minimum_interchain_distance_angstrom": 2.244965454461826,
+            "target_chain": "B",
+            "target_heavy_atom_count": 921,
+            "target_residue_count": 114
+          },
+          "predicted": {
+            "binder_chain": "A",
+            "binder_heavy_atom_count": 436,
+            "binder_residue_count": 60,
+            "clash_atom_pair_count": 3,
+            "clash_residue_pair_count": 3,
+            "closest_clashes_truncated": false,
+            "contact_residue_pair_count": 46,
+            "hotspot_count": 4,
+            "hotspot_coverage": 0.25,
+            "hotspots": [
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 7.286493703953837,
+                "source_chain": "B",
+                "source_residue": 64,
+                "target_position": 45
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 7.734110138810096,
+                "source_chain": "B",
+                "source_residue": 68,
+                "target_position": 49
+              },
+              {
+                "clashing": false,
+                "contact": true,
+                "minimum_distance_angstrom": 2.134998119217885,
+                "source_chain": "B",
+                "source_residue": 126,
+                "target_position": 107
+              },
+              {
+                "clashing": false,
+                "contact": false,
+                "minimum_distance_angstrom": 8.356693766860596,
+                "source_chain": "B",
+                "source_residue": 128,
+                "target_position": 109
+              }
+            ],
+            "hotspots_contacted": 1,
+            "minimum_interchain_distance_angstrom": 1.679992414713833,
+            "target_chain": "B",
+            "target_heavy_atom_count": 920,
+            "target_residue_count": 114
+          }
+        },
+        "sources": {
+          "generated_structure": {
+            "path": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/campaigns/20260905T171340Z-7543d308/steps/0000/generation/20260905T171426Z-b92bad94/output/pdl1_controller_smoke/seed_60/predictions/pdl1_controller_smoke_seed_60_bb_0_seq_0.cif",
+            "sha256": "b3ebcee245b277eca694aeb80098e649d5477d7fd2e26550dd95d66e85802676"
+          },
+          "job": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/campaigns/20260905T171340Z-7543d308/steps/0000/complex/20260905T171615Z-7b64db72",
+          "prediction": {
+            "path": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/campaigns/20260905T171340Z-7543d308/steps/0000/complex/20260905T171615Z-7b64db72/executions/20260905T171615Z-599daabb/output/candidate0001/complex.cif",
+            "sha256": "4c54016db2a20332267f7fca1c82bedbfc9c8b7397827317e8b8606482f068e3"
+          },
+          "request_sha256": "571d15021589c5e67576a8f798b94d1e15550acbe576e883e8edbf7aa13257e1"
+        }
+      }
+    ],
+    "report": {
+      "acceptance": null,
+      "binding_validated": false,
+      "decisions": [
+        {
+          "action": "sample",
+          "reason": "collect_next_batch_after_feedback",
+          "seeds": [
+            59,
+            60
+          ]
+        },
+        {
+          "action": "stop",
+          "reason": "round_limit_reached",
+          "seeds": []
+        }
+      ],
+      "initial_candidate_count": 16,
+      "mode": "local_models",
+      "new_model_inference": true,
+      "newly_observed_candidate_count": 2,
+      "objectives": [
+        {
+          "direction": "maximize",
+          "name": "iptm"
+        },
+        {
+          "direction": "maximize",
+          "name": "requested_hotspot_coverage"
+        },
+        {
+          "direction": "minimize",
+          "name": "clash_residue_pairs"
+        },
+        {
+          "direction": "minimize",
+          "name": "binder_rmsd_after_target_alignment"
+        }
+      ],
+      "scope": "development controller trace; no measured policy advantage",
+      "state": {
+        "acceptance": null,
+        "binding_validated": false,
+        "completed_rounds": 1,
+        "consecutive_rounds_without_frontier_extension": 0,
+        "frontier": [
+          {
+            "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+            "objectives": [
+              0.8270412683486938,
+              0.75,
+              -0.0,
+              -25.2320499420166
+            ]
+          },
+          {
+            "candidate_id": "baseline_pdl1_60aa_16seeds_seed_51_bb_0_seq_0",
+            "objectives": [
+              0.20462848246097565,
+              0.5,
+              -4.0,
+              -13.84838581085205
+            ]
+          },
+          {
+            "candidate_id": "baseline_pdl1_60aa_16seeds_seed_52_bb_0_seq_0",
+            "objectives": [
+              0.6592608094215393,
+              0.75,
+              -0.0,
+              -14.490615844726562
+            ]
+          },
+          {
+            "candidate_id": "pdl1_controller_smoke_seed_59_bb_0_seq_0",
+            "objectives": [
+              0.337663471698761,
+              0.25,
+              -1.0,
+              -7.191651344299316
+            ]
+          }
+        ],
+        "latest_novel_candidate_ids": [
+          "pdl1_controller_smoke_seed_59_bb_0_seq_0"
+        ],
+        "observed_candidate_ids": [
+          "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_47_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_50_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_51_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_52_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_53_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_54_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_55_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_56_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_57_bb_0_seq_0",
+          "baseline_pdl1_60aa_16seeds_seed_58_bb_0_seq_0",
+          "pdl1_controller_smoke_seed_59_bb_0_seq_0",
+          "pdl1_controller_smoke_seed_60_bb_0_seq_0"
+        ],
+        "observed_seeds": [
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60
+        ],
+        "tool_wall_seconds_spent": 176.9609401654452
+      },
+      "strategy": {
+        "batch_size": 2,
+        "first_seed": 59,
+        "max_rounds": 1,
+        "patience": 1,
+        "strategy": "feedback",
+        "tool_wall_budget_seconds": 900.0,
+        "version": "resample-or-stop-v1"
+      }
+    },
+    "report_source": {
+      "path": "interaction-design-mvp/artifacts/campaigns/20260905T171340Z-7543d308/report.json",
+      "sha256": "e5cf362a38f90114fb8193585fb7eb055b0e9883670ff150214c3f9fe58d3c31",
+      "size": 3473
+    }
+  },
+  "replays": [
+    {
+      "report": {
+        "acceptance": null,
+        "binding_validated": false,
+        "decisions": [
+          {
+            "action": "sample",
+            "reason": "fixed_sampling_schedule",
+            "seeds": [
+              43,
+              44,
+              45,
+              46
+            ]
+          },
+          {
+            "action": "sample",
+            "reason": "fixed_sampling_schedule",
+            "seeds": [
+              47,
+              48,
+              49,
+              50
+            ]
+          },
+          {
+            "action": "sample",
+            "reason": "fixed_sampling_schedule",
+            "seeds": [
+              51,
+              52,
+              53,
+              54
+            ]
+          },
+          {
+            "action": "sample",
+            "reason": "fixed_sampling_schedule",
+            "seeds": [
+              55,
+              56,
+              57,
+              58
+            ]
+          },
+          {
+            "action": "stop",
+            "reason": "round_limit_reached",
+            "seeds": []
+          }
+        ],
+        "initial_candidate_count": 0,
+        "mode": "saved_observation_replay",
+        "new_model_inference": false,
+        "newly_observed_candidate_count": 16,
+        "objectives": [
+          {
+            "direction": "maximize",
+            "name": "iptm"
+          },
+          {
+            "direction": "maximize",
+            "name": "requested_hotspot_coverage"
+          },
+          {
+            "direction": "minimize",
+            "name": "clash_residue_pairs"
+          },
+          {
+            "direction": "minimize",
+            "name": "binder_rmsd_after_target_alignment"
+          }
+        ],
+        "scope": "development controller trace; no measured policy advantage",
+        "state": {
+          "acceptance": null,
+          "binding_validated": false,
+          "completed_rounds": 4,
+          "consecutive_rounds_without_frontier_extension": 0,
+          "frontier": [
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+              "objectives": [
+                0.8270412683486938,
+                0.75,
+                -0.0,
+                -25.2320499420166
+              ]
+            },
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+              "objectives": [
+                0.2402384728193283,
+                0.25,
+                -2.0,
+                -7.193282127380371
+              ]
+            },
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_51_bb_0_seq_0",
+              "objectives": [
+                0.20462848246097565,
+                0.5,
+                -4.0,
+                -13.84838581085205
+              ]
+            },
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_52_bb_0_seq_0",
+              "objectives": [
+                0.6592608094215393,
+                0.75,
+                -0.0,
+                -14.490615844726562
+              ]
+            },
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_58_bb_0_seq_0",
+              "objectives": [
+                0.1663280576467514,
+                0.25,
+                -1.0,
+                -14.410545349121094
+              ]
+            }
+          ],
+          "latest_novel_candidate_ids": [
+            "baseline_pdl1_60aa_16seeds_seed_58_bb_0_seq_0"
+          ],
+          "observed_candidate_ids": [
+            "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_47_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_50_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_51_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_52_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_53_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_54_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_55_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_56_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_57_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_58_bb_0_seq_0"
+          ],
+          "observed_seeds": [
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58
+          ],
+          "tool_wall_seconds_spent": 3.594718873500824e-05
+        },
+        "strategy": {
+          "batch_size": 4,
+          "first_seed": 43,
+          "max_rounds": 4,
+          "patience": 1,
+          "strategy": "fixed",
+          "tool_wall_budget_seconds": null,
+          "version": "resample-or-stop-v1"
+        }
+      },
+      "report_source": {
+        "path": "interaction-design-mvp/artifacts/campaign-replays/20260905T171258Z-90f9e180/report.json",
+        "sha256": "7a1cc002bf3c9330d78867bcf65c7f032b2e4f9f26223878448d762f48081ae3",
+        "size": 4069
+      }
+    },
+    {
+      "report": {
+        "acceptance": null,
+        "binding_validated": false,
+        "decisions": [
+          {
+            "action": "sample",
+            "reason": "collect_next_batch_after_feedback",
+            "seeds": [
+              43,
+              44,
+              45,
+              46
+            ]
+          },
+          {
+            "action": "sample",
+            "reason": "collect_next_batch_after_feedback",
+            "seeds": [
+              47,
+              48,
+              49,
+              50
+            ]
+          },
+          {
+            "action": "sample",
+            "reason": "collect_next_batch_after_feedback",
+            "seeds": [
+              51,
+              52,
+              53,
+              54
+            ]
+          },
+          {
+            "action": "sample",
+            "reason": "collect_next_batch_after_feedback",
+            "seeds": [
+              55,
+              56,
+              57,
+              58
+            ]
+          },
+          {
+            "action": "stop",
+            "reason": "round_limit_reached",
+            "seeds": []
+          }
+        ],
+        "initial_candidate_count": 0,
+        "mode": "saved_observation_replay",
+        "new_model_inference": false,
+        "newly_observed_candidate_count": 16,
+        "objectives": [
+          {
+            "direction": "maximize",
+            "name": "iptm"
+          },
+          {
+            "direction": "maximize",
+            "name": "requested_hotspot_coverage"
+          },
+          {
+            "direction": "minimize",
+            "name": "clash_residue_pairs"
+          },
+          {
+            "direction": "minimize",
+            "name": "binder_rmsd_after_target_alignment"
+          }
+        ],
+        "scope": "development controller trace; no measured policy advantage",
+        "state": {
+          "acceptance": null,
+          "binding_validated": false,
+          "completed_rounds": 4,
+          "consecutive_rounds_without_frontier_extension": 0,
+          "frontier": [
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+              "objectives": [
+                0.8270412683486938,
+                0.75,
+                -0.0,
+                -25.2320499420166
+              ]
+            },
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+              "objectives": [
+                0.2402384728193283,
+                0.25,
+                -2.0,
+                -7.193282127380371
+              ]
+            },
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_51_bb_0_seq_0",
+              "objectives": [
+                0.20462848246097565,
+                0.5,
+                -4.0,
+                -13.84838581085205
+              ]
+            },
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_52_bb_0_seq_0",
+              "objectives": [
+                0.6592608094215393,
+                0.75,
+                -0.0,
+                -14.490615844726562
+              ]
+            },
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_58_bb_0_seq_0",
+              "objectives": [
+                0.1663280576467514,
+                0.25,
+                -1.0,
+                -14.410545349121094
+              ]
+            }
+          ],
+          "latest_novel_candidate_ids": [
+            "baseline_pdl1_60aa_16seeds_seed_58_bb_0_seq_0"
+          ],
+          "observed_candidate_ids": [
+            "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_45_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_46_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_47_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_48_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_49_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_50_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_51_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_52_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_53_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_54_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_55_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_56_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_57_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_58_bb_0_seq_0"
+          ],
+          "observed_seeds": [
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58
+          ],
+          "tool_wall_seconds_spent": 3.504939377307892e-05
+        },
+        "strategy": {
+          "batch_size": 4,
+          "first_seed": 43,
+          "max_rounds": 4,
+          "patience": 1,
+          "strategy": "feedback",
+          "tool_wall_budget_seconds": null,
+          "version": "resample-or-stop-v1"
+        }
+      },
+      "report_source": {
+        "path": "interaction-design-mvp/artifacts/campaign-replays/20260905T171300Z-0e4b0fea/report.json",
+        "sha256": "acf44f5395f2f705177e88d2b924d15cd00f12595924898fb6a1d6c67acad856",
+        "size": 4112
+      }
+    }
+  ],
+  "scope": "development controller integration; no LLM calls, measured policy advantage or biological validation",
+  "validation": {
+    "completed_replay_and_live_jobs_reused_without_artifact_changes": true,
+    "outside_checkout_wheel_replay": true,
+    "packages": [
+      {
+        "path": "interaction-design-mvp/artifacts/controller-development-summary/packages/interaction_design_mvp-0.1.0-py3-none-any.whl",
+        "sha256": "f0b8e2fdd4570998c95e4fcf27a01710111b474d8c37832619c32a3c0417157a",
+        "size": 107039
+      },
+      {
+        "path": "interaction-design-mvp/artifacts/controller-development-summary/packages/interaction_design_mvp-0.1.0.tar.gz",
+        "sha256": "a787e784db27163c9d5504a5bc80c32d72c6f9c82c0bdc854c0ae358f36df249",
+        "size": 626398
+      }
+    ],
+    "prior_evidence_file_counts_verified": [
+      210,
+      101,
+      16
+    ],
+    "ruff_check": true,
+    "ruff_format_check": true,
+    "sdist_excludes_artifacts_and_cache": true,
+    "sdist_resources": true,
+    "tests_passed": 93
+  }
+}

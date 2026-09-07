@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MolClaw · 自适应复评回放</title>
+<style>
+:root{color-scheme:light;font:15px/1.65 system-ui,sans-serif;color:#172b36;background:#f4f6f7}
+*{box-sizing:border-box}body{margin:0}header{background:#102d39;color:#edf9fc;padding:32px max(24px,calc((100vw - 1200px)/2))}
+header p{color:#b8d4de;margin:8px 0 0}h1{font-size:29px;margin:8px 0}h2{font-size:18px;margin:0 0 14px}
+.eyebrow{font-size:12px;letter-spacing:2px;color:#8ddbd0}main{max-width:1250px;padding:24px;margin:auto}
+.toolbar,.cards,.split{display:flex;gap:16px}.toolbar{align-items:center;flex-wrap:wrap;margin:20px 0}
+select,button,input{font:inherit}select,button{padding:7px 13px;border:1px solid #c7d4d9;border-radius:7px;background:white;color:inherit}
+button{cursor:pointer}button:disabled{opacity:.4;cursor:default}input[type=range]{flex:1;min-width:120px;accent-color:#137b74}
+.cards{margin-bottom:20px}.card,.panel{border:1px solid #dae2e5;border-radius:12px;background:white;padding:20px}
+.card{flex:1}.card small{display:block;color:#566a73}.value{font-size:25px;font-weight:650}.split>.panel{flex:1;min-width:0}
+.panel{margin-bottom:20px}.label{font-size:12px;color:#54717e;margin-top:15px;text-transform:uppercase;letter-spacing:1px}
+.copy{white-space:pre-wrap;overflow-wrap:anywhere}.muted{color:#627882}.pill{font-size:12px;padding:3px 9px;border-radius:15px;background:#e7f4f1;color:#176153}
+.notice{border-left:3px solid #ba8a40;padding:9px 16px;background:#fff8e9;color:#6c522a;border-radius:3px}
+.table-wrap{overflow:auto;max-height:580px}table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px;border-bottom:1px solid #e7edef;white-space:nowrap}th{position:sticky;top:0;background:#eff4f5;font-weight:550}
+tr.changed{background:#eef8f5}.id{font-family:ui-monospace,monospace}a{color:#136e7b}nav{display:flex;gap:20px;flex-wrap:wrap}
+pre{font:12px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#f2f6f7;padding:14px;border-radius:8px}
+summary{cursor:pointer;color:#416573}.summary{margin-top:12px}.outcome{font-weight:650}.supported{color:#147353}.refuted{color:#ac4242}.inconclusive{color:#86651d}
+@media(max-width:760px){.split{display:block}.cards{gap:8px}.card{padding:12px}.value{font-size:20px}main{padding:16px}header{padding:24px}h1{font-size:24px}}
+</style>
+<header><div class="eyebrow">MOLCLAW / AGENTIC LOOP</div><h1>自适应复评 · 逐轮回放</h1>
+<p>沿着「判断 → 查询 → 观察 → 复盘」，查看选择如何形成。</p></header>
+<main>
+<div class="notice">开发数据回放。查询次数表示缓存预测的获取成本，不代表 GPU 耗时或实验结合能力；完整导出用于事后浏览。</div>
+<div class="toolbar"><label for="pool">候选池</label><select id="pool"></select><span class="pill" id="policy"></span>
+<button id="prev" aria-label="上一轮">← 上一轮</button><input id="step" type="range" min="0" value="0" aria-label="回放轮次">
+<button id="next" aria-label="下一轮">下一轮 →</button><span id="position"></span></div>
+<div class="cards"><div class="card"><small>已获取预测 / 配额</small><div class="value" id="budget"></div></div>
+<div class="card"><small>候选数 / 最终名额</small><div class="value" id="quota"></div></div>
+<div class="card"><small>当前状态</small><div class="value" id="status"></div></div></div>
+<div class="split"><section class="panel"><h2 id="action">初始观察</h2><div class="label">行动理由</div><div class="copy" id="reason"></div>
+<div class="label">待检验判断</div><div class="copy" id="question"></div><div class="label">预期澄清什么</div><div class="copy" id="expectation"></div>
+<details class="summary"><summary>行动前的证据引用</summary><pre id="plan-evidence"></pre></details></section>
+<section class="panel"><h2>新观察与复盘</h2><div class="copy" id="revealed"></div><div class="label">宿主判断</div><div id="outcome" class="outcome"></div>
+<div class="copy" id="reflection"></div><details class="summary"><summary>结果证据与原始事件</summary><pre id="event"></pre></details></section></div>
+<section class="panel"><h2>本轮可见的候选 <span class="muted" style="font-size:13px">按已见 ipSAE 中位数排序；缺失值为 —</span></h2>
+<div class="table-wrap"><table><thead><tr><th>排名</th><th>候选</th><th>已见 seeds</th><th>ipSAE 中位数</th><th>最近 ipTM</th><th>最近 scDockQ</th><th>最终选择</th></tr></thead><tbody id="candidates"></tbody></table></div></section>
+<section id="report-panel" class="panel" hidden><h2>提交后的已揭示结果</h2><div id="report-summary"></div><p class="muted">此前轮次的排序未使用实验标签；开发集结果不构成独立验证。</p></section>
+<section class="panel"><h2>原始记录</h2><nav id="files"><a href="replay.json">逐轮数据</a><a href="ledger.json">事件账本</a><a href="protocol.json">会话协议</a><a href="source-manifest.json">来源指纹</a><a href="manifest.json">导出校验</a><a href="README.md">说明</a></nav>
+<details class="summary"><summary>解释范围</summary><ul id="limitations"></ul></details></section>
+<noscript>启用 JavaScript 可交互回放，也可直接查看上方 JSON 记录。</noscript>
+</main>
+<script id="replay-data" type="application/json">__REPLAY_DATA__</script>
+<script>
+"use strict";
+const data=JSON.parse(document.getElementById("replay-data").textContent);
+const $=id=>document.getElementById(id), put=(id,value)=>{$(id).textContent=value;};
+const pretty=value=>JSON.stringify(value,null,2), score=value=>value===null||value===undefined?"—":Number(value).toFixed(4);
+const median=c=>{const a=c.predictions.map(p=>p.ipsae).filter(v=>v!==null).sort((a,b)=>a-b);return a.length?(a[Math.floor((a.length-1)/2)]+a[Math.floor(a.length/2)])/2:null;};
+for(const pool of data.pools){const option=document.createElement("option");option.value=pool.pool_id;option.textContent=pool.pool_id;$("pool").append(option);}
+for(const limitation of data.limitations){const li=document.createElement("li");li.textContent=limitation;$("limitations").append(li);}
+if(data.report){for(const [name,label] of [["report.json","最终报告"],["source.json","数据来源"]]){const link=document.createElement("a");link.href=name;link.textContent=label;$("files").append(link);}}
+function render(){
+ const pool=data.pools.find(p=>p.pool_id===$("pool").value);
+ $("step").max=pool.rounds.length;
+ const n=Math.min(Number($("step").value),pool.rounds.length), row=n?pool.rounds[n-1]:null;
+ const observation=JSON.parse(JSON.stringify(pool.initial_observation));
+ let selected=new Set();
+ for(const round of pool.rounds.slice(0,n)){
+  if(round.revealed_prediction){const c=observation.candidates.find(c=>c.candidate_id===round.submission.candidate_id);c.predictions.push(round.revealed_prediction);}
+  else if(round.submission.action==="select"){selected=new Set(round.submission.candidate_ids);observation.status="committed";}
+  observation.budget=round.budget;
+ }
+ put("policy",`${data.policy} · ${pool.require_review?"逐轮复盘":"基础记录"}`);
+ put("position",`${n} / ${pool.rounds.length}`);
+ $("prev").disabled=n===0;$("next").disabled=n===pool.rounds.length;
+ put("budget",`${observation.budget.used} / ${observation.budget.limit}`);
+ put("quota",`${observation.candidates.length} / ${observation.quota}`);
+ put("status",observation.status==="committed"?"已提交":"进行中");
+ put("action",!row?"初始观察":row.submission.action==="select"?"提交最终名单":`第 ${n} 轮 · 追加预测`);
+ put("reason",row?row.submission.reason:"每个候选已获取 seed 0，其余预测尚未揭示。");
+ put("question",row?.submission.plan?.question||"未记录待检验判断");
+ put("expectation",row?.submission.plan?.expectation||"—");
+ put("plan-evidence",pretty(row?.submission.plan?.evidence||[]));
+ put("revealed",row?.revealed_prediction?`${row.submission.candidate_id} · seed ${row.revealed_prediction.seed}\nipSAE ${score(row.revealed_prediction.ipsae)} / ipTM ${score(row.revealed_prediction.iptm)} / scDockQ ${score(row.revealed_prediction.sc_dockq)}`:"本步未追加预测。");
+ const outcome=row?.reflection?.outcome;
+ put("outcome",({supported:"支持",refuted:"反驳",inconclusive:"仍不确定"})[outcome]||(row?.submission.plan?"待复盘":"未记录复盘"));
+ $("outcome").className=`outcome ${outcome||""}`;
+ put("reflection",row?.reflection?.summary||"—");put("event",pretty(row||pool.initial_observation));
+ $("candidates").replaceChildren();
+ observation.candidates.sort((a,b)=>{const x=median(a),y=median(b);return (y??-1)-(x??-1)||(a.candidate_id<b.candidate_id?-1:a.candidate_id>b.candidate_id?1:0);});
+ observation.candidates.forEach((c,index)=>{
+  const tr=document.createElement("tr"),last=c.predictions[c.predictions.length-1];
+  if(c.candidate_id===row?.submission.candidate_id)tr.className="changed";
+  const values=[index+1,c.candidate_id,c.predictions.map(p=>p.seed).join(", "),score(median(c)),score(last.iptm),score(last.sc_dockq),selected.has(c.candidate_id)?"已入选":observation.status==="committed"?"未入选":"未提交"];
+  values.forEach((value,i)=>{const td=document.createElement("td");td.textContent=value;if(i===1)td.className="id";tr.append(td);});$("candidates").append(tr);
+ });
+ const report=data.report?.by_target.find(r=>r.pool_id===pool.pool_id);
+ $("report-panel").hidden=!(report&&observation.status==="committed");
+ if(report)put("report-summary",`${report.target} · 已有标签命中 ${report.hits} / ${report.quota} · 获取预测 ${report.budget.used} 次`);
+}
+$("pool").addEventListener("change",()=>{$("step").value=0;render();});
+$("step").addEventListener("input",render);
+$("prev").addEventListener("click",()=>{$("step").value=Number($("step").value)-1;render();});
+$("next").addEventListener("click",()=>{$("step").value=Number($("step").value)+1;render();});
+render();
+</script>
+</html>

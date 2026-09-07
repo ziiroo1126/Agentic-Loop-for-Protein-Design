@@ -1,0 +1,13 @@
+{
+  "files": {
+    "README.md": "823219bdee25a15f6b382f8854843999d3123fcb44ce3e978619c2677e3284b5",
+    "index.html": "cd334abfba7da7091b6ee827363457421be8f4319f6344b092670e8e5a06c1d4",
+    "ledger.json": "3b63ca8aa7b5f9de04a59edc761ba9cda443ee1ad140a116bc7af1ee5934a23c",
+    "protocol.json": "5334f4d82a40aea26c4ff4c999bf51987fe802fef4d1a8fe7519b659cb7eeb6d",
+    "replay.json": "caedfb7449955cb27f090b0eb0d8efa536a7fe622db9b9fb98c9330d80f3d10e",
+    "report.json": "b22f974796b75d4a97740be3a4a8bf920d1afd544a623aca4e770d7b7d66925a",
+    "source-manifest.json": "e7c4c77a1dc01f69e755b4d49c0780bbf93401067ed08bc322438721eb4d2f07",
+    "source.json": "d784d6b4958db58aaceca941150f2c45eca942a93c83e980753e06bb17518295"
+  },
+  "version": "molclaw-adaptive-export-v1"
+}

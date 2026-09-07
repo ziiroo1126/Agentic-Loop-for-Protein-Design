@@ -1,0 +1,51 @@
+{
+  "citation_file": "data/CITATION.cff",
+  "dataset": "Anthropic/claude-protein-binder-design",
+  "demonstration": {
+    "case_plan_sha256": "5abdbaa67dfa1261a39571f2f3b733c47d0b1870eb5061e6fff66283ddfd5e07",
+    "original_import_sha256": "3c651c120959545dc2be2dd93d2c19b375df1d0924d0ff316df4190a9c912d8c",
+    "scope": "all candidates in the PD-L1 pool, selected by target name before viewing seed scores"
+  },
+  "exposure": "All seven targets and outcomes were exposed in earlier development analyses",
+  "files": [
+    {
+      "path": "data/tables/design_summary.parquet",
+      "sha256": "3e796869b8dc0c90d7ab0e12daf25308c0cf272d04c6a5e27281f903ecd18744",
+      "size_bytes": 517810
+    },
+    {
+      "path": "data/tables/insilico/cofold_predictions.parquet",
+      "sha256": "ba48010610daa9b9d184aa1ddb419beebdf728ccf745f5a8f3b48e4041e1a87d",
+      "size_bytes": 10137792
+    }
+  ],
+  "label": "binder_final: upstream composite experimental judgment, preserved exactly",
+  "license": "CC-BY-4.0",
+  "license_file": "data/LICENSE.md",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "model": "ef2full",
+  "prediction_provenance": "Upstream posthoc uniform cofold predictions; no new GPU calls",
+  "projection": {
+    "data/tables/design_summary.parquet": [
+      "uuid",
+      "target",
+      "binder_final"
+    ],
+    "data/tables/insilico/cofold_predictions.parquet": [
+      "uuid",
+      "target",
+      "cofolding_model",
+      "stoichiometry",
+      "target_form",
+      "seed",
+      "iptm_pae",
+      "ipsae_min",
+      "sc_dockq"
+    ]
+  },
+  "pyarrow_version": "24.0.0",
+  "revision": "9e1b81696da46835e9e9cde9a3da976e0abc92ab",
+  "stoichiometry": "1to1",
+  "target_form": "",
+  "url": "https://huggingface.co/datasets/Anthropic/claude-protein-binder-design/tree/9e1b81696da46835e9e9cde9a3da976e0abc92ab"
+}

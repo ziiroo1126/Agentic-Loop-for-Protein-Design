@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "checks": {
+    "cli": {
+      "status": "passed",
+      "returncode": 0
+    },
+    "skill_path": {
+      "status": "linked",
+      "path": "/tmp/molclaw-loop-setup-g0_xvsov/.agents/skills/molclaw"
+    },
+    "host_executable": {
+      "path": "/home/yusen/.nvm/versions/node/v22.17.1/bin/codex",
+      "status": "informational"
+    },
+    "host_discovery": {
+      "status": "not_verified_in_host"
+    },
+    "model_session": {
+      "status": "not_started"
+    },
+    "gpu": {
+      "status": "not_probed"
+    },
+    "resources": {
+      "status": "passed",
+      "returncode": 0
+    }
+  },
+  "replay_cli_available": true,
+  "live_inference_verified": false
+}

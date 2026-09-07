@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-05",
+  "status": "prepared_and_blocked_on_external_environment",
+  "job_directory": "interaction-design-mvp/artifacts/20260905T031949Z-042eb8af/assessments/20260905T034716Z-e5b1f83a",
+  "generation_run": "20260905T031949Z-042eb8af",
+  "assessment_manifest_sha256": "39b79a504c433f4b4713431afa52ee55c2c0203cef87189de5ffb5397725ec16",
+  "generation_manifest_sha256": "6460c0c3782809863a973fee0c20b88827530c7e6c0fb17d4576efe772fccc3a",
+  "protocol": {
+    "binder_chain": "A",
+    "budget_scope": "local subprocess wall seconds, including failed attempts",
+    "budget_seconds": 1800.0,
+    "diffusion_samples": 1,
+    "msa_mode": "search",
+    "name": "af3-refold-pyrosetta-ppi",
+    "original_binder_index": 0,
+    "rosetta_xml_sha256": "0de7c6a104ff9c991d053a94705a6be9a9907bb417af7c1cf6109b25e3e7f75a",
+    "seed": 1,
+    "target_chain": "B"
+  },
+  "native_af3_input": {
+    "dialect": "alphafold3",
+    "modelSeeds": [
+      1
+    ],
+    "name": "candidate0000",
+    "sequences": [
+      {
+        "protein": {
+          "id": "A",
+          "pairedMsa": "",
+          "sequence": "MVLTYVGNESDADGQEFKEDAEELALANGNGDINEEDTGVGERVVTAEIGDHVLVIILVD",
+          "templates": [],
+          "unpairedMsa": ""
+        }
+      },
+      {
+        "protein": {
+          "id": "B",
+          "sequence": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+        }
+      }
+    ],
+    "version": 1
+  },
+  "preflight": {
+    "checks": [
+      {
+        "issues": [
+          "af3 runtime is not configured"
+        ],
+        "runtime": null,
+        "stage": "af3"
+      },
+      {
+        "issues": [
+          "rosetta runtime is not configured"
+        ],
+        "runtime": null,
+        "stage": "rosetta"
+      }
+    ],
+    "ready": false,
+    "remaining_local_seconds": 1800.0
+  },
+  "actual_predictors_executed": false,
+  "independent_metrics_available": false,
+  "environment_check_scope": "Bounded searches of readable user directories and common Python environments; no configured AF3/PyRosetta paths were found. Docker socket access was denied by OS permissions.",
+  "download_activity": "No model or database downloads were attempted in this increment."
+}

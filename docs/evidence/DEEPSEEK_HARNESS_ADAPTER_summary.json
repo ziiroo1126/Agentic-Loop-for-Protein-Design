@@ -1,0 +1,399 @@
+{
+  "acceptance": null,
+  "agent_advantage_demonstrated": false,
+  "binding_validated": false,
+  "date": "2026-09-06",
+  "deepseek_model_called": false,
+  "exact_host_model": null,
+  "packaging": {
+    "claude_plugin_strict_validator": "passed",
+    "claude_skill_strict_validator": "passed",
+    "codex_plugin_validator": "passed",
+    "codex_skill_validator": "passed",
+    "llm_calls": 0,
+    "model_downloads": 0,
+    "native_bridge_tests": {
+      "command": "node plugins/molclaw/deepseek/bridge.test.mjs",
+      "passed": 17
+    },
+    "no_global_configuration_changed": true,
+    "npm_pack": {
+      "file": "dsh-molclaw-0.1.0.tgz",
+      "file_count": 11,
+      "includes_dependencies": false,
+      "includes_tests": false,
+      "size_bytes": 19135
+    },
+    "official_sdk_tests": {
+      "command": "node plugins/molclaw/deepseek/plugin.test.mjs",
+      "passed": 4
+    },
+    "python_packages": "offline wheel/sdist built; wheel installed offline without dependencies into /tmp; CLI stdin, SIGTERM143 and model/geometry resources checked outside checkout",
+    "relocated_npm_tarball": "loaded from /tmp with official Cordis + ToolRuntime; native help succeeded"
+  },
+  "python_validation": {
+    "checks": [
+      {
+        "command": [
+          ".venv/bin/pytest",
+          "-q"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "........................................................................ [ 31%]\n........................................................................ [ 62%]\n........................................................................ [ 93%]\n...............                                                          [100%]\n231 passed in 8.84s\n"
+      },
+      {
+        "command": [
+          ".venv/bin/ruff",
+          "check",
+          "src",
+          "tests"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "All checks passed!\n"
+      },
+      {
+        "command": [
+          ".venv/bin/ruff",
+          "format",
+          "--check",
+          "src",
+          "tests"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "50 files already formatted\n"
+      }
+    ]
+  },
+  "report": {
+    "acceptance": null,
+    "actor_metadata_verified": false,
+    "binding_validated": false,
+    "candidate_count": 16,
+    "decisions": [
+      {
+        "actor": {
+          "agent_id": null,
+          "harness": "deepseek-harness-scripted-validation",
+          "model": null
+        },
+        "decision": {
+          "action": "evaluate",
+          "candidate_ids": [
+            "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+            "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0"
+          ],
+          "evidence": [
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+              "field": "pre.monomer_plddt",
+              "value": 65.361229
+            },
+            {
+              "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+              "field": "pre.monomer_plddt",
+              "value": 70.585968
+            }
+          ],
+          "reason": "Deterministic transport validation: first two visible candidates; no decision model called."
+        },
+        "request_sha256": "6b024014f40f2ebc49271889ebaa4f013799eb2790b48f4003c03a6463c49ef1"
+      },
+      {
+        "actor": {
+          "agent_id": null,
+          "harness": "executor",
+          "model": null
+        },
+        "decision": {
+          "action": "stop",
+          "candidate_ids": [],
+          "evidence": [],
+          "reason": "candidate_limit_reached"
+        },
+        "request_sha256": "49ddf0b52b05c62da4bbf3f0a6ad1abf1a1a0aa356cbed8d214d65ddf28cf1ca"
+      }
+    ],
+    "evaluated_count": 2,
+    "host_token_usage": null,
+    "mode": "saved_complex_replay",
+    "new_model_inference": false,
+    "observations": [
+      {
+        "candidate_id": "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+        "post": {
+          "binder_rmsd_after_target_alignment": 14.658002,
+          "clash_residue_pairs": 1,
+          "hotspot_coverage": 0.5,
+          "iptm": 0.529753
+        }
+      },
+      {
+        "candidate_id": "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0",
+        "post": {
+          "binder_rmsd_after_target_alignment": 19.471889,
+          "clash_residue_pairs": 1,
+          "hotspot_coverage": 0.5,
+          "iptm": 0.137052
+        }
+      }
+    ],
+    "scope": "development selection trace; no held-out policy comparison or binding labels",
+    "selection_order": [
+      "baseline_pdl1_60aa_16seeds_seed_43_bb_0_seq_0",
+      "baseline_pdl1_60aa_16seeds_seed_44_bb_0_seq_0"
+    ],
+    "status": "completed",
+    "stop_reason": "candidate_limit_reached",
+    "strategy": "harness",
+    "tool_wall_seconds": 0.007042805664241314
+  },
+  "scope": "DeepSeek Harness native adapter, real library integration, scripted saved-result replay",
+  "source_contract": {
+    "commit_timestamp": "2026-09-04T09:16:23Z",
+    "inspected_commit": "d347e703908d0406b7a7ef80e3a0e594d86b2215",
+    "inspected_source_version": "0.1.3-alpha.1",
+    "network": "small source/metadata/npm transfers used command-scoped direct networking with caches, no install scripts and no global proxy changes",
+    "repository": "https://github.com/deepseek-ai/deepseek-harness",
+    "runtime_versions": {
+      "@deepseek-ai/cordis": "4.0.2",
+      "@deepseek-ai/dsh-bash-local": "0.1.2-rc.1",
+      "@deepseek-ai/dsh-subprocess-local": "0.1.2-rc.1",
+      "@deepseek-ai/dsh-system-prompt": "0.1.2-rc.1",
+      "@deepseek-ai/dsh-tool-bash": "0.1.2-rc.1",
+      "@deepseek-ai/dsh-tools": "0.1.2-rc.1",
+      "@deepseek-ai/schemastery": "3.18.2"
+    },
+    "source_version_npm_status": "0.1.3-alpha.1 tools endpoint returned HTTP404; selected published0.1.2-rc.1",
+    "sources": [
+      {
+        "path": "docs/subsystems/skills.md",
+        "sha256": "21adc5ed825209ecb1777745269acfb0e46452d6f1208b15dc62427435242aba"
+      },
+      {
+        "path": "docs/user/develop/basic/config.md",
+        "sha256": "c4a7a836afc4af0ac3070b7591b4db2d39a492127a89af1b4dfa829d08885349"
+      },
+      {
+        "path": "docs/user/develop/basic/index.md",
+        "sha256": "4c7f620da1d8fcf3aca44e466e05002b9b3424c62d647c8d443981b0e31c1635"
+      },
+      {
+        "path": "docs/user/develop/basic/publish.md",
+        "sha256": "1e46985c5804f8093d8189c9f49fee203d12620d1c35a676d80b88093e0eef9f"
+      },
+      {
+        "path": "docs/user/develop/basic/tool.md",
+        "sha256": "2b9f0694c614ecf7d29c98d879026c2c73d5da9064524373c0d970105a433cf7"
+      },
+      {
+        "path": "npm-cordis.json",
+        "sha256": "95a8ba1230b0bd8faf809d94fcee269ff5ea98970afe9126c4ac9f686f4c4e98"
+      },
+      {
+        "path": "npm-dsh-bash-local-0.1.2-rc.1.json",
+        "sha256": "3d01196056a0b2cd0aee2b96a94d87c0a5edab38c9cc6eeb1a49a49cac5fd5d8"
+      },
+      {
+        "path": "npm-dsh-llm-0.1.2-rc.1.json",
+        "sha256": "9407825a3f08a8a1e6b56b3d4dbde4d95d4788541d404ce5fa684319d0c10dd8"
+      },
+      {
+        "path": "npm-dsh-sandbox-0.1.2-rc.1.json",
+        "sha256": "435aab9179d736146aaa620d306321a42fd3352d4019ed45e2068a3a6b31d4fd"
+      },
+      {
+        "path": "npm-dsh-scope-0.1.2-rc.1.json",
+        "sha256": "df677ebf2da58f1e653bd65057366d43751dd3badac1757a2bcd45701b860f60"
+      },
+      {
+        "path": "npm-dsh-shell-0.1.2-rc.1.json",
+        "sha256": "6c04eb44c4338aa4cbbf41a006caf391923bdda54baa956d813832c14e435e7c"
+      },
+      {
+        "path": "npm-dsh-shell-env-0.1.2-rc.1.json",
+        "sha256": "f86e2745b02d05f4aa33659c71277bbad4b78229339074f9c172eedfba40a630"
+      },
+      {
+        "path": "npm-dsh-subprocess-local-0.1.2-rc.1.json",
+        "sha256": "b1336ac2881140c19e853c4a948c0c0744ed0e258272eb6e4b08421327f580d0"
+      },
+      {
+        "path": "npm-dsh-system-prompt-0.1.2-rc.1.json",
+        "sha256": "f98d42e4a64d4de86d9ddb65dc9895cdcb4738319ab5b2730e2836a311ea733b"
+      },
+      {
+        "path": "npm-dsh-tool-bash-0.1.2-rc.1.json",
+        "sha256": "82093f1fbeaf840bd3e9e4b0bc907b4374efe9b727858a3301d149ba07ef4ef9"
+      },
+      {
+        "path": "npm-dsh-tools-0.1.2-rc.1.json",
+        "sha256": "5def60880c2c24374d1466ff0155505fe511a90f27b1447fd4ced5ab1fb83bb0"
+      },
+      {
+        "path": "npm-dsh-tools.json",
+        "sha256": "366d795f75fa048a09622334f43123e082a2b37976517f8381e67df391acda50"
+      },
+      {
+        "path": "npm-dsh.json",
+        "sha256": "54ed7982a2b899be858ef0383c7ebfae67bcb3e7b25ff13a823d11b1964f21d4"
+      }
+    ],
+    "tested_published_dsh_modules": "0.1.2-rc.1"
+  },
+  "validation": {
+    "checks": [
+      "Cordis mounts native plugin and ToolRuntime validates help output",
+      "nested bash honors host pre-execution denial",
+      "already cancelled call never reaches bash",
+      "official registry rejects invalid canonical output",
+      "native prepare and observe validate real saved monomers without revealing future complex metrics",
+      "stale submission is rejected through native tool and Python executor",
+      "stdin apply reveals only selected results and repeated apply is idempotent",
+      "quota finalizes report without new inference or model decisions",
+      "every bash call retains nested dispatch identity",
+      "plugin disposal unregisters its tools"
+    ],
+    "dispatches": [
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-1",
+        "name": "molclaw_help",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-1"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-2",
+        "name": "molclaw_screen_observe",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-2"
+      },
+      {
+        "blocked": true,
+        "call_id": "molclaw-dsh-check-2:molclaw:observe:bash",
+        "name": "bash",
+        "nested": true,
+        "root_call_id": "molclaw-dsh-check-2"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-4",
+        "name": "molclaw_synthetic_bad_output",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-4"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-5",
+        "name": "molclaw_screen_prepare",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-5"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-5:molclaw:prepare:bash",
+        "name": "bash",
+        "nested": true,
+        "root_call_id": "molclaw-dsh-check-5"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-6",
+        "name": "molclaw_screen_observe",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-6"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-6:molclaw:observe:bash",
+        "name": "bash",
+        "nested": true,
+        "root_call_id": "molclaw-dsh-check-6"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-7",
+        "name": "molclaw_screen_apply",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-7"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-7:molclaw:apply:bash",
+        "name": "bash",
+        "nested": true,
+        "root_call_id": "molclaw-dsh-check-7"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-8",
+        "name": "molclaw_screen_apply",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-8"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-8:molclaw:apply:bash",
+        "name": "bash",
+        "nested": true,
+        "root_call_id": "molclaw-dsh-check-8"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-9",
+        "name": "molclaw_screen_apply",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-9"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-9:molclaw:apply:bash",
+        "name": "bash",
+        "nested": true,
+        "root_call_id": "molclaw-dsh-check-9"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-10",
+        "name": "molclaw_screen_observe",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-10"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-10:molclaw:observe:bash",
+        "name": "bash",
+        "nested": true,
+        "root_call_id": "molclaw-dsh-check-10"
+      },
+      {
+        "blocked": false,
+        "call_id": "molclaw-dsh-check-11",
+        "name": "molclaw_help",
+        "nested": false,
+        "root_call_id": "molclaw-dsh-check-11"
+      }
+    ],
+    "filesystem_sandbox_tested": false,
+    "full_harness_model_session_tested": false,
+    "mode": "published Cordis + ToolRuntime + official local Bash + real MolClaw CLI saved-result replay",
+    "model_calls": 0,
+    "new_gpu_inference": false,
+    "node": "v22.17.1",
+    "profile_or_web_ui_started": false,
+    "runtime_versions": {
+      "@deepseek-ai/cordis": "4.0.2",
+      "@deepseek-ai/dsh-bash-local": "0.1.2-rc.1",
+      "@deepseek-ai/dsh-subprocess-local": "0.1.2-rc.1",
+      "@deepseek-ai/dsh-system-prompt": "0.1.2-rc.1",
+      "@deepseek-ai/dsh-tool-bash": "0.1.2-rc.1",
+      "@deepseek-ai/dsh-tools": "0.1.2-rc.1",
+      "@deepseek-ai/schemastery": "3.18.2"
+    },
+    "session_dir": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/artifacts/screening/20260905T185037Z-14a0af9e",
+    "status": "passed"
+  }
+}

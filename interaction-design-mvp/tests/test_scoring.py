@@ -84,3 +84,34 @@ def test_multi_chain_af3_uses_binder_chain_iptm():
         ],
     }
     assert extract_af3_metrics(payload, binder_index=1)["iptm"] == 0.88
+
+
+def test_constant_lower_is_better_metric_has_full_tied_credit():
+    from interaction_design.specs import MetricRule
+
+    instances = [
+        SystemInstance([], id=name, metadata={"evaluations": {"rosetta": {"ddg": -50}}})
+        for name in ("b", "a")
+    ]
+    policy = EvaluationSpec(
+        binder_molecule="binder",
+        metric_rules=[MetricRule(source="rosetta", metric="ddg", higher_is_better=False, weight=1)],
+    )
+    ranked = rank_instances(instances, policy)
+    assert [instance.id for instance in ranked] == ["a", "b"]
+    assert all(instance.score == 1.0 for instance in ranked)
+
+
+def test_ranking_rejects_nonfinite_metrics():
+    import pytest
+
+    from interaction_design.specs import MetricRule
+
+    policy = EvaluationSpec(
+        binder_molecule="binder",
+        metric_rules=[MetricRule(source="af3", metric="iptm", higher_is_better=True, weight=1)],
+    )
+    for value in (float("nan"), float("inf"), -float("inf")):
+        instance = SystemInstance([], id="bad", metadata={"evaluations": {"af3": {"iptm": value}}})
+        with pytest.raises(ValueError, match="non-finite metric"):
+            rank_instances([instance], policy)

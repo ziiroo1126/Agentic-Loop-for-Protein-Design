@@ -1,0 +1,175 @@
+{
+  "date": "2026-09-05",
+  "scope": "Two real generation smoke checks; not binding validation or a controlled benchmark.",
+  "hardware": "one NVIDIA L20, CUDA device 0",
+  "application_python": "3.14.6",
+  "timing_scope": "Subprocess elapsed time including model initialization; excludes checkpoint preflight and is not measured GPU utilization time.",
+  "runs": [
+    {
+      "run_id": "20260905T031647Z-d830dab5",
+      "task_name": "real_smoke_ligand_binder",
+      "task_sha256": "745a04de10e275d745701fa3093f053588541c7b090ea25e376e455822cd5d43",
+      "generation_status": "completed",
+      "independent_evaluation": "not_available",
+      "generation_process_elapsed_seconds": 79.70028044655919,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "artifacts": {
+            "structure": "output/real_smoke_ligand_binder/seed_42/predictions/real_smoke_ligand_binder_seed_42_bb_0_seq_0.cif"
+          },
+          "evaluations": {},
+          "id": "real_smoke_ligand_binder_seed_42_bb_0_seq_0",
+          "odesign": {
+            "backbone_index": 0,
+            "seed": 42,
+            "sequence_index": 0
+          },
+          "rank": null,
+          "ranking": {},
+          "score": null,
+          "sequences": {
+            "binder": "PHVVITLADGVRLVVADADAAALREERGGL",
+            "ligand": "CC(=O)OC1=CC=CC=C1C(=O)O"
+          },
+          "threshold_pass": null,
+          "structure_checksum": "28a93fc74be9000f2cd68d89b36b518064175a09c941e807c3012e26ffa02860"
+        }
+      ],
+      "runtime_python": "3.10.0 | packaged by conda-forge | (default, Nov 20 2021, 02:24:10) [GCC 9.4.0]",
+      "runtime_packages": {
+        "biotite": "1.2.0",
+        "numpy": "1.26.4",
+        "pytorch-lightning": "1.9.0",
+        "rdkit": "2023.3.1",
+        "torch": "2.3.1"
+      },
+      "checkpoint_files": [
+        {
+          "path": "odesign_base_prot_flex.pt",
+          "sha256": "d66a2f5833bec93047f9be1d1996728d609b2682809aa9442a1313f144abbae7",
+          "size": 4324725148
+        },
+        {
+          "path": "oinvfold_protein.ckpt",
+          "sha256": "10ce5bffaa84abfbdcd3a7ea07ad08115edf460f19ea5eda193310b0555b9633",
+          "size": 85784152
+        }
+      ],
+      "chemical_components": [
+        {
+          "path": "components.v20240608.cif",
+          "sha256": "7240b17369ccfbbcc86e2d02dc8c9db59f46c32e0420f58889c6c121c60bfef0",
+          "size": 427767290
+        },
+        {
+          "path": "components.v20240608.cif.rdkit_mol.pkl",
+          "sha256": "2d6caced2d26c62015115a1d0a50f4106755a300e0c2a2d2b5c101c9038dcbcd",
+          "size": 125903802
+        }
+      ],
+      "model_pins": [
+        {
+          "name": "odesign-prot-flex",
+          "repo_id": "The-Institute-for-AI-Molecular-Design/ODesign",
+          "revision": "ab808f9e947fc065129e2ce2bc3fbcb95ef6b496"
+        },
+        {
+          "name": "oinvfold-protein",
+          "repo_id": "The-Institute-for-AI-Molecular-Design/OInvFold",
+          "revision": "e77a2b0200570757018751f33f06e32e2387413b"
+        }
+      ],
+      "reference_structure": null,
+      "odesign_source": {
+        "dirty": false,
+        "revision": "43944e930aea7dd74d2762f6cce7855471edae7b"
+      }
+    },
+    {
+      "run_id": "20260905T031949Z-042eb8af",
+      "task_name": "real_smoke_pdl1_binder",
+      "task_sha256": "f01604ee266753809f445a5e6aa8aff9a47c0f4701b32d1a7a84ed74758aafda",
+      "generation_status": "completed",
+      "independent_evaluation": "not_available",
+      "generation_process_elapsed_seconds": 86.1954241739586,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "artifacts": {
+            "structure": "output/real_smoke_pdl1_binder/seed_42/predictions/real_smoke_pdl1_binder_seed_42_bb_0_seq_0.cif"
+          },
+          "evaluations": {},
+          "id": "real_smoke_pdl1_binder_seed_42_bb_0_seq_0",
+          "odesign": {
+            "backbone_index": 0,
+            "seed": 42,
+            "sequence_index": 0
+          },
+          "rank": null,
+          "ranking": {},
+          "score": null,
+          "sequences": {
+            "binder": "MVLTYVGNESDADGQEFKEDAEELALANGNGDINEEDTGVGERVVTAEIGDHVLVIILVD",
+            "pdl1": "FTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNK"
+          },
+          "threshold_pass": null,
+          "structure_checksum": "51b5d23a1c15c105c355d1f38909a3f09e48cf89d52d814503cd68612ac4da89"
+        }
+      ],
+      "runtime_python": "3.10.0 | packaged by conda-forge | (default, Nov 20 2021, 02:24:10) [GCC 9.4.0]",
+      "runtime_packages": {
+        "biotite": "1.2.0",
+        "numpy": "1.26.4",
+        "pytorch-lightning": "1.9.0",
+        "rdkit": "2023.3.1",
+        "torch": "2.3.1"
+      },
+      "checkpoint_files": [
+        {
+          "path": "odesign_base_prot_flex.pt",
+          "sha256": "d66a2f5833bec93047f9be1d1996728d609b2682809aa9442a1313f144abbae7",
+          "size": 4324725148
+        },
+        {
+          "path": "oinvfold_protein.ckpt",
+          "sha256": "10ce5bffaa84abfbdcd3a7ea07ad08115edf460f19ea5eda193310b0555b9633",
+          "size": 85784152
+        }
+      ],
+      "chemical_components": [
+        {
+          "path": "components.v20240608.cif",
+          "sha256": "7240b17369ccfbbcc86e2d02dc8c9db59f46c32e0420f58889c6c121c60bfef0",
+          "size": 427767290
+        },
+        {
+          "path": "components.v20240608.cif.rdkit_mol.pkl",
+          "sha256": "2d6caced2d26c62015115a1d0a50f4106755a300e0c2a2d2b5c101c9038dcbcd",
+          "size": 125903802
+        }
+      ],
+      "model_pins": [
+        {
+          "name": "odesign-prot-flex",
+          "repo_id": "The-Institute-for-AI-Molecular-Design/ODesign",
+          "revision": "ab808f9e947fc065129e2ce2bc3fbcb95ef6b496"
+        },
+        {
+          "name": "oinvfold-protein",
+          "repo_id": "The-Institute-for-AI-Molecular-Design/OInvFold",
+          "revision": "e77a2b0200570757018751f33f06e32e2387413b"
+        }
+      ],
+      "reference_structure": {
+        "path": "/nvme-data3/yusen/worksapce/MolClaw/interaction-design-mvp/data/examples/PDL1_truncated.pdb",
+        "sha256": "a818a160b7f266fe810f1420c1a6af8be438a33b51c8e8dd19f80b5bc702459a",
+        "size": 158895
+      },
+      "odesign_source": {
+        "dirty": false,
+        "revision": "43944e930aea7dd74d2762f6cce7855471edae7b"
+      }
+    }
+  ]
+}

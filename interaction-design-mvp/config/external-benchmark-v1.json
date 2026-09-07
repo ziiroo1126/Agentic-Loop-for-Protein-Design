@@ -1,0 +1,48 @@
+{
+  "version": "external-benchmark-v1",
+  "source_repo": "Anthropic/claude-protein-binder-design",
+  "source_revision": "9e1b81696da46835e9e9cde9a3da976e0abc92ab",
+  "development_targets": [
+    "PD-L1"
+  ],
+  "evaluation_targets": [
+    "BBF-14",
+    "EGFR",
+    "IL-7Ra",
+    "MBP",
+    "TREM2",
+    "TrkA"
+  ],
+  "quota": 10,
+  "features": [
+    "ef2_iptm",
+    "ef2_ipsae",
+    "ef2_sc_dockq",
+    "ensemble_ipsae"
+  ],
+  "aggregation": "1to1, primary target form, seeds 0..4; median per model; missing any seed value gives null. Ensemble is median of ef2full/ef2fast/ptxv2 ipSAE medians.",
+  "baselines": [
+    "fixed",
+    "ef2_iptm",
+    "ef2_ipsae",
+    "ensemble_ipsae",
+    "development_best_single",
+    "heuristic"
+  ],
+  "single_score_selection": "Highest PD-L1 average precision among the four feature rankings over the full labeled pool; missing scores form a tied bottom group, break feature ties by name. No evaluation-target tuning.",
+  "heuristic": "Arithmetic mean of four within-target midrank percentiles; null gets 0. Equal feature weights are a descriptive rule, not independent evidence weights.",
+  "ties_and_fixed_order": "Ascending anonymous candidate ID; IDs use SHA256 of a stored random salt and source UUID, independent of scores and labels.",
+  "primary_endpoint": "Source binder_final unchanged: combined vendor/refit rubric with sensorgram review, not a new MolClaw measurement.",
+  "missing_labels": "Exclude null composite labels, report counts; never convert missing to negative.",
+  "vendor_sensitivity": "Binder/non_binder only for each vendor separately; not_expressed/not_measured/not_tested/inconclusive remain unknown. Keep selections fixed, report denominators.",
+  "comparison": "Same candidate pools, same four visible fields and quota for every policy; reveal evaluation labels only after all six host submissions are accepted.",
+  "uncertainty": "Descriptive percentile bootstrap over targets, seed 20260906, 2000 replicates; paired precision differences against heuristic and development_best_single.",
+  "limitations": [
+    "Exploratory retrospective target-disjoint analysis; source article target-level results were already known, no pristine holdout or preregistration claim.",
+    "Public selected candidate pool, correlated designs and only six evaluation targets; candidate count is not independent replication.",
+    "Host feature-only access is a protocol, not filesystem isolation; public-data training contamination remains possible.",
+    "Published post-hoc complex scores differ from MolClaw native monomer and geometry features; no validation of the complete current generation policy.",
+    "No new GPU inference, synthesis, functional validation, prospective hits, or compute-saving estimate. Quota is a selection count, not actual wet-lab spending."
+  ],
+  "missing_scores": "Every eligible candidate requires at least one finite score; otherwise preparation fails. Missing individual scores rank below observed values, and missingness counts are reported."
+}

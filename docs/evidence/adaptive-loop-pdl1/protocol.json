@@ -1,0 +1,33 @@
+{
+  "budget_per_candidate": 3,
+  "cost_unit": "prediction_query",
+  "initial_queries_per_candidate": 1,
+  "limitations": [
+    "Development replay on previously disclosed data; not independent validation.",
+    "Prediction queries are simulated acquisition cost, not measured GPU time or savings.",
+    "No new prediction, protein generation or wet-lab experiment was performed.",
+    "Private-file restrictions are a protocol, not filesystem access control.",
+    "Seeds and candidates do not constitute independent biological targets."
+  ],
+  "policy": "harness",
+  "pools": [
+    "p05"
+  ],
+  "purpose": "development",
+  "quota": 10,
+  "require_review": true,
+  "score_fields": [
+    "iptm",
+    "ipsae",
+    "sc_dockq"
+  ],
+  "seed_order": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "session_id": "a556acba3b8041189a0ec3a3d6c4c27a",
+  "version": "molclaw-adaptive-development-v2"
+}

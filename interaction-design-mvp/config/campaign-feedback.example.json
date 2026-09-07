@@ -1,0 +1,9 @@
+{
+  "version": "resample-or-stop-v1",
+  "strategy": "feedback",
+  "first_seed": 59,
+  "batch_size": 2,
+  "max_rounds": 2,
+  "patience": 1,
+  "tool_wall_budget_seconds": null
+}

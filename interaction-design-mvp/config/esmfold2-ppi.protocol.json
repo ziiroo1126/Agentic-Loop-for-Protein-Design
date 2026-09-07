@@ -1,0 +1,18 @@
+{
+  "backend": "esmfold2",
+  "model_id": "biohub/ESMFold2",
+  "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+  "esmc_id": "biohub/ESMC-6B",
+  "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+  "msa_mode": "none",
+  "seed": 1,
+  "num_loops": 20,
+  "num_sampling_steps": 100,
+  "num_diffusion_samples": 1,
+  "lm_dropout": 0.3,
+  "kernel_backend": "reference",
+  "folding_precision": "float32_with_upstream_bf16_autocast",
+  "esmc_precision": "bf16",
+  "ranking": "iptm_descending_candidate_id_tiebreak",
+  "thresholds": null
+}

@@ -22,11 +22,24 @@ dev = ["pytest>=8.3", "pytest-cov>=6", "ruff>=0.12"]
 [project.scripts]
 interaction-design = "interaction_design.cli:main"
 
+[tool.hatch.build]
+skip-excluded-dirs = true
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/interaction_design"]
 
 [tool.hatch.build.targets.wheel.force-include]
 "config/assets.lock.toml" = "interaction_design/data/assets.lock.toml"
+"config/ppi.xml" = "interaction_design/data/ppi.xml"
+"config/ppi.NOTICE" = "interaction_design/data/ppi.NOTICE"
+"config/ODESIGN_PIPELINE_LICENSE" = "interaction_design/data/ODESIGN_PIPELINE_LICENSE"
+"scripts/esmfold_smoke.py" = "interaction_design/data/esmfold_smoke.py"
+"scripts/esmfold_batch.py" = "interaction_design/data/esmfold_batch.py"
+"scripts/esmfold2_batch.py" = "interaction_design/data/esmfold2_batch.py"
+"config/esmfold2-ppi.protocol.json" = "interaction_design/data/esmfold2-ppi.protocol.json"
+"config/interface-feedback.protocol.json" = "interaction_design/data/interface-feedback.protocol.json"
+"config/external-benchmark-v1.json" = "interaction_design/data/external-benchmark-v1.json"
+"scripts/import_anthropic_benchmark.py" = "interaction_design/data/import_anthropic_benchmark.py"
 
 [tool.hatch.metadata]
 allow-direct-references = true

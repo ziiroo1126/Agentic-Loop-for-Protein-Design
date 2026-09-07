@@ -1,0 +1,44 @@
+{
+  "case": "PD-L1 development host loop",
+  "host": "Codex",
+  "model": null,
+  "queries": 93,
+  "quota": 10,
+  "hits": 5,
+  "selected_set_unchanged": true,
+  "steps": [
+    {
+      "step": 1,
+      "candidate_id": "c_4847df24270b9a62",
+      "rank_before": 10,
+      "rank_after": 7,
+      "new_ipsae": 0.9103188514709473,
+      "median_ipsae": 0.9067590832710266,
+      "reflection": "supported",
+      "queries_used": 91
+    },
+    {
+      "step": 2,
+      "candidate_id": "c_7181165ff6eb7a9b",
+      "rank_before": 10,
+      "rank_after": 10,
+      "new_ipsae": 0.9041075706481934,
+      "median_ipsae": 0.9047026336193085,
+      "reflection": "supported",
+      "queries_used": 92
+    },
+    {
+      "step": 3,
+      "candidate_id": "c_c9fb4520c7eb0d1f",
+      "rank_before": 11,
+      "rank_after": 12,
+      "new_ipsae": 0.8993080258369446,
+      "median_ipsae": 0.9010579586029053,
+      "reflection": "refuted",
+      "queries_used": 93
+    }
+  ],
+  "ledger_sha256": "5e000abf6c4240a1e738b2a401a197245279f8f5a98acfd4e9bded50a9dde809",
+  "full_python_tests_passed": 817,
+  "gpu_inference_run": false
+}

@@ -16,6 +16,7 @@ from evedesign.types import EntityPosList, StatusCallback
 
 from interaction_design.conversion import system_to_odesign_input
 from interaction_design.outputs import parse_odesign_outputs
+from interaction_design.persistence import write_json
 from interaction_design.runtime.base import (
     ExecutionResult,
     ODesignExecutionError,
@@ -140,6 +141,9 @@ class ODesignGenerator(BaseModel, Generator):
         run_dir = self.artifact_root / f"{timestamp}-{uuid.uuid4().hex[:8]}"
         output_dir = run_dir / "output"
         output_dir.mkdir(parents=True, exist_ok=False)
+        self.last_run_dir = run_dir
+        self.last_execution = None
+        write_json(run_dir / "task.json", self._spec.model_dump(mode="json"))
         input_path = run_dir / "odesign_input.json"
         input_path.write_text(
             json.dumps(native_input, indent=2, sort_keys=True) + "\n",
@@ -163,26 +167,38 @@ class ODesignGenerator(BaseModel, Generator):
             samples_per_seed=samples_per_seed,
             temperature=temperature,
         )
+        write_json(
+            run_dir / "request.json",
+            {
+                "num_designs": num_designs,
+                "samples_per_seed": samples_per_seed,
+                "temperature": temperature,
+                "seeds": self._spec.generation.seeds,
+            },
+        )
         try:
             if status_callback:
                 status_callback("running", 0.1, f"running {self.executor.name} executor")
             execution = self.executor.execute(request)
+            self.last_execution = execution
             if status_callback:
                 status_callback("running", 0.9, "parsing ODesign outputs")
             instances = parse_odesign_outputs(execution.output_dir, self._system, self._spec)
-        except Exception as error:
-            (run_dir / "failure.json").write_text(
-                json.dumps(
-                    {
-                        "error_type": type(error).__name__,
-                        "message": str(error),
-                        "task": self._spec.model_dump(mode="json"),
-                    },
-                    indent=2,
-                    sort_keys=True,
+            if len(instances) < num_designs:
+                raise ODesignExecutionError(
+                    f"ODesign returned {len(instances)} parseable designs; "
+                    f"at least {num_designs} were requested"
                 )
-                + "\n",
-                encoding="utf-8",
+            self._validate_instances(instances, raise_invalid=True)
+        except Exception as error:
+            write_json(
+                run_dir / "failure.json",
+                {
+                    "stage": "generation",
+                    "error_type": type(error).__name__,
+                    "message": str(error),
+                    "task": self._spec.model_dump(mode="json"),
+                },
             )
             if status_callback:
                 status_callback("failed", None, str(error))
@@ -190,14 +206,6 @@ class ODesignGenerator(BaseModel, Generator):
                 raise
             raise ODesignExecutionError(f"ODesign generation failed: {error}") from error
 
-        if len(instances) < num_designs:
-            raise ODesignExecutionError(
-                f"ODesign returned {len(instances)} parseable designs; "
-                f"at least {num_designs} were requested"
-            )
-        self._validate_instances(instances, raise_invalid=True)
-        self.last_run_dir = run_dir
-        self.last_execution = execution
         if status_callback:
             status_callback("done", 1.0, f"parsed {len(instances)} designs")
         return instances

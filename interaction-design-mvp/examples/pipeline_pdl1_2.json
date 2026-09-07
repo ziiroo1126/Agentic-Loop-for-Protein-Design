@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1",
+  "name": "pdl1_pipeline_development",
+  "description": "Full local task-to-export development check with two fresh seeds; computational diagnostics without binding labels.",
+  "model": "odesign_base_prot_flex",
+  "design_modality": "protein",
+  "molecules": [
+    {
+      "id": "binder",
+      "type": "protein",
+      "role": "design",
+      "segments": [
+        {
+          "kind": "generated",
+          "min_length": 60,
+          "max_length": 60
+        }
+      ]
+    },
+    {
+      "id": "pdl1",
+      "type": "protein",
+      "role": "context",
+      "segments": [
+        {
+          "kind": "fixed",
+          "chain": "B",
+          "start": 20,
+          "end": 133
+        }
+      ]
+    }
+  ],
+  "generation": {
+    "seeds": [
+      61,
+      62
+    ],
+    "samples_per_seed": 1,
+    "inverse_fold_topk": 1,
+    "inverse_fold_temperature": 1.0,
+    "inverse_fold_beam": true,
+    "use_msa": false,
+    "num_workers": 1,
+    "partial_diffusion_snr": 0.1
+  },
+  "evaluation": {
+    "binder_molecule": "binder",
+    "metric_rules": []
+  },
+  "reference_structure": "../data/examples/PDL1_truncated.pdb",
+  "hotspots": [
+    {
+      "chain": "B",
+      "residue": 64
+    },
+    {
+      "chain": "B",
+      "residue": 68
+    },
+    {
+      "chain": "B",
+      "residue": 126
+    },
+    {
+      "chain": "B",
+      "residue": 128
+    }
+  ],
+  "center_method": "hotspot_center"
+}

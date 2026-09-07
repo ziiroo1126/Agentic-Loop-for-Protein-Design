@@ -1,0 +1,165 @@
+{
+  "events": {
+    "p05": [
+      {
+        "reflection": {
+          "evidence": [
+            {
+              "candidate_id": "c_4847df24270b9a62",
+              "field": "ipsae",
+              "seed": 1,
+              "value": 0.9103188514709473
+            }
+          ],
+          "outcome": "supported",
+          "request_sha256": "2758730f8ab8a5d0f70847e02154ee86a117eff89bb8aa0820304d1a9e0d930e",
+          "summary": "\u65b0 seed \u7684 ipSAE \u4e3a 0.9103188514709473\uff0c\u5df2\u89c1\u4e2d\u4f4d\u6570\u7ea6 0.906759\uff0c\u6392\u540d\u7531 10 \u5347\u81f3 7\u3002\u672c\u8f6e\u652f\u6301\u5b83\u4fdd\u6301\u5728\u524d 10 \u7684\u5224\u65ad\uff1b\u4e24\u6b21\u9884\u6d4b\u4e0d\u8db3\u4ee5\u8bc1\u660e\u53ef\u9760\u6027\u6821\u51c6\u6216\u7ed3\u5408\u80fd\u529b\u3002"
+        },
+        "result_sha256": "2758730f8ab8a5d0f70847e02154ee86a117eff89bb8aa0820304d1a9e0d930e",
+        "submission": {
+          "action": "evaluate",
+          "candidate_id": "c_4847df24270b9a62",
+          "plan": {
+            "evidence": [
+              {
+                "candidate_id": "c_4847df24270b9a62",
+                "field": "ipsae",
+                "seed": 0,
+                "value": 0.903199315071106
+              },
+              {
+                "candidate_id": "c_c9fb4520c7eb0d1f",
+                "field": "ipsae",
+                "seed": 0,
+                "value": 0.902807891368866
+              }
+            ],
+            "expectation": "\u9884\u671f\u5176\u5df2\u89c1 ipSAE \u4e2d\u4f4d\u6570\u4ecd\u9ad8\u4e8e\u5f53\u524d\u7b2c 11 \u540d\u7684 0.902807891368866\uff1b\u82e5\u4f4e\u4e8e\u8be5\u503c\uff0c\u5219\u8fb9\u754c\u7a33\u5b9a\u7684\u5224\u65ad\u88ab\u53cd\u9a73\u3002",
+            "question": "\u52a0\u5165\u4e0b\u4e00\u4e2a seed \u540e\uff0c\u5f53\u524d\u7b2c 10 \u540d\u80fd\u5426\u4ecd\u7559\u5728\u524d 10\uff1f"
+          },
+          "reason": "\u5f53\u524d\u7b2c 10 \u4e0e\u7b2c 11 \u540d\u7684\u521d\u59cb ipSAE \u975e\u5e38\u63a5\u8fd1\uff0c\u5148\u68c0\u67e5\u5165\u9009\u8fb9\u754c\u5185\u7684\u5019\u9009\u3002",
+          "request_sha256": "dbd069c9188435557475881156609b13258259a57729f31edfa3117ce67c0149"
+        }
+      },
+      {
+        "reflection": {
+          "evidence": [
+            {
+              "candidate_id": "c_7181165ff6eb7a9b",
+              "field": "ipsae",
+              "seed": 1,
+              "value": 0.9041075706481934
+            },
+            {
+              "candidate_id": "c_7181165ff6eb7a9b",
+              "field": "sc_dockq",
+              "seed": 1,
+              "value": 0.8208
+            }
+          ],
+          "outcome": "supported",
+          "request_sha256": "a04b48d157a2afc0b0a1a01aa172a697a47271ee06de4ecaa39959ccd8f00185",
+          "summary": "\u65b0 seed \u7684 ipSAE \u4e3a 0.9041075706481934\uff1b\u5df2\u89c1\u4e2d\u4f4d\u6570\u7ea6 0.904703\uff0c\u4ecd\u9ad8\u4e8e\u7b2c 11 \u540d\u5e76\u4fdd\u6301\u7b2c 10\u3002scDockQ \u4ecd\u8f83\u4f4e\uff0c\u672c\u8f6e\u4e0d\u80fd\u89e3\u51b3\u8fd9\u4e00\u6307\u6807\u5206\u6b67\uff0c\u4e5f\u4e0d\u636e\u6b64\u65ad\u8a00\u7ed3\u5408\u80fd\u529b\u3002"
+        },
+        "result_sha256": "a04b48d157a2afc0b0a1a01aa172a697a47271ee06de4ecaa39959ccd8f00185",
+        "submission": {
+          "action": "evaluate",
+          "candidate_id": "c_7181165ff6eb7a9b",
+          "plan": {
+            "evidence": [
+              {
+                "candidate_id": "c_7181165ff6eb7a9b",
+                "field": "ipsae",
+                "seed": 0,
+                "value": 0.9052976965904236
+              },
+              {
+                "candidate_id": "c_7181165ff6eb7a9b",
+                "field": "sc_dockq",
+                "seed": 0,
+                "value": 0.82427
+              },
+              {
+                "candidate_id": "c_c9fb4520c7eb0d1f",
+                "field": "ipsae",
+                "seed": 0,
+                "value": 0.902807891368866
+              }
+            ],
+            "expectation": "\u9884\u671f\u5176\u5df2\u89c1 ipSAE \u4e2d\u4f4d\u6570\u4ecd\u9ad8\u4e8e\u7b2c 11 \u540d\u7684 0.902807891368866\uff1b\u4f4e\u4e8e\u65f6\u53cd\u9a73\u672c\u8f6e\u7684\u8fb9\u754c\u7a33\u5b9a\u5224\u65ad\u3002",
+            "question": "\u65b0\u7684\u7b2c 10 \u540d\u80fd\u5426\u5728\u8ffd\u52a0\u4e00\u4e2a seed \u540e\u4fdd\u6301\u5165\u9009\uff1f"
+          },
+          "reason": "\u4e0a\u4e00\u8f6e\u5019\u9009\u5347\u81f3\u7b2c 7 \u540e\uff0c\u8be5\u5019\u9009\u6210\u4e3a\u65b0\u7684\u7b2c 10 \u540d\uff1b\u5176 scDockQ \u4e5f\u4f4e\u4e8e\u76f8\u90bb\u5019\u9009\uff0c\u503c\u5f97\u68c0\u67e5\u53e6\u4e00 seed\uff0c\u4f46\u4e0d\u628a\u8be5\u5206\u6b67\u5f53\u4f5c\u5b9e\u9a8c\u9634\u6027\u3002",
+          "request_sha256": "2758730f8ab8a5d0f70847e02154ee86a117eff89bb8aa0820304d1a9e0d930e"
+        }
+      },
+      {
+        "reflection": {
+          "evidence": [
+            {
+              "candidate_id": "c_c9fb4520c7eb0d1f",
+              "field": "ipsae",
+              "seed": 1,
+              "value": 0.8993080258369446
+            }
+          ],
+          "outcome": "refuted",
+          "request_sha256": "bf25ee0e4e9206c5ffab27b705670aada34dfb84b99a27d8aa25f2a215b4165c",
+          "summary": "\u65b0 seed \u7684 ipSAE \u4e3a 0.8993080258369446\uff0c\u5df2\u89c1\u4e2d\u4f4d\u6570\u7ea6 0.901058\uff0c\u4f4e\u4e8e\u5f53\u524d\u7b2c 10 \u540d\uff0c\u6392\u540d\u7531 11 \u964d\u81f3 12\u3002\u8fd9\u53cd\u9a73\u4e86\u672c\u8f6e\u201c\u8ffd\u52a0\u540e\u8fdb\u5165\u524d 10\u201d\u7684\u5177\u4f53\u9884\u671f\uff1b\u4fdd\u7559\u8be5\u4e0b\u964d\u7ed3\u679c\u4e0e\u67e5\u8be2\u6210\u672c\u3002"
+        },
+        "result_sha256": "bf25ee0e4e9206c5ffab27b705670aada34dfb84b99a27d8aa25f2a215b4165c",
+        "submission": {
+          "action": "evaluate",
+          "candidate_id": "c_c9fb4520c7eb0d1f",
+          "plan": {
+            "evidence": [
+              {
+                "candidate_id": "c_c9fb4520c7eb0d1f",
+                "field": "ipsae",
+                "seed": 0,
+                "value": 0.902807891368866
+              },
+              {
+                "candidate_id": "c_7181165ff6eb7a9b",
+                "field": "ipsae",
+                "seed": 0,
+                "value": 0.9052976965904236
+              },
+              {
+                "candidate_id": "c_7181165ff6eb7a9b",
+                "field": "ipsae",
+                "seed": 1,
+                "value": 0.9041075706481934
+              }
+            ],
+            "expectation": "\u68c0\u9a8c\u5b83\u52a0\u5165\u4e00\u4e2a seed \u540e\u80fd\u5426\u8d85\u8fc7\u7b2c 10 \u540d\u5f53\u524d\u7684 ipSAE \u4e2d\u4f4d\u6570 0.9047026336193085\uff1b\u9884\u671f\u8d85\u8fc7\u5e76\u8fdb\u5165\u524d 10\uff0c\u672a\u8d85\u8fc7\u5219\u53cd\u9a73\u8fd9\u4e00\u5177\u4f53\u9884\u671f\u3002",
+            "question": "\u7b2c 11 \u540d\u7684\u5355\u6b21 ipSAE \u662f\u5426\u4f4e\u4f30\u4e86\u5b83\u5728\u5f53\u524d\u6392\u540d\u4e2d\u7684\u4f4d\u7f6e\uff1f"
+          },
+          "reason": "\u524d\u4e24\u8f6e\u5df2\u68c0\u67e5\u8fb9\u754c\u5185\u5019\u9009\uff1b\u6700\u540e\u4e00\u6b21\u9884\u5b9a\u67e5\u8be2\u68c0\u67e5\u5f53\u524d\u7b2c 11 \u540d\uff0c\u907f\u514d\u53ea\u590d\u8bc4\u5df2\u5165\u9009\u5bf9\u8c61\u3002",
+          "request_sha256": "a04b48d157a2afc0b0a1a01aa172a697a47271ee06de4ecaa39959ccd8f00185"
+        }
+      },
+      {
+        "result_sha256": "3db0031b5de0d28613eae76f50f772c29ae8c64371fee031700999a6e745df5f",
+        "submission": {
+          "action": "select",
+          "candidate_ids": [
+            "c_ae9f50b4fd7a2747",
+            "c_8eb5c0c4fc409fe2",
+            "c_d7ee42a468c9860c",
+            "c_e27464e955d620f3",
+            "c_83413e9d6bd7aab3",
+            "c_dd515864f8686cb9",
+            "c_4847df24270b9a62",
+            "c_6d17d66ef92e79c9",
+            "c_13256339789d9e04",
+            "c_7181165ff6eb7a9b"
+          ],
+          "reason": "\u5df2\u5b8c\u6210\u6848\u4f8b\u4e8b\u5148\u56fa\u5b9a\u7684 3 \u6b21\u8ffd\u52a0\u67e5\u8be2\uff1b\u6309\u5df2\u89c1\u975e\u7a7a ipSAE \u4e2d\u4f4d\u6570\u964d\u5e8f\u3001\u5019\u9009 ID \u7834\u540c\u5206\u9009\u51fa 10 \u4e2a\u3002\u603b\u8ba1 93 \u6b21\u903b\u8f91\u67e5\u8be2\uff0c\u5269\u4f59 177 \u6b21\u4e0d\u7528\uff1b\u8fd9\u662f\u9884\u5b9a\u5c55\u793a\u505c\u6b62\u89c4\u5219\uff0c\u4e0d\u58f0\u79f0\u5df2\u627e\u5230\u79d1\u5b66\u6700\u4f18\u505c\u6b62\u70b9\u3002",
+          "request_sha256": "bf25ee0e4e9206c5ffab27b705670aada34dfb84b99a27d8aa25f2a215b4165c"
+        }
+      }
+    ]
+  },
+  "manifest_sha256": "3aee117b73489fc2bf069a4c0d049e21278c59412ea1e69a51cd5eccefbd233c"
+}

@@ -1,0 +1,4 @@
+ppi.xml is copied without modification from ODesign-pipeline:
+https://github.com/OTeam-AI4S/ODesign-pipeline/blob/644b5ddfa25c395e84c527eb460be3552c307a04/filter/rosetta_cmds/ppi.xml
+Copyright ODesign Team and contributors. Licensed under Apache-2.0.
+See ODESIGN_PIPELINE_LICENSE. The filtering protocol is an upstream contribution.
