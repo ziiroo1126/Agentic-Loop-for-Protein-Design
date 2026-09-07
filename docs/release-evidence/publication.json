@@ -44,5 +44,18 @@
   "release_commit": "33476c20680c37cc96cc19b8fbd3c8707504278d",
   "release_workflow": "https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/runs/34116148979",
   "offline_demo_matches_browser_tested_build": true,
-  "main_case_matches_checked_original_export": true
+  "main_case_matches_checked_original_export": true,
+  "gallery": {
+    "date": "2026-09-07",
+    "url": "https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/",
+    "deployment_workflow": "https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/runs/34116835837",
+    "ci_workflow": "https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/runs/34116735938",
+    "commit": "a751cdc",
+    "status": "passed",
+    "public_files_verified": 106,
+    "public_bytes_verified": 4612005,
+    "all_files_match_local_browser_tested_build": true,
+    "manifest_sha256": "450fd2dfb7c10a9a079599bb0476edad40892bdb588cd6f23c1f80d39e7884ff"
+  },
+  "public_browser": "public-browser.json"
 }

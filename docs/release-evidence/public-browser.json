@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "base_url": "https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/",
+  "browser": "Mozilla Firefox 136.0",
+  "checks": [
+    "gallery",
+    "intake",
+    "decision_evidence",
+    "tool_results",
+    "stop_reason",
+    "webgl",
+    "candidate_and_structure_switch",
+    "chain_controls",
+    "rotation",
+    "download_buttons",
+    "saved_png_and_exact_structure_bytes",
+    "adaptive_rounds",
+    "responsive_layout",
+    "no_cross_origin_http_resources"
+  ],
+  "date": "2026-09-07",
+  "harness_source_sha256": "6231f6f3be9feb0057bbd1fcf55358f5423dd8c459167ee68b72cab314c1d1ed",
+  "harness": "tools/browser_smoke.py with public URLs and same-origin HTTP resource assertions; all interaction and saved-file checks retained"
+}
