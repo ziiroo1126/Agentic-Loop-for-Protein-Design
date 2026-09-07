@@ -58,8 +58,8 @@ from interaction_design.workflow import DesignWorkflow, evaluate_run
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="interaction-design",
-        description="Reproducible evedesign + ODesign interaction-design MVP",
+        prog="alpd",
+        description="ALPD: agent-guided protein binder workflows and traceable results",
     )
     commands = parser.add_subparsers(dest="command", required=True)
 

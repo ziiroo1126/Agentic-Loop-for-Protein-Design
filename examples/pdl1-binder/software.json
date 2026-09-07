@@ -1,0 +1,76 @@
+{
+  "generation": {
+    "evedesign": "0.0.6",
+    "odesign_expected_revision": "43944e930aea7dd74d2762f6cce7855471edae7b",
+    "odesign_git": {
+      "dirty": false,
+      "revision": "43944e930aea7dd74d2762f6cce7855471edae7b"
+    },
+    "platform": "Linux-5.15.0-105-generic-x86_64-with-glibc2.31",
+    "project_git": {
+      "dirty": true,
+      "revision": "bb0b97ae881841f069fe0f1d77bab73934fa955a"
+    },
+    "python": "3.14.6"
+  },
+  "monomer": {
+    "esm_implementation_sha256": "8b76275b1929cca7ca41ff6cd1d715812e94439a203691eed7d0bdd9bd129fac",
+    "executable": "[external path omitted]",
+    "implementation_sha256": "4577d81d37f5cb8361cddc1176e01ad9f2604f1b4ca80dc7bc0c7d97b0d988ab",
+    "packages": {
+      "huggingface-hub": "0.36.2",
+      "numpy": "1.26.4",
+      "torch": "2.7.1+cu118",
+      "transformers": "4.52.4"
+    },
+    "platform": "Linux-5.15.0-105-generic-x86_64-with-glibc2.31",
+    "python": "3.10.0 (default, Mar  3 2022, 09:58:08) [GCC 7.5.0]",
+    "worker_sha256": "2670cbac8f905924c696151def3a4165ce333e3311193b385adaed9c938b5b78"
+  },
+  "complex": {
+    "python": "3.12.0",
+    "packages": {
+      "biotite": {
+        "source": null,
+        "version": "1.6.0"
+      },
+      "esm": {
+        "source": {
+          "url": "https://github.com/Biohub/esm.git",
+          "vcs_info": {
+            "commit_id": "d96737e56af90af5f06126955d9dd670db3f930a",
+            "requested_revision": "main",
+            "vcs": "git"
+          }
+        },
+        "version": "3.3.0"
+      },
+      "rdkit": {
+        "source": null,
+        "version": "2026.3.3"
+      },
+      "safetensors": {
+        "source": null,
+        "version": "0.8.0"
+      },
+      "torch": {
+        "source": null,
+        "version": "2.5.1+cu124"
+      },
+      "transformers": {
+        "source": {
+          "url": "https://github.com/Biohub/transformers.git",
+          "vcs_info": {
+            "commit_id": "ef32577f55da19a4989cd7b22e004dc43a4998cb",
+            "requested_revision": "main",
+            "vcs": "git"
+          }
+        },
+        "version": "4.57.6"
+      }
+    },
+    "worker_sha256": "597c7e2deb39bc76ecceb0cc7da686b09a8e0f7bb99341d27914ecbf5a6a5618",
+    "torch_cuda": "12.4",
+    "gpu_name": "NVIDIA L20"
+  }
+}

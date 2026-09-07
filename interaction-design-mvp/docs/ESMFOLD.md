@@ -100,13 +100,13 @@ index, verifies the original CIF checksum and exact sequence/CA correspondence,
 and saves immutable requests without changing the generation manifest:
 
 ```bash
-uv run interaction-design monomer prepare artifacts/<generation-id> \
+uv run alpd monomer prepare artifacts/<generation-id> \
   --protocol config/baseline-pdl1-16.protocol.json
-uv run interaction-design monomer run <printed-job-directory> \
+uv run alpd monomer run <printed-job-directory> \
   --python /path/to/existing/model-environment/bin/python \
   --model-dir /path/to/local/esmfold_v1/snapshot \
   --gpu 0 --timeout 900
-uv run interaction-design monomer report <printed-job-directory>
+uv run alpd monomer report <printed-job-directory>
 ```
 
 `--protocol` is optional. The supplied PD-L1 development protocol fixes 16 seeds,

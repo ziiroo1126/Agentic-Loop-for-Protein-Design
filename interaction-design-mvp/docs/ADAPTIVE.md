@@ -1,9 +1,9 @@
 # 自适应复评与回放
 
-`interaction-design adaptive` 将已有候选的逐 seed 预测按需揭示，支持宿主决策、
+`alpd adaptive` 将已有候选的逐 seed 预测按需揭示，支持宿主决策、
 逐轮复盘、固定策略与离线页面。它是开发数据执行器；当前不会重新生成候选或运行 GPU。
 完整动作格式、恢复规则和信息边界见
-[共享技能中的自适应操作指南](../../plugins/molclaw/skills/molclaw/references/adaptive-evaluation.md)。
+[共享技能中的自适应操作指南](../../plugins/alpd/skills/alpd/references/adaptive-evaluation.md)。
 
 ## 先看结果
 
@@ -16,13 +16,13 @@
 在 `interaction-design-mvp/` 中，使用已有开发环境执行：
 
 ```bash
-.venv/bin/interaction-design adaptive prepare \
+.venv/bin/alpd adaptive prepare \
   --imported examples/adaptive-synthetic.json \
   --output artifacts/adaptive-example --quota 2 \
   --budget-per-candidate 3 --policy uniform
-.venv/bin/interaction-design adaptive run artifacts/adaptive-example
-.venv/bin/interaction-design adaptive report artifacts/adaptive-example
-.venv/bin/interaction-design adaptive export artifacts/adaptive-example \
+.venv/bin/alpd adaptive run artifacts/adaptive-example
+.venv/bin/alpd adaptive report artifacts/adaptive-example
+.venv/bin/alpd adaptive export artifacts/adaptive-example \
   --output artifacts/adaptive-example-view
 ```
 
@@ -49,15 +49,15 @@ observe → 带证据的计划 → apply → observe → reflect → 下一轮�
 在仓库根目录执行，目标项目目录需已存在：
 
 ```bash
-python3 plugins/molclaw/tools/local.py install --host codex --project-dir /path/to/work
-python3 plugins/molclaw/tools/local.py doctor --host codex --project-dir /path/to/work
+python3 plugins/alpd/tools/local.py install --host codex --project-dir /path/to/work
+python3 plugins/alpd/tools/local.py doctor --host codex --project-dir /path/to/work
 ```
 
 另支持 `claude` 和 `deepseek`。安装仅链接完整共享技能，遇到其他来源的已有技能时
-拒绝覆盖。按输出向宿主提供 `MOLCLAW_PROJECT_ROOT`。Doctor 区分已有 CLI 可用、技能
+拒绝覆盖。按输出向宿主提供 `ALPD_PROJECT_ROOT`。Doctor 区分已有 CLI 可用、技能
 路径就绪、宿主发现未验证及模型会话未启动；详细选项见
-[宿主接入](../../plugins/molclaw/skills/molclaw/references/host-adapters.md)。
+[宿主接入](../../plugins/alpd/skills/alpd/references/host-adapters.md)。
 
 给 doctor 增加 `--task TASK.json --runtime RUNTIME.json` 可复用本地资源预检。
-等价的核心入口为 `interaction-design pipeline preflight TASK.json --runtime RUNTIME.json`。
+等价的核心入口为 `alpd pipeline preflight TASK.json --runtime RUNTIME.json`。
 此检查不创建任务或启动推理；资源检查通过不等于 GPU 或真实模型调用已经验证。

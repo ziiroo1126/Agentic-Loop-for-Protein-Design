@@ -1,0 +1,182 @@
+{
+  "acceptance": null,
+  "actor_metadata_verified": false,
+  "binding_validated": false,
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "acceptance": null,
+      "artifacts": {
+        "generated_structure": "candidates/candidate0000/generated.cif",
+        "monomer_structure": "candidates/candidate0000/monomer.pdb",
+        "predicted_complex": null
+      },
+      "binding_validated": false,
+      "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+      "complex_evaluation_status": "unevaluated",
+      "generation_metadata": {
+        "artifacts": {
+          "generated_structure": "candidates/candidate0000/generated.cif",
+          "monomer_structure": "candidates/candidate0000/monomer.pdb",
+          "predicted_complex": null
+        },
+        "odesign": {
+          "backbone_index": 0,
+          "seed": 61,
+          "sequence_index": 0
+        }
+      },
+      "generation_status": "generated",
+      "length": 60,
+      "monomer_status": "completed",
+      "post": null,
+      "pre": {
+        "generated_clash_residue_pairs": 0,
+        "generated_hotspot_coverage": 0.25,
+        "monomer_design_rmsd": 24.034691,
+        "monomer_plddt": 79.130783
+      },
+      "seed": 61,
+      "selected_for_complex": false,
+      "sequence": "SQGAAISAANGMDVDETTKNACKAAHGLDEHLWEALAEEMGVAAELLNSALDELNHRLAY"
+    },
+    {
+      "acceptance": null,
+      "artifacts": {
+        "generated_structure": "candidates/candidate0001/generated.cif",
+        "monomer_structure": "candidates/candidate0001/monomer.pdb",
+        "predicted_complex": "candidates/candidate0001/complex.cif"
+      },
+      "binding_validated": false,
+      "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+      "complex_evaluation_status": "evaluated",
+      "generation_metadata": {
+        "artifacts": {
+          "generated_structure": "candidates/candidate0001/generated.cif",
+          "monomer_structure": "candidates/candidate0001/monomer.pdb",
+          "predicted_complex": null
+        },
+        "odesign": {
+          "backbone_index": 0,
+          "seed": 62,
+          "sequence_index": 0
+        }
+      },
+      "generation_status": "generated",
+      "length": 60,
+      "monomer_status": "completed",
+      "post": {
+        "binder_rmsd_after_target_alignment": 16.991236,
+        "clash_residue_pairs": 1,
+        "hotspot_coverage": 0.25,
+        "iptm": 0.183789
+      },
+      "pre": {
+        "generated_clash_residue_pairs": 1,
+        "generated_hotspot_coverage": 0.25,
+        "monomer_design_rmsd": 4.446605,
+        "monomer_plddt": 57.149067
+      },
+      "seed": 62,
+      "selected_for_complex": true,
+      "sequence": "MDLSRLGEILVAVTEGSSEYDAAVAAAESQGLSREEALAALAGGGILMEHNGKLRYVTRP"
+    }
+  ],
+  "decisions": [
+    {
+      "actor": {
+        "agent_id": "[external path omitted]",
+        "harness": "codex-collaboration",
+        "model": null
+      },
+      "decision": {
+        "action": "evaluate",
+        "candidate_ids": [
+          "pdl1_pipeline_development_seed_62_bb_0_seq_0"
+        ],
+        "evidence": [
+          {
+            "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+            "field": "pre.monomer_design_rmsd",
+            "value": 4.446605
+          },
+          {
+            "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+            "field": "pre.monomer_design_rmsd",
+            "value": 24.034691
+          },
+          {
+            "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+            "field": "pre.monomer_plddt",
+            "value": 57.149067
+          },
+          {
+            "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+            "field": "pre.monomer_plddt",
+            "value": 79.130783
+          },
+          {
+            "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+            "field": "pre.generated_clash_residue_pairs",
+            "value": 1.0
+          },
+          {
+            "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+            "field": "pre.generated_clash_residue_pairs",
+            "value": 0.0
+          },
+          {
+            "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+            "field": "pre.generated_hotspot_coverage",
+            "value": 0.25
+          },
+          {
+            "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+            "field": "pre.generated_hotspot_coverage",
+            "value": 0.25
+          }
+        ],
+        "reason": "Select unevaluated seed 62 for the single remaining development complex-evaluation check. Its monomer_design_rmsd is 4.446605, compared with 24.034691 for seed 61, so I prioritize closer agreement between the refolded monomer and generated design geometry for this check. This trades off lower monomer_plddt (57.149067 versus 79.130783) and more generated_clash_residue_pairs (1 versus 0). Both candidates have generated_hotspot_coverage of 0.25, which does not distinguish them. These competing pre diagnostics do not establish which complex will perform better; no calibrated cutoff is assumed. This is a workflow demonstration, not a scientific acceptance decision: acceptance remains unknown, post metrics are unavailable, and binding is not experimentally validated."
+      },
+      "request_sha256": "2e222949d7cd15d9723478913fe5f38e71207b497779937b44aaff7e9311fc7a"
+    },
+    {
+      "actor": {
+        "agent_id": null,
+        "harness": "executor",
+        "model": null
+      },
+      "decision": {
+        "action": "stop",
+        "candidate_ids": [],
+        "evidence": [],
+        "reason": "candidate_limit_reached"
+      },
+      "request_sha256": "1a9d4cc93d5007ffed52a76b227786facd23e49dc56d84bc3f0acd8226c3d58e"
+    }
+  ],
+  "evaluated_count": 1,
+  "host_token_usage": null,
+  "mode": "local_complex",
+  "new_model_inference": true,
+  "observations": [
+    {
+      "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+      "post": {
+        "binder_rmsd_after_target_alignment": 16.991236,
+        "clash_residue_pairs": 1,
+        "hotspot_coverage": 0.25,
+        "iptm": 0.183789
+      }
+    }
+  ],
+  "scope": "development selection trace; no held-out policy comparison or binding labels",
+  "selection_meaning": "selected for complex evaluation; no binding acceptance",
+  "selection_order": [
+    "pdl1_pipeline_development_seed_62_bb_0_seq_0"
+  ],
+  "status": "completed",
+  "stop_reason": "candidate_limit_reached",
+  "strategy": "harness",
+  "tool_wall_seconds": 61.446432321332395
+}

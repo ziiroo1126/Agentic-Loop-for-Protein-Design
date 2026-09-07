@@ -111,6 +111,13 @@ def build_demo(bundle: Path, replay: Path, output: Path) -> dict:
         for name in ("demo.js", "demo.css"):
             shutil.copyfile(TEMPLATES / name, staging / name)
         shutil.copyfile(REPO / "interaction-design-mvp/docs/DEMO.md", staging / "使用说明.md")
+        for source, name in (
+            (REPO / "LICENSE", "LICENSE"),
+            (REPO / "interaction-design-mvp/LICENSE", "CORE_LICENSE"),
+            (REPO / "interaction-design-mvp/config/ODESIGN_PIPELINE_LICENSE", "REFERENCE_LICENSE"),
+            (REPO / "THIRD_PARTY_NOTICES.md", "THIRD_PARTY_NOTICES.md"),
+        ):
+            shutil.copyfile(source, staging / name)
         write_json(
             staging / "manifest.json",
             {

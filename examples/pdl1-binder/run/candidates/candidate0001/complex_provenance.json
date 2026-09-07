@@ -1,0 +1,138 @@
+{
+  "backend": "esmfold2",
+  "ccd": {
+    "path": "[external path omitted]",
+    "sha256": "9ff44b1927c6b9198e38ffe0928706827a09a350c15530beeeabebfa88038fc5"
+  },
+  "cuda_visible_devices": "3",
+  "esmc_dir": "[external path omitted]",
+  "esmc_dtype": "torch.bfloat16",
+  "folding_dtype": "torch.float32",
+  "folding_model": [
+    {
+      "path": "config.json",
+      "sha256": "e9ec2496ec433a1dce18627ed4bf3785b4ce0c1d69e4bb4663dad1ab895da012",
+      "size": 2337
+    },
+    {
+      "hf_lfs_blob_verified": true,
+      "path": "model.safetensors",
+      "sha256": "138fd4350d6892b81ce6be7ff9bf5a93ae9d4d3751f46a27438a3f9f0dcefa0e",
+      "size": 939505228
+    }
+  ],
+  "gpu_name": "NVIDIA L20",
+  "language_model": [
+    {
+      "path": "config.json",
+      "sha256": "c5566fab6a17fd674141331fe75de917b7904d99fb7a410d2b1593c21e576913",
+      "size": 341
+    },
+    {
+      "hf_lfs_blob_verified": true,
+      "path": "model-00001-of-00006.safetensors",
+      "sha256": "bd90149ff223e6ac1a0cac6147a5ae0df20d3a21df4f65356a1f19cd14f4aa8a",
+      "size": 4864457920
+    },
+    {
+      "hf_lfs_blob_verified": true,
+      "path": "model-00002-of-00006.safetensors",
+      "sha256": "f75e2144d8269fe2eb4b3e0823fb089b94f176d8024153e85b8fb573a42294fa",
+      "size": 4971211344
+    },
+    {
+      "hf_lfs_blob_verified": true,
+      "path": "model-00003-of-00006.safetensors",
+      "sha256": "f699f01ecc9691d9c6470492765fe54b8b5d2e9f277c139e89427433ffdfe0b2",
+      "size": 4863752992
+    },
+    {
+      "hf_lfs_blob_verified": true,
+      "path": "model-00004-of-00006.safetensors",
+      "sha256": "46add1b7be098bbfdc3073884851ba3057f1b33ea23a158b650a37007dabd13d",
+      "size": 4971211344
+    },
+    {
+      "hf_lfs_blob_verified": true,
+      "path": "model-00005-of-00006.safetensors",
+      "sha256": "1e1cb62f060a34e18f54a31a76683ef888b8cec59e73315f5b31d25d45a1f88c",
+      "size": 4863752992
+    },
+    {
+      "hf_lfs_blob_verified": true,
+      "path": "model-00006-of-00006.safetensors",
+      "sha256": "56c73e13ae96e777ce65eee99364056069ef93b646470f352f83c5f1037b1b18",
+      "size": 873762296
+    },
+    {
+      "path": "model.safetensors.index.json",
+      "sha256": "6846456e20e6ee2c37461f7bfc21d316d69bdaf165b925691afcb39e583244da",
+      "size": 97349
+    }
+  ],
+  "ld_library_path_unset": true,
+  "model_dir": "[external path omitted]",
+  "model_load_seconds": 16.033012946136296,
+  "offline": true,
+  "packages": {
+    "biotite": {
+      "source": null,
+      "version": "1.6.0"
+    },
+    "esm": {
+      "source": {
+        "url": "https://github.com/Biohub/esm.git",
+        "vcs_info": {
+          "commit_id": "d96737e56af90af5f06126955d9dd670db3f930a",
+          "requested_revision": "main",
+          "vcs": "git"
+        }
+      },
+      "version": "3.3.0"
+    },
+    "rdkit": {
+      "source": null,
+      "version": "2026.3.3"
+    },
+    "safetensors": {
+      "source": null,
+      "version": "0.8.0"
+    },
+    "torch": {
+      "source": null,
+      "version": "2.5.1+cu124"
+    },
+    "transformers": {
+      "source": {
+        "url": "https://github.com/Biohub/transformers.git",
+        "vcs_info": {
+          "commit_id": "ef32577f55da19a4989cd7b22e004dc43a4998cb",
+          "requested_revision": "main",
+          "vcs": "git"
+        }
+      },
+      "version": "4.57.6"
+    }
+  },
+  "policy": {
+    "backend": "esmfold2",
+    "esmc_id": "biohub/ESMC-6B",
+    "esmc_precision": "bf16",
+    "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+    "folding_precision": "float32_with_upstream_bf16_autocast",
+    "kernel_backend": "reference",
+    "lm_dropout": 0.3,
+    "model_id": "biohub/ESMFold2",
+    "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+    "msa_mode": "none",
+    "num_diffusion_samples": 1,
+    "num_loops": 20,
+    "num_sampling_steps": 100,
+    "ranking": "iptm_descending_candidate_id_tiebreak",
+    "seed": 1,
+    "thresholds": null
+  },
+  "python": "3.12.0",
+  "torch_cuda": "12.4",
+  "worker_sha256": "597c7e2deb39bc76ecceb0cc7da686b09a8e0f7bb99341d27914ecbf5a6a5618"
+}

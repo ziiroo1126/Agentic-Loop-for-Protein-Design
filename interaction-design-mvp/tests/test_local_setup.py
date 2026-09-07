@@ -7,8 +7,8 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRIPT = ROOT / "plugins/molclaw/tools/local.py"
-spec = importlib.util.spec_from_file_location("molclaw_local_setup", SCRIPT)
+SCRIPT = ROOT / "plugins/alpd/tools/local.py"
+spec = importlib.util.spec_from_file_location("alpd_local_setup", SCRIPT)
 setup = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(setup)
 
@@ -18,17 +18,17 @@ spec.loader.exec_module(setup)
 )
 def test_install_links_complete_skill_and_is_idempotent(tmp_path, host, folder):
     result = setup.install(ROOT, tmp_path, host)
-    path = tmp_path / folder / "skills/molclaw"
+    path = tmp_path / folder / "skills/alpd"
     assert result["status"] == "installed"
     assert path.is_symlink()
     assert (path / "references/adaptive-evaluation.md").is_file()
-    assert (path / "scripts/molclaw.py").is_file()
+    assert (path / "scripts/alpd.py").is_file()
     assert setup.install(ROOT, tmp_path, host)["status"] == "already_installed"
 
 
 @pytest.mark.parametrize("kind", ["directory", "file", "foreign_link", "broken_link"])
 def test_install_never_replaces_existing_skill(tmp_path, kind):
-    path = tmp_path / ".agents/skills/molclaw"
+    path = tmp_path / ".agents/skills/alpd"
     path.parent.mkdir(parents=True)
     if kind == "directory":
         path.mkdir()

@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "browser": "Mozilla Firefox 136.0",
+  "checks": [
+    "gallery",
+    "intake",
+    "decision_evidence",
+    "tool_results",
+    "stop_reason",
+    "webgl",
+    "candidate_and_structure_switch",
+    "chain_controls",
+    "rotation",
+    "download_buttons",
+    "saved_png_and_exact_structure_bytes",
+    "adaptive_rounds",
+    "responsive_layout",
+    "no_http_resources"
+  ]
+}

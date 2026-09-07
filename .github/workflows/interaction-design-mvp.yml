@@ -1,20 +1,28 @@
-name: Interaction Design MVP
+name: ALPD CI
 
 on:
   push:
+    branches: [main]
     paths:
       - "interaction-design-mvp/**"
-      - ".github/workflows/interaction-design-mvp.yml"
+      - "plugins/alpd/**"
+      - "tools/**"
+      - "examples/**"
+      - "docs/**"
+      - "README*"
+      - "*LICENSE*"
+      - "THIRD_PARTY_NOTICES.md"
+      - ".github/**"
+      - ".gitattributes"
   pull_request:
-    paths:
-      - "interaction-design-mvp/**"
-      - ".github/workflows/interaction-design-mvp.yml"
+  workflow_call:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: interaction-design-mvp-${{ github.workflow }}-${{ github.ref }}
+  group: alpd-ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -26,37 +34,77 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.12", "3.13"]
-
     defaults:
       run:
         working-directory: interaction-design-mvp
-
-    env:
-      UV_NO_PROGRESS: "1"
-
     steps:
-      - name: Check out repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-
-      - name: Install uv and Python
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
           version: "0.11.32"
           python-version: ${{ matrix.python-version }}
           working-directory: interaction-design-mvp
           enable-cache: true
           cache-dependency-glob: interaction-design-mvp/uv.lock
+      - run: uv sync --locked --extra dev
+      - run: uv run --no-sync ruff check . ../tools ../plugins/alpd --config pyproject.toml
+      - run: uv run --no-sync pytest -q
+      - run: uv build
 
-      - name: Install locked dependencies
-        run: uv sync --locked --extra dev
-
-      - name: Lint
-        run: uv run --no-sync ruff check .
-
-      - name: Test
-        run: uv run --no-sync pytest -q
-
-      - name: Build distributions
-        run: uv build
+  experience:
+    name: Installed CLI, plugins, cases and browser
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          version: "0.11.32"
+          python-version: "3.12"
+          enable-cache: true
+          cache-dependency-glob: interaction-design-mvp/uv.lock
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: "22"
+      - name: Install core and test built wheel
+        run: |
+          bash tools/setup.sh --extra dev --python 3.12
+          uv build --project interaction-design-mvp --out-dir dist
+          uv pip install --python interaction-design-mvp/.venv/bin/python --no-deps --reinstall dist/*.whl
+          echo "$PWD/interaction-design-mvp/.venv/bin" >> "$GITHUB_PATH"
+      - name: Install minimal host SDK and test adapters
+        working-directory: plugins/alpd
+        run: |
+          npm ci --ignore-scripts --legacy-peer-deps
+          npm test
+      - name: Exercise installed commands and fresh project setup
+        run: |
+          alpd --help
+          python tools/cpu_demo.py --output "$RUNNER_TEMP/alpd-cpu"
+          mkdir "$RUNNER_TEMP/alpd-work"
+          python tools/alpd.py install --host codex --project-dir "$RUNNER_TEMP/alpd-work"
+          python tools/alpd.py doctor --host codex --project-dir "$RUNNER_TEMP/alpd-work"
+          alpd task review examples/pdl1-binder/brief.json
+          alpd task build examples/pdl1-binder/brief.json --output "$RUNNER_TEMP/task.json"
+          alpd viewer export examples/pdl1-binder/run --output "$RUNNER_TEMP/viewer.html"
+      - name: Build and verify portable gallery
+        run: |
+          python tools/build_site.py --output "$RUNNER_TEMP/alpd-site"
+          python tools/verify_release.py --site "$RUNNER_TEMP/alpd-site"
+      - uses: browser-actions/setup-firefox@0bc507ddf224827e3b1af68e014d5e42ab93e795
+        with:
+          firefox-version: "136.0"
+      - name: Exercise browser and WebGL
+        run: python tools/browser_smoke.py --site "$RUNNER_TEMP/alpd-site" --output "$RUNNER_TEMP/browser-check"
+      - name: Retain verification output
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: alpd-release-checks
+          path: |
+            ${{ runner.temp }}/browser-check
+            ${{ runner.temp }}/alpd-site/downloads

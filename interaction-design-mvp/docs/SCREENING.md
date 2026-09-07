@@ -1,24 +1,24 @@
 # Harness-driven candidate screening
 
 `screen` separates candidate selection from scientific execution. Codex, Claude Code,
-or another host reads the visible request and returns a JSON submission; MolClaw checks
+or another host reads the visible request and returns a JSON submission; ALPD checks
 it and evaluates only the selected candidates. No second model provider or API client
-is configured inside MolClaw.
+is configured inside ALPD.
 
 Prepare from a completed ESMFold monomer job, then choose saved-result replay or a
 local ESMFold2 runtime. Run from the `interaction-design-mvp` directory:
 
 ```bash
-interaction-design screen prepare "$MONOMER_JOB" --strategy harness \
+alpd screen prepare "$MONOMER_JOB" --strategy harness \
   --feedback "$COMPLETED_FEEDBACK" --batch-size 2 --max-evaluations 4
-interaction-design screen observe "$SESSION_DIR" > /tmp/molclaw-request.json
+alpd screen observe "$SESSION_DIR" > /tmp/alpd-request.json
 # The host reads this request and writes its response according to response_schema.
-interaction-design screen apply "$SESSION_DIR" --decision /tmp/molclaw-decision.json
-interaction-design screen observe "$SESSION_DIR"
+alpd screen apply "$SESSION_DIR" --decision /tmp/alpd-decision.json
+alpd screen observe "$SESSION_DIR"
 ```
 
 `screen apply SESSION_DIR --decision -` accepts the full submission on standard input
-for native host adapters. The [DeepSeek Harness bundle](../../plugins/molclaw/skills/molclaw/references/deepseek-harness.md)
+for native host adapters. The [DeepSeek Harness bundle](../../plugins/alpd/skills/alpd/references/deepseek-harness.md)
 registers prepare/observe/apply tools and sends this JSON through the host's bash tool.
 
 Replace `--feedback` with `--complex-config "$ESMFOLD2_RUNTIME"` to run new complex
@@ -61,7 +61,7 @@ For stronger separation, give a decision subagent only the observed JSON and rec
 input and actual response. A coding host that already read the full outcomes should not
 be treated as a blinded decision policy.
 
-See the [portable skill and host adapters](../../plugins/molclaw/README.md). This first
+See the [portable skill and host adapters](../../plugins/alpd/README.md). This first
 skill specializes in selecting existing candidates; generation remains available through
 the core CLI and the earlier `campaign` controller. A complete natural-language task to
 generation, selection, export workflow and independent policy experiments remain further work.

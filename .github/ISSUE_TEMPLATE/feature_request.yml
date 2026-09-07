@@ -1,0 +1,14 @@
+name: Feature request
+description: Propose an improvement to ALPD.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Task you want to accomplish
+      description: Describe the input, desired output and current obstacle.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior and example

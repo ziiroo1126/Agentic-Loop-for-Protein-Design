@@ -1,133 +1,119 @@
 # Agentic Loop for Protein Design (ALPD)
 
-[简体中文](README.zh-CN.md) · [GitHub](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design)
+[中文](README.zh-CN.md) · [Interactive gallery](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/) · [Quick start](docs/QUICKSTART.md) · [Releases](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/releases)
 
-ALPD provides reproducible protein-design workflows and scientific tools for host
-agents, connecting candidate generation, evaluation and feedback-guided selection.
-The Python core manages scientific tasks, model execution, bounded
-candidate selection, persistent records and portable result bundles. Host adapters
-are packaged as skills and plugins for Codex, Claude Code and DeepSeek Harness.
+**Give an agent a protein binder task. Inspect its decisions, tool results and 3D structures.**
 
-The current workflow connects ODesign generation, ESMFold monomer checks and
-ESMFold2 complex evaluation. Public-data benchmarks and repeated host decisions
-have been recorded; a stable LLM selection advantage has not been demonstrated.
-The next research question concerns adaptive allocation of additional evaluations.
+ALPD connects supplied requirements to ODesign candidate generation, ESMFold v1
+monomer checks, agent-guided ESMFold2 complex evaluation, and portable result export.
+The Python core executes scientific tools and checks actions; your host supplies
+the decision model. Codex is the default skill entry point.
 
-Users can start with a description and available target information. The host records
-an incomplete design brief; `task review` lists missing choices, and `task build`
-checks structure/residue mapping before compiling an execution task. Briefs can retain
-unspecified hotspots and length ranges; the complete backend requires explicit hotspots
-and a fixed length before execution.
+**0.1.0 Research Preview.** The complete workflow currently supports one fixed-length
+linear protein binder and one fixed protein target. Computational metrics do not
+establish experimental binding, and a stable LLM selection advantage has not been
+shown. See [scope and known limits](docs/LIMITATIONS.md).
 
-```mermaid
-flowchart TD
-    A[User goals and available inputs] --> B[Task clarification and preparation]
-    B -->|Missing choices| A
-    B --> C[Task and runtime preflight]
-    C --> D[Generation and monomer checks]
-    D --> E[Agent candidate selection]
-    E --> F[Complex evaluation and feedback]
-    F -->|Continue| E
-    F --> G[Results and evidence export]
-    G --> H[Offline reports and 3D structure browsing]
-```
-
-## Demo and visualization
-
-The [five-minute demo](interaction-design-mvp/docs/DEMO.md) walks through input
-preparation, saved decisions and interactive results. Extract the demo ZIP, keep
-the files together and open `alpd-demo/index.html` in a browser. Browsing requires
-no model environment, GPU, server or Internet connection; 3D rendering requires
-JavaScript and WebGL. Use the “open separately” links if your browser restricts
-embedded local pages.
-
-| Demo chapter | What you can explore |
-| --- | --- |
-| 01 · Prepare a task | Missing-input report, draft download and a saved complete task |
-| 02 · Replay a run | Workflow diagram, candidate metrics, selection reasons and evaluation feedback, step by step |
-| 03 · Browse structures | Interactive **3Dmol.js** viewer: switch candidates and structures, rotate, zoom, toggle chains, inspect residues and save PNG images |
-| 04 · Reevaluate and reflect | A separate recorded host case with sequential predictions, query counts and reflections |
-| 05 · Run your own task | CLI commands for preparation, execution, decisions and export |
-
-![ALPD 3Dmol.js viewer showing a saved complex prediction, chain controls and candidate metrics](docs/images/alpd-structure-viewer.png)
-
-The screenshot shows a saved development result. The demo replays existing records;
-clicking through does not run models or request new Agent decisions. The reevaluation
-case uses a different candidate pool from the main pipeline example. These records
-do not establish experimental binding or a stable Agent selection advantage.
-
-To build the walkthrough from a completed result bundle, run from the repository
-root with the prepared Python environment:
-
-```bash
-interaction-design-mvp/.venv/bin/python interaction-design-mvp/scripts/build_demo.py \
-  --result-bundle /absolute/path/to/completed-result-bundle \
-  --output interaction-design-mvp/artifacts/alpd-demo
-```
-
-This creates `interaction-design-mvp/artifacts/alpd-demo/index.html` and
-`interaction-design-mvp/artifacts/alpd-demo.zip`. Use a fresh output path.
-The generated demo and source model results are local artifacts, excluded from Git;
-a fresh clone needs an existing result bundle to build this combined demo.
-Without one, start with the included [PD-L1 replay](docs/evidence/adaptive-loop-pdl1/index.html)
-or the [synthetic CPU example](interaction-design-mvp/docs/ADAPTIVE.md).
-Download or clone the replay files before opening the HTML; GitHub file previews
-do not execute interactive pages.
-
-New `pipeline export` bundles automatically include a standalone 3D viewer at
-`index.html`. For an existing bundle, use `interaction-design viewer export
-/path/to/result-bundle --output /path/to/new-viewer.html`.
-See the [structure viewer guide](interaction-design-mvp/docs/STRUCTURE_VIEWER.md)
-for supported formats and controls, and the [adaptive guide](interaction-design-mvp/docs/ADAPTIVE.md)
-for sequential reevaluation and replay.
-
-## Repository
-
-```text
-interaction-design-mvp/      Python package, tests, protocols and examples
-  src/interaction_design/   Scientific workflow and command-line interface
-  config/                   Pinned assets and evaluation protocols
-  docs/                     Runtime and benchmark guides
-  artifacts/                Local experiment outputs (ignored by Git)
-  models/, data/            Local model assets and external data (ignored by Git)
-plugins/                   Shared skill and host adapters
-docs/                      Project plan, research goal and experiment evidence
-.github/workflows/         Python continuous integration
-```
+[![ALPD structure viewer: a recorded complex prediction, chain controls and metrics](docs/images/alpd-structure-viewer.png)](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/demo/structures.html)
 
 ## Start here
 
-With the existing Python development environment, run from the repository root:
+| I want to… | Input | Start | Output |
+| --- | --- | --- | --- |
+| Explore immediately | A browser | [Online gallery](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/) / [offline ZIP](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/downloads/alpd-demo.zip) | Recorded decisions and interactive 3D |
+| Run without models | Python 3.12/3.13, uv | [CPU quick start](docs/QUICKSTART.md#2-run-the-cpu-example) | Synthetic session and HTML report |
+| Run a real task | Target structure, constraints, configured GPU environments | [Runtime setup](docs/RUNTIME.md) + [Codex skill](docs/CODEX.md) | New candidates, evaluations and result bundle |
+
+From a checkout, with uv available:
 
 ```bash
-cd interaction-design-mvp
-.venv/bin/interaction-design --help
-.venv/bin/interaction-design task --help
-.venv/bin/interaction-design validate examples/ligand_binder.json
-.venv/bin/interaction-design pipeline --help
+bash tools/setup.sh --python 3.12
+source interaction-design-mvp/.venv/bin/activate
+python tools/cpu_demo.py --output /tmp/alpd-cpu-demo
 ```
 
-For environment preparation and a CPU-only example, see the
-[Python package guide](interaction-design-mvp/README.md).
-For host integration, see the [plugin guide](plugins/molclaw/README.md).
-The [pipeline guide](interaction-design-mvp/docs/PIPELINE.md) covers task preparation,
-execution, candidate decisions and export.
-For incomplete user requirements, start with the
-[task input guide](interaction-design-mvp/docs/TASK_INPUT.md).
+Open `/tmp/alpd-cpu-demo/view/index.html`. This example uses synthetic data and a
+fixed policy, with no model downloads or LLM calls. Use a fresh output directory.
+The [full guide](docs/QUICKSTART.md) includes cloning, requirements and expected results.
 
-## Development and research
+## Use the host skill
 
-- [Contributing and local checks](CONTRIBUTING.md)
-- [Project plan](docs/PROJECT_PLAN.md)
-- [Implementation and validation records](docs/M1_STATUS.md)
-- [Current research goal](docs/RESEARCH_GOAL.md)
-- [Recorded experiments](docs/evidence/)
+After CPU setup, install into your working project:
 
-Model weights, environments and full experiment outputs are local resources. They
-are not included in a fresh clone. Reuse caches and existing environments before
-downloading or installing dependencies.
+```bash
+export ALPD_PROJECT_ROOT="$PWD"
+mkdir -p /tmp/alpd-work
+python tools/alpd.py install --host codex --project-dir /tmp/alpd-work
+python tools/alpd.py doctor --host codex --project-dir /tmp/alpd-work
+cd /tmp/alpd-work
+codex
+```
+
+Then invoke `$alpd:alpd` with your supplied task and runtime. For an initial no-GPU host
+session, use the complete [example prompt](docs/CODEX.md#first-host-run-without-a-gpu).
+Skill installation reuses the core and links the full skill directory. Codex uses
+its configured account; ALPD does not add a second LLM API client.
+Claude Code and DeepSeek adapters have separate [verification boundaries](docs/CODEX.md#host-support).
+
+## The loop
+
+```mermaid
+flowchart LR
+    A[User goals and available files] --> B[Clarify and validate task]
+    B --> C[Preflight local runtime]
+    C --> D[Generate candidates and check monomers]
+    D --> E[Agent selects evaluations]
+    E --> F[Complex prediction and feedback]
+    F -->|Continue| E
+    F -->|Stop| G[Report, evidence and 3D export]
+```
+
+Incomplete input can stay in a brief. `task review` identifies missing requirements;
+`task build` checks structure/residue mapping before execution. Current live actions
+select evaluations or stop. Automatic redesign from feedback is future work.
+The separate `adaptive` workflow reveals cached predictions and records plans and
+reflections; it does not launch fresh GPU inference.
+
+## Worked examples
+
+- **[Complete binder case](examples/pdl1-binder/README.md):** original task, two generated
+  candidates, real host selection, complex feedback, budget stop and 3D structures.
+  The portable records, software provenance and hashes are included in the repository.
+- **[Separate adaptive case](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/demo/replay/index.html):**
+  three recorded queries and reflections on a different, existing 90-candidate pool.
+- **[Synthetic CPU example](docs/QUICKSTART.md#2-run-the-cpu-example):** an installable
+  workflow demonstration with fictional measurements and a fixed baseline.
+
+Rebuild the public gallery without model inference:
+
+```bash
+python tools/build_site.py --output /tmp/alpd-site
+```
+
+Open `/tmp/alpd-site/index.html`; offline ZIPs and checksums are under `downloads/`.
+The browser supports candidate/structure switching, rotation, chain visibility,
+residue inspection, PNG export and original structure downloads. Every standalone
+3D page embeds 3Dmol.js and its data, with no CDN dependency.
+
+## Documentation and development
+
+[User guides](docs/README.md) · [Validation](docs/RELEASE_VERIFICATION.md) · [Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md) · [Research objective](docs/RESEARCH_GOAL.md)
+
+```text
+interaction-design-mvp/   Python core, model adapters and scientific tests
+plugins/alpd/            Shared ALPD skill and host adapters
+tools/                   Setup, CPU example, gallery and release checks
+examples/pdl1-binder/     Portable original case and reproduction instructions
+docs/                    User guides, release notes and historical evidence
+.github/                 CI, publication workflows and issue templates
+```
+
+Models, environments and full local experiment directories are not tracked.
+Original research records remain in `docs/evidence/`; current user instructions
+are indexed separately. Downloads reuse caches and try direct connections first.
 
 ## Licenses
 
-The original [repository license](LICENSE), [Python package license](interaction-design-mvp/LICENSE)
-and upstream notices under `interaction-design-mvp/config/` are retained.
+The repository retains its [MIT license](LICENSE); the Python core is
+[Apache-2.0](interaction-design-mvp/LICENSE). Model and dataset terms apply
+separately. See [third-party sources and notices](THIRD_PARTY_NOTICES.md).

@@ -20,7 +20,7 @@ validated scoring setup.
 From `interaction-design-mvp/`:
 
 ```bash
-uv run interaction-design assessment prepare \
+uv run alpd assessment prepare \
   artifacts/20260905T031949Z-042eb8af --budget-seconds 1800
 ```
 
@@ -51,9 +51,9 @@ the actual AF3 deployment revision. Set unused runtime sections to `null` if res
 will be imported from elsewhere.
 
 ```bash
-uv run interaction-design assessment check <job-directory> \
+uv run alpd assessment check <job-directory> \
   --config .cache/evaluation-runtime.local.json
-uv run interaction-design assessment run <job-directory> \
+uv run alpd assessment run <job-directory> \
   --config .cache/evaluation-runtime.local.json
 ```
 
@@ -99,7 +99,7 @@ diffusion sample. Import the native output folder using the original candidate I
 recorded in the job manifest:
 
 ```bash
-uv run interaction-design assessment import-af3 <job-directory> \
+uv run alpd assessment import-af3 <job-directory> \
   --candidate <candidate-id> --source /path/to/af3-output
 ```
 
@@ -117,9 +117,9 @@ Python environment, using the accepted AF3 model and the job's `ppi.xml`:
 /path/to/pyrosetta-python src/interaction_design/evaluation/rosetta_worker.py \
   --input-cif /path/to/accepted-model.cif --protocol-xml /path/to/job/ppi.xml \
   --output /path/to/metrics.json --seed 1
-uv run interaction-design assessment import-rosetta <job-directory> \
+uv run alpd assessment import-rosetta <job-directory> \
   --candidate <candidate-id> --source /path/to/metrics.json
-uv run interaction-design assessment report <job-directory>
+uv run alpd assessment report <job-directory>
 ```
 
 Rosetta imports must name the accepted AF3 structure hash, protocol hash, binder/target

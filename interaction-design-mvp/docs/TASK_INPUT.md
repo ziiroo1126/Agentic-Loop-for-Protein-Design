@@ -17,8 +17,8 @@ User goals and available inputs
 ## Start with a brief
 
 ```bash
-interaction-design task init --name my_design --output artifacts/my-design/brief.json
-interaction-design task review artifacts/my-design/brief.json
+alpd task init --name my_design --output artifacts/my-design/brief.json
+alpd task review artifacts/my-design/brief.json
 ```
 
 `init` creates a template with no invented structure, chain, hotspot or binder length.
@@ -79,9 +79,9 @@ mapping check from an incomplete brief; mapping is deferred until choices are co
 The report contains the normalized brief, execution settings and a preview of the task.
 
 ```bash
-interaction-design task build artifacts/my-design/brief.json \
+alpd task build artifacts/my-design/brief.json \
   --output artifacts/my-design/task.json
-interaction-design pipeline preflight artifacts/my-design/task.json --runtime runtime.json
+alpd pipeline preflight artifacts/my-design/task.json --runtime runtime.json
 ```
 
 Successful compilation returns `ready_for_preflight` and exit code 0. It does not

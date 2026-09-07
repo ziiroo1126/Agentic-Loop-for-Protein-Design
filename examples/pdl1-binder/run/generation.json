@@ -1,0 +1,213 @@
+{
+  "candidate_ids": [
+    "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+    "pdl1_pipeline_development_seed_62_bb_0_seq_0"
+  ],
+  "created_at": "2026-09-06T02:50:17.984949+00:00",
+  "executor": {
+    "command": [
+      "[external path omitted]",
+      "[external path omitted]",
+      "exp=train_odesign_base_prot_flex",
+      "data_root_dir=[external path omitted]",
+      "ckpt_root_dir=[external path omitted]",
+      "exp.infer_model_name=odesign_base_prot_flex",
+      "exp.design_modality=protein",
+      "exp.input_json_path=[external path omitted]",
+      "exp.exp_name=pdl1_pipeline_development",
+      "exp.seeds=[61, 62]",
+      "exp.model.sample_diffusion.N_sample=1",
+      "exp.invfold_topk=1",
+      "exp.invfold_temp=1.0",
+      "exp.invfold_use_beam=true",
+      "exp.use_msa=false",
+      "exp.num_workers=1",
+      "exp.model.inference_noise_schedulers.coordinate.partial_diffusion.enable=false",
+      "exp.model.inference_noise_schedulers.coordinate.partial_diffusion.snr=0.1",
+      "hydra.run.dir=[external path omitted]",
+      "hydra.job.chdir=false"
+    ],
+    "metadata": {
+      "checkpoints": {
+        "files": [
+          {
+            "path": "[external path omitted]",
+            "sha256": "d66a2f5833bec93047f9be1d1996728d609b2682809aa9442a1313f144abbae7",
+            "size": 4324725148
+          },
+          {
+            "path": "[external path omitted]",
+            "sha256": "10ce5bffaa84abfbdcd3a7ea07ad08115edf460f19ea5eda193310b0555b9633",
+            "size": 85784152
+          }
+        ],
+        "hub_verification": [
+          {
+            "name": "odesign-prot-flex",
+            "result": {
+              "checked": 1,
+              "path": "[external path omitted]",
+              "repo_id": "The-Institute-for-AI-Molecular-Design/ODesign",
+              "repo_type": "model"
+            },
+            "revision": "ab808f9e947fc065129e2ce2bc3fbcb95ef6b496"
+          },
+          {
+            "name": "oinvfold-protein",
+            "result": {
+              "checked": 1,
+              "path": "[external path omitted]",
+              "repo_id": "The-Institute-for-AI-Molecular-Design/OInvFold",
+              "repo_type": "model"
+            },
+            "revision": "e77a2b0200570757018751f33f06e32e2387413b"
+          }
+        ],
+        "manifest_sha256": "7caf44f7139856a633a0616e6755718af2a97a92c2a1de03b3404554a2d88fef",
+        "verification": "local-manifest"
+      },
+      "chemical_components": [
+        {
+          "path": "[external path omitted]",
+          "sha256": "7240b17369ccfbbcc86e2d02dc8c9db59f46c32e0420f58889c6c121c60bfef0",
+          "size": 427767290
+        },
+        {
+          "path": "[external path omitted]",
+          "sha256": "2d6caced2d26c62015115a1d0a50f4106755a300e0c2a2d2b5c101c9038dcbcd",
+          "size": 125903802
+        }
+      ],
+      "cuda_visible_devices": "3",
+      "odesign_repo": "[external path omitted]",
+      "odesign_revision": "43944e930aea7dd74d2762f6cce7855471edae7b"
+    },
+    "name": "local"
+  },
+  "inputs": {
+    "reference_structure": {
+      "path": "reference.pdb",
+      "sha256": "a818a160b7f266fe810f1420c1a6af8be438a33b51c8e8dd19f80b5bc702459a",
+      "size": 158895
+    }
+  },
+  "model_assets": [
+    {
+      "name": "odesign-prot-flex",
+      "repo_id": "The-Institute-for-AI-Molecular-Design/ODesign",
+      "revision": "ab808f9e947fc065129e2ce2bc3fbcb95ef6b496"
+    },
+    {
+      "name": "oinvfold-protein",
+      "repo_id": "The-Institute-for-AI-Molecular-Design/OInvFold",
+      "revision": "e77a2b0200570757018751f33f06e32e2387413b"
+    }
+  ],
+  "run_id": "20260906T024830Z-184a59a3",
+  "schema_version": "1",
+  "seeds": [
+    61,
+    62
+  ],
+  "software": {
+    "evedesign": "0.0.6",
+    "odesign_expected_revision": "43944e930aea7dd74d2762f6cce7855471edae7b",
+    "odesign_git": {
+      "dirty": false,
+      "revision": "43944e930aea7dd74d2762f6cce7855471edae7b"
+    },
+    "platform": "Linux-5.15.0-105-generic-x86_64-with-glibc2.31",
+    "project_git": {
+      "dirty": true,
+      "revision": "bb0b97ae881841f069fe0f1d77bab73934fa955a"
+    },
+    "python": "3.14.6"
+  },
+  "stage": "generation",
+  "status": "generated",
+  "task": {
+    "atom_constraints": [],
+    "center_method": "hotspot_center",
+    "description": "Full local task-to-export development check with two fresh seeds; computational diagnostics without binding labels.",
+    "design_modality": "protein",
+    "evaluation": {
+      "binder_molecule": "binder",
+      "metric_rules": [],
+      "require_all_metrics": true
+    },
+    "generation": {
+      "inverse_fold_beam": true,
+      "inverse_fold_temperature": 1.0,
+      "inverse_fold_topk": 1,
+      "num_workers": 1,
+      "partial_diffusion_snr": 0.1,
+      "samples_per_seed": 1,
+      "seeds": [
+        61,
+        62
+      ],
+      "use_msa": false
+    },
+    "hotspots": [
+      {
+        "chain": "B",
+        "residue": 64
+      },
+      {
+        "chain": "B",
+        "residue": 68
+      },
+      {
+        "chain": "B",
+        "residue": 126
+      },
+      {
+        "chain": "B",
+        "residue": 128
+      }
+    ],
+    "model": "odesign_base_prot_flex",
+    "molecules": [
+      {
+        "cyclic": false,
+        "id": "binder",
+        "msa": null,
+        "role": "design",
+        "segments": [
+          {
+            "kind": "generated",
+            "max_length": 60,
+            "min_length": 60
+          }
+        ],
+        "smiles": null,
+        "total_length": null,
+        "type": "protein"
+      },
+      {
+        "cyclic": false,
+        "id": "pdl1",
+        "msa": null,
+        "role": "context",
+        "segments": [
+          {
+            "chain": "B",
+            "end": 133,
+            "kind": "fixed",
+            "start": 20
+          }
+        ],
+        "smiles": null,
+        "total_length": null,
+        "type": "protein"
+      }
+    ],
+    "motif_scaffolding": false,
+    "name": "pdl1_pipeline_development",
+    "partial_diffusion": [],
+    "reference_structure": "reference.pdb",
+    "schema_version": "0.1",
+    "user_center": null
+  },
+  "task_sha256": "47d9ce5bcd6bb0b8e01a8af7bdcea1f70e5cb0a3d8ac8ca8abf4ee89817da0bf"
+}

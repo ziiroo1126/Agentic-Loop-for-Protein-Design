@@ -16,7 +16,7 @@ User goals and available inputs
 ```
 
 The host is Codex, Claude Code or DeepSeek Harness. Its model supplies candidate
-decisions through the shared [skill](../../plugins/molclaw/skills/molclaw/SKILL.md).
+decisions through the shared [skill](../../plugins/alpd/skills/alpd/SKILL.md).
 ALPD does not create a second LLM client or require LLM API credentials.
 
 ## Prepare a task
@@ -49,7 +49,7 @@ Preparation checks missing files, complete ESMFold2 weight shards, the ODesign G
 revision and checkpoint provenance. It runs no models and downloads nothing.
 
 ```bash
-interaction-design pipeline prepare examples/pipeline_pdl1_2.json \
+alpd pipeline prepare examples/pipeline_pdl1_2.json \
   --runtime .cache/pipeline-runtime.local.json \
   --strategy harness --batch-size 1 --max-evaluations 1
 ```
@@ -61,8 +61,8 @@ Original target files may then move without invalidating this prepared task.
 ## Run and select
 
 ```bash
-interaction-design pipeline run /absolute/path/to/pipeline
-interaction-design pipeline observe /absolute/path/to/pipeline
+alpd pipeline run /absolute/path/to/pipeline
+alpd pipeline observe /absolute/path/to/pipeline
 ```
 
 `run` performs generation and monomer checks, prepares screening, then returns
@@ -72,7 +72,7 @@ interaction-design pipeline observe /absolute/path/to/pipeline
 [screening submission protocol](SCREENING.md):
 
 ```bash
-interaction-design pipeline apply /absolute/path/to/pipeline --decision decision.json
+alpd pipeline apply /absolute/path/to/pipeline --decision decision.json
 # stdin is also supported: --decision -
 ```
 
@@ -98,7 +98,7 @@ silently duplicate model work. The pipeline and screening implementation must
 match their saved source snapshots when resuming.
 
 ```bash
-interaction-design pipeline export /absolute/path/to/pipeline \
+alpd pipeline export /absolute/path/to/pipeline \
   --output /absolute/path/to/new-result-bundle
 ```
 
@@ -123,8 +123,8 @@ executable workflow, not experimental binding or an Agent advantage over baselin
 ## Host integrations
 
 Codex and Claude Code use the shared skill and relocatable CLI launcher. DeepSeek
-Harness additionally exposes `molclaw_pipeline_prepare`, `run`, `observe`, `apply`
+Harness additionally exposes `alpd_pipeline_prepare`, `run`, `observe`, `apply`
 and `export` tools via the official nested bash transport. Configure a host bash
 timeout long enough for the requested model work. Host cancellation propagates to
 the scientific worker process group and preserves failure records. See the
-[plugin guide](../../plugins/molclaw/README.md) for discovery and local configuration.
+[plugin guide](../../plugins/alpd/README.md) for discovery and local configuration.

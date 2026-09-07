@@ -1,118 +1,108 @@
 # Agentic Loop for Protein Design (ALPD)
 
-[English](README.md) · [GitHub](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design)
+[English](README.md) · [在线演示](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/) · [快速开始](docs/QUICKSTART.md) · [版本发布](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/releases)
 
-ALPD 围绕蛋白质设计的智能体闭环，连接候选生成、评估和基于反馈的选择，
-提供可复现的设计流程，以及供宿主 Agent 调用的科学工具。
-Python 核心负责科学任务、模型执行、有预算约束的候选选择、状态记录与结果导出；
-宿主接入以 Codex、Claude Code 和 DeepSeek Harness 的 skill／插件形式交付。
+**把蛋白质 binder 任务交给 Agent，查看它的决策、工具反馈和三维结构。**
 
-当前流程连接 ODesign 生成、ESMFold 单体检查和 ESMFold2 复合物评估。
-已有公开数据评测及宿主重复实验记录，尚未证明稳定的 LLM 筛选优势。
-下一阶段研究自适应分配追加评估机会的作用。
+ALPD 连接用户提供的设计要求、ODesign 候选生成、ESMFold v1 单体检查、
+Agent 引导的 ESMFold2 复合物评估，以及可追溯的结果导出。
+Python 核心执行科学工具并检查动作；宿主提供决策模型。默认入口是 Codex skill。
 
-用户可以先提供目标描述和已有资料，由宿主 Agent 整理为允许信息暂缺的任务草稿。
-`task review` 列出待确认项；条件齐全后，`task build` 核对结构与残基映射并生成执行任务。
-热点和长度范围可以先记录在草稿中；当前完整后端仍要求明确热点和固定长度。
+**0.1.0 研究预览版。** 当前完整流程支持一个固定长度的线性蛋白 binder 和一个固定蛋白靶标。
+计算指标不能证明实验结合，现有记录也尚未证明稳定的 LLM 筛选优势。
+支持范围见[已知限制](docs/LIMITATIONS.md)。
+
+[![ALPD 三维浏览：已有复合物预测、链控制和指标](docs/images/alpd-structure-viewer.png)](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/demo/structures.html)
+
+## 选择一种开始方式
+
+| 想做什么 | 需要准备 | 使用入口 | 得到什么 |
+| --- | --- | --- | --- |
+| 直接看演示 | 支持 JavaScript 和 WebGL 的浏览器 | [在线图库](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/)／[离线 ZIP](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/downloads/alpd-demo.zip) | 决策回放、可旋转的三维结构与下载 |
+| 不用模型跑一个示例 | Python 3.12/3.13、uv | [CPU 快速开始](docs/QUICKSTART.md#2-run-the-cpu-example) | 新的合成数据会话和 HTML 报告 |
+| 执行真实设计 | 目标结构、设计约束、已配置的 GPU 模型环境 | [环境指南](docs/RUNTIME.md)＋[Codex 接入](docs/CODEX.md) | 新候选、评估和结果包 |
+
+克隆仓库后，在已有 uv 的环境中执行：
+
+```bash
+bash tools/setup.sh --python 3.12
+source interaction-design-mvp/.venv/bin/activate
+python tools/cpu_demo.py --output /tmp/alpd-cpu-demo
+```
+
+打开 `/tmp/alpd-cpu-demo/view/index.html`。该示例使用虚构测量和固定策略，
+无需下载模型，也不调用 LLM。输出目录须不存在。克隆、安装条件及预期结果见[完整指南](docs/QUICKSTART.md)。
+
+## 在 Codex 中调用
+
+完成 CPU 安装后，把完整 skill 链接到工作项目：
+
+```bash
+export ALPD_PROJECT_ROOT="$PWD"
+mkdir -p /tmp/alpd-work
+python tools/alpd.py install --host codex --project-dir /tmp/alpd-work
+python tools/alpd.py doctor --host codex --project-dir /tmp/alpd-work
+cd /tmp/alpd-work
+codex
+```
+
+在会话中用 `$alpd:alpd` 提供任务、运行配置和评估预算。
+[接入指南](docs/CODEX.md)提供了可直接使用的首次 CPU 宿主示例和真实任务提示词。
+Codex 使用自己的已配置模型账户；ALPD 无需额外的 LLM API Key。
+Claude Code 和 DeepSeek 接入按各自的实际验证范围说明。
+
+## 闭环如何工作
 
 ```mermaid
-flowchart TD
-    A[用户目标与已有资料] --> B[任务澄清与结构化准备]
-    B -->|仍有待确认项| A
-    B --> C[任务与运行环境预检]
+flowchart LR
+    A[用户目标与已有资料] --> B[澄清与校验任务]
+    B --> C[本地运行环境预检]
     C --> D[候选生成与单体检查]
-    D --> E[Agent 选择候选]
-    E --> F[复合物评估与反馈]
-    F -->|继续评估| E
-    F --> G[结果与证据导出]
-    G --> H[离线报告与三维结构浏览]
+    D --> E[Agent 选择评估对象]
+    E --> F[复合物预测与反馈]
+    F -->|继续| E
+    F -->|停止| G[报告、证据和三维导出]
 ```
 
-## Demo 与可视化
+用户输入可以先不完整：`task review` 列出待补齐项，`task build` 在执行前检查结构与残基映射。
+当前实时闭环支持选择评估和停止；根据反馈自动修改设计并重新生成属于后续工作。
+独立的 `adaptive` 流程读取缓存预测并保存计划、复盘，不启动新的 GPU 推理。
 
-[五分钟上手 Demo](interaction-design-mvp/docs/DEMO.md) 展示任务准备、已有决策与交互式结果。
-拿到演示 ZIP 后，解压并保留目录内全部文件，用浏览器打开 **`alpd-demo/index.html`**。
-浏览 Demo 无需模型环境、GPU、服务或网络；三维浏览需要启用 JavaScript 和 WebGL。
-如果浏览器限制本地嵌入页面，可使用页面上的“独立打开”链接。
+## 可查看和复现的案例
 
-| 演示章节 | 可以查看或操作的内容 |
-| --- | --- |
-| 01 · 准备任务 | 查看缺失输入报告、下载草稿、展开已有完整任务 |
-| 02 · 回看运行 | 查看流程图和候选指标表，逐步回放选择理由与评估反馈 |
-| 03 · 三维浏览 | 使用 **3Dmol.js** 切换候选和结构，旋转缩放、显示／隐藏链、点击残基、保存 PNG |
-| 04 · 复评与复盘 | 查看另一组宿主案例中的逐轮预测、查询次数与复盘判断 |
-| 05 · 自己运行 | 查看任务准备、执行、决策提交和结果导出的实际命令 |
+- **[完整 binder 主案例](examples/pdl1-binder/README.md)**：原始任务、两个生成候选、真实宿主选择、
+  复合物反馈、预算停止和三维结构。仓库内包含结果、软件来源和校验信息。
+- **[独立复评案例](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/demo/replay/index.html)**：
+  在另一组已有的 90 个候选上，查看三次历史查询和复盘。
+- **[CPU 合成示例](docs/QUICKSTART.md#2-run-the-cpu-example)**：验证软件安装与流程，数据为虚构，策略为固定基线。
 
-![ALPD 三维浏览器：已保存的复合物预测、链控制和候选指标](docs/images/alpd-structure-viewer.png)
-
-上图为已保存的开发结果。Demo 回放已有记录，点击页面不会运行模型或发起新的 Agent 决策。
-复评案例与主线生成任务使用不同的候选池。这些记录不代表实验结合验证，也未证明
-Agent 具有稳定的筛选优势。
-
-已有完整结果包和 Python 开发环境时，可在仓库根目录重建 Demo：
+无需模型即可重建整个图库：
 
 ```bash
-interaction-design-mvp/.venv/bin/python interaction-design-mvp/scripts/build_demo.py \
-  --result-bundle /absolute/path/to/completed-result-bundle \
-  --output interaction-design-mvp/artifacts/alpd-demo
+python tools/build_site.py --output /tmp/alpd-site
 ```
 
-命令生成 `interaction-design-mvp/artifacts/alpd-demo/index.html` 和
-`interaction-design-mvp/artifacts/alpd-demo.zip`，输出路径须不存在。
-演示包和源模型结果均为本机产物，不进入 Git；新克隆仓库需要提供已有结果包才能重建
-这个组合 Demo。没有结果包时，可先打开仓库附带的
-[PD-L1 回放](docs/evidence/adaptive-loop-pdl1/index.html)，或运行
-[合成数据 CPU 示例](interaction-design-mvp/docs/ADAPTIVE.md)。
-回放文件需要下载或克隆后用浏览器打开，GitHub 文件预览不会执行交互页面。
+打开 `/tmp/alpd-site/index.html`；离线包与校验文件在 `downloads/`。
+三维浏览支持候选和结构切换、旋转缩放、链显隐、残基查看、PNG 保存和原始结构下载。
+独立页面内嵌 3Dmol.js 与数据，无需 CDN。浏览页面不会启动计算或产生新 Agent 决策。
 
-新执行的 `pipeline export` 会自动附带三维页面 `index.html`；已有结果包可使用
-`interaction-design viewer export /path/to/result-bundle --output /path/to/new-viewer.html`
-单独生成页面。结构格式与操作见[三维浏览指南](interaction-design-mvp/docs/STRUCTURE_VIEWER.md)，
-连续复评与回放见[自适应使用指南](interaction-design-mvp/docs/ADAPTIVE.md)。
+## 文档和目录
 
-## 目录结构
+[用户指南](docs/README.md) · [发布验证](docs/RELEASE_VERIFICATION.md) · [参与开发](CONTRIBUTING.md) · [更新记录](CHANGELOG.md) · [研究目标](docs/RESEARCH_GOAL.md)
 
 ```text
-interaction-design-mvp/      Python 包、测试、协议与任务示例
-  src/interaction_design/   科学工作流与命令行入口
-  config/                   固定版本资产与评估协议
-  docs/                     运行和评测说明
-  artifacts/                本机实验产物，Git 忽略
-  models/、data/            本机模型资产与外部数据，Git 忽略
-plugins/                   共享 skill 与宿主适配
-docs/                      项目计划、研究目标与实验记录
-.github/workflows/         Python 持续集成
+interaction-design-mvp/   Python 核心、模型适配与科学测试
+plugins/alpd/            ALPD 共享 skill 和宿主适配
+tools/                   安装、CPU 示例、图库和发布检查
+examples/pdl1-binder/     原始便携案例与复现说明
+docs/                    用户指南、发布说明和历史证据
+.github/                 CI、发布流程和问题模板
 ```
 
-## 使用入口
-
-本机已经准备好 Python 开发环境时，在仓库根目录执行：
-
-```bash
-cd interaction-design-mvp
-.venv/bin/interaction-design --help
-.venv/bin/interaction-design task --help
-.venv/bin/interaction-design validate examples/ligand_binder.json
-.venv/bin/interaction-design pipeline --help
-```
-
-环境准备和纯 CPU 示例见 [Python 包说明](interaction-design-mvp/README.md)，
-宿主接入见 [插件说明](plugins/molclaw/README.md)，
-完整任务到导出流程见 [Pipeline 指南](interaction-design-mvp/docs/PIPELINE.md)。
-从不完整需求开始时，先看[任务输入与准备指南](interaction-design-mvp/docs/TASK_INPUT.md)。
-
-## 开发与研究记录
-
-- [开发和本地检查](CONTRIBUTING.md)
-- [项目计划](docs/PROJECT_PLAN.md)
-- [实施与验证记录](docs/M1_STATUS.md)
-- [当前研究目标](docs/RESEARCH_GOAL.md)
-- [实验记录](docs/evidence/)
-
-模型权重、虚拟环境和完整实验产物属于本机资源，新克隆仓库不会自动获得。
-下载或安装前优先复用本地缓存与现有环境。
+模型、环境和完整本机实验目录不进入 Git。历史实验记录保留在 `docs/evidence/`，
+与当前使用指南分别导航。下载优先复用缓存并尝试直连。
 
 ## 许可
 
-保留原始[仓库许可证](LICENSE)、[Python 包许可证](interaction-design-mvp/LICENSE)
-以及 `interaction-design-mvp/config/` 中的上游许可声明。
+保留仓库的 [MIT 许可证](LICENSE)，Python 核心采用 [Apache-2.0](interaction-design-mvp/LICENSE)。
+模型和外部数据适用各自的条款；见[第三方来源与许可说明](THIRD_PARTY_NOTICES.md)。

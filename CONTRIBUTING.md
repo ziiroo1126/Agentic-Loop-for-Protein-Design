@@ -1,7 +1,7 @@
-# Contributing to MolClaw
+# Contributing to ALPD
 
 Scientific execution belongs in `interaction-design-mvp/`. Host integrations
-belong in `plugins/molclaw/`. Keep task validation, persistent state and scientific
+belong in `plugins/alpd/`. Keep task validation, persistent state and scientific
 execution in the shared Python core so hosts use the same behavior.
 
 ## Local development
@@ -21,16 +21,39 @@ Python CI uses the locked dependencies, runs Ruff and pytest, and builds the pac
 The DeepSeek transport tests require only Node and run from the repository root:
 
 ```bash
-node --test plugins/molclaw/deepseek/bridge.test.mjs
+node --test plugins/alpd/deepseek/bridge.test.mjs
 ```
 
 When the SDK dependencies declared in the plugin's `package.json` are available,
 run the complete plugin checks:
 
 ```bash
-cd plugins/molclaw
+cd plugins/alpd
+npm ci --ignore-scripts --legacy-peer-deps
 npm test
 ```
+
+The lock includes the SDK's actual runtime imports. `--legacy-peer-deps` keeps the
+test setup from installing a complete host profile; those peers are provided by
+the real host in a deployed plugin. The CI validates this setup in a new directory.
+
+From the repository root, after activating the core environment:
+
+```bash
+python tools/build_site.py --output /tmp/alpd-site
+python tools/verify_release.py --site /tmp/alpd-site
+python tools/browser_smoke.py --site /tmp/alpd-site --output /tmp/alpd-browser
+```
+
+Browser verification needs Firefox and Xvfb (or a running display). Use `--xvfb`
+and `--firefox` for existing binaries in nonstandard locations. Output paths must
+be new. The static verifier checks real file hashes, local HTML links, complete
+archive membership and byte equality; browser checks exercise the actual pages.
+
+The main-branch CI also runs for plugin/docs/example changes. On success the Pages
+workflow builds and deploys the static gallery. The repository's Pages source must
+be set to **GitHub Actions** by an administrator once. A version tag runs the same
+gates before publishing a GitHub prerelease with assets and checksums.
 
 ## Changes and evidence
 

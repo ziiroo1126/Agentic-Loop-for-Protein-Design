@@ -295,7 +295,7 @@ def write_interface_feedback(
                     "python": platform.python_version(),
                     **{
                         name: importlib.metadata.version(name)
-                        for name in ["numpy", "biotite", "interaction-design-mvp"]
+                        for name in ["numpy", "biotite", "agentic-loop-protein-design"]
                     },
                 },
                 "policy": policy,

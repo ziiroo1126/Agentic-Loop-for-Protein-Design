@@ -56,6 +56,12 @@
     $("reason").textContent = decision?.reason || "此时尚未选择候选，复合物预测结果不可用于决策。";
     const chosen = (decision?.candidate_ids || []).map(id => data.candidates.find(c=>c.candidate_id===id)).filter(Boolean);
     $("action-summary").textContent = !decision ? "Agent 收到候选列表、单体指标和剩余评估配额，需要引用已知证据决定下一步。" : decision.action === "stop" ? `保存的停止原因：${decision.reason}。` : `记录中的宿主选择了 ${chosen.map(c=>`Seed ${c.seed}`).join("、")}，工具返回了已保存的复合物评估结果。`;
+    $("loop-evidence").textContent = decision?.evidence?.length ? JSON.stringify(decision.evidence, null, 2) : "本步骤没有保存数值证据引用。";
+    const feedback = chosen.filter(c => c.complex_evaluation_status === "evaluated").map(c => ({candidate_id:c.candidate_id, post:c.post}));
+    $("loop-feedback").textContent = feedback.length ? JSON.stringify(feedback, null, 2) : "本步骤未产生新的复合物预测。";
+    const nextDecision = steps[n]?.submission?.decision;
+    $("loop-update").textContent = !decision ? "尚未执行评估，无判断更新。" : decision.action === "stop" ? "原始记录已停止；没有新增的模型判断。" : nextDecision ? `后续记录中的行动：${nextDecision.action}；理由：${nextDecision.reason}。此主案例未单独保存宿主复盘，不能将执行器的预算停止视作模型判断。` : "原始记录没有保存独立的判断更新。";
+    $("loop-stop").textContent = n === steps.length ? `最终停止原因：${data.report.stop_reason}` : "当前尚未停止。";
     $("interpretation").textContent = !decision ? "当前表格只展示当时可见的检查结果。点击下一步，查看保存的选择与新反馈。" : decision.action === "stop" ? "本轮流程已经完成，可以导出序列、结构和证据。未被评估的候选仍然没有复合物分数。" : "新的结构预测提供了额外证据。Agent 的选择可能涉及多个指标之间的取舍，完整理由保存在原始决策轨迹中。";
   }
   $("step").addEventListener("input",render);

@@ -7,11 +7,11 @@ coordinates on the CPU; no generation, folding, model loading or download occurs
 ```bash
 # Run from interaction-design-mvp/. Multiple jobs must contain disjoint candidates
 # from the same generation and ESMFold2 protocol.
-.venv/bin/interaction-design complex feedback <completed-job-1> <completed-job-2> \
+.venv/bin/alpd complex feedback <completed-job-1> <completed-job-2> \
   --artifacts artifacts/interface-feedback
 
 # Optionally verify geometry against the exact cached experimental control.
-.venv/bin/interaction-design complex feedback <completed-job-1> <completed-job-2> \
+.venv/bin/alpd complex feedback <completed-job-1> <completed-job-2> \
   --control-structure .cache/controls/4ZQK.cif
 ```
 

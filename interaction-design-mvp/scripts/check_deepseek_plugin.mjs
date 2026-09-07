@@ -25,7 +25,7 @@ const { LocalSubprocessRuntime } = await load('dsh-subprocess-local');
 const { LocalBashExecutor } = await load('dsh-bash-local');
 const output = resolve(values.output);
 await mkdir(output, { recursive: true });
-const pluginPath = resolve(values.plugin ?? resolve(projectRoot, 'plugins/molclaw/deepseek/index.mjs'));
+const pluginPath = resolve(values.plugin ?? resolve(projectRoot, 'plugins/alpd/deepseek/index.mjs'));
 const plugin = await import(pathToFileURL(pluginPath).href);
 const ctx = new Context();
 const checks = [];
@@ -35,7 +35,7 @@ let nextCall = 0;
 let sessionDir;
 const save = (name, value) => writeFile(resolve(output, name), JSON.stringify(value, null, 2) + '\n');
 const invoke = (name, args, signal = new AbortController().signal) => ctx.tools.execute({
-  callId: `molclaw-dsh-check-${++nextCall}`, name, arguments: args, signal,
+  callId: `alpd-dsh-check-${++nextCall}`, name, arguments: args, signal,
 });
 const success = async (name, args) => {
   const result = await invoke(name, args);
@@ -59,37 +59,37 @@ try {
       ? { kind: 'deny', reason: 'Synthetic host policy denial for integration verification' }
       : next();
   });
-  const help = await success('molclaw_help', {});
+  const help = await success('alpd_help', {});
   assert.equal(help.workflow.length, 4);
   checks.push('Cordis mounts native plugin and ToolRuntime validates help output');
 
   denyBash = true;
-  assert.equal((await invoke('molclaw_screen_observe', { session_dir: '/unexecuted' })).isError, true);
+  assert.equal((await invoke('alpd_screen_observe', { session_dir: '/unexecuted' })).isError, true);
   denyBash = false;
   checks.push('nested bash honors host pre-execution denial');
   const cancelled = new AbortController();
   cancelled.abort();
   const beforeCancellation = dispatches.length;
-  assert.equal((await invoke('molclaw_screen_observe', { session_dir: '/unexecuted' }, cancelled.signal)).isError, true);
+  assert.equal((await invoke('alpd_screen_observe', { session_dir: '/unexecuted' }, cancelled.signal)).isError, true);
   assert.equal(dispatches.length, beforeCancellation);
   checks.push('already cancelled call never reaches bash');
 
   const badOutput = ctx.tools.register(defineTool({
-    name: 'molclaw_synthetic_bad_output', description: 'Synthetic output validation check',
+    name: 'alpd_synthetic_bad_output', description: 'Synthetic output validation check',
     parameters: {}, output: { schema: { type: 'string' }, render: (_args, value) => [{ type: 'text', text: value }] },
     async execute() { return 42; },
   }));
-  const invalid = await invoke('molclaw_synthetic_bad_output', {});
+  const invalid = await invoke('alpd_synthetic_bad_output', {});
   assert.equal(invalid.isError, true);
   assert.equal(invalid.error.info.code, 'INVALID_TOOL_OUTPUT');
   badOutput();
   checks.push('official registry rejects invalid canonical output');
 
-  const prepared = await success('molclaw_screen_prepare', {
+  const prepared = await success('alpd_screen_prepare', {
     monomer_job: resolve(values.monomer), feedback: resolve(values.feedback), batch_size: 2, max_evaluations: 2,
   });
   sessionDir = prepared.session_dir;
-  const request = await success('molclaw_screen_observe', { session_dir: sessionDir });
+  const request = await success('alpd_screen_observe', { session_dir: sessionDir });
   assert.equal(request.payload.visible_state.candidates.length, 16);
   assert(request.payload.visible_state.candidates.every((row) => !Object.hasOwn(row, 'post')));
   await save('request.json', request);
@@ -105,16 +105,16 @@ try {
   };
   await save('submission.json', submission);
   checks.push('native prepare and observe validate real saved monomers without revealing future complex metrics');
-  const rejected = await invoke('molclaw_screen_apply', { session_dir: sessionDir,
+  const rejected = await invoke('alpd_screen_apply', { session_dir: sessionDir,
     submission: { ...submission, request_sha256: '0'.repeat(64) } });
   assert.equal(rejected.isError, true);
   checks.push('stale submission is rejected through native tool and Python executor');
-  const applied = await success('molclaw_screen_apply', { session_dir: sessionDir, submission });
+  const applied = await success('alpd_screen_apply', { session_dir: sessionDir, submission });
   assert.equal(applied.status, 'applied');
   assert.equal(applied.observations.length, 2);
-  assert.equal((await success('molclaw_screen_apply', { session_dir: sessionDir, submission })).status, 'already_applied');
+  assert.equal((await success('alpd_screen_apply', { session_dir: sessionDir, submission })).status, 'already_applied');
   checks.push('stdin apply reveals only selected results and repeated apply is idempotent');
-  const completed = await success('molclaw_screen_observe', { session_dir: sessionDir });
+  const completed = await success('alpd_screen_observe', { session_dir: sessionDir });
   assert.equal(completed.status, 'completed');
   assert.equal(completed.evaluated_count, 2);
   assert.equal(completed.stop_reason, 'candidate_limit_reached');
@@ -125,7 +125,7 @@ try {
   assert(dispatches.filter((row) => row.name === 'bash').every((row) => row.nested));
   checks.push('every bash call retains nested dispatch identity');
   await mounted.dispose();
-  assert.equal((await invoke('molclaw_help', {})).isError, true);
+  assert.equal((await invoke('alpd_help', {})).isError, true);
   checks.push('plugin disposal unregisters its tools');
 } finally {
   await ctx.fiber.dispose();
@@ -140,7 +140,7 @@ for (const name of modules) {
 const validation = {
   status: 'passed', checks, dispatches, session_dir: sessionDir, runtime_versions: runtimeVersions,
   node: process.version, model_calls: 0, new_gpu_inference: false,
-  mode: 'published Cordis + ToolRuntime + official local Bash + real MolClaw CLI saved-result replay',
+  mode: 'published Cordis + ToolRuntime + official local Bash + real ALPD CLI saved-result replay',
   filesystem_sandbox_tested: false, profile_or_web_ui_started: false,
   full_harness_model_session_tested: false,
 };

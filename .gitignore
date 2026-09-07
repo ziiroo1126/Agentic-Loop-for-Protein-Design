@@ -2,6 +2,8 @@
 node_modules
 dist/
 .dist/
+_site/
+release-assets/
 *.egg-info/
 .venv/
 .odesign-venv/

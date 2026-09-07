@@ -1,0 +1,4 @@
+# Preserve exact bytes used by scientific and third-party checksum manifests.
+examples/pdl1-binder/run/** -text -whitespace
+docs/evidence/** -text -whitespace
+interaction-design-mvp/src/interaction_design/structure_viewer/vendor/** -text -whitespace

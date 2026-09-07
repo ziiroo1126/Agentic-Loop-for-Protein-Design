@@ -1,0 +1,182 @@
+{
+  "acceptance": null,
+  "artifacts": [
+    {
+      "path": "all.fasta",
+      "sha256": "e6eb9ea5047561ecf7a79e17709f5b8e8e14c4522787f252d2f67f50cdba33b0",
+      "size": 214
+    },
+    {
+      "path": "candidates/candidate0000/candidate.json",
+      "sha256": "e1839a447aa2ce3ee342afda4d1fa4e77bdbf8f0a6699fe94242c57406827708",
+      "size": 1066
+    },
+    {
+      "path": "candidates/candidate0000/generated.cif",
+      "sha256": "a8988b9cc2b6f3f7c553ba1f5d7f4b24919fb50c3ddff8591911f9795b2628e6",
+      "size": 102230
+    },
+    {
+      "path": "candidates/candidate0000/monomer.pdb",
+      "sha256": "5d16614637da2949f5eb886300440f95a536816404d52e51a44a1170f1724ed4",
+      "size": 35844
+    },
+    {
+      "path": "candidates/candidate0000/monomer_metrics.json",
+      "sha256": "77d476937603b061abe028583fb11be3758d623ba0a1b516223526152559e6c6",
+      "size": 4173
+    },
+    {
+      "path": "candidates/candidate0000/monomer_prediction.npz",
+      "sha256": "2c48a366ee2299113013d333f038b74ac488804f14c40e2c7a0894d990f62f13",
+      "size": 28232
+    },
+    {
+      "path": "candidates/candidate0000/monomer_provenance.json",
+      "sha256": "e821a4e243e5820e145560a26c696265c4ef418ef8eb6d900b71620a4fa5a1d8",
+      "size": 8747
+    },
+    {
+      "path": "candidates/candidate0000/monomer_request.json",
+      "sha256": "949909cd7bb0619c3218ecbfab62f302a5cb86e72f8a83ed12e91d7bbba48a7d",
+      "size": 6152
+    },
+    {
+      "path": "candidates/candidate0001/candidate.json",
+      "sha256": "f6a274236cb673fdc042629b714654b8d431fff0a251b8b53b443ed27db86fc9",
+      "size": 1231
+    },
+    {
+      "path": "candidates/candidate0001/complex.cif",
+      "sha256": "c4db373010de1be6a0a4bf2a56cf8c2aae011669e66d4d51978d3153ecd960b6",
+      "size": 144673
+    },
+    {
+      "path": "candidates/candidate0001/complex_confidence.npz",
+      "sha256": "85469d24e9296952d267e771f3b851d48f230599c70b7a13bdbc02677ff84d3a",
+      "size": 124687
+    },
+    {
+      "path": "candidates/candidate0001/complex_metrics.json",
+      "sha256": "ebd77cb5c554465b72a675cd952007e5d1a01eabe999fddacb3861b3ce22ebad",
+      "size": 1415
+    },
+    {
+      "path": "candidates/candidate0001/complex_provenance.json",
+      "sha256": "4822effc2cd16c77a7d79cb060a4edff5e3085e12682f64bfc44273fe5a7feac",
+      "size": 4050
+    },
+    {
+      "path": "candidates/candidate0001/complex_request.json",
+      "sha256": "2f2219a4d08d7e7ca73a8927a80b1af8b3f8b66eefc81b8948d8c34b20485df1",
+      "size": 17883
+    },
+    {
+      "path": "candidates/candidate0001/generated.cif",
+      "sha256": "fc368a397d61a6dbb8249d84b2ae5750697e6f7dd29fbf6888626a242edad5b7",
+      "size": 101069
+    },
+    {
+      "path": "candidates/candidate0001/monomer.pdb",
+      "sha256": "75b3cdfe8f651119f9257b7449ef5dfd7cb6f49a76f8e0b69b8f659c0ebad56c",
+      "size": 35358
+    },
+    {
+      "path": "candidates/candidate0001/monomer_metrics.json",
+      "sha256": "ae9e8ad8f166a25db80dd664f656b9b4ead239f520d0468cebb30f4921afd597",
+      "size": 4194
+    },
+    {
+      "path": "candidates/candidate0001/monomer_prediction.npz",
+      "sha256": "ef8fed29b7c8abd81043e45fbc69fc529b88fcb08c3d9d2f0539fd9c92a4f7f3",
+      "size": 28260
+    },
+    {
+      "path": "candidates/candidate0001/monomer_provenance.json",
+      "sha256": "76ede394aa3c690fb67aa822584c6d4555cfce59cb279b1f9a88127038c9b1ed",
+      "size": 8719
+    },
+    {
+      "path": "candidates/candidate0001/monomer_request.json",
+      "sha256": "7cfbb9a0d438671745acba537742fbc56ab1034def838c98bf4092774671fc2e",
+      "size": 6125
+    },
+    {
+      "path": "candidates/candidate0001/observation.json",
+      "sha256": "74b5f13cb9e90bdd0363da900b44475c4f58cf49f7ede9c7b8ef778f27420234",
+      "size": 32969
+    },
+    {
+      "path": "candidates.json",
+      "sha256": "82e8914bb7be025fb285dd33104c3625b7717d4ff5f987c0476aad40ff48ce2e",
+      "size": 2684
+    },
+    {
+      "path": "decision_trace.json",
+      "sha256": "d587270afdb8f0ffe56af49492499ce17346061f8db7b4dfe95cf35b86c3316a",
+      "size": 15639
+    },
+    {
+      "path": "evaluated.fasta",
+      "sha256": "d129dbb8a68ea00cb60a842b63aaebc58b49a324b42d631b45bb0db1a8261044",
+      "size": 107
+    },
+    {
+      "path": "generation.json",
+      "sha256": "4379ce5513156f3302e277f1f5a307e4ca970d5e6f38bbea59e288229c52589e",
+      "size": 6157
+    },
+    {
+      "path": "metrics.csv",
+      "sha256": "6b51d5e07abb0e23f82db1992de4c2e96a2ce58542c6d49a0f2b46534762d2b8",
+      "size": 480
+    },
+    {
+      "path": "metrics.json",
+      "sha256": "82e8914bb7be025fb285dd33104c3625b7717d4ff5f987c0476aad40ff48ce2e",
+      "size": 2684
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "e45296534b1be813b5d902b83934c96454ab5cd2441fd1efcb10e5667634b59f",
+      "size": 1936
+    },
+    {
+      "path": "provenance.json",
+      "sha256": "4ef300ebcdac0d2b239fc9743e0bb81c3f35d7addd2202126647987c58a4d39d",
+      "size": 15581
+    },
+    {
+      "path": "reference.pdb",
+      "sha256": "a818a160b7f266fe810f1420c1a6af8be438a33b51c8e8dd19f80b5bc702459a",
+      "size": 158895
+    },
+    {
+      "path": "report.json",
+      "sha256": "122ef3b8b0a90bf7fd633ccac3c8813d9fbdead6e4c5f18faac2ecc8ce918977",
+      "size": 6563
+    },
+    {
+      "path": "report.md",
+      "sha256": "832f5dd445f2d0a17cf714b757d84667f9f98e1c44aadec3387786812bf26548",
+      "size": 1199
+    },
+    {
+      "path": "selected.fasta",
+      "sha256": "d129dbb8a68ea00cb60a842b63aaebc58b49a324b42d631b45bb0db1a8261044",
+      "size": 107
+    },
+    {
+      "path": "task.json",
+      "sha256": "bcab450f17a97997a8e29163323f67d4785080ef0be382b5d95afea9126feac4",
+      "size": 1718
+    }
+  ],
+  "binding_validated": false,
+  "candidate_count": 2,
+  "evaluated_count": 1,
+  "mode": "local_complex",
+  "schema_version": 1,
+  "stage": "screening_export",
+  "status": "completed"
+}

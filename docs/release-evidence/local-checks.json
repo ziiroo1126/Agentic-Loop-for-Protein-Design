@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-07",
+  "python": "3.12.11",
+  "installation": "fresh temporary environment, then non-editable built wheel",
+  "pytest": {
+    "passed": 883,
+    "failed": 0,
+    "seconds": 44.12
+  },
+  "ruff": "passed",
+  "plugin": {
+    "node": "22.17.1",
+    "tests_passed": 30,
+    "tests_failed": 0,
+    "installation": "new directory, registry-only package-lock, lifecycle scripts disabled"
+  },
+  "validators": {
+    "codex_plugin": "passed",
+    "skill": "passed"
+  },
+  "runtime_preflight": {
+    "gpu": "not_probed",
+    "inference": "not_run",
+    "status": "passed"
+  },
+  "wheel_sha256": "b1edfbce122db784239d01f3af499036ba69fa9cdba7ab62e75f6cf1efbbe48c",
+  "wheel_members_identical_to_tested_distribution": true,
+  "frozen_sources_baseline": "fd5aea0c1eeda4f57f3e8f35024e7661504addef",
+  "frozen_paths_unchanged": [
+    "docs/evidence/",
+    "docs/M1_STATUS.md",
+    "docs/PROJECT_PLAN.md",
+    "docs/ALIGN_COMPARISON.md",
+    "LICENSE",
+    "interaction-design-mvp/config/ODESIGN_PIPELINE_LICENSE",
+    "interaction-design-mvp/src/interaction_design/structure_viewer/vendor/"
+  ],
+  "new_gpu_inference": false
+}

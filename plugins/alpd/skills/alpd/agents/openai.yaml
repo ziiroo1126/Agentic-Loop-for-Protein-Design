@@ -1,0 +1,4 @@
+interface:
+  display_name: "ALPD"
+  short_description: "Run binder design and adaptive evaluation loops"
+  default_prompt: "Use $alpd:alpd to run or resume my supplied design or adaptive evaluation task, check visible evidence, and export the results."

@@ -1,0 +1,45 @@
+{
+  "name": "pdl1_pipeline_development",
+  "goal": "Full local task-to-export development check with two fresh seeds; computational diagnostics without binding labels.",
+  "target": {
+    "reference_structure": "run/reference.pdb",
+    "segments": [
+      {
+        "chain": "B",
+        "end": 133,
+        "kind": "fixed",
+        "start": 20
+      }
+    ],
+    "hotspots": [
+      {
+        "chain": "B",
+        "residue": 64
+      },
+      {
+        "chain": "B",
+        "residue": 68
+      },
+      {
+        "chain": "B",
+        "residue": 126
+      },
+      {
+        "chain": "B",
+        "residue": 128
+      }
+    ]
+  },
+  "binder": {
+    "length": {
+      "min": 60,
+      "max": 60
+    },
+    "selected_length": 60
+  },
+  "model": "odesign_base_prot_flex",
+  "seeds": [
+    61,
+    62
+  ]
+}

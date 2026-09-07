@@ -1,0 +1,41 @@
+{
+  "name": "dsh-alpd",
+  "version": "0.1.0",
+  "description": "Native DeepSeek Harness tools for ALPD design pipelines, bounded screening and result export.",
+  "type": "module",
+  "main": "deepseek/index.mjs",
+  "files": [
+    "deepseek/index.mjs",
+    "deepseek/bridge.mjs",
+    "skills",
+    "cordis.patch.yml"
+  ],
+  "scripts": {
+    "test": "node --test deepseek/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "0.1.2-rc.1",
+    "@deepseek-ai/schemastery": "3.18.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-tools": "0.1.2-rc.1",
+    "@deepseek-ai/schemastery": "3.18.2",
+    "@deepseek-ai/cordis": "4.0.2",
+    "@deepseek-ai/cosmokit": "1.8.3",
+    "@deepseek-ai/dsh-brand": "0.1.2-rc.1",
+    "@deepseek-ai/dsh-util-values": "0.1.2-rc.1",
+    "@deepseek-ai/dsh-llm": "0.1.2-rc.1",
+    "@deepseek-ai/dsh-timeout": "0.1.2-rc.1",
+    "@deepseek-ai/dsh-util-crypto": "0.1.2-rc.1",
+    "@deepseek-ai/dsh-typert-protocol": "0.1.2-rc.1",
+    "@deepseek-ai/dsh-scope": "0.1.2-rc.1"
+  }
+}

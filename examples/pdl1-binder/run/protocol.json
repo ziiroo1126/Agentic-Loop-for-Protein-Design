@@ -1,0 +1,55 @@
+{
+  "acceptance": null,
+  "binding_validated": false,
+  "complex_model": {
+    "backend": "esmfold2",
+    "esmc_id": "biohub/ESMC-6B",
+    "esmc_precision": "bf16",
+    "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+    "folding_precision": "float32_with_upstream_bf16_autocast",
+    "kernel_backend": "reference",
+    "lm_dropout": 0.3,
+    "model_id": "biohub/ESMFold2",
+    "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+    "msa_mode": "none",
+    "num_diffusion_samples": 1,
+    "num_loops": 20,
+    "num_sampling_steps": 100,
+    "ranking": "iptm_descending_candidate_id_tiebreak",
+    "seed": 1,
+    "thresholds": null
+  },
+  "interface_geometry": {
+    "acceptance_thresholds": null,
+    "alternate_locations": "first",
+    "atom_selection": "canonical protein non-hydrogen atoms; exclude hetero atoms",
+    "clash_count_units": [
+      "inter-chain atom pairs",
+      "inter-chain residue pairs"
+    ],
+    "clash_distance_angstrom": 2.0,
+    "contact_count_unit": "unique inter-chain residue pairs",
+    "contact_distance_angstrom": 5.0,
+    "control": {
+      "binder_author_chain": "B",
+      "pdb_id": "4ZQK",
+      "sha256": "f5012ba58d76099ba77ce992562e7df4afead12632678548d4d4f00c268b485f",
+      "source_url": "https://files.rcsb.org/download/4ZQK.cif",
+      "target_author_chain": "A"
+    },
+    "distance_comparison": "strictly_less_than",
+    "distance_reference": "https://github.com/wallnerlab/DockQ/blob/master/src/DockQ/constants.py",
+    "hotspot_mapping": "exact sequence and ordered reference residue identities",
+    "name": "protein_interface_geometry_v1",
+    "schema_version": 1,
+    "scope": "geometric diagnostics only; not DockQ, MolProbity, energy or binding probability"
+  },
+  "monomer": null,
+  "selection": {
+    "batch_size": 1,
+    "max_evaluations": 1,
+    "strategy": "harness",
+    "tool_wall_budget_seconds": null,
+    "version": "candidate-selection-v1"
+  }
+}

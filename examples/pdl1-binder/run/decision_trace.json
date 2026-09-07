@@ -1,0 +1,434 @@
+{
+  "actor_metadata_verified": false,
+  "steps": [
+    {
+      "receipt_sha256": "8300726c98aeb53f842b6e9e63e9f0c660493c4aa690e2976dc7fc8613f2a3f6",
+      "request": {
+        "payload": {
+          "configuration": {
+            "batch_size": 1,
+            "max_evaluations": 1,
+            "strategy": "harness",
+            "tool_wall_budget_seconds": null,
+            "version": "candidate-selection-v1"
+          },
+          "instructions": [
+            "Choose evaluate or stop using only this visible state.",
+            "Cite exact visible numeric values in evidence; unseen post metrics are unavailable.",
+            "Pre metrics describe monomer refolding and the generated design geometry.",
+            "Post metrics describe predicted complexes, without experimental binding validation.",
+            "Do not inspect replay files or unselected complex outputs."
+          ],
+          "session_id": "20260906T025046Z-11ab262a",
+          "step": 0,
+          "visible_state": {
+            "acceptance": null,
+            "batch_size": 1,
+            "binding_validated": false,
+            "candidates": [
+              {
+                "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+                "evaluated": false,
+                "length": 60,
+                "max_sequence_identity_to_evaluated": null,
+                "pre": {
+                  "generated_clash_residue_pairs": 0,
+                  "generated_hotspot_coverage": 0.25,
+                  "monomer_design_rmsd": 24.034691,
+                  "monomer_plddt": 79.130783
+                },
+                "seed": 61
+              },
+              {
+                "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+                "evaluated": false,
+                "length": 60,
+                "max_sequence_identity_to_evaluated": null,
+                "pre": {
+                  "generated_clash_residue_pairs": 1,
+                  "generated_hotspot_coverage": 0.25,
+                  "monomer_design_rmsd": 4.446605,
+                  "monomer_plddt": 57.149067
+                },
+                "seed": 62
+              }
+            ],
+            "pairwise_sequence_identity": {
+              "pdl1_pipeline_development_seed_61_bb_0_seq_0": {
+                "pdl1_pipeline_development_seed_61_bb_0_seq_0": 1.0,
+                "pdl1_pipeline_development_seed_62_bb_0_seq_0": 0.083333
+              },
+              "pdl1_pipeline_development_seed_62_bb_0_seq_0": {
+                "pdl1_pipeline_development_seed_61_bb_0_seq_0": 0.083333,
+                "pdl1_pipeline_development_seed_62_bb_0_seq_0": 1.0
+              }
+            },
+            "remaining_evaluations": 1,
+            "stop_required": null,
+            "tool_wall_seconds_spent": 0.0
+          }
+        },
+        "request_sha256": "2e222949d7cd15d9723478913fe5f38e71207b497779937b44aaff7e9311fc7a",
+        "response_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "actor": {
+              "additionalProperties": false,
+              "properties": {
+                "agent_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "harness": {
+                  "type": "string"
+                },
+                "model": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "harness",
+                "model",
+                "agent_id"
+              ],
+              "type": "object"
+            },
+            "decision": {
+              "additionalProperties": false,
+              "properties": {
+                "action": {
+                  "enum": [
+                    "evaluate",
+                    "stop"
+                  ],
+                  "type": "string"
+                },
+                "candidate_ids": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "evidence": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "candidate_id": {
+                        "type": "string"
+                      },
+                      "field": {
+                        "enum": [
+                          "pre.monomer_plddt",
+                          "pre.monomer_design_rmsd",
+                          "pre.generated_hotspot_coverage",
+                          "pre.generated_clash_residue_pairs",
+                          "post.iptm",
+                          "post.hotspot_coverage",
+                          "post.clash_residue_pairs",
+                          "post.binder_rmsd_after_target_alignment"
+                        ],
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "candidate_id",
+                      "field",
+                      "value"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "action",
+                "candidate_ids",
+                "reason",
+                "evidence"
+              ],
+              "type": "object"
+            },
+            "request_sha256": {
+              "enum": [
+                "2e222949d7cd15d9723478913fe5f38e71207b497779937b44aaff7e9311fc7a"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "request_sha256",
+            "decision",
+            "actor"
+          ],
+          "type": "object"
+        }
+      },
+      "step": 0,
+      "submission": {
+        "actor": {
+          "agent_id": "[external path omitted]",
+          "harness": "codex-collaboration",
+          "model": null
+        },
+        "decision": {
+          "action": "evaluate",
+          "candidate_ids": [
+            "pdl1_pipeline_development_seed_62_bb_0_seq_0"
+          ],
+          "evidence": [
+            {
+              "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+              "field": "pre.monomer_design_rmsd",
+              "value": 4.446605
+            },
+            {
+              "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+              "field": "pre.monomer_design_rmsd",
+              "value": 24.034691
+            },
+            {
+              "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+              "field": "pre.monomer_plddt",
+              "value": 57.149067
+            },
+            {
+              "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+              "field": "pre.monomer_plddt",
+              "value": 79.130783
+            },
+            {
+              "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+              "field": "pre.generated_clash_residue_pairs",
+              "value": 1.0
+            },
+            {
+              "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+              "field": "pre.generated_clash_residue_pairs",
+              "value": 0.0
+            },
+            {
+              "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+              "field": "pre.generated_hotspot_coverage",
+              "value": 0.25
+            },
+            {
+              "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+              "field": "pre.generated_hotspot_coverage",
+              "value": 0.25
+            }
+          ],
+          "reason": "Select unevaluated seed 62 for the single remaining development complex-evaluation check. Its monomer_design_rmsd is 4.446605, compared with 24.034691 for seed 61, so I prioritize closer agreement between the refolded monomer and generated design geometry for this check. This trades off lower monomer_plddt (57.149067 versus 79.130783) and more generated_clash_residue_pairs (1 versus 0). Both candidates have generated_hotspot_coverage of 0.25, which does not distinguish them. These competing pre diagnostics do not establish which complex will perform better; no calibrated cutoff is assumed. This is a workflow demonstration, not a scientific acceptance decision: acceptance remains unknown, post metrics are unavailable, and binding is not experimentally validated."
+        },
+        "request_sha256": "2e222949d7cd15d9723478913fe5f38e71207b497779937b44aaff7e9311fc7a"
+      },
+      "tool_wall_seconds": 61.446432321332395
+    },
+    {
+      "receipt_sha256": "460ec3f99d849b959a8b79a1777f88fbf60164b321daf6572d5c4db454460c96",
+      "request": {
+        "payload": {
+          "configuration": {
+            "batch_size": 1,
+            "max_evaluations": 1,
+            "strategy": "harness",
+            "tool_wall_budget_seconds": null,
+            "version": "candidate-selection-v1"
+          },
+          "instructions": [
+            "Choose evaluate or stop using only this visible state.",
+            "Cite exact visible numeric values in evidence; unseen post metrics are unavailable.",
+            "Pre metrics describe monomer refolding and the generated design geometry.",
+            "Post metrics describe predicted complexes, without experimental binding validation.",
+            "Do not inspect replay files or unselected complex outputs."
+          ],
+          "session_id": "20260906T025046Z-11ab262a",
+          "step": 1,
+          "visible_state": {
+            "acceptance": null,
+            "batch_size": 1,
+            "binding_validated": false,
+            "candidates": [
+              {
+                "candidate_id": "pdl1_pipeline_development_seed_61_bb_0_seq_0",
+                "evaluated": false,
+                "length": 60,
+                "max_sequence_identity_to_evaluated": 0.083333,
+                "pre": {
+                  "generated_clash_residue_pairs": 0,
+                  "generated_hotspot_coverage": 0.25,
+                  "monomer_design_rmsd": 24.034691,
+                  "monomer_plddt": 79.130783
+                },
+                "seed": 61
+              },
+              {
+                "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+                "evaluated": true,
+                "length": 60,
+                "max_sequence_identity_to_evaluated": 1.0,
+                "post": {
+                  "binder_rmsd_after_target_alignment": 16.991236,
+                  "clash_residue_pairs": 1,
+                  "hotspot_coverage": 0.25,
+                  "iptm": 0.183789
+                },
+                "pre": {
+                  "generated_clash_residue_pairs": 1,
+                  "generated_hotspot_coverage": 0.25,
+                  "monomer_design_rmsd": 4.446605,
+                  "monomer_plddt": 57.149067
+                },
+                "seed": 62
+              }
+            ],
+            "pairwise_sequence_identity": {
+              "pdl1_pipeline_development_seed_61_bb_0_seq_0": {
+                "pdl1_pipeline_development_seed_61_bb_0_seq_0": 1.0,
+                "pdl1_pipeline_development_seed_62_bb_0_seq_0": 0.083333
+              },
+              "pdl1_pipeline_development_seed_62_bb_0_seq_0": {
+                "pdl1_pipeline_development_seed_61_bb_0_seq_0": 0.083333,
+                "pdl1_pipeline_development_seed_62_bb_0_seq_0": 1.0
+              }
+            },
+            "remaining_evaluations": 0,
+            "stop_required": "candidate_limit_reached",
+            "tool_wall_seconds_spent": 61.446432321332395
+          }
+        },
+        "request_sha256": "1a9d4cc93d5007ffed52a76b227786facd23e49dc56d84bc3f0acd8226c3d58e",
+        "response_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "actor": {
+              "additionalProperties": false,
+              "properties": {
+                "agent_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "harness": {
+                  "type": "string"
+                },
+                "model": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "harness",
+                "model",
+                "agent_id"
+              ],
+              "type": "object"
+            },
+            "decision": {
+              "additionalProperties": false,
+              "properties": {
+                "action": {
+                  "enum": [
+                    "evaluate",
+                    "stop"
+                  ],
+                  "type": "string"
+                },
+                "candidate_ids": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "evidence": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "candidate_id": {
+                        "type": "string"
+                      },
+                      "field": {
+                        "enum": [
+                          "pre.monomer_plddt",
+                          "pre.monomer_design_rmsd",
+                          "pre.generated_hotspot_coverage",
+                          "pre.generated_clash_residue_pairs",
+                          "post.iptm",
+                          "post.hotspot_coverage",
+                          "post.clash_residue_pairs",
+                          "post.binder_rmsd_after_target_alignment"
+                        ],
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "candidate_id",
+                      "field",
+                      "value"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "action",
+                "candidate_ids",
+                "reason",
+                "evidence"
+              ],
+              "type": "object"
+            },
+            "request_sha256": {
+              "enum": [
+                "1a9d4cc93d5007ffed52a76b227786facd23e49dc56d84bc3f0acd8226c3d58e"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "request_sha256",
+            "decision",
+            "actor"
+          ],
+          "type": "object"
+        }
+      },
+      "step": 1,
+      "submission": {
+        "actor": {
+          "agent_id": null,
+          "harness": "executor",
+          "model": null
+        },
+        "decision": {
+          "action": "stop",
+          "candidate_ids": [],
+          "evidence": [],
+          "reason": "candidate_limit_reached"
+        },
+        "request_sha256": "1a9d4cc93d5007ffed52a76b227786facd23e49dc56d84bc3f0acd8226c3d58e"
+      },
+      "tool_wall_seconds": 0.0
+    }
+  ]
+}

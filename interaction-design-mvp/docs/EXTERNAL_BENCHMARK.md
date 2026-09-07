@@ -8,7 +8,7 @@ The host supplies the decision model, as in the main pipeline.
 This is a separate feature contract from `screen`: ESMFold2 complex ipTM/ipSAE and
 DockQ cannot be substituted for native monomer confidence, hotspot coverage or
 binder RMSD. Results assess retrospective ranking on an external pool, not the
-validity of MolClaw's entire generator or native screening heuristic.
+validity of ALPD's entire generator or native screening heuristic.
 
 ## Data and protocol
 
@@ -60,14 +60,14 @@ From `interaction-design-mvp`:
 ```bash
 "$PARQUET_PYTHON" scripts/import_anthropic_benchmark.py \
   --snapshot "$PINNED_SNAPSHOT" --output "$NEW_IMPORTED_JSON"
-.venv/bin/interaction-design benchmark prepare \
+.venv/bin/alpd benchmark prepare \
   --imported "$NEW_IMPORTED_JSON" --protocol config/external-benchmark-v1.json \
   --output "$NEW_SESSION"
-.venv/bin/interaction-design benchmark observe "$NEW_SESSION" --pool pool_01
-.venv/bin/interaction-design benchmark apply "$NEW_SESSION" --pool pool_01 \
+.venv/bin/alpd benchmark observe "$NEW_SESSION" --pool pool_01
+.venv/bin/alpd benchmark apply "$NEW_SESSION" --pool pool_01 \
   --submission "$HOST_SUBMISSION"
 # Repeat observe/apply for all six pools, then reveal once:
-.venv/bin/interaction-design benchmark report "$NEW_SESSION"
+.venv/bin/alpd benchmark report "$NEW_SESSION"
 ```
 
 `--submission -` accepts JSON on stdin. The submission has exactly:
@@ -112,4 +112,4 @@ results were already known when the protocol was developed; it is not a pristine
 holdout or a preregistered study. The candidate pool was selected upstream, related
 designs are correlated, and six targets give limited independent replication.
 Do not infer prospective success, protein function, GPU savings, adaptive feedback
-benefit, or new MolClaw wet-lab hits from these results.
+benefit, or new ALPD wet-lab hits from these results.

@@ -22,11 +22,11 @@ pilot was `/nvme-data3/yusen/micomamba/envs/esm2/bin/python` (Python 3.12, Torch
 2.5.1+cu124, esm 3.3.0, Biohub Transformers 4.57.6).
 
 ```bash
-.venv/bin/interaction-design complex prepare artifacts/<generation-id> \
+.venv/bin/alpd complex prepare artifacts/<generation-id> \
   --budget-seconds 1800
-.venv/bin/interaction-design complex run <printed-job-directory> \
+.venv/bin/alpd complex run <printed-job-directory> \
   --config .cache/esmfold2-runtime.local.json
-.venv/bin/interaction-design complex report <printed-job-directory>
+.venv/bin/alpd complex report <printed-job-directory>
 ```
 
 Repeat `--candidate <exact-candidate-id>` at preparation to evaluate a specified

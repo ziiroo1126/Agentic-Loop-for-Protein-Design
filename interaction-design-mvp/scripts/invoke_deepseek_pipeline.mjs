@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Invoke one real MolClaw tool through cached official DSH services.
+// Invoke one real ALPD tool through cached official DSH services.
 // This is a transport integration runner, not a DeepSeek model client/session.
 import assert from 'node:assert/strict';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
@@ -24,7 +24,7 @@ const { ToolRuntime } = await load('dsh-tools');
 const { SystemPrompt } = await load('dsh-system-prompt');
 const { LocalSubprocessRuntime } = await load('dsh-subprocess-local');
 const { LocalBashExecutor } = await load('dsh-bash-local');
-const plugin = await import(pathToFileURL(resolve(projectRoot, 'plugins/molclaw/deepseek/index.mjs')).href);
+const plugin = await import(pathToFileURL(resolve(projectRoot, 'plugins/alpd/deepseek/index.mjs')).href);
 const args = JSON.parse(await readFile(resolve(values.arguments), 'utf8'));
 const output = resolve(values.output);
 await mkdir(output, { recursive: false });
@@ -47,16 +47,16 @@ try {
     return next();
   });
   result = await ctx.tools.execute({
-    callId: `molclaw-pipeline-${values.tool}`, name: `molclaw_pipeline_${values.tool}`,
+    callId: `alpd-pipeline-${values.tool}`, name: `alpd_pipeline_${values.tool}`,
     arguments: args, signal: new AbortController().signal,
   });
 } finally {
   await ctx.fiber.dispose();
 }
 const receipt = {
-  status: result.isError ? 'failed' : 'passed', tool: `molclaw_pipeline_${values.tool}`,
+  status: result.isError ? 'failed' : 'passed', tool: `alpd_pipeline_${values.tool}`,
   arguments: args, dispatches, elapsed_seconds: (performance.now() - started) / 1000,
-  runtime: 'official DSH 0.1.2-rc.1 Cordis, ToolRuntime, local Bash and MolClaw plugin',
+  runtime: 'official DSH 0.1.2-rc.1 Cordis, ToolRuntime, local Bash and ALPD plugin',
   model_client_calls: 0, deepseek_model_session_tested: false, result,
 };
 await writeFile(resolve(output, 'receipt.json'), JSON.stringify(receipt, null, 2) + '\n');

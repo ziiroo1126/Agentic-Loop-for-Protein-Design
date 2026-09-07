@@ -1,0 +1,1338 @@
+{
+  "acceptance": null,
+  "backend": "esmfold2",
+  "binding_validated": false,
+  "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+  "confidence": {
+    "binder_plddt_residue": 47.32044219970703,
+    "iptm": 0.18378883600234985,
+    "pae_a_to_b_angstrom": 25.39607048034668,
+    "pae_b_to_a_angstrom": 15.505107879638672,
+    "ptm": 0.6593026518821716,
+    "target_plddt_residue": 81.43779754638672
+  },
+  "design_consistency": {
+    "binder_ca_rmsd_angstrom": 4.96542501449585,
+    "binder_rmsd_after_target_alignment_angstrom": 16.991235733032227,
+    "contact_pair_jaccard": 0.0,
+    "generated_contact_retention": 0.0,
+    "retained_generated_contact_pairs": 0
+  },
+  "flags": [
+    "PARTIAL_REQUESTED_HOTSPOT_CONTACT",
+    "INTERCHAIN_HEAVY_ATOM_CLASH"
+  ],
+  "generation_seed": 62,
+  "geometry": {
+    "generated": {
+      "binder_chain": "A",
+      "binder_contact_positions": [
+        3,
+        4,
+        6,
+        30,
+        31,
+        32,
+        36,
+        39,
+        40,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        52,
+        54
+      ],
+      "binder_heavy_atom_count": 240,
+      "binder_residue_count": 60,
+      "clash_atom_pair_count": 1,
+      "clash_residue_pair_count": 1,
+      "closest_clashes": [
+        {
+          "binder_atom": "O",
+          "binder_position": 30,
+          "distance_angstrom": 1.7200464477165938,
+          "target_atom": "NE2",
+          "target_position": 51
+        }
+      ],
+      "closest_clashes_truncated": false,
+      "contact_residue_pair_count": 28,
+      "contacts": [
+        {
+          "binder_position": 3,
+          "minimum_distance_angstrom": 4.945298121100071,
+          "target_position": 43
+        },
+        {
+          "binder_position": 3,
+          "minimum_distance_angstrom": 4.981482099834448,
+          "target_position": 45
+        },
+        {
+          "binder_position": 3,
+          "minimum_distance_angstrom": 3.8591070917281725,
+          "target_position": 60
+        },
+        {
+          "binder_position": 4,
+          "minimum_distance_angstrom": 3.7790122028220647,
+          "target_position": 60
+        },
+        {
+          "binder_position": 6,
+          "minimum_distance_angstrom": 4.5359694746496215,
+          "target_position": 43
+        },
+        {
+          "binder_position": 30,
+          "minimum_distance_angstrom": 4.580798641216911,
+          "target_position": 33
+        },
+        {
+          "binder_position": 30,
+          "minimum_distance_angstrom": 4.85192099051104,
+          "target_position": 36
+        },
+        {
+          "binder_position": 30,
+          "minimum_distance_angstrom": 1.7200464477165938,
+          "target_position": 51
+        },
+        {
+          "binder_position": 31,
+          "minimum_distance_angstrom": 4.954426893755052,
+          "target_position": 33
+        },
+        {
+          "binder_position": 31,
+          "minimum_distance_angstrom": 3.936733566292506,
+          "target_position": 51
+        },
+        {
+          "binder_position": 32,
+          "minimum_distance_angstrom": 4.91598407098244,
+          "target_position": 51
+        },
+        {
+          "binder_position": 36,
+          "minimum_distance_angstrom": 4.772349002109952,
+          "target_position": 102
+        },
+        {
+          "binder_position": 36,
+          "minimum_distance_angstrom": 3.620694416926802,
+          "target_position": 103
+        },
+        {
+          "binder_position": 39,
+          "minimum_distance_angstrom": 4.492909890256013,
+          "target_position": 103
+        },
+        {
+          "binder_position": 40,
+          "minimum_distance_angstrom": 4.081366746640776,
+          "target_position": 97
+        },
+        {
+          "binder_position": 40,
+          "minimum_distance_angstrom": 3.8090536258442413,
+          "target_position": 103
+        },
+        {
+          "binder_position": 43,
+          "minimum_distance_angstrom": 4.9844674540277865,
+          "target_position": 97
+        },
+        {
+          "binder_position": 43,
+          "minimum_distance_angstrom": 2.323361321628158,
+          "target_position": 105
+        },
+        {
+          "binder_position": 44,
+          "minimum_distance_angstrom": 4.494020960418719,
+          "target_position": 97
+        },
+        {
+          "binder_position": 44,
+          "minimum_distance_angstrom": 4.26036371363508,
+          "target_position": 105
+        },
+        {
+          "binder_position": 45,
+          "minimum_distance_angstrom": 2.5896095237769616,
+          "target_position": 97
+        },
+        {
+          "binder_position": 46,
+          "minimum_distance_angstrom": 4.180959658076393,
+          "target_position": 97
+        },
+        {
+          "binder_position": 47,
+          "minimum_distance_angstrom": 4.510127422645923,
+          "target_position": 38
+        },
+        {
+          "binder_position": 47,
+          "minimum_distance_angstrom": 3.9963214061652725,
+          "target_position": 48
+        },
+        {
+          "binder_position": 48,
+          "minimum_distance_angstrom": 3.966419623710631,
+          "target_position": 48
+        },
+        {
+          "binder_position": 49,
+          "minimum_distance_angstrom": 3.8425926263885577,
+          "target_position": 48
+        },
+        {
+          "binder_position": 52,
+          "minimum_distance_angstrom": 3.9018942162534875,
+          "target_position": 57
+        },
+        {
+          "binder_position": 54,
+          "minimum_distance_angstrom": 4.9706451978298904,
+          "target_position": 58
+        }
+      ],
+      "hotspot_count": 4,
+      "hotspot_coverage": 0.25,
+      "hotspots": [
+        {
+          "clashing": false,
+          "contact": true,
+          "minimum_distance_angstrom": 4.981482099834448,
+          "source_chain": "B",
+          "source_residue": 64,
+          "target_position": 45
+        },
+        {
+          "clashing": false,
+          "contact": false,
+          "minimum_distance_angstrom": 7.265850054135608,
+          "source_chain": "B",
+          "source_residue": 68,
+          "target_position": 49
+        },
+        {
+          "clashing": false,
+          "contact": false,
+          "minimum_distance_angstrom": 5.166008205388209,
+          "source_chain": "B",
+          "source_residue": 126,
+          "target_position": 107
+        },
+        {
+          "clashing": false,
+          "contact": false,
+          "minimum_distance_angstrom": 14.369512045626061,
+          "source_chain": "B",
+          "source_residue": 128,
+          "target_position": 109
+        }
+      ],
+      "hotspots_contacted": 1,
+      "minimum_interchain_distance_angstrom": 1.7200464477165938,
+      "target_chain": "B",
+      "target_contact_positions": [
+        33,
+        36,
+        38,
+        43,
+        45,
+        48,
+        51,
+        57,
+        58,
+        60,
+        97,
+        102,
+        103,
+        105
+      ],
+      "target_heavy_atom_count": 921,
+      "target_residue_count": 114
+    },
+    "predicted": {
+      "binder_chain": "A",
+      "binder_contact_positions": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        19,
+        46,
+        48,
+        50,
+        51,
+        55,
+        59,
+        60
+      ],
+      "binder_heavy_atom_count": 436,
+      "binder_residue_count": 60,
+      "clash_atom_pair_count": 2,
+      "clash_residue_pair_count": 1,
+      "closest_clashes": [
+        {
+          "binder_atom": "NE2",
+          "binder_position": 50,
+          "distance_angstrom": 1.338929012473112,
+          "target_atom": "NH1",
+          "target_position": 95
+        },
+        {
+          "binder_atom": "CE1",
+          "binder_position": 50,
+          "distance_angstrom": 1.6528179847707896,
+          "target_atom": "NH1",
+          "target_position": 95
+        }
+      ],
+      "closest_clashes_truncated": false,
+      "contact_residue_pair_count": 44,
+      "contacts": [
+        {
+          "binder_position": 8,
+          "minimum_distance_angstrom": 4.85453466938536,
+          "target_position": 38
+        },
+        {
+          "binder_position": 8,
+          "minimum_distance_angstrom": 2.9524465376515634,
+          "target_position": 48
+        },
+        {
+          "binder_position": 8,
+          "minimum_distance_angstrom": 4.773584626869473,
+          "target_position": 50
+        },
+        {
+          "binder_position": 9,
+          "minimum_distance_angstrom": 3.7916128999658594,
+          "target_position": 38
+        },
+        {
+          "binder_position": 9,
+          "minimum_distance_angstrom": 4.65916279102323,
+          "target_position": 40
+        },
+        {
+          "binder_position": 9,
+          "minimum_distance_angstrom": 4.230062431453866,
+          "target_position": 97
+        },
+        {
+          "binder_position": 10,
+          "minimum_distance_angstrom": 3.7427531631446764,
+          "target_position": 36
+        },
+        {
+          "binder_position": 10,
+          "minimum_distance_angstrom": 4.303102544629889,
+          "target_position": 38
+        },
+        {
+          "binder_position": 10,
+          "minimum_distance_angstrom": 2.28281774461344,
+          "target_position": 97
+        },
+        {
+          "binder_position": 10,
+          "minimum_distance_angstrom": 3.6999844378033915,
+          "target_position": 98
+        },
+        {
+          "binder_position": 10,
+          "minimum_distance_angstrom": 3.06817849161682,
+          "target_position": 99
+        },
+        {
+          "binder_position": 10,
+          "minimum_distance_angstrom": 4.717745471376441,
+          "target_position": 103
+        },
+        {
+          "binder_position": 11,
+          "minimum_distance_angstrom": 4.023084566734128,
+          "target_position": 97
+        },
+        {
+          "binder_position": 11,
+          "minimum_distance_angstrom": 4.246465609602696,
+          "target_position": 105
+        },
+        {
+          "binder_position": 12,
+          "minimum_distance_angstrom": 4.934448645482676,
+          "target_position": 97
+        },
+        {
+          "binder_position": 12,
+          "minimum_distance_angstrom": 4.2034325522043705,
+          "target_position": 98
+        },
+        {
+          "binder_position": 12,
+          "minimum_distance_angstrom": 2.9942590523570343,
+          "target_position": 103
+        },
+        {
+          "binder_position": 12,
+          "minimum_distance_angstrom": 2.456299035435033,
+          "target_position": 104
+        },
+        {
+          "binder_position": 12,
+          "minimum_distance_angstrom": 3.0297252621053845,
+          "target_position": 105
+        },
+        {
+          "binder_position": 13,
+          "minimum_distance_angstrom": 3.3821964923531374,
+          "target_position": 103
+        },
+        {
+          "binder_position": 13,
+          "minimum_distance_angstrom": 4.655137820801639,
+          "target_position": 104
+        },
+        {
+          "binder_position": 14,
+          "minimum_distance_angstrom": 3.4766221554941614,
+          "target_position": 1
+        },
+        {
+          "binder_position": 14,
+          "minimum_distance_angstrom": 3.4356620362714545,
+          "target_position": 103
+        },
+        {
+          "binder_position": 14,
+          "minimum_distance_angstrom": 4.763322053676041,
+          "target_position": 104
+        },
+        {
+          "binder_position": 19,
+          "minimum_distance_angstrom": 2.7999742872369606,
+          "target_position": 105
+        },
+        {
+          "binder_position": 19,
+          "minimum_distance_angstrom": 3.8161793296302045,
+          "target_position": 107
+        },
+        {
+          "binder_position": 46,
+          "minimum_distance_angstrom": 3.5628869398640863,
+          "target_position": 103
+        },
+        {
+          "binder_position": 48,
+          "minimum_distance_angstrom": 4.253517390250469,
+          "target_position": 105
+        },
+        {
+          "binder_position": 50,
+          "minimum_distance_angstrom": 4.275888682215023,
+          "target_position": 40
+        },
+        {
+          "binder_position": 50,
+          "minimum_distance_angstrom": 1.338929012473112,
+          "target_position": 95
+        },
+        {
+          "binder_position": 50,
+          "minimum_distance_angstrom": 3.3118634736148027,
+          "target_position": 97
+        },
+        {
+          "binder_position": 50,
+          "minimum_distance_angstrom": 4.825086402154396,
+          "target_position": 105
+        },
+        {
+          "binder_position": 51,
+          "minimum_distance_angstrom": 4.709845062736424,
+          "target_position": 40
+        },
+        {
+          "binder_position": 51,
+          "minimum_distance_angstrom": 4.293458569533379,
+          "target_position": 42
+        },
+        {
+          "binder_position": 55,
+          "minimum_distance_angstrom": 4.5590407649140126,
+          "target_position": 40
+        },
+        {
+          "binder_position": 59,
+          "minimum_distance_angstrom": 2.331360496698914,
+          "target_position": 33
+        },
+        {
+          "binder_position": 59,
+          "minimum_distance_angstrom": 2.202058623158902,
+          "target_position": 34
+        },
+        {
+          "binder_position": 59,
+          "minimum_distance_angstrom": 3.6634325485622115,
+          "target_position": 35
+        },
+        {
+          "binder_position": 59,
+          "minimum_distance_angstrom": 4.359353906015711,
+          "target_position": 36
+        },
+        {
+          "binder_position": 59,
+          "minimum_distance_angstrom": 3.5127839179014653,
+          "target_position": 51
+        },
+        {
+          "binder_position": 59,
+          "minimum_distance_angstrom": 3.6991216407535177,
+          "target_position": 99
+        },
+        {
+          "binder_position": 60,
+          "minimum_distance_angstrom": 3.6275809859765906,
+          "target_position": 36
+        },
+        {
+          "binder_position": 60,
+          "minimum_distance_angstrom": 4.887866491648664,
+          "target_position": 50
+        },
+        {
+          "binder_position": 60,
+          "minimum_distance_angstrom": 3.271631958946942,
+          "target_position": 51
+        }
+      ],
+      "hotspot_count": 4,
+      "hotspot_coverage": 0.25,
+      "hotspots": [
+        {
+          "clashing": false,
+          "contact": false,
+          "minimum_distance_angstrom": 5.576914510312415,
+          "source_chain": "B",
+          "source_residue": 64,
+          "target_position": 45
+        },
+        {
+          "clashing": false,
+          "contact": false,
+          "minimum_distance_angstrom": 7.298649007347542,
+          "source_chain": "B",
+          "source_residue": 68,
+          "target_position": 49
+        },
+        {
+          "clashing": false,
+          "contact": true,
+          "minimum_distance_angstrom": 3.8161793296302045,
+          "source_chain": "B",
+          "source_residue": 126,
+          "target_position": 107
+        },
+        {
+          "clashing": false,
+          "contact": false,
+          "minimum_distance_angstrom": 13.10859151455035,
+          "source_chain": "B",
+          "source_residue": 128,
+          "target_position": 109
+        }
+      ],
+      "hotspots_contacted": 1,
+      "minimum_interchain_distance_angstrom": 1.338929012473112,
+      "target_chain": "B",
+      "target_contact_positions": [
+        1,
+        33,
+        34,
+        35,
+        36,
+        38,
+        40,
+        42,
+        48,
+        50,
+        51,
+        95,
+        97,
+        98,
+        99,
+        103,
+        104,
+        105,
+        107
+      ],
+      "target_heavy_atom_count": 920,
+      "target_residue_count": 114
+    }
+  },
+  "geometry_policy_sha256": "7f2c4d0ad6c975e2948ea8e78bf54f843ef14b3c33d5d396071d4ee6fd4888c0",
+  "model_policy": {
+    "backend": "esmfold2",
+    "esmc_id": "biohub/ESMC-6B",
+    "esmc_precision": "bf16",
+    "esmc_revision": "45b0fa5d7fb06faefbd5e3b89bdcef35d564e79a",
+    "folding_precision": "float32_with_upstream_bf16_autocast",
+    "kernel_backend": "reference",
+    "lm_dropout": 0.3,
+    "model_id": "biohub/ESMFold2",
+    "model_revision": "1ebf0e3481a5184eb6171d40615c79e384b48796",
+    "msa_mode": "none",
+    "num_diffusion_samples": 1,
+    "num_loops": 20,
+    "num_sampling_steps": 100,
+    "ranking": "iptm_descending_candidate_id_tiebreak",
+    "seed": 1,
+    "thresholds": null
+  },
+  "prediction_inference_seconds": 7.566713746637106,
+  "schema_version": "1",
+  "sources": {
+    "generated_structure": {
+      "path": "candidates/candidate0001/generated.cif",
+      "sha256": "fc368a397d61a6dbb8249d84b2ae5750697e6f7dd29fbf6888626a242edad5b7"
+    },
+    "job": "[external path omitted]",
+    "prediction": {
+      "path": "candidates/candidate0001/complex.cif",
+      "sha256": "c4db373010de1be6a0a4bf2a56cf8c2aae011669e66d4d51978d3153ecd960b6"
+    },
+    "request_sha256": "a2fa724c1690c8e2ad9ea84d177e22c0994e689b4a1d5fadab86afa605ab9aab"
+  },
+  "target_mapping": {
+    "hotspots": [
+      {
+        "res_name": "ASN",
+        "source_chain": "B",
+        "source_residue": 64,
+        "target_position": 45
+      },
+      {
+        "res_name": "PHE",
+        "source_chain": "B",
+        "source_residue": 68,
+        "target_position": 49
+      },
+      {
+        "res_name": "ARG",
+        "source_chain": "B",
+        "source_residue": 126,
+        "target_position": 107
+      },
+      {
+        "res_name": "THR",
+        "source_chain": "B",
+        "source_residue": 128,
+        "target_position": 109
+      }
+    ],
+    "residues": [
+      {
+        "res_name": "PHE",
+        "source_chain": "B",
+        "source_residue": 20,
+        "target_position": 1
+      },
+      {
+        "res_name": "THR",
+        "source_chain": "B",
+        "source_residue": 21,
+        "target_position": 2
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 22,
+        "target_position": 3
+      },
+      {
+        "res_name": "THR",
+        "source_chain": "B",
+        "source_residue": 23,
+        "target_position": 4
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 24,
+        "target_position": 5
+      },
+      {
+        "res_name": "PRO",
+        "source_chain": "B",
+        "source_residue": 25,
+        "target_position": 6
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 26,
+        "target_position": 7
+      },
+      {
+        "res_name": "ASP",
+        "source_chain": "B",
+        "source_residue": 27,
+        "target_position": 8
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 28,
+        "target_position": 9
+      },
+      {
+        "res_name": "TYR",
+        "source_chain": "B",
+        "source_residue": 29,
+        "target_position": 10
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 30,
+        "target_position": 11
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 31,
+        "target_position": 12
+      },
+      {
+        "res_name": "GLU",
+        "source_chain": "B",
+        "source_residue": 32,
+        "target_position": 13
+      },
+      {
+        "res_name": "TYR",
+        "source_chain": "B",
+        "source_residue": 33,
+        "target_position": 14
+      },
+      {
+        "res_name": "GLY",
+        "source_chain": "B",
+        "source_residue": 34,
+        "target_position": 15
+      },
+      {
+        "res_name": "SER",
+        "source_chain": "B",
+        "source_residue": 35,
+        "target_position": 16
+      },
+      {
+        "res_name": "ASN",
+        "source_chain": "B",
+        "source_residue": 36,
+        "target_position": 17
+      },
+      {
+        "res_name": "MET",
+        "source_chain": "B",
+        "source_residue": 37,
+        "target_position": 18
+      },
+      {
+        "res_name": "THR",
+        "source_chain": "B",
+        "source_residue": 38,
+        "target_position": 19
+      },
+      {
+        "res_name": "ILE",
+        "source_chain": "B",
+        "source_residue": 39,
+        "target_position": 20
+      },
+      {
+        "res_name": "GLU",
+        "source_chain": "B",
+        "source_residue": 40,
+        "target_position": 21
+      },
+      {
+        "res_name": "CYS",
+        "source_chain": "B",
+        "source_residue": 41,
+        "target_position": 22
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 42,
+        "target_position": 23
+      },
+      {
+        "res_name": "PHE",
+        "source_chain": "B",
+        "source_residue": 43,
+        "target_position": 24
+      },
+      {
+        "res_name": "PRO",
+        "source_chain": "B",
+        "source_residue": 44,
+        "target_position": 25
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 45,
+        "target_position": 26
+      },
+      {
+        "res_name": "GLU",
+        "source_chain": "B",
+        "source_residue": 46,
+        "target_position": 27
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 47,
+        "target_position": 28
+      },
+      {
+        "res_name": "GLN",
+        "source_chain": "B",
+        "source_residue": 48,
+        "target_position": 29
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 49,
+        "target_position": 30
+      },
+      {
+        "res_name": "ASP",
+        "source_chain": "B",
+        "source_residue": 50,
+        "target_position": 31
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 51,
+        "target_position": 32
+      },
+      {
+        "res_name": "ALA",
+        "source_chain": "B",
+        "source_residue": 52,
+        "target_position": 33
+      },
+      {
+        "res_name": "ALA",
+        "source_chain": "B",
+        "source_residue": 53,
+        "target_position": 34
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 54,
+        "target_position": 35
+      },
+      {
+        "res_name": "ILE",
+        "source_chain": "B",
+        "source_residue": 55,
+        "target_position": 36
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 56,
+        "target_position": 37
+      },
+      {
+        "res_name": "TYR",
+        "source_chain": "B",
+        "source_residue": 57,
+        "target_position": 38
+      },
+      {
+        "res_name": "TRP",
+        "source_chain": "B",
+        "source_residue": 58,
+        "target_position": 39
+      },
+      {
+        "res_name": "GLU",
+        "source_chain": "B",
+        "source_residue": 59,
+        "target_position": 40
+      },
+      {
+        "res_name": "MET",
+        "source_chain": "B",
+        "source_residue": 60,
+        "target_position": 41
+      },
+      {
+        "res_name": "GLU",
+        "source_chain": "B",
+        "source_residue": 61,
+        "target_position": 42
+      },
+      {
+        "res_name": "ASP",
+        "source_chain": "B",
+        "source_residue": 62,
+        "target_position": 43
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 63,
+        "target_position": 44
+      },
+      {
+        "res_name": "ASN",
+        "source_chain": "B",
+        "source_residue": 64,
+        "target_position": 45
+      },
+      {
+        "res_name": "ILE",
+        "source_chain": "B",
+        "source_residue": 65,
+        "target_position": 46
+      },
+      {
+        "res_name": "ILE",
+        "source_chain": "B",
+        "source_residue": 66,
+        "target_position": 47
+      },
+      {
+        "res_name": "GLN",
+        "source_chain": "B",
+        "source_residue": 67,
+        "target_position": 48
+      },
+      {
+        "res_name": "PHE",
+        "source_chain": "B",
+        "source_residue": 68,
+        "target_position": 49
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 69,
+        "target_position": 50
+      },
+      {
+        "res_name": "HIS",
+        "source_chain": "B",
+        "source_residue": 70,
+        "target_position": 51
+      },
+      {
+        "res_name": "GLY",
+        "source_chain": "B",
+        "source_residue": 71,
+        "target_position": 52
+      },
+      {
+        "res_name": "GLU",
+        "source_chain": "B",
+        "source_residue": 72,
+        "target_position": 53
+      },
+      {
+        "res_name": "GLU",
+        "source_chain": "B",
+        "source_residue": 73,
+        "target_position": 54
+      },
+      {
+        "res_name": "ASP",
+        "source_chain": "B",
+        "source_residue": 74,
+        "target_position": 55
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 75,
+        "target_position": 56
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 76,
+        "target_position": 57
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 77,
+        "target_position": 58
+      },
+      {
+        "res_name": "GLN",
+        "source_chain": "B",
+        "source_residue": 78,
+        "target_position": 59
+      },
+      {
+        "res_name": "HIS",
+        "source_chain": "B",
+        "source_residue": 79,
+        "target_position": 60
+      },
+      {
+        "res_name": "SER",
+        "source_chain": "B",
+        "source_residue": 80,
+        "target_position": 61
+      },
+      {
+        "res_name": "SER",
+        "source_chain": "B",
+        "source_residue": 81,
+        "target_position": 62
+      },
+      {
+        "res_name": "TYR",
+        "source_chain": "B",
+        "source_residue": 82,
+        "target_position": 63
+      },
+      {
+        "res_name": "ARG",
+        "source_chain": "B",
+        "source_residue": 83,
+        "target_position": 64
+      },
+      {
+        "res_name": "GLN",
+        "source_chain": "B",
+        "source_residue": 84,
+        "target_position": 65
+      },
+      {
+        "res_name": "ARG",
+        "source_chain": "B",
+        "source_residue": 85,
+        "target_position": 66
+      },
+      {
+        "res_name": "ALA",
+        "source_chain": "B",
+        "source_residue": 86,
+        "target_position": 67
+      },
+      {
+        "res_name": "ARG",
+        "source_chain": "B",
+        "source_residue": 87,
+        "target_position": 68
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 88,
+        "target_position": 69
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 89,
+        "target_position": 70
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 90,
+        "target_position": 71
+      },
+      {
+        "res_name": "ASP",
+        "source_chain": "B",
+        "source_residue": 91,
+        "target_position": 72
+      },
+      {
+        "res_name": "GLN",
+        "source_chain": "B",
+        "source_residue": 92,
+        "target_position": 73
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 93,
+        "target_position": 74
+      },
+      {
+        "res_name": "SER",
+        "source_chain": "B",
+        "source_residue": 94,
+        "target_position": 75
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 95,
+        "target_position": 76
+      },
+      {
+        "res_name": "GLY",
+        "source_chain": "B",
+        "source_residue": 96,
+        "target_position": 77
+      },
+      {
+        "res_name": "ASN",
+        "source_chain": "B",
+        "source_residue": 97,
+        "target_position": 78
+      },
+      {
+        "res_name": "ALA",
+        "source_chain": "B",
+        "source_residue": 98,
+        "target_position": 79
+      },
+      {
+        "res_name": "ALA",
+        "source_chain": "B",
+        "source_residue": 99,
+        "target_position": 80
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 100,
+        "target_position": 81
+      },
+      {
+        "res_name": "GLN",
+        "source_chain": "B",
+        "source_residue": 101,
+        "target_position": 82
+      },
+      {
+        "res_name": "ILE",
+        "source_chain": "B",
+        "source_residue": 102,
+        "target_position": 83
+      },
+      {
+        "res_name": "THR",
+        "source_chain": "B",
+        "source_residue": 103,
+        "target_position": 84
+      },
+      {
+        "res_name": "ASP",
+        "source_chain": "B",
+        "source_residue": 104,
+        "target_position": 85
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 105,
+        "target_position": 86
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 106,
+        "target_position": 87
+      },
+      {
+        "res_name": "LEU",
+        "source_chain": "B",
+        "source_residue": 107,
+        "target_position": 88
+      },
+      {
+        "res_name": "GLN",
+        "source_chain": "B",
+        "source_residue": 108,
+        "target_position": 89
+      },
+      {
+        "res_name": "ASP",
+        "source_chain": "B",
+        "source_residue": 109,
+        "target_position": 90
+      },
+      {
+        "res_name": "ALA",
+        "source_chain": "B",
+        "source_residue": 110,
+        "target_position": 91
+      },
+      {
+        "res_name": "GLY",
+        "source_chain": "B",
+        "source_residue": 111,
+        "target_position": 92
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 112,
+        "target_position": 93
+      },
+      {
+        "res_name": "TYR",
+        "source_chain": "B",
+        "source_residue": 113,
+        "target_position": 94
+      },
+      {
+        "res_name": "ARG",
+        "source_chain": "B",
+        "source_residue": 114,
+        "target_position": 95
+      },
+      {
+        "res_name": "CYS",
+        "source_chain": "B",
+        "source_residue": 115,
+        "target_position": 96
+      },
+      {
+        "res_name": "MET",
+        "source_chain": "B",
+        "source_residue": 116,
+        "target_position": 97
+      },
+      {
+        "res_name": "ILE",
+        "source_chain": "B",
+        "source_residue": 117,
+        "target_position": 98
+      },
+      {
+        "res_name": "SER",
+        "source_chain": "B",
+        "source_residue": 118,
+        "target_position": 99
+      },
+      {
+        "res_name": "TYR",
+        "source_chain": "B",
+        "source_residue": 119,
+        "target_position": 100
+      },
+      {
+        "res_name": "GLY",
+        "source_chain": "B",
+        "source_residue": 120,
+        "target_position": 101
+      },
+      {
+        "res_name": "GLY",
+        "source_chain": "B",
+        "source_residue": 121,
+        "target_position": 102
+      },
+      {
+        "res_name": "ALA",
+        "source_chain": "B",
+        "source_residue": 122,
+        "target_position": 103
+      },
+      {
+        "res_name": "ASP",
+        "source_chain": "B",
+        "source_residue": 123,
+        "target_position": 104
+      },
+      {
+        "res_name": "TYR",
+        "source_chain": "B",
+        "source_residue": 124,
+        "target_position": 105
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 125,
+        "target_position": 106
+      },
+      {
+        "res_name": "ARG",
+        "source_chain": "B",
+        "source_residue": 126,
+        "target_position": 107
+      },
+      {
+        "res_name": "ILE",
+        "source_chain": "B",
+        "source_residue": 127,
+        "target_position": 108
+      },
+      {
+        "res_name": "THR",
+        "source_chain": "B",
+        "source_residue": 128,
+        "target_position": 109
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 129,
+        "target_position": 110
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 130,
+        "target_position": 111
+      },
+      {
+        "res_name": "VAL",
+        "source_chain": "B",
+        "source_residue": 131,
+        "target_position": 112
+      },
+      {
+        "res_name": "ASN",
+        "source_chain": "B",
+        "source_residue": 132,
+        "target_position": 113
+      },
+      {
+        "res_name": "LYS",
+        "source_chain": "B",
+        "source_residue": 133,
+        "target_position": 114
+      }
+    ]
+  }
+}

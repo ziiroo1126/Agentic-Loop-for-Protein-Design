@@ -43,9 +43,9 @@ the injectable Python policy interface.
 Run from `interaction-design-mvp/`:
 
 ```bash
-.venv/bin/interaction-design campaign replay <completed-interface-feedback-directory> \
+.venv/bin/alpd campaign replay <completed-interface-feedback-directory> \
   --strategy fixed --batch-size 4 --max-rounds 4
-.venv/bin/interaction-design campaign replay <completed-interface-feedback-directory> \
+.venv/bin/alpd campaign replay <completed-interface-feedback-directory> \
   --strategy feedback --batch-size 4 --max-rounds 4 --patience 1
 ```
 
@@ -70,11 +70,11 @@ to run the other baseline with the same batch and seed schedule. Copy
 paths to the already available runtimes, weights and chemical components.
 
 ```bash
-.venv/bin/interaction-design campaign prepare examples/baseline_pdl1_16.json \
+.venv/bin/alpd campaign prepare examples/baseline_pdl1_16.json \
   --strategy config/campaign-feedback.example.json \
   --runtime .cache/campaign-runtime.local.json \
   --initial-feedback <completed-interface-feedback-directory>
-.venv/bin/interaction-design campaign run <printed-campaign-directory>
+.venv/bin/alpd campaign run <printed-campaign-directory>
 ```
 
 The original task's seed list is replaced by the frozen campaign schedule. Optional

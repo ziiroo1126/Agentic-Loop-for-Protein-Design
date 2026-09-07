@@ -13,16 +13,16 @@ fit score calibration or create an independent holdout.
 From `interaction-design-mvp`:
 
 ```bash
-.venv/bin/interaction-design benchmark-repeat prepare \
+.venv/bin/alpd benchmark-repeat prepare \
   --source-session "$COMPLETED_BENCHMARK" \
   --instructions "$REFERENCE_HOST_INSTRUCTIONS" \
   --repetitions 2 --output "$NEW_STUDY"
-.venv/bin/interaction-design benchmark-repeat observe "$NEW_STUDY" \
+.venv/bin/alpd benchmark-repeat observe "$NEW_STUDY" \
   --trial repeat_01 --pool pool_01
-.venv/bin/interaction-design benchmark-repeat apply "$NEW_STUDY" \
+.venv/bin/alpd benchmark-repeat apply "$NEW_STUDY" \
   --trial repeat_01 --pool pool_01 --submission "$HOST_SUBMISSION"
 # Commit every pool in both repetitions, then reveal together:
-.venv/bin/interaction-design benchmark-repeat report "$NEW_STUDY"
+.venv/bin/alpd benchmark-repeat report "$NEW_STUDY"
 ```
 
 `--submission -` accepts the same JSON envelope as the

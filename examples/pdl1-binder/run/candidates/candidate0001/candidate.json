@@ -1,0 +1,41 @@
+{
+  "acceptance": null,
+  "artifacts": {
+    "generated_structure": "candidates/candidate0001/generated.cif",
+    "monomer_structure": "candidates/candidate0001/monomer.pdb",
+    "predicted_complex": "candidates/candidate0001/complex.cif"
+  },
+  "binding_validated": false,
+  "candidate_id": "pdl1_pipeline_development_seed_62_bb_0_seq_0",
+  "complex_evaluation_status": "evaluated",
+  "generation_metadata": {
+    "artifacts": {
+      "generated_structure": "candidates/candidate0001/generated.cif",
+      "monomer_structure": "candidates/candidate0001/monomer.pdb",
+      "predicted_complex": null
+    },
+    "odesign": {
+      "backbone_index": 0,
+      "seed": 62,
+      "sequence_index": 0
+    }
+  },
+  "generation_status": "generated",
+  "length": 60,
+  "monomer_status": "completed",
+  "post": {
+    "binder_rmsd_after_target_alignment": 16.991236,
+    "clash_residue_pairs": 1,
+    "hotspot_coverage": 0.25,
+    "iptm": 0.183789
+  },
+  "pre": {
+    "generated_clash_residue_pairs": 1,
+    "generated_hotspot_coverage": 0.25,
+    "monomer_design_rmsd": 4.446605,
+    "monomer_plddt": 57.149067
+  },
+  "seed": 62,
+  "selected_for_complex": true,
+  "sequence": "MDLSRLGEILVAVTEGSSEYDAAVAAAESQGLSREEALAALAGGGILMEHNGKLRYVTRP"
+}

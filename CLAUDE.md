@@ -1,6 +1,6 @@
-# MolClaw project context
+# ALPD project context
 
-MolClaw consists of a Python scientific execution core and host skill/plugin
+ALPD consists of a Python scientific execution core and host skill/plugin
 adapters. Start with [README.md](README.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Maintained code
@@ -8,7 +8,7 @@ adapters. Start with [README.md](README.md) and [CONTRIBUTING.md](CONTRIBUTING.m
 - `interaction-design-mvp/src/interaction_design/`: scientific task schemas,
   generation, evaluation, screening, benchmarks and persistent execution.
 - `interaction-design-mvp/tests/`: Python contract and regression tests.
-- `plugins/molclaw/`: shared skill, Codex/Claude metadata and DeepSeek tool bridge.
+- `plugins/alpd/`: shared skill, Codex/Claude metadata and DeepSeek tool bridge.
 - `docs/RESEARCH_GOAL.md`: current research question and completion criteria.
 - `docs/M1_STATUS.md` and `docs/evidence/`: implementation and experiment records.
 
@@ -25,11 +25,11 @@ From `interaction-design-mvp/`, use the existing environment:
 From the repository root, the dependency-free bridge check is:
 
 ```bash
-node --test plugins/molclaw/deepseek/bridge.test.mjs
+node --test plugins/alpd/deepseek/bridge.test.mjs
 ```
 
 With the plugin's declared SDK dependencies available, run `npm test` from
-`plugins/molclaw/` for the bridge and official SDK checks.
+`plugins/alpd/` for the bridge and official SDK checks.
 
 ## Working conventions
 

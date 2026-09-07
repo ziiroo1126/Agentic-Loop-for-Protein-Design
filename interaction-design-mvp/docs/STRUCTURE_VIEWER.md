@@ -8,7 +8,7 @@ enabled; no server, CDN, model process or Internet connection is required.
 ## New pipeline exports
 
 ```bash
-interaction-design pipeline export /absolute/path/to/completed-pipeline \
+alpd pipeline export /absolute/path/to/completed-pipeline \
   --output /absolute/path/to/new-result-bundle
 ```
 
@@ -21,7 +21,7 @@ as one file. It contains the exported candidate structures and sequences.
 Create a standalone page from a completed `screening_export` result bundle:
 
 ```bash
-interaction-design viewer export /absolute/path/to/existing-result-bundle \
+alpd viewer export /absolute/path/to/existing-result-bundle \
   --output /absolute/path/to/new-viewer.html
 ```
 

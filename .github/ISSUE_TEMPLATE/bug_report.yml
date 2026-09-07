@@ -1,0 +1,25 @@
+name: Bug report
+description: Report a reproducible ALPD installation, workflow or viewer problem.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and version
+      description: ALPD tag or commit, OS, Python, host/version; GPU/backend when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Exact commands or browser actions and a small shareable input.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual result
+      description: Include the error, relevant doctor output, or exported report status.
+    validations:
+      required: true

@@ -1,9 +1,0 @@
-{
-  "name": "molclaw",
-  "version": "0.1.0",
-  "description": "Author protein binder tasks, run MolClaw generation and bounded evaluation, and export traceable results.",
-  "author": {
-    "name": "MolClaw contributors"
-  },
-  "skills": "./skills/"
-}

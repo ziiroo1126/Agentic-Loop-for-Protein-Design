@@ -1,0 +1,243 @@
+{
+  "codex_version": "0.153.4",
+  "entry": "$alpd:alpd",
+  "acceptance": {
+    "skill_path": "<checkout>/plugins/alpd/skills/alpd/SKILL.md",
+    "observed_discovery": {
+      "name": "alpd:alpd",
+      "read": true,
+      "observed": "The installed skill was available at skill_path; its SKILL.md and the CLI/task-authoring/adaptive references were read. The existing launcher resolved the ALPD project root and exposed task, adaptive, and viewer commands."
+    },
+    "compiled_task_path": "<fresh-project>/checked-task.json",
+    "session_path": "<fresh-project>/adaptive-session",
+    "html_report_path": "<fresh-project>/adaptive-view/index.html",
+    "structure_viewer_path": "<fresh-project>/saved-structures.html",
+    "query_count": 1,
+    "total_prediction_queries": 5,
+    "reflection_count": 1,
+    "final_state": {
+      "status": "committed",
+      "pool_id": "demo",
+      "selected_candidate_ids": [
+        "c1",
+        "c2"
+      ],
+      "policy": "harness",
+      "quota": 2,
+      "budget_limit": 8,
+      "budget_used": 5,
+      "budget_remaining": 3,
+      "selection_after": "one cached prediction query and one reflection",
+      "outcomes_included": false,
+      "host_metadata": {
+        "harness": "codex",
+        "model": null,
+        "agent_id": null
+      },
+      "claims": "Computational software acceptance only; no biological binding claim and no new-model-inference claim."
+    },
+    "failures": []
+  },
+  "native_discovery": {
+    "source": "Codex app-server skills/list",
+    "skills": [
+      {
+        "name": "alpd:alpd",
+        "description": "Clarify protein binder design intent, prepare checked tasks from incomplete briefs, and run local generation, evaluation and export; resume screening or adaptive reevaluation, or evaluate selection against prepared public experimental data.",
+        "interface": {
+          "displayName": "ALPD",
+          "shortDescription": "Run binder design and adaptive evaluation loops",
+          "iconSmall": null,
+          "iconLarge": null,
+          "iconSmallUrl": null,
+          "iconLargeUrl": null,
+          "brandColor": null,
+          "defaultPrompt": "Use $alpd:alpd to run or resume my supplied design or adaptive evaluation task, check visible evidence, and export the results."
+        },
+        "path": "<checkout>/plugins/alpd/skills/alpd/SKILL.md",
+        "scope": "repo",
+        "enabled": true,
+        "pluginId": null
+      }
+    ]
+  },
+  "command_count": 29,
+  "nonzero_commands_explanation": "An initial file search had no matches; an unsupported top-level export --help probe was corrected to viewer export. All required workflow actions completed successfully.",
+  "commands": [
+    {
+      "command": "/bin/bash -lc \"sed -n '1,260p' <checkout>/plugins/alpd/skills/alpd/SKILL.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"sed -n '1,320p' '<checkout>/plugins/alpd/skills/alpd/references/cli-and-protocol.md'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"sed -n '1,320p' '<checkout>/plugins/alpd/skills/alpd/references/task-authoring.md'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"sed -n '1,320p' '<checkout>/plugins/alpd/skills/alpd/references/adaptive-evaluation.md'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc pwd",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"env | rg '\"'^(ALPD_|PATH=)'\"'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"rg --files -g 'AGENTS.md' -g 'alpd.py' -g 'brief.json' -g 'adaptive-synthetic.json' -g 'run' -g 'pipeline-runtime*.json' -g 'runtime*.json' -g 'pyproject.toml' -g 'setup.cfg' -g 'Makefile' -g '*.sh' -g 'acceptance.json' -g 'saved-structures.html'\"",
+      "exit_code": 1
+    },
+    {
+      "command": "/bin/bash -lc 'command -v alpd || true'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"rg --files <checkout>/examples/pdl1-binder <checkout>/plugins/alpd/skills/alpd/scripts | sed -n '1,160p'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- task --help'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- task review <checkout>/examples/pdl1-binder/brief.json'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- task build <checkout>/examples/pdl1-binder/brief.json --output <fresh-project>/checked-task.json'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- adaptive prepare --imported <checkout>/interaction-design-mvp/examples/adaptive-synthetic.json --output <fresh-project>/adaptive-session --policy harness --quota 2 --budget-per-candidate 2 --require-review'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- adaptive observe <fresh-project>/adaptive-session --pool demo'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- adaptive apply <fresh-project>/adaptive-session --pool demo --submission <fresh-project>/adaptive-query.json'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- adaptive observe <fresh-project>/adaptive-session --pool demo'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- adaptive reflect <fresh-project>/adaptive-session --pool demo --submission <fresh-project>/adaptive-reflection.json'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- adaptive observe <fresh-project>/adaptive-session --pool demo'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- adaptive apply <fresh-project>/adaptive-session --pool demo --submission <fresh-project>/adaptive-selection.json'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- adaptive export <fresh-project>/adaptive-session --output <fresh-project>/adaptive-view'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"rg -n -i 'viewer|3d|structure|html' <checkout>/examples/pdl1-binder/README.md <checkout>/plugins/alpd/skills/alpd/references <checkout>/interaction-design-mvp/docs 2>/dev/null | sed -n '1,240p'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> --help'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- viewer --help'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- export --help'",
+      "exit_code": 2
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- viewer export <checkout>/examples/pdl1-binder/run --output <fresh-project>/saved-structures.html'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- adaptive observe <fresh-project>/adaptive-session --pool demo'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'test -s <fresh-project>/checked-task.json && test -s <fresh-project>/adaptive-view/index.html && test -s <fresh-project>/saved-structures.html && test -s <fresh-project>/acceptance.json && python3 -m json.tool <fresh-project>/acceptance.json'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"rg -n 'observed_discovery|query_count|html_report_path|structure_viewer_path|compiled_task_path|acceptance.json' <checkout> <fresh-project> 2>/dev/null | sed -n '1,240p'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'python3 <checkout>/plugins/alpd/skills/alpd/scripts/alpd.py --project-root <checkout> -- validate <fresh-project>/checked-task.json'",
+      "exit_code": 0
+    }
+  ],
+  "ledger": {
+    "events": {
+      "demo": [
+        {
+          "reflection": {
+            "evidence": [
+              {
+                "candidate_id": "c2",
+                "field": "ipsae",
+                "seed": 1,
+                "value": 0.64
+              }
+            ],
+            "outcome": "supported",
+            "request_sha256": "9929e949b868775919b7c15ef4a9ed2f69248b84768a24ea6d9bfb7898052e35",
+            "summary": "The second cached seed gives c2 an ipSAE of 0.64, slightly above its initial 0.61, supporting the planned view that c2 remains a stable boundary candidate alongside c1."
+          },
+          "result_sha256": "9929e949b868775919b7c15ef4a9ed2f69248b84768a24ea6d9bfb7898052e35",
+          "submission": {
+            "action": "evaluate",
+            "candidate_id": "c2",
+            "plan": {
+              "evidence": [
+                {
+                  "candidate_id": "c2",
+                  "field": "ipsae",
+                  "seed": 0,
+                  "value": 0.61
+                }
+              ],
+              "expectation": "A similar or higher second ipSAE would support retaining c2 alongside the current leader c1; a much lower value would weaken that choice.",
+              "question": "Does a second cached seed support c2's position near the selection boundary?"
+            },
+            "reason": "c2 and c3 are near the current selection boundary; query c2 to test whether its initial ranking is consistent across cached seeds.",
+            "request_sha256": "6dd2c38e99ebdacdc930cbeb3f0a0e01fec3ce496d063a12cfabce8b30b891f8"
+          }
+        },
+        {
+          "result_sha256": "4f6b96093da7dbdf6319b49bc6ff5daf893fa3ca7ce98841db9b547782e24653",
+          "submission": {
+            "action": "select",
+            "candidate_ids": [
+              "c1",
+              "c2"
+            ],
+            "reason": "Select c1 for the strongest visible initial diagnostics (ipSAE 0.82, ipTM 0.738) and c2 as the next visible candidate, whose second cached seed is consistent with its initial diagnostics (ipSAE 0.61 then 0.64; ipTM 0.549 then 0.576).",
+            "request_sha256": "9929e949b868775919b7c15ef4a9ed2f69248b84768a24ea6d9bfb7898052e35"
+          }
+        }
+      ]
+    },
+    "manifest_sha256": "828d0aa10df2d5f4e1bd9d574872fdc72c178e74b51e920e133a6ed8896564fc"
+  },
+  "source_event_log_sha256": "18ae50cc9db462241e54f06a0375bf6369ccb8ccbe2b7dbefa26838149f289b4",
+  "saved_output_hashes": {
+    "compiled_task_path": "ad1147c0006a1e41d0859c7e0eef77aac6e1b0dd9f4a20ccf55ab422405b176e",
+    "html_report_path": "33e1e2308467e7b25339c97848bdb990c370f67fe17d782ad0ffb5f2c6a0e9ee",
+    "structure_viewer_path": "7220296f413fcffe8705c9bfdebb3df7e89c0951335dfa561a02e9b163836f18"
+  }
+}

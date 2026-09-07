@@ -1,0 +1,84 @@
+{
+  "atom_constraints": [],
+  "center_method": "hotspot_center",
+  "description": "Full local task-to-export development check with two fresh seeds; computational diagnostics without binding labels.",
+  "design_modality": "protein",
+  "evaluation": {
+    "binder_molecule": "binder",
+    "metric_rules": [],
+    "require_all_metrics": true
+  },
+  "generation": {
+    "inverse_fold_beam": true,
+    "inverse_fold_temperature": 1.0,
+    "inverse_fold_topk": 1,
+    "num_workers": 1,
+    "partial_diffusion_snr": 0.1,
+    "samples_per_seed": 1,
+    "seeds": [
+      61,
+      62
+    ],
+    "use_msa": false
+  },
+  "hotspots": [
+    {
+      "chain": "B",
+      "residue": 64
+    },
+    {
+      "chain": "B",
+      "residue": 68
+    },
+    {
+      "chain": "B",
+      "residue": 126
+    },
+    {
+      "chain": "B",
+      "residue": 128
+    }
+  ],
+  "model": "odesign_base_prot_flex",
+  "molecules": [
+    {
+      "cyclic": false,
+      "id": "binder",
+      "msa": null,
+      "role": "design",
+      "segments": [
+        {
+          "kind": "generated",
+          "max_length": 60,
+          "min_length": 60
+        }
+      ],
+      "smiles": null,
+      "total_length": null,
+      "type": "protein"
+    },
+    {
+      "cyclic": false,
+      "id": "pdl1",
+      "msa": null,
+      "role": "context",
+      "segments": [
+        {
+          "chain": "B",
+          "end": 133,
+          "kind": "fixed",
+          "start": 20
+        }
+      ],
+      "smiles": null,
+      "total_length": null,
+      "type": "protein"
+    }
+  ],
+  "motif_scaffolding": false,
+  "name": "pdl1_pipeline_development",
+  "partial_diffusion": [],
+  "reference_structure": "reference.pdb",
+  "schema_version": "0.1",
+  "user_center": null
+}
