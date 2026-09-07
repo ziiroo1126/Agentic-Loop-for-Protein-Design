@@ -64,7 +64,7 @@ alpd pipeline preflight /tmp/alpd-task.json --runtime /path/to/runtime.json
 ```
 
 The first two commands validate inputs without inference. Preflight checks local
-resources. A passing preflight does not test GPU execution. In Codex, invoke `$alpd`
+resources. A passing preflight does not test GPU execution. In Codex, invoke `$alpd:alpd`
 with the task, runtime and explicit evaluation budget as shown in [CODEX.md](CODEX.md).
 The host follows prepare → run → observe/apply → export. The output bundle contains
 `index.html`, FASTA, structures, CSV/JSON metrics, decisions and checksum records.

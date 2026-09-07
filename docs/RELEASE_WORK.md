@@ -14,7 +14,7 @@ live inference, browser rendering, or public deployment.
 | 6. Reproducible main case | Portable inputs/configuration, original results/decisions, provenance and checksums | Local acceptance passed; see RELEASE_VERIFICATION.md |
 | 7. Accurate loop presentation | Evidence, reason, result, judgment update and stopping reason; cached/live boundaries | Local acceptance passed; see RELEASE_VERIFICATION.md |
 | 8. Release validation | Plugin-triggered CI, installed CLI, CPU example, complete assets and browser checks | Passed locally and in GitHub CI (run 34115293276) |
-| 9. Release materials | Version notes, changelog, limits, issue forms, notices, release assets and checksums | Materials/assets ready; public release pending |
+| 9. Release materials | Version notes, changelog, limits, issue forms, notices, release assets and checksums | Published as v0.1.0 prerelease; all public downloads and checksums verified |
 
 Public GitHub publication and a versioned prerelease are part of the requested outcome.
 No new biological efficacy claim is part of this release.

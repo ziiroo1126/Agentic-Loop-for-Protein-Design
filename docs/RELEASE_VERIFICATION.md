@@ -14,14 +14,18 @@ separately below; local checks do not establish that a URL is deployed.
 | Qualified Codex host exchange | Fresh project; supplied task reviewed/compiled; one cached query, one reflection, final two-candidate selection, HTML export and separate real saved-structure viewer; terminal host turn completed |
 | Static release inputs | 237 manifest entries checked across the gallery, demo and source results; local HTML dependencies, complete ZIP membership, byte equality and download hashes passed |
 | Browser | Firefox 136.0 with software WebGL/Xvfb: gallery, input expansion, decision evidence, tool results, stop reason, candidate/structure controls, chains, rotation and adaptive rounds passed at 1440/768/450 widths; no HTTP page resources |
+| Cold browser startup | A separate main-branch CI run hit the original 15-second startup limit. The readiness deadline is now 45 seconds; a real Firefox run with an injected 18-second delay passed all existing checks |
 | Actual offline downloads | Standalone viewer saved a valid PNG and CIF matching the original case bytes. Firefox's opaque `file://` iframe download limitation is explained in the demo |
 | Local model resources | Current main-case `pipeline preflight` passed without launching models; GPU execution was not probed |
-| Public CI | [Release-candidate CI passed](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/runs/34115293276) at `833f040`: Python 3.12/3.13 plus installed wheel, SDK, cases, archive checks and real browser job |
-| Public gallery / release assets | Pending publication; Pages must be enabled with GitHub Actions as its source |
+| Public CI | [Tagged release checks passed](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/runs/34116148979) at `33476c2`: Python 3.12/3.13 plus installed wheel, SDK, cases, archive checks and real browser job |
+| Public release assets | [v0.1.0 prerelease](https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/releases/tag/v0.1.0) published; all five assets and `SHA256SUMS` downloaded from public URLs and verified. Every demo/case archive member matches the locally checked build |
+| Public gallery | Pending deployment; Pages must use GitHub Actions as its source |
 
 Machine-readable evidence: [local checks](release-evidence/local-checks.json),
 [native discovery and host actions](release-evidence/codex-host.json),
-[browser checks](release-evidence/browser.json).
+[browser checks](release-evidence/browser.json),
+[delayed browser startup](release-evidence/browser-delayed-start.json),
+[published downloads](release-evidence/publication.json).
 The host record retains an empty file search and an unsupported `export --help`
 probe that was corrected to `viewer export`; required workflow actions completed.
 Machine-specific paths in that public record are replaced with placeholders.

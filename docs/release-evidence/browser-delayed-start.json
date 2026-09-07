@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "browser": "Mozilla Firefox 136.0",
+  "checks": [
+    "gallery",
+    "intake",
+    "decision_evidence",
+    "tool_results",
+    "stop_reason",
+    "webgl",
+    "candidate_and_structure_switch",
+    "chain_controls",
+    "rotation",
+    "download_buttons",
+    "saved_png_and_exact_structure_bytes",
+    "adaptive_rounds",
+    "responsive_layout",
+    "no_http_resources"
+  ],
+  "startup_injected_delay_seconds": 18,
+  "purpose": "Verify delayed Firefox readiness beyond the former 15-second startup limit, with all browser checks retained."
+}

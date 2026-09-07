@@ -1,0 +1,48 @@
+{
+  "release": "https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/releases/tag/v0.1.0",
+  "tag": "v0.1.0",
+  "prerelease": true,
+  "published_at": "2026-09-07T11:22:19Z",
+  "assets": [
+    {
+      "name": "agentic_loop_protein_design-0.1.0-py3-none-any.whl",
+      "bytes": 342827,
+      "sha256": "b1edfbce122db784239d01f3af499036ba69fa9cdba7ab62e75f6cf1efbbe48c",
+      "verified": true
+    },
+    {
+      "name": "agentic_loop_protein_design-0.1.0.tar.gz",
+      "bytes": 495284,
+      "sha256": "c2aca0b87cf90bdaf61ad60736fbb3fe675442f61df449d62cde928d0f04c931",
+      "verified": true
+    },
+    {
+      "name": "alpd-demo.zip",
+      "bytes": 766537,
+      "sha256": "215d56879514dbe7cb52a77af6c3016737240733354320b8b9fa9f19896b2af4",
+      "verified": true
+    },
+    {
+      "name": "alpd-hosts-0.1.0.zip",
+      "bytes": 54086,
+      "sha256": "43c8dd2cb616590a02b43547240c9a65c842209407e83eb53fda58679febc0b9",
+      "verified": true
+    },
+    {
+      "name": "alpd-pdl1-case.zip",
+      "bytes": 401202,
+      "sha256": "15d7ee2a69938220f4af88b33136f1f0a8e9241b1506231c95a1c675f29f0be5",
+      "verified": true
+    },
+    {
+      "name": "SHA256SUMS",
+      "bytes": 476,
+      "sha256": "0547013885a8370aee350a1fdf8638508f79690121bb1dc1ffcb9d3b2242ff10",
+      "verified": true
+    }
+  ],
+  "release_commit": "33476c20680c37cc96cc19b8fbd3c8707504278d",
+  "release_workflow": "https://github.com/ziiroo1126/Agentic-Loop-for-Protein-Design/actions/runs/34116148979",
+  "offline_demo_matches_browser_tested_build": true,
+  "main_case_matches_checked_original_export": true
+}

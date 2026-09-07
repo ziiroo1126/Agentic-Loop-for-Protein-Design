@@ -28,8 +28,9 @@ skill list (`scope: repo`, `enabled: true`). Use `$alpd:alpd` or select the ALPD
 entry in the skill picker. This qualification comes from the plugin and skill
 names; the installation folder remains `.agents/skills/alpd`.
 
-Use the checkout's `.venv/bin/alpd`, or provide another installed executable through
-`ALPD_CLI`. Keep `ALPD_PROJECT_ROOT` set when starting Codex from another project.
+Use the checkout's `interaction-design-mvp/.venv/bin/alpd`, or provide another
+installed executable through `ALPD_CLI`. Keep `ALPD_PROJECT_ROOT` set when starting
+Codex from another project.
 It identifies the checkout, while outputs stay in your working project.
 
 ## First host run without a GPU

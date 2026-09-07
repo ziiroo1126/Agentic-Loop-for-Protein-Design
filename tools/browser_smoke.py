@@ -267,7 +267,11 @@ def main():
                         start_new_session=True,
                     )
                 )
-                for _ in range(150):
+                # A cold Firefox profile on a shared CI runner can take longer
+                # than 15 seconds to expose Marionette. Wait for readiness with
+                # a bounded deadline, while still failing immediately on exit.
+                startup_deadline = time.monotonic() + 45
+                while time.monotonic() < startup_deadline:
                     if children[-1].poll() is not None:
                         raise RuntimeError("Firefox exited; inspect firefox.log")
                     try:
@@ -276,7 +280,9 @@ def main():
                     except OSError:
                         time.sleep(0.1)
                 if connection is None:
-                    raise RuntimeError("Firefox did not start")
+                    raise RuntimeError(
+                        "Firefox Marionette was not ready within 45 seconds; inspect firefox.log"
+                    )
                 connection.settimeout(30)
                 exercise(Browser(connection), args.site.resolve(), output)
                 result = {
