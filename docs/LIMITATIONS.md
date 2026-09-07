@@ -1,5 +1,11 @@
 # Research preview limits
 
+ALPD is a computational-only project. Wet-lab work is outside its scope and is not
+a missing release gate or a planned validation stage. Software acceptance covers
+reproducible execution, records and integrations; research claims require the stated
+computational benchmarks, baselines, ablations and cost analysis. Existing labels
+from published experimental datasets may be reused for offline retrospective evaluation.
+
 - The complete pipeline supports one fixed-length, fully generated linear protein
   binder and one fixed linear protein target. It requires explicit target intervals
   and hotspots, and one candidate per distinct seed. Broader schema options do not
@@ -13,8 +19,9 @@
 - The main gallery case and the adaptive case use different candidate pools. The CPU
   fixture has fictional scores and labels. Every page identifies its source mode.
 - Structure/monomer/interface metrics are diagnostics, not binding probabilities.
-  New designs have no wet-lab binding validation, and a stable LLM selection advantage
-  over the recorded strong baselines has not been demonstrated.
+  Claims stay within the chosen computational or retrospective protocol; new designs
+  are not described as experimentally validated binders. A stable LLM selection
+  advantage over the recorded strong baselines has not been demonstrated.
 - A doctor/preflight pass does not prove host loading, GPU availability or successful
   model execution. See the exact [validation record](RELEASE_VERIFICATION.md).
 - GPU setup is separate and uses large upstream assets. First-release full inference

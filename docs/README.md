@@ -10,6 +10,14 @@
 - [Release verification](RELEASE_VERIFICATION.md)
 - [Third-party sources and licenses](../THIRD_PARTY_NOTICES.md)
 
+## Computational research
+
+ALPD is a computational-only project. Wet-lab work is outside its scope and is not
+a release or research-completion condition. Research evaluation can reuse existing
+labels from published datasets without performing new experimental work.
+
+- [Current research objective, baselines and acceptance criteria](RESEARCH_GOAL.md)
+
 ## Tool references
 
 - [Task input](../interaction-design-mvp/docs/TASK_INPUT.md)
@@ -19,14 +27,13 @@
 - [Host adapters](../plugins/alpd/README.md)
 - [Development](../CONTRIBUTING.md)
 
-## Research and historical records
+## Historical records
 
 The following are dated records, not installation instructions. Original scientific
 artifacts, hashes, old names, paths and stage-specific test counts are preserved.
 Historical links to renamed source folders can be inspected at the associated Git
 revision; use the current guides above for today's paths.
 
-- [Current research objective](RESEARCH_GOAL.md)
 - [Implementation history](M1_STATUS.md)
 - [Original project plan](PROJECT_PLAN.md)
 - [Earlier ALIGN comparison](ALIGN_COMPARISON.md)

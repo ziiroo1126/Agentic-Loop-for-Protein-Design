@@ -8,6 +8,9 @@ clarification reports and the complete backend's requirements.
 This package provides host integration for
 [Agentic Loop for Protein Design (ALPD)](../../README.md).
 
+ALPD is computational-only. Host workflows produce computational artifacts and
+offline evaluations; wet-lab work is outside the project scope and is not a completion gate.
+
 Use a host model to turn supplied protein binder requirements into a validated task,
 run ODesign generation and ESMFold v1 monomer checks, select ESMFold2 complex evaluations
 within a fixed budget, and export the results. ALPD runs the models and validates

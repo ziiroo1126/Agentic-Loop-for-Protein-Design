@@ -10,6 +10,10 @@ and chooses which candidates receive complex evaluation. The ALPD executor owns 
 ESMFold v1 monomer checks, ESMFold2 complex evaluation, budgets, validation and records.
 This pipeline does not use AF3 or call an LLM API. The host owns its model session.
 
+ALPD is computational-only. Wet-lab work is outside the project scope and is not a
+release or research-completion requirement. Assess software delivery through execution
+and reproducibility, and research claims through the declared offline evaluation protocol.
+
 For retrospective selection against public experimental data, read
 [external benchmark](references/external-benchmark.md). It uses a separate feature
 contract and the shared CLI; preserve label concealment until all selections commit.

@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Clarify that ALPD is computational-only: wet-lab work is outside the project scope
+  and is not a release or research-completion condition.
+- Define software acceptance and computational research evaluation separately;
+  public datasets' existing experimental labels remain available for retrospective
+  benchmarks. Preserve original records and the boundaries of scientific claims.
+
 ## 0.1.0 — Research Preview — 2026-09-07
 
 - Publish ALPD as a protein binder workflow with a shared host skill, a Python

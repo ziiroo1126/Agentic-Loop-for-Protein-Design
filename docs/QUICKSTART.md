@@ -1,6 +1,8 @@
 # ALPD quick start
 
-ALPD 0.1.0 is a research preview for protein binder workflows. Choose one path:
+ALPD 0.1.0 is a computational-only research preview for protein binder workflows.
+All three paths below are software/computational workflows; wet-lab work is outside
+the project scope. Choose one path:
 
 | Path | What you supply | What you get |
 | --- | --- | --- |

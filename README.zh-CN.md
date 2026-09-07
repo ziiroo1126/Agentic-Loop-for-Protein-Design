@@ -8,8 +8,13 @@ ALPD 连接用户提供的设计要求、ODesign 候选生成、ESMFold v1 单�
 Agent 引导的 ESMFold2 复合物评估，以及可追溯的结果导出。
 Python 核心执行科学工具并检查动作；宿主提供决策模型。默认入口是 Codex skill。
 
+ALPD 是一个**纯计算研究与软件项目**。验证重点是流程可复现性、决策可追溯性、
+计算基准、基线比较、消融和实测成本；可以复用公开数据已有的实验标签开展回顾性评测。
+本项目不开展湿实验，湿实验也不属于发布或研究完成的验收条件。
+
 **0.1.0 研究预览版。** 当前完整流程支持一个固定长度的线性蛋白 binder 和一个固定蛋白靶标。
-计算指标不能证明实验结合，现有记录也尚未证明稳定的 LLM 筛选优势。
+结论限定在所声明的计算或回顾性评测协议内；模型评分不等同于实测结合或功能。
+现有记录尚未证明稳定的 LLM 筛选优势。
 支持范围见[已知限制](docs/LIMITATIONS.md)。
 
 [![ALPD 三维浏览：已有复合物预测、链控制和指标](docs/images/alpd-structure-viewer.png)](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/demo/structures.html)

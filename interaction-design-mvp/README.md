@@ -5,6 +5,10 @@ It executes protein binder tasks, validates agent actions and exports traceable
 results. The import namespace is `interaction_design`; `interaction-design` is
 retained as a CLI alias for existing scripts.
 
+ALPD is a computational-only project: validation uses software checks and offline
+research evaluation. Wet-lab work is outside its scope. See the
+[research objective and acceptance criteria](../docs/RESEARCH_GOAL.md).
+
 Start with the repository's [three quick-start paths](../docs/QUICKSTART.md),
 [Codex guide](../docs/CODEX.md) and [runtime guide](../docs/RUNTIME.md).
 

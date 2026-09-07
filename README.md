@@ -9,9 +9,16 @@ monomer checks, agent-guided ESMFold2 complex evaluation, and portable result ex
 The Python core executes scientific tools and checks actions; your host supplies
 the decision model. Codex is the default skill entry point.
 
+ALPD is a **computational-only research and software project**. Validation focuses
+on reproducible workflows, traceable decisions, computational benchmarks, baseline
+comparisons, ablations and measured costs. Published datasets with existing experimental
+labels can support retrospective evaluation. Wet-lab work is outside the project scope
+and is not a release or research-completion requirement.
+
 **0.1.0 Research Preview.** The complete workflow currently supports one fixed-length
-linear protein binder and one fixed protein target. Computational metrics do not
-establish experimental binding, and a stable LLM selection advantage has not been
+linear protein binder and one fixed protein target. Results support conclusions within
+the stated computational or retrospective evaluation protocol; model scores are not
+measurements of binding or function. A stable LLM selection advantage has not been
 shown. See [scope and known limits](docs/LIMITATIONS.md).
 
 [![ALPD structure viewer: a recorded complex prediction, chain controls and metrics](docs/images/alpd-structure-viewer.png)](https://ziiroo1126.github.io/Agentic-Loop-for-Protein-Design/demo/structures.html)
